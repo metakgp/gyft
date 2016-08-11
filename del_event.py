@@ -7,7 +7,6 @@ from apiclient import discovery
 import oauth2client
 from oauth2client import client
 from oauth2client import tools
-import json
 import datetime
 
 try:
@@ -65,6 +64,7 @@ def main():
     for event in events:
         if ("Class of " in event["summary"]):
             service.events().delete(calendarId='primary', eventId=event["id"]).execute()
+            print ("Deleted: ", event["summary"], event["start"])
     print ("deletion done")
 
 if __name__ == '__main__':

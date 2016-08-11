@@ -10,6 +10,8 @@ from oauth2client import tools
 import json
 import datetime
 
+DEBUG = False
+
 try:
     import argparse
     flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
@@ -76,6 +78,8 @@ def main():
     service = discovery.build('calendar', 'v3', http=http)
     with open('data.txt') as data_file:    
         data = json.load(data_file)
+    with open('subjects.json') as data_file:    
+        subjects = json.load(data_file)
     for day in data:
         startDate = next_weekday(now, days[day])
         for time in data[day]:
@@ -101,7 +105,10 @@ def main():
             if (startHour != "12"):
                 replaceHour += int(startHour)
             event = {}
-            event['summary'] = "Class of " + data[day][time][0]
+            if (data[day][time][0] in subjects.keys()):
+                event['summary'] = "Class of " + subjects[data[day][time][0]][0].title()
+            else:
+                event['summary'] = "Class/Lab of " + data[day][time][0]
             event['location'] = data[day][time][1]
             event['start'] = {}
             start_time = startDate.replace(hour = replaceHour, minute = int(startMinute))
@@ -111,8 +118,12 @@ def main():
             event['end']['dateTime'] = (start_time + datetime.timedelta(hours = int(data[day][time][2]))).__str__().replace(" ", "T")
             event['end']['timeZone'] = "Asia/Kolkata"
             event['recurrence'] = ['RRULE:FREQ=WEEKLY;UNTIL=20161120T000000Z']
-            # print ("\t", time, data[day][time], event)
             recurring_event = service.events().insert(calendarId='primary', body=event).execute()
+            if (DEBUG):
+                print (event)
+                break
+        if (DEBUG):
+            break
 
 if __name__ == '__main__':
     main()

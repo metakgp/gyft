@@ -1,0 +1,5854 @@
+{
+  "NA61002": [
+    "OCEAN CIRCULATION AND MODELLING",
+    false
+  ],
+  "NA61001": [
+    "COASTAL ENGINEERING",
+    false
+  ],
+  "NA61004": [
+    "NUMERICAL METHODS IN OFFSHORE STRUCTURE VIBRATION",
+    false
+  ],
+  "PH60201": [
+    "PHYSICS OF PHOTONIC DEVICES",
+    false
+  ],
+  "MA41011": [
+    "THEORY OF OPERATING SYSTEMS",
+    true
+  ],
+  "MA41010": [
+    "NON LINEAR PROGRAMMING",
+    false
+  ],
+  "MA41014": [
+    "COMPUTATIONAL STATISTICS",
+    false
+  ],
+  "MA41017": [
+    "STOCHASTIC PROCESSES",
+    false
+  ],
+  "CE60012": [
+    "ANALYSIS AND DESIGN OF PAVEMENTS",
+    false
+  ],
+  "CE60013": [
+    "URBAN TRANSPORTATION SYSTEMS PLANNING",
+    false
+  ],
+  "CE60011": [
+    "PAVEMENT MATERIALS",
+    false
+  ],
+  "CE60014": [
+    "TRAFFIC ENGINEERING",
+    false
+  ],
+  "CH42014": [
+    "FUEL TECHNOLOGY",
+    false
+  ],
+  "CH42010": [
+    "PROCESS PLANT OPERATION AND SAFETY",
+    false
+  ],
+  "CH42012": [
+    "SYSTEMS ENGINEERING",
+    false
+  ],
+  "HS30057": [
+    "SOCIOLOGY OF ECONOMICS DEVELOPMENT",
+    false
+  ],
+  "AR33206": [
+    "WORKING DRAWING",
+    false
+  ],
+  "AE31010": [
+    "VISCOUS FLOW THEORY",
+    false
+  ],
+  "AR33201": [
+    "ARCHITECTURAL DESIGN III AND FIELD STUDY",
+    false
+  ],
+  "EC60088": [
+    "RF AND MICROWAVE NETWORKS",
+    false
+  ],
+  "CE31510": [
+    "PAVEMENT DESIGN",
+    false
+  ],
+  "EC60086": [
+    "SELECTED TOPICS IN FOLE",
+    false
+  ],
+  "EC60081": [
+    "RF COMPONENTS AND CIRCUIT DESIGN",
+    false
+  ],
+  "EC60080": [
+    "LASER TECHNOLOGY",
+    false
+  ],
+  "EC60083": [
+    "INFORMATION THEORY AND CODING TECHNIQUES",
+    false
+  ],
+  "EC60082": [
+    "LIGHTWAVE NETWORKS",
+    false
+  ],
+  "ME60353": [
+    "KNOWLEDGE BASED SYSTEMS IN ENGINEERING",
+    false
+  ],
+  "ME60352": [
+    "ROBOTICS",
+    false
+  ],
+  "ME60350": [
+    "METAL FORMING PROCESSES",
+    false
+  ],
+  "EC60064": [
+    "BIOMEDICAL SYSTEM ENGINEERING AND AUTOMATION",
+    false
+  ],
+  "EX58018": [
+    "GEOPHYSICAL FIELDWORK - II",
+    false
+  ],
+  "EC60060": [
+    "ADVANCED MICROWAVE FILTER DESIGN",
+    false
+  ],
+  "PH60205": [
+    "NONLINEAR OPTICS",
+    false
+  ],
+  "IE49002": [
+    "INSTRUMENTATION SYSTEM DESIGN",
+    false
+  ],
+  "CY60119": [
+    "PHYSICAL ORGANIC CHEMISTRY",
+    false
+  ],
+  "CY60113": [
+    "AGROCHEMICALS",
+    false
+  ],
+  "CY60111": [
+    "ADVANCED STEREOCHEMISTRY",
+    false
+  ],
+  "CY60117": [
+    "REAGENTS IN ORGANIC SYNTHESIS",
+    false
+  ],
+  "CY60115": [
+    "BIOTRANSFORMATION IN ORGANIC CHEMISTRY",
+    false
+  ],
+  "EP60038": [
+    "ENTREPRENEURSHIP IN SOCIAL SECTOR",
+    false
+  ],
+  "MA50003": [
+    "DECISION THEORY",
+    false
+  ],
+  "MA50005": [
+    "TIME SERIES AND FORECASTING",
+    false
+  ],
+  "EP60031": [
+    "ENTREPRENEURIAL EXIT STRATEGIES",
+    false
+  ],
+  "EP60030": [
+    "ENTREPRENEURSHIP WITH ESTABLISHED ORGANIZATIONS",
+    false
+  ],
+  "EP60032": [
+    "COSTING AND ACCOUNTING FOR ENTREPRENEURS",
+    false
+  ],
+  "EP60034": [
+    "ASIAN CULTURAL VALUES AND TRAITS IN BUSINESS",
+    false
+  ],
+  "EP60036": [
+    "LAUNCHING AND GROWING PROFESSIONAL PRACTICE OR SERVICE BUSINESS",
+    false
+  ],
+  "IP60028": [
+    "INTRODUCTION TO INTELLECTUAL PROPERTY LAW",
+    false
+  ],
+  "IM60016": [
+    "PRODUCTION DESIGN AND PROCESS PLANNING",
+    true
+  ],
+  "ME60004": [
+    "ADVANCED WELDING TECHNOLOGY",
+    false
+  ],
+  "AG31032": [
+    "WATER QUALITY MANAGEMENT",
+    false
+  ],
+  "AG31030": [
+    "AQUACULTURAL ENGINEERING AND TECHNOLOGY",
+    false
+  ],
+  "AG60085": [
+    "MACHINERY SYSTEMS FOR PRECISION AGRICULTURE",
+    false
+  ],
+  "AG60082": [
+    "INSTRUMENTATION AND RESEARCH TECHNIQUES",
+    false
+  ],
+  "IM60074": [
+    "ADVANCED PRODUCTION PLANNING AND CONTROL",
+    false
+  ],
+  "BT20103": [
+    "MICROBIOLOGY",
+    false
+  ],
+  "CS40008": [
+    "PARALLEL ALGORITHMS",
+    false
+  ],
+  "ME21008": [
+    "KINEMATICS OF MACHINES",
+    false
+  ],
+  "ME21004": [
+    "THERMO-FLUID SCIENCE",
+    false
+  ],
+  "AG60863": [
+    "PUMPING SYSTEMS",
+    false
+  ],
+  "MI60008": [
+    "SOFT COMPUTING FOR GEORESOURCES",
+    false
+  ],
+  "MI60007": [
+    "GEOMATICS AND REMOTE SENSING",
+    false
+  ],
+  "MI60006": [
+    "GEODESY AND PHOTOGRAMMETRY",
+    false
+  ],
+  "MI60005": [
+    "PETROLEUM SAFETY ENGINEERING",
+    false
+  ],
+  "CE21004": [
+    "STRUCTURAL ANALYSIS",
+    false
+  ],
+  "CE21005": [
+    "SOLID MECHANICS",
+    false
+  ],
+  "CE21003": [
+    "HYDRAULICS",
+    false
+  ],
+  "IT60020": [
+    "CLOUD COMPUTING",
+    false
+  ],
+  "EE30014": [
+    "UTILISATION OF ELECTRIC POWER",
+    false
+  ],
+  "EE30016": [
+    "DYNAMICS OF PHYSICAL SYSTEMS",
+    false
+  ],
+  "EE30012": [
+    "ELECTROMAGNETIC THEORY AND APPL",
+    false
+  ],
+  "CS60065": [
+    "CRYPTOGRAPHY AND NETWORK SECURITY",
+    false
+  ],
+  "CS60064": [
+    "COMPUTATIONAL GEOMETRY",
+    false
+  ],
+  "CS60067": [
+    "VLSI SYSTEM DESIGN",
+    false
+  ],
+  "BT63027": [
+    "GENE EXPRESSION",
+    false
+  ],
+  "CS60087": [
+    "EMBEDDED SYSTEMS",
+    false
+  ],
+  "CS60086": [
+    "SELECTED TOPICS IN ALGORITHMS",
+    false
+  ],
+  "CE42002": [
+    "THEORY OF ELASTIC STABILITY",
+    false
+  ],
+  "CE42004": [
+    "SHELL STRUCTURES",
+    false
+  ],
+  "CE42006": [
+    "BEHAVIOUR OF RC STRUCTURES",
+    false
+  ],
+  "CS60089": [
+    "TESTING AND VERIFICATION OF CIRCUITS",
+    false
+  ],
+  "CS60088": [
+    "FOUNDATIONS OF CRYPTOGRAPHY",
+    false
+  ],
+  "BT41002": [
+    "BIORESOURCE TECHNOLOGY",
+    false
+  ],
+  "IT60112": [
+    "INFORMATION AND SYSTEM SECURITY",
+    false
+  ],
+  "IT60115": [
+    "EMBEDDED LOW POWER SYSTEMS",
+    false
+  ],
+  "IT60119": [
+    "WIRELESS ADHOC AND SENSOR NETWORKS",
+    false
+  ],
+  "BT31009": [
+    "GENETICS",
+    false
+  ],
+  "BT31008": [
+    "IPR IN BIOTECHNOLOGY",
+    false
+  ],
+  "ET61002": [
+    "LANGUAGE PROCESSING FOR E-LEARNING",
+    false
+  ],
+  "BT31006": [
+    "BIOINFORMATICS",
+    false
+  ],
+  "NA60052": [
+    "DYNAMICS OF OCEAN VEHICLES",
+    false
+  ],
+  "ME22004": [
+    "DYNAMICS OF MACHINES",
+    true
+  ],
+  "MA61021": [
+    "MATHEMATICAL LOGIC",
+    false
+  ],
+  "MA61027": [
+    "CRYPTOGRAPHY AND NETWORK SECURITY",
+    false
+  ],
+  "MA61025": [
+    "TIME SERIES AND FORECASTING METHODS",
+    false
+  ],
+  "MT21107": [
+    "INTRODUCTION TO ENGINEERING MATERIALS",
+    false
+  ],
+  "MA61028": [
+    "BOUNDARY INTEGRAL METHODS",
+    false
+  ],
+  "MT21105": [
+    "METALLURGICAL THERMODYNAMICS AND KINETICS",
+    false
+  ],
+  "CE60152": [
+    "OFFSHORE GEOTECHNICAL ENGINEERING",
+    false
+  ],
+  "CE60156": [
+    "OFFSHORE STRUCTURES",
+    false
+  ],
+  "CE60154": [
+    "GEOTECHNICAL OF EARTHQUAKE ENGINEERING",
+    false
+  ],
+  "EC60052": [
+    "TELECOMMUNICATION SWITCHING AND NETWORKS",
+    false
+  ],
+  "CE60158": [
+    "NONLINEAR ANALYSIS",
+    false
+  ],
+  "HS31082": [
+    "MONETARY ECONOMICS",
+    false
+  ],
+  "HS31083": [
+    "ECONOMIC APPRAISAL OF PROJECTS",
+    true
+  ],
+  "CE41024": [
+    "AIRPORT AND RAILWAY ENGINEERING",
+    false
+  ],
+  "CE41025": [
+    "ENVIRONMENTAL ECOLOGY AND MICROBIOLOGY",
+    false
+  ],
+  "CE41022": [
+    "PAVEMENT MANAGEMENT SYSTEMS",
+    false
+  ],
+  "MT60060": [
+    "BIOMATERIALS I",
+    false
+  ],
+  "HS31084": [
+    "ECONOMIC APPRAISAL OF PROJECTS",
+    true
+  ],
+  "CE41021": [
+    "PAVEMENT MATERIALS",
+    false
+  ],
+  "CY61040": [
+    "ADVANCED HETEROCYCLIC CHEMISTRY",
+    false
+  ],
+  "CE41028": [
+    "STRUCTURAL HEALTH MONITORING",
+    false
+  ],
+  "CE41029": [
+    "URBAN TRANSPORTATION SYSTEMS PLANNING",
+    false
+  ],
+  "MA41006": [
+    "COMPLEX ANALYSIS",
+    false
+  ],
+  "MA41007": [
+    "FUNCTIONAL ANALYSIS",
+    false
+  ],
+  "CH62004": [
+    "FLOW OF COMPLEX MIXTURES",
+    false
+  ],
+  "RE60018": [
+    "FAULT DIAGNOSIS AND PREDICTIVE MAINTENANCE",
+    false
+  ],
+  "CH62006": [
+    "REAL TIME INTELLIGENT PROCESS SYSTEMS",
+    false
+  ],
+  "IM31002": [
+    "QUALITY ENGINEERING",
+    false
+  ],
+  "IM31005": [
+    "QUALITY DESIGN AND CONTROL",
+    false
+  ],
+  "IM31007": [
+    "PRODUCTION PLANNING AND CONTROL",
+    false
+  ],
+  "IM31006": [
+    "SIMULATION",
+    false
+  ],
+  "EE60006": [
+    "ROBUST CONTROL",
+    false
+  ],
+  "EE60005": [
+    "RENEWABLE AND DISTRIBUTED ENERGY SYSTEMS",
+    false
+  ],
+  "EE60004": [
+    "ADVANCED POWER ELECTRONIC CONVERTERS",
+    false
+  ],
+  "EE60003": [
+    "MACHINE ANALYSIS",
+    false
+  ],
+  "EE60002": [
+    "ADVANCED MACHINE DRIVES",
+    false
+  ],
+  "EE60001": [
+    "POWER ELECTRONIC CONVERTERS AND MACHINE DRIVES",
+    false
+  ],
+  "EC60084": [
+    "OPTICAL SIGNAL PROCESSING",
+    false
+  ],
+  "CH42002": [
+    "NON-CONVENTIONAL ENERGY ENGG.",
+    false
+  ],
+  "CH42006": [
+    "COMPUTER METHODS IN CHEM. ENGG.",
+    false
+  ],
+  "EC61415": [
+    "ADVANCED SEMICONDUCTOR DEVICES",
+    false
+  ],
+  "EC60092": [
+    "ANTENNAS AND PROPAGATION FOR WIRELESS COMMUNICATION",
+    false
+  ],
+  "EC60090": [
+    "EMI AND EMC TECHNIQUES",
+    false
+  ],
+  "EC60091": [
+    "MACHINE INTELLIGENCE AND EXPERT SYSTEMS",
+    false
+  ],
+  "EC60094": [
+    "RADAR SIGNATURE ANALYSIS AND RADAR IMAGING",
+    false
+  ],
+  "EC60074": [
+    "DESIGN AND ANALYSIS OF ALGORITHMS",
+    false
+  ],
+  "EC60075": [
+    "FIBRE OPTIC TECHNOLOGY",
+    false
+  ],
+  "EC60076": [
+    "FIBRE OPTIC SENSORS",
+    false
+  ],
+  "PH20101": [
+    "FLUID MECHANICS AND ELASTICITY",
+    false
+  ],
+  "EC60073": [
+    "FIBRE OPTIC METROLOGY",
+    false
+  ],
+  "EC60078": [
+    "NONLINEAR OPTICS",
+    false
+  ],
+  "MT60121": [
+    "AGGLOMERATION AND DIRECT REDUCTION OF IRON ORES",
+    false
+  ],
+  "EX48018": [
+    "GEOPHYSICAL FIELDWORK - I",
+    false
+  ],
+  "EP60026": [
+    "ENTREPRENEURSHIP IN DEVELOPED COUNTRIES AND EMERGING NATIONS",
+    false
+  ],
+  "EP60027": [
+    "INSTITUTIONAL ASPECTS OF ENTREPRENEURSHIP",
+    false
+  ],
+  "EP60024": [
+    "GROWING AND MANAGING AN ENTREPRENEURIAL FIRM",
+    false
+  ],
+  "EP60025": [
+    "SPECIAL TOPICS IN ENTREPRENEURSHIP",
+    false
+  ],
+  "EP60022": [
+    "TECHNOLOGY ENTREPRENEURSHIP",
+    false
+  ],
+  "EP60023": [
+    "MICRO-FINANCING THE GRASSROOTS SECTOR",
+    false
+  ],
+  "EP60020": [
+    "FOUNDATIONS OF ENTREPRENEURSHIP",
+    false
+  ],
+  "EP60021": [
+    "ENGINEERING B-PLAN DEVELOPMENT - 1",
+    false
+  ],
+  "CY60101": [
+    "COMPUTATIONAL CHEMISTRY",
+    false
+  ],
+  "CY60103": [
+    "STATISTICAL MECHANICS FOR CHEMISTS",
+    false
+  ],
+  "CY60105": [
+    "ADVANCED QUANTUM CHEMISTRY",
+    false
+  ],
+  "EP60028": [
+    "GLOBAL ENTREPRENEURSHIP LABS - EMERGING MARKETS",
+    false
+  ],
+  "CY60107": [
+    "CHEMISTRY OF NANOMATERIALS",
+    false
+  ],
+  "WM60001": [
+    "INTEGRATED WATER RESOURCES MANAGEMENT",
+    false
+  ],
+  "ME60014": [
+    "CONVECTIVE HEAT AND MASS TRANSFER",
+    false
+  ],
+  "ME60015": [
+    "ADVANCED METAL CASTING TECHNOLOGY",
+    false
+  ],
+  "ME60017": [
+    "CONDUCTION AND RADIATION HEAT TRANSFER",
+    false
+  ],
+  "ME60012": [
+    "COMPUTATIONAL FLUID DYNAMICS",
+    false
+  ],
+  "AG60092": [
+    "SOIL-PLANT-WATER RELATIONSHIPS",
+    false
+  ],
+  "CY60030": [
+    "INORGANIC PHOTOCHEMISTRY",
+    false
+  ],
+  "AG60097": [
+    "TRANSFER PROCESS IN FOOD ENGINEERING",
+    false
+  ],
+  "AG60094": [
+    "SEED TECHNOLOGY",
+    false
+  ],
+  "AG60095": [
+    "WASTELAND AND FOREST MANAGEMENT",
+    false
+  ],
+  "AG60099": [
+    "REMOTE SENSING FOR LAND AND WATER RESOURCES",
+    false
+  ],
+  "IM60003": [
+    "WORK SYSTEM DESIGN",
+    false
+  ],
+  "IM60002": [
+    "ADVANCED DECISION MODELLING",
+    false
+  ],
+  "IM60004": [
+    "SYSTEMS MODELING AND ANALYSIS",
+    false
+  ],
+  "IM60009": [
+    "SYSTEM DYNAMICS AND POLICY PLANNING",
+    false
+  ],
+  "ME29002": [
+    "MECHANISM SESSIONAL",
+    false
+  ],
+  "CY71008": [
+    "CHEMISTRY OF LIPIDS,STERIODS AND HORMONES",
+    false
+  ],
+  "CY71003": [
+    "CHEMISTRY OF NATURAL PRODUCTS",
+    false
+  ],
+  "CS40016": [
+    "ELECTRONIC DESIGN AUTOMATION",
+    false
+  ],
+  "CS40017": [
+    "OBJECT ORIENTED SYSTEM DESIGN",
+    false
+  ],
+  "CS40014": [
+    "FAULT TOLERANT SYSTEMS",
+    false
+  ],
+  "PH51023": [
+    "STATISTICAL PHYSICS-II",
+    false
+  ],
+  "ME60414": [
+    "MODERN CONTROL THEORY",
+    false
+  ],
+  "ME21101": [
+    "FLUID MECHANICS",
+    false
+  ],
+  "ME21103": [
+    "MECHANICS OF SOLIDS",
+    false
+  ],
+  "MM72335": [
+    "CANCER BIOLOGY",
+    true
+  ],
+  "MI60016": [
+    "SIMULATION OF MINING SYSTEMS",
+    false
+  ],
+  "EE30008": [
+    "ADVANCE ELECTRICAL MACHINES",
+    false
+  ],
+  "EE30004": [
+    "EMBEDDED SYSTEMS",
+    false
+  ],
+  "CS60078": [
+    "COMPLEX NETWORK THEORY",
+    false
+  ],
+  "CS60071": [
+    "ALGORITHMS FOR BIOINFORMATICS",
+    false
+  ],
+  "CS60076": [
+    "ADVANCES IN DIGITAL AND MIXED SIGNAL TESTING",
+    false
+  ],
+  "PH52002": [
+    "ATOMIC AND MOLECULAR PHYSICS",
+    false
+  ],
+  "CS60094": [
+    "COMPUTATIONAL NUMBER THEORY",
+    false
+  ],
+  "MS60019": [
+    "MECHANICAL AND THERMAL BEHAVIOUR OF POLYMERS",
+    false
+  ],
+  "CS60092": [
+    "INFORMATION RETRIEVAL",
+    true
+  ],
+  "MS60012": [
+    "SEMICONDUCTOR TECHNOLOGY",
+    false
+  ],
+  "MS60014": [
+    "TECHNOLOGY OF POLYMER COMPOSITES",
+    false
+  ],
+  "ME30604": [
+    "MACHINES TOOLS AND MACHINING",
+    false
+  ],
+  "ME30602": [
+    "DESIGN OF MACHINE ELEMENTS",
+    false
+  ],
+  "CS43303": [
+    "DIGITAL SYSTEM TESTING AND TESTABLE DESIGN",
+    false
+  ],
+  "EE60048": [
+    "ADVANCED CONTROL THEORY",
+    false
+  ],
+  "NA60045": [
+    "NUMERICAL SHIP AND OFFSHORE HYDRODYNAMICS",
+    false
+  ],
+  "BT31010": [
+    "PLANT CELL TISSUE CULTURE",
+    false
+  ],
+  "CY61030": [
+    "MEDICINAL CHEMISTRY",
+    false
+  ],
+  "BT31014": [
+    "IMMUNOLOGY",
+    false
+  ],
+  "NA60043": [
+    "OCEAN ENEGY",
+    false
+  ],
+  "EX40009": [
+    "SEISMOLOGY",
+    false
+  ],
+  "CE60140": [
+    "ENVIRONMENTAL IMPACT ASSESSMENT",
+    false
+  ],
+  "CE60142": [
+    "COMPUTATIONAL GEOMECHANICS",
+    false
+  ],
+  "CE60144": [
+    "ADVANCED WATER AND WASTEWATER TREATMENT",
+    false
+  ],
+  "ME41620": [
+    "FLUID POWER CONTROL",
+    false
+  ],
+  "CE60148": [
+    "HAZARDOUS WASTE MANAGEMENT",
+    false
+  ],
+  "MI38002": [
+    "FIELD TRIPS",
+    false
+  ],
+  "AR32001": [
+    "DEVELOPMENT OF CONTEMPORARY ARCHITECTURE",
+    false
+  ],
+  "AR32003": [
+    "SPECIFICATION",
+    false
+  ],
+  "AR32002": [
+    "ESTIMATION AND COSTING",
+    false
+  ],
+  "AR32004": [
+    "HOUSING AND COMMUNITY PLANNING",
+    false
+  ],
+  "NT70002": [
+    "INTRODUCTION TO NANO-SCIENCE AND TECHNOLOGY",
+    false
+  ],
+  "AR32008": [
+    "ENERGY EFFICIENT DESIGN",
+    false
+  ],
+  "HS31074": [
+    "CLASSICAL POLITICAL ECONOMY",
+    false
+  ],
+  "HS31072": [
+    "ENVIRONMENTAL ECONOMICS",
+    false
+  ],
+  "BM40012": [
+    "DERIVATIVES AND RISK MANAGEMENT",
+    false
+  ],
+  "CY50033": [
+    "SOLID STATE CHEMISTRY",
+    false
+  ],
+  "MT21008": [
+    "DEFORMATION BEHAVIOUR OF MATERIALS",
+    false
+  ],
+  "AE40007": [
+    "INTRODUCTION TO HELICOPTER ENGINEERING",
+    false
+  ],
+  "RE60001": [
+    "RELIABILITY ANALYSIS AND PREDICTION",
+    false
+  ],
+  "RE60003": [
+    "MAINTENANCE ENGINEERING",
+    false
+  ],
+  "EE60019": [
+    "SWITCHED MODE POWER CONVERSION",
+    false
+  ],
+  "EE60014": [
+    "NON-LINEAR CONTROL",
+    false
+  ],
+  "EE60015": [
+    "COMPUTATIONAL METHODS AND ALGORITHMS IN SIGNAL PROCESSING",
+    false
+  ],
+  "EE60016": [
+    "SMART GRID",
+    false
+  ],
+  "EE60010": [
+    "EMBEDDED CONTROL OF SWITCHING POWER CONVERTERS",
+    false
+  ],
+  "EE60011": [
+    "CONTROL THEORY",
+    false
+  ],
+  "IM31010": [
+    "MANAGEMENT OF INVENTORY SYSTEMS",
+    false
+  ],
+  "IM31011": [
+    "DESIGN FOR MANUFACTURABILITY",
+    false
+  ],
+  "EC61409": [
+    "NEURAL NETWORKS AND APPLICATIONS",
+    false
+  ],
+  "EC61405": [
+    "VLSI FOR TELE-COMMUNICATION",
+    false
+  ],
+  "HS30035": [
+    "TECHNOLOGY TRANSFER AND ECONOMIC DEVELOPMENT",
+    false
+  ],
+  "MA41109": [
+    "OPTIMIZATION BY VECTOR SPACE METHODS",
+    false
+  ],
+  "MA41108": [
+    "STATISTICAL INFERENCE",
+    false
+  ],
+  "MT60002": [
+    "METALLURGICAL KINETICS",
+    false
+  ],
+  "MA41103": [
+    "FORMAL LANGUAGES AND THEORY OF COMPUTATION",
+    false
+  ],
+  "MT60006": [
+    "GRAIN BOUNDARIES AND INTERFACES",
+    false
+  ],
+  "EC31008": [
+    "DIGITAL SIGNAL PROCESSING",
+    false
+  ],
+  "MT61125": [
+    "RATE PHENOMENA IN METALLURGICAL PROCESS",
+    false
+  ],
+  "EC31003": [
+    "DIGITAL ELECTRONIC CIRCUITS",
+    false
+  ],
+  "EC31002": [
+    "DIGITAL COMMUNICATION",
+    false
+  ],
+  "EC31001": [
+    "ANALOG COMMUNICATION",
+    false
+  ],
+  "AE40008": [
+    "AEROELASTICITY",
+    false
+  ],
+  "EX51001": [
+    "BOREHOLE GEOPHYSICS",
+    false
+  ],
+  "EC31005": [
+    "RF AND MICROWAVE ENGINEERING",
+    false
+  ],
+  "EC31004": [
+    "VLSI ENGG.",
+    false
+  ],
+  "HS30104": [
+    "LAW AND ECONOMICS",
+    false
+  ],
+  "HS30101": [
+    "THEORY OF INDUSTRIAL ORGANISATION",
+    false
+  ],
+  "HS30102": [
+    "SOCIAL SECURITY",
+    false
+  ],
+  "HS30103": [
+    "ECONOMICS OF HEALTH",
+    false
+  ],
+  "EC60043": [
+    "ANTENNA THEORY AND PRACTICE",
+    false
+  ],
+  "EC60042": [
+    "RF AND MICROWAVE INTEGRATED CIRCUITS",
+    false
+  ],
+  "EC60045": [
+    "ANALYTICAL AND COMPUTATIONAL TECHNIQUES IN ELECTROMAGNETICS",
+    false
+  ],
+  "IM61013": [
+    "FINANCIAL ENGINEERING",
+    false
+  ],
+  "IM61012": [
+    "MODELLING AND ANALYSIS OF WORK SYSTEMS",
+    false
+  ],
+  "IM61011": [
+    "STOCHASTIC MODELLING OF BUSINESS",
+    false
+  ],
+  "IM61010": [
+    "SAFETY AND RISK MANAGEMENT",
+    false
+  ],
+  "IM61017": [
+    "SAFETY AND RISK MANAGEMENT",
+    false
+  ],
+  "IM61016": [
+    "LARGE SCALE SYSTEMS",
+    false
+  ],
+  "BM50010": [
+    "COMMODITY DERIVATIVES AND PRICE RISK MODELLING",
+    false
+  ],
+  "MT60135": [
+    "ADVANCED CERAMIC TECHNOLOGY",
+    false
+  ],
+  "MT60137": [
+    "CERAMIC AND REFRACTORIES: SYNTHESIS, PROPERTIES AND APPLICATIONS",
+    false
+  ],
+  "MT60131": [
+    "ADVANCED COMPOSITE MATERIALS",
+    false
+  ],
+  "MT60133": [
+    "PRINCIPLES OF NANOSTRUCTURED INTERFACES FOR THIN FILM SEMICONDUCTOR",
+    false
+  ],
+  "MT60139": [
+    "SURFACE MODIFICATION AND COATING TECHNOLOGY",
+    false
+  ],
+  "MF40404": [
+    "NON-DESTRUCTIVE EVALUATION AND IMAGING",
+    false
+  ],
+  "CE31408": [
+    "SOIL-STRUCTURE INTERACTION",
+    false
+  ],
+  "CE31406": [
+    "GROUND IMPROVEMENT",
+    false
+  ],
+  "CE31404": [
+    "DYNAMICS OF SOILS AND FOUNDATION",
+    false
+  ],
+  "MF40408": [
+    "MACHINE TOOL ENGINEERING",
+    false
+  ],
+  "CE31402": [
+    "ADVANCED FOUNDATION ENGINEERING",
+    false
+  ],
+  "NA31002": [
+    "MARINE DESIGN",
+    false
+  ],
+  "NA31003": [
+    "MARINE PRODUCTION AND PLANNING",
+    false
+  ],
+  "IM41012": [
+    "ENVIRONMENTAL MANAGEMENT",
+    false
+  ],
+  "NA31006": [
+    "SEAKEEPING AND MANEUVERING",
+    false
+  ],
+  "NA31007": [
+    "VIBRATION OF FLOATING STRUCTURES",
+    false
+  ],
+  "NA31004": [
+    "CAD-CAM MARINE DESIGN AND PRODUCTION",
+    false
+  ],
+  "NA31005": [
+    "RESISTANCE AND PROPULSION",
+    false
+  ],
+  "ME60021": [
+    "ADVANCED MECHANICS OF SOLIDS",
+    false
+  ],
+  "ME60029": [
+    "APPLIED ELASTICITY AND PLASTICITY",
+    false
+  ],
+  "AR33204": [
+    "INTERIOR DESIGN",
+    false
+  ],
+  "CY60003": [
+    "ORGANIC PHOTOCHEMISTRY AND PERICYCLIC REACTIONS",
+    false
+  ],
+  "CY60002": [
+    "ADSORPTION AND CATALYSIS",
+    false
+  ],
+  "CY60005": [
+    "DRUG DESIGN AND DEVELOPMENT",
+    false
+  ],
+  "CY60004": [
+    "BIOPHYSICAL CHEMISTRY",
+    false
+  ],
+  "AR33202": [
+    "ARCHITECTURAL DESIGN IV AND FIELD STUDY",
+    false
+  ],
+  "AR33203": [
+    "ARCHITECTURAL DETAILING",
+    false
+  ],
+  "AG60064": [
+    "SYSTEMS APPROACH IN AGRICULTURE",
+    false
+  ],
+  "AG60063": [
+    "SOIL SYSTEMS",
+    false
+  ],
+  "EC60289": [
+    "VLSI TECHNOLOGY",
+    false
+  ],
+  "IM60019": [
+    "DYNAMIC PROBABILISTIC SYSTEMS",
+    false
+  ],
+  "EE11001": [
+    "ELECTRICAL TECHNOLOGY",
+    false
+  ],
+  "WM60014": [
+    "FATE AND TRANSPORT OF CONTAMINANTS IN WATER",
+    false
+  ],
+  "AG60182": [
+    "NUTRITIONAL SCIENCES AND HERBAL MEDICINE",
+    false
+  ],
+  "NA40024": [
+    "HIGH PERFORMANCE MARINE VEHICLES",
+    false
+  ],
+  "MI60022": [
+    "FUNDAMENTALS AND APPLICATIONS OF GPS TECHNOLOGIES",
+    false
+  ],
+  "AG40009": [
+    "CAD AND SIMULATION OF AGRICULTURAL MACHINERY",
+    false
+  ],
+  "AG40007": [
+    "AGRICULTURAL BIOTECHNOLOGY",
+    false
+  ],
+  "AG40006": [
+    "DAIRY PROCESS ENGINEERING",
+    false
+  ],
+  "AG40005": [
+    "MECHANICAL OPERATIONS IN FOOD PROCESSING",
+    false
+  ],
+  "AG40004": [
+    "MODELING AND SIMULATION FOR AGRICULTURAL WATER MANAGEMENT",
+    false
+  ],
+  "AG40003": [
+    "GIS PRINCIPLES AND APPLICATIONS",
+    false
+  ],
+  "AG40002": [
+    "ERGONOMICS IN ENGINEERING DESIGN",
+    false
+  ],
+  "AG40001": [
+    "MECHANISM AND DYNAMICS OF MACHINERY",
+    false
+  ],
+  "CS61062": [
+    "COMBINATORICS AND COMPUTING",
+    false
+  ],
+  "CS61060": [
+    "COMPUTATIONAL BIOPHYSICS: ALGORITHMS TO APPLICATIONS",
+    true
+  ],
+  "EE61011": [
+    "AUTOMOTIVE SENSORS AND INSTRUMENTATION",
+    false
+  ],
+  "CS61068": [
+    "CAD FOR VLSI DESIGN",
+    false
+  ],
+  "MA30014": [
+    "OPERATION RESEARCH",
+    true
+  ],
+  "NA40033": [
+    "MARINE SYSTEMS",
+    false
+  ],
+  "NA40031": [
+    "MARINE MATERIALS",
+    false
+  ],
+  "ME60428": [
+    "VIBRATION OF STRUCTURES",
+    false
+  ],
+  "CE69013": [
+    "PLANNING AND DESIGN OF ENV. ENGG. FACILITIES",
+    false
+  ],
+  "AE51010": [
+    "EXPERIMENTAL STRESS ANALYSIS",
+    false
+  ],
+  "PH41023": [
+    "STATISTICAL PHYSICS-I",
+    false
+  ],
+  "CY50009": [
+    "SPECTROSCOPIC METHODS FOR STRUCTURE DETERMINATION",
+    false
+  ],
+  "AE51017": [
+    "ADVANCED GAS DYNAMICS",
+    false
+  ],
+  "ME40701": [
+    "APPLIED THERMO-FLUIDS II",
+    false
+  ],
+  "BM40006": [
+    "FINANCIAL RISK MODELING",
+    false
+  ],
+  "AR42003": [
+    "MODULAR COORDINATION",
+    false
+  ],
+  "AR42001": [
+    "LANDSCAPE DESIGN AND SITE PLANNING",
+    false
+  ],
+  "AR42007": [
+    "VISUAL SEMANTICS",
+    false
+  ],
+  "AR42005": [
+    "REAL ESTATE VALUATION",
+    false
+  ],
+  "AE40031": [
+    "COMPUTATIONAL FLUID DYNAMICS",
+    false
+  ],
+  "EE60023": [
+    "POWER SYSTEM ANALYSIS AND OPERATION",
+    false
+  ],
+  "EE60022": [
+    "POWER SYSTEMS TRANSIENTS AND PROTECTION",
+    false
+  ],
+  "EE60024": [
+    "POWER SYSTEM DYNAMICS AND CONTROL",
+    false
+  ],
+  "EE60027": [
+    "WIND ENERGY",
+    false
+  ],
+  "EE60026": [
+    "POWER SYSTEM PROTECTION",
+    false
+  ],
+  "CS20006": [
+    "SOFTWARE ENGINEERING",
+    false
+  ],
+  "MS31001": [
+    "PHOTONIC MATERIALS AND APPLICATIONS",
+    false
+  ],
+  "CS41001": [
+    "THEORY OF COMPUTATION",
+    false
+  ],
+  "CS41004": [
+    "HIGH PERFORMANCE COMPUTER ARCHITECTURE",
+    false
+  ],
+  "CS41009": [
+    "PRINCIPLES OF PROGRAMMING LANGUAGES",
+    false
+  ],
+  "CY21006": [
+    "ORGANIC CHEMISTRY II",
+    false
+  ],
+  "MA41111": [
+    "QUEUING THEORY",
+    false
+  ],
+  "MA41113": [
+    "SIMILARITY TRANSFORMATIONS AND PERTURBATION THEORY",
+    false
+  ],
+  "MA60083": [
+    "MULTIVARIATE ANALYSIS",
+    false
+  ],
+  "CY51003": [
+    "SPECTROSCOPIC METHODS OF STRUCTURE DETERMINATION",
+    false
+  ],
+  "IM61008": [
+    "EXPERT AND DECISION SUPPORT SYSTEMS",
+    false
+  ],
+  "ME60146": [
+    "ENVIRONMENTAL POLLUTION AND ABATEMENT",
+    false
+  ],
+  "ME60144": [
+    "METAL CASTING TECHNOLOGY",
+    false
+  ],
+  "EC60054": [
+    "MOBILE COMMUNICATIONS AND FADING",
+    false
+  ],
+  "IM61003": [
+    "HUMAN FACTORS ENGINEERING",
+    false
+  ],
+  "IM61004": [
+    "QUALITY ENGINEERING",
+    false
+  ],
+  "IM61005": [
+    "TOTAL QUALITY MANAGEMENT",
+    false
+  ],
+  "IM61006": [
+    "BUSINESS PROCESS RE-ENGINEERING",
+    false
+  ],
+  "IM61007": [
+    "STATISTICAL DECISION MODELLING",
+    false
+  ],
+  "CY60121": [
+    "CHEMISTRY OF MATERIALS",
+    false
+  ],
+  "AE40029": [
+    "RANDOM VIBRATION IN AEROSPACE ENGINEERING",
+    false
+  ],
+  "AG60117": [
+    "FAT AND OIL TECHNOLOGY",
+    false
+  ],
+  "AG60116": [
+    "AGRICULTURAL FINANCE AND MARKETING",
+    false
+  ],
+  "EP60042": [
+    "ENGINEERING DESIGN PROCESS",
+    false
+  ],
+  "AG60114": [
+    "PROCESSING AND PRESERVATION OF AQUACULTURAL PRODUCTS",
+    false
+  ],
+  "CE31410": [
+    "ROCK MECHANICS AND TUNNELING",
+    false
+  ],
+  "AG60119": [
+    "PHYSICS AND CHEMISTRY OF GRAINS",
+    false
+  ],
+  "AG60118": [
+    "BIOMASS AND AGRICULTURAL BY-PRODUCTS UTILIZATION",
+    false
+  ],
+  "HS30004": [
+    "GREEN ECONOMICS",
+    false
+  ],
+  "HS30003": [
+    "SOCIOLOGY OF ARCHITECTURE",
+    false
+  ],
+  "HS30002": [
+    "COMPARATIVE DEVELOPMENT PERSPECTIVE",
+    false
+  ],
+  "EE21002": [
+    "ELECTRICAL MACHINES",
+    true
+  ],
+  "EE21004": [
+    "MEASUREMENTS AND ELECTRONIC INSTRUMENTS",
+    false
+  ],
+  "ME60032": [
+    "MONITORING AND CONTROLLING OF MANUFACTURING SYSTEM",
+    false
+  ],
+  "ME60033": [
+    "INTELLIGENT MACHINES AND SYSTEMS",
+    false
+  ],
+  "CY60019": [
+    "ELECTROANALYSIS AND SENSOR",
+    false
+  ],
+  "CY60013": [
+    "ADVANCED BIO-INORGANIC CHEMISTRY",
+    false
+  ],
+  "CY60011": [
+    "ENVIRONMENTAL CHEMISTRY",
+    false
+  ],
+  "IM60028": [
+    "ENVIRONMENTAL IMPACT AND RISK ASSESSMENT",
+    false
+  ],
+  "IM60025": [
+    "SOFTWARE ENGINEERING",
+    false
+  ],
+  "IM60024": [
+    "ADVANCED PRODUCTION PLANNING AND INVENTORY CONTROL",
+    false
+  ],
+  "IM60027": [
+    "DISCRETE EVENT SYSTEM SIMULATION",
+    false
+  ],
+  "IM60026": [
+    "PRODUCTIVITY ANALYSIS AND IMPROVEMENT",
+    false
+  ],
+  "IM60021": [
+    "PRODUCTION PLANNING AND INVENTORY CONTROL",
+    false
+  ],
+  "EC60291": [
+    "ARCHITECTURAL DESIGN OF ICS",
+    false
+  ],
+  "EC60292": [
+    "EMBEDDED VLSI SYSTEM",
+    false
+  ],
+  "IM60022": [
+    "ENVIRONMENTAL MANAGEMENT",
+    false
+  ],
+  "BT60007": [
+    "COMPUTATIONAL STRUCTURAL BIOLOGY",
+    false
+  ],
+  "BT60004": [
+    "BIOTECHNOLOGY OF PLANT METABOLITES",
+    false
+  ],
+  "BT60003": [
+    "IMMUNOTECHNOLOGY",
+    false
+  ],
+  "BT60002": [
+    "RECOMBINANT DNA TECHNOLOGY",
+    false
+  ],
+  "PH51001": [
+    "EXPERIMENTAL METHODS",
+    false
+  ],
+  "GG40004": [
+    "SEQUENCE STRATIGRAPHY",
+    false
+  ],
+  "IM41001": [
+    "PRODUCT DEVELOPMENT",
+    false
+  ],
+  "AT60003": [
+    "EMBEDDED SOFTWARE DESIGN AND VALIDATION",
+    false
+  ],
+  "BT21002": [
+    "CELL AND MOLECULAR BIOLOGY",
+    false
+  ],
+  "MI60032": [
+    "DRILLING TECHNOLOGY",
+    false
+  ],
+  "MI60033": [
+    "ADVANCED SUBSURFACE METAL MINING",
+    false
+  ],
+  "MI60031": [
+    "ADVANCED SUBSURFACE COAL MINING",
+    false
+  ],
+  "MI60036": [
+    "FLUID POWER IN MINING MACHINERY",
+    false
+  ],
+  "MI60037": [
+    "PETROLEUM AND MINERAL TRADE",
+    false
+  ],
+  "MI60035": [
+    "PRINCIPLES OF MINE PLANNING",
+    false
+  ],
+  "CS30002": [
+    "OPERATING SYSTEMS",
+    true
+  ],
+  "MI60038": [
+    "PRINCIPLES OF MINERAL PROCESSING",
+    false
+  ],
+  "MI60039": [
+    "GROUND CONTROL",
+    false
+  ],
+  "PH60203": [
+    "OPTICAL FIBER TECHNOLOGY",
+    false
+  ],
+  "AG40018": [
+    "INDUSTRIAL PROCESSING OF FOODS AND BEVERAGES",
+    false
+  ],
+  "AG40019": [
+    "PRESSURIZED IRRIGATION SYSTEMS",
+    false
+  ],
+  "PH60202": [
+    "ATOMIC, MOLECULAR AND OPTICAL PHYSICS",
+    false
+  ],
+  "AG40015": [
+    "THERMAL OPERATIONS IN FOOD PROCESSING",
+    false
+  ],
+  "AG40016": [
+    "FOOD HANDLING, PACKAGING AND STORAGE",
+    false
+  ],
+  "AG40017": [
+    "ADVANCES IN TRACTOR HYDRAULICS AND TRANSMISSION",
+    false
+  ],
+  "AG40011": [
+    "TUBEWELLS AND PUMPS",
+    false
+  ],
+  "AG40012": [
+    "NON-CONVENTIONAL ENERGY SOURCES",
+    false
+  ],
+  "HS60015": [
+    "ENVIRONMENTAL SETTING OF SOCIO-TECHNICAL SYSTEMS",
+    false
+  ],
+  "MA30006": [
+    "SWITCHING AND FINITE AUTOMATA",
+    false
+  ],
+  "MA30007": [
+    "COMPUTER SOFTWARE",
+    false
+  ],
+  "CS11001": [
+    "PROGRAMMING AND DATA STRUCTURE",
+    false
+  ],
+  "MA30002": [
+    "MODERN ALGEBRA",
+    false
+  ],
+  "MA30003": [
+    "LINEAR ALGEBRA",
+    false
+  ],
+  "EE61008": [
+    "MEDICAL IMAGE ANALYSIS",
+    false
+  ],
+  "NA40028": [
+    "FISHING VESSEL TECHNOLOGY",
+    false
+  ],
+  "NA40029": [
+    "RELIABILITY OF OCEAN STRUCTURES",
+    false
+  ],
+  "HS40095": [
+    "THEORY OF SOCIAL CHOICE",
+    false
+  ],
+  "NA40022": [
+    "COMPUTER AIDED OCEAN STRUCTURE ANALYSIS",
+    false
+  ],
+  "NA40023": [
+    "ANALYSIS AND DESIGN OF OCEAN STRUCTURES",
+    false
+  ],
+  "HS40093": [
+    "INSTITUTIONAL ECONOMICS",
+    false
+  ],
+  "HS40092": [
+    "ECONOMICS OF REGULATION",
+    false
+  ],
+  "CE69005": [
+    "COMPUTER APPLICATION IN FREE SURFACE FLOW AND APPLIED HYDROLOGY",
+    false
+  ],
+  "MT21010": [
+    "TRANSPORT PHENOMENA IN METALLURGICAL PROCESSES",
+    false
+  ],
+  "HS40079": [
+    "HUMAN DEVELOPMENT",
+    false
+  ],
+  "HS40078": [
+    "INTERNATIONAL TRADE",
+    false
+  ],
+  "BS20001": [
+    "SCIENCE OF LIVING SYSTEM",
+    false
+  ],
+  "BM51001": [
+    "INVESTMENT MANAGEMENT",
+    false
+  ],
+  "BM51002": [
+    "MARKET MICROSTRUCTURE",
+    false
+  ],
+  "MT41041": [
+    "DEFECTS AND DIFFUSION IN CRYSTALLINE SOLIDS",
+    false
+  ],
+  "MT41042": [
+    "ADVANCES IN MATERIALS AND PROCESSES",
+    false
+  ],
+  "ME19001": [
+    "INTRODUCTION TO MANUFACTURING PROCESSES",
+    false
+  ],
+  "RE60024": [
+    "SOFTWARE RELIABILITY",
+    false
+  ],
+  "EE60034": [
+    "INDUSTRIAL AUTOMATION AND CONTROL",
+    false
+  ],
+  "EE60035": [
+    "ELECTRIC DRIVE SYSTEMS",
+    false
+  ],
+  "EE60032": [
+    "ANALOG SIGNAL PROCESSING",
+    false
+  ],
+  "EE60033": [
+    "DIGITAL SIGNAL PROCESSING",
+    false
+  ],
+  "EE60031": [
+    "INDUSTRIAL INSTRUMENTATION",
+    false
+  ],
+  "ME40601": [
+    "SYSTEMS AND CONTROL",
+    false
+  ],
+  "HS20014": [
+    "ECONOMICS OF SUSTIANABLE DEVELOPMENT",
+    false
+  ],
+  "ME40605": [
+    "APPLIED ELASTICITY",
+    false
+  ],
+  "CH30016": [
+    "COMPUTER AIDED PROCESS ENGINEERING",
+    false
+  ],
+  "EP60018": [
+    "INNOVATION MANAGEMENT",
+    false
+  ],
+  "EC60603": [
+    "MODERN DIGITAL COMMUNICATION TECHNIQUES",
+    false
+  ],
+  "EC60601": [
+    "DIGITAL VOICE AND PICTURE COMMUNICATION",
+    false
+  ],
+  "CH21004": [
+    "HEAT TRANSFER",
+    false
+  ],
+  "CH21008": [
+    "CHEMICAL ENGINEERING THERMODYNAMICS",
+    false
+  ],
+  "ME40111": [
+    "MODERN METHODS OF MANUFACTURING",
+    false
+  ],
+  "CH21103": [
+    "CHEMICAL PROCESS CALCULATIONS",
+    false
+  ],
+  "EC60023": [
+    "OPTICAL COMMUNICATION",
+    false
+  ],
+  "EC60021": [
+    "OPTICAL FIBRES, COMPONENTS AND DEVICES",
+    false
+  ],
+  "EC60024": [
+    "ADVANCED OPTICAL COMMUNICATION SYSTEMS",
+    false
+  ],
+  "GG50010": [
+    "APPLIED MICROPALEONTOLOGY",
+    false
+  ],
+  "AG60104": [
+    "ON-FARM WATER MANAGEMENT",
+    false
+  ],
+  "AG60100": [
+    "MASS TRANSFER OPERATIONS IN FOOD ENGINEERING",
+    false
+  ],
+  "AG60101": [
+    "WATERSHED MANAGEMENT",
+    false
+  ],
+  "AG60103": [
+    "PRINCIPLES OF FISHING TECHNOLOGY",
+    false
+  ],
+  "CS41103": [
+    "COMPUTATIONAL COMPLEXITY",
+    false
+  ],
+  "AG60109": [
+    "SOIL DYNAMICS IN TILLAGE AND TRACTION",
+    false
+  ],
+  "CS41105": [
+    "SYMBOLIC LOGIC AND AUTOMATED REASONING",
+    false
+  ],
+  "PH60409": [
+    "STATISTICAL STUDIES OF COMPLEX SYSTEM",
+    false
+  ],
+  "PH60408": [
+    "BIOPHOTONICS",
+    false
+  ],
+  "EC60118": [
+    "SIGNAL PROCESSING \/ TELECOMMUNICATION ICS",
+    false
+  ],
+  "PH60405": [
+    "TOPOLOGY AND GEOMETRY FOR PHYSICISTS",
+    false
+  ],
+  "PH60404": [
+    "MICROPROCESSOR AND ITS APPLICATIONS",
+    false
+  ],
+  "PH60407": [
+    "PATTERN FORMING INSTABILITIES",
+    false
+  ],
+  "PH60406": [
+    "GROUP THEORY AND ITS APPLICATION",
+    false
+  ],
+  "PH60401": [
+    "SCIENCE OF COMPLEXITY",
+    false
+  ],
+  "PH60403": [
+    "ATMOSPHERIC PHYSICS",
+    false
+  ],
+  "EC60110": [
+    "TECHNOLOGY CAD",
+    false
+  ],
+  "AG60042": [
+    "WATER RESOURCES SYSTEM ANALYSIS",
+    false
+  ],
+  "AG60044": [
+    "ADVANCED GROUNDWATER HYDROLOGY",
+    false
+  ],
+  "IM60038": [
+    "INTELLIGENT MANUFACTURING",
+    false
+  ],
+  "IM60039": [
+    "MANAGEMENT CONTROLS AND SYSTEMS",
+    false
+  ],
+  "IM60030": [
+    "MATERIALS MANAGEMENT",
+    false
+  ],
+  "IM60031": [
+    "MARKETING MANAGEMENT",
+    false
+  ],
+  "IM60036": [
+    "CONTROL ISSUES IN COMPUTER INTEGRATED MANUFACTURIN",
+    false
+  ],
+  "IM60037": [
+    "MANAGEMENT AND PRODUCTIVITY",
+    false
+  ],
+  "IM60034": [
+    "PRINCIPLES AND APPLICATIONS OF ERGONOMICS",
+    false
+  ],
+  "BT60014": [
+    "QUALITY CONTROL IN BIOTECHNOLOGY",
+    false
+  ],
+  "BT60015": [
+    "SECONDARY METABOLISM IN PLANTS AND MICROBES",
+    false
+  ],
+  "BT60016": [
+    "TRANSGENIC TECHNOLOGY",
+    false
+  ],
+  "BT60017": [
+    "IMMOBILIZATION TECHNOLOGY",
+    false
+  ],
+  "BT60012": [
+    "BIOPROCESS PLANT AND EQUIPMENT DESIGN",
+    false
+  ],
+  "EE69001": [
+    "SEMINAR-I",
+    false
+  ],
+  "EE21101": [
+    "SIGNALS AND NETWORKS",
+    false
+  ],
+  "AR53201": [
+    "ARCHITECTURAL DESIGN - VI AND FIELD STUDY",
+    false
+  ],
+  "PH63001": [
+    "PHYSICS FOR MEDICINE AND BIOLOGY",
+    false
+  ],
+  "CS21001": [
+    "DISCRETE STRUCTURES",
+    false
+  ],
+  "CS21002": [
+    "SWITCHING CIRCUITS AND LOGIC DESIGN",
+    false
+  ],
+  "CS21003": [
+    "ALGORITHMS - I",
+    false
+  ],
+  "CS21004": [
+    "FORMAL LANGUAGE AND AUTOMATA THEORY",
+    false
+  ],
+  "CS21006": [
+    "DESIGN AND ANALYSIS OF ALGORITHMS",
+    false
+  ],
+  "CH61012": [
+    "ADVANCED MASS TRANSFER",
+    false
+  ],
+  "CH61013": [
+    "PROCESS DYNAMICS AND CONTROL",
+    false
+  ],
+  "CH61011": [
+    "ADVANCED FLUID DYNAMICS",
+    false
+  ],
+  "CH61016": [
+    "PROCESS DYNAMICS AND CONTROL",
+    false
+  ],
+  "CH61014": [
+    "ADVANCED HEAT TRANSFER",
+    false
+  ],
+  "CH61015": [
+    "ADVANCED MATHEMATICAL TECHNIQUES IN CHEMICAL ENGINEERING",
+    false
+  ],
+  "AG40029": [
+    "FUNCTIONAL FOODS AND NEUTRACEUTICALS",
+    false
+  ],
+  "AG40028": [
+    "FOOD BIOTECHNOLOGY",
+    false
+  ],
+  "AG40023": [
+    "HORTICULTURE AND FLORICULTURE TECHNOLOGY",
+    false
+  ],
+  "AG40022": [
+    "CLIMATE CHANGE AND AGRICULTURAL PRODUCTION SYSTEM",
+    false
+  ],
+  "AG41008": [
+    "MASS TRANSFER OPERATIONS IN FOOD PROCESSING",
+    false
+  ],
+  "AG40024": [
+    "ENVIRONMENTAL BIOTECHNOLOGY",
+    false
+  ],
+  "EG30002": [
+    "ENERGY CONVERSION PROCESSES",
+    false
+  ],
+  "AG40026": [
+    "FOOD PLANT UTILITIES AND SANITATION",
+    false
+  ],
+  "HS60002": [
+    "MANPOWER ECONOMICS",
+    false
+  ],
+  "HS60003": [
+    "BUSINESS ECONOMICS",
+    false
+  ],
+  "HS60009": [
+    "FINANCIAL MANAGEMENT",
+    false
+  ],
+  "BT21101": [
+    "BIOCHEMISTRY",
+    false
+  ],
+  "BT21105": [
+    "BIOCHEM. REACTION ENGG. AND BIOENERGETICS",
+    false
+  ],
+  "NA40011": [
+    "MARINE MAINTENANCE AND REPAIRS",
+    false
+  ],
+  "NA40010": [
+    "OFFSHORE TECHNOLOGY",
+    false
+  ],
+  "CE61003": [
+    "BRIDGE ENGINEERING",
+    false
+  ],
+  "HS40089": [
+    "TRANSPORTATION ECONOMICS",
+    false
+  ],
+  "HS40083": [
+    "FOOD SECURITY AND POVERTY STUDIES",
+    false
+  ],
+  "HS40087": [
+    "URBAN ECONOMICS",
+    false
+  ],
+  "HS40085": [
+    "LABOUR ECONOMICS",
+    false
+  ],
+  "NA60013": [
+    "PORT AND HARBOUR ENGINEERING",
+    false
+  ],
+  "NA60011": [
+    "MARINE ACOUSTICS",
+    false
+  ],
+  "NA60010": [
+    "ANALYSIS OF OCEAN STRUCTURES II",
+    false
+  ],
+  "NA60014": [
+    "HYDROELASTICITY",
+    false
+  ],
+  "NA60019": [
+    "OCEAN ENGINEERING MATERIALS",
+    false
+  ],
+  "BM59001": [
+    "MODELING AND SIMULATION OF FINANCIAL SYSTEMS",
+    false
+  ],
+  "CY41018": [
+    "STRUCTURES AND FUNCTION OF BIOMOLECULES",
+    false
+  ],
+  "CY41012": [
+    "MOLECULAR THERMODYNAMICS AND KINETICS",
+    false
+  ],
+  "CY41011": [
+    "PRINCIPLES OF ORGANIC SYNTHESIS",
+    false
+  ],
+  "CY41016": [
+    "ANALYTICAL AND ENVIRONMENTAL CHEMISTRY",
+    false
+  ],
+  "CY41014": [
+    "PRINCIPLES OF ORGANOMETALLICS AND BIOINORGNIC CHEMISTRY",
+    false
+  ],
+  "PH41004": [
+    "OPTICS",
+    false
+  ],
+  "MA31020": [
+    "REGRESSION AND TIME SERIES MODEL",
+    false
+  ],
+  "EE60043": [
+    "INTELLIGENT CONTROL",
+    false
+  ],
+  "EE60046": [
+    "SPECIAL ELECTRICAL MACHINES",
+    false
+  ],
+  "EE60045": [
+    "DIGITAL CONTROL",
+    false
+  ],
+  "CY61038": [
+    "SUPRAMOLECULAR CHEMISTRY",
+    false
+  ],
+  "CY61036": [
+    "PHARMACOLOGICAL BASIS OF THERAPEUTICS",
+    false
+  ],
+  "CY61034": [
+    "ORGANOMETALLIC STRATEGIES IN ORGANIC SYNTHESIS",
+    false
+  ],
+  "CY61032": [
+    "NEWER ASYMMETRIC REACTIONS",
+    false
+  ],
+  "MI40021": [
+    "APPLIED ROCK ENGINEERING",
+    false
+  ],
+  "TS70002": [
+    "ADVANCED DYNAMICS",
+    false
+  ],
+  "HS20005": [
+    "MICRO ECONOMICS-I",
+    false
+  ],
+  "HS20006": [
+    "MICRO ECONOMICS-II",
+    true
+  ],
+  "HS20007": [
+    "MACRO ECONOMICS-I",
+    false
+  ],
+  "HS20001": [
+    "ECONOMICS",
+    false
+  ],
+  "HS20003": [
+    "STATISTICS FOR ECONOMICS",
+    false
+  ],
+  "HS20008": [
+    "MACRO ECONOMICS-II",
+    true
+  ],
+  "HS20009": [
+    "DEVELOPMENT ECONOMICS",
+    true
+  ],
+  "CY11001": [
+    "CHEMISTRY",
+    false
+  ],
+  "MT30001": [
+    "MATERIALS ENGINEERING",
+    false
+  ],
+  "MT31022": [
+    "X-RAY DIFFRACTION AND TRANSMISSION ELECTRON MICROSCOPY",
+    false
+  ],
+  "CY50007": [
+    "CHEMISTRY OF NATURAL PRODUCTS",
+    false
+  ],
+  "ME40107": [
+    "AIR CONDITIONING",
+    false
+  ],
+  "ME40103": [
+    "SIMULATION OF MECHANICAL SYSTEMS",
+    false
+  ],
+  "TE60003": [
+    "SPREAD SPECTRUM COMMUNICATIONS AND JAMMING",
+    false
+  ],
+  "TE60006": [
+    "COMMUNICATION SERVICES AND APPLICATIONS",
+    false
+  ],
+  "AG60131": [
+    "NON-THERMAL PROCESSING OF FOOD",
+    false
+  ],
+  "AG60134": [
+    "TEA SCIENCE AND PROCESS TECHNOLOGY",
+    false
+  ],
+  "AG60138": [
+    "PROCESSING OF HORTICULTURAL AND PLANTATION PRODUCT",
+    false
+  ],
+  "PH60412": [
+    "INTRODUCTION TO OCEANS",
+    false
+  ],
+  "EC60105": [
+    "TELECOMMUNICATION SYSTEM MODELLING, SIMULATION AND SOFTWARE",
+    false
+  ],
+  "PH60410": [
+    "ATOMIC, MOLECULAR AND QUANTUM INFORMATION SCIENCE",
+    false
+  ],
+  "PH60411": [
+    "QUANTUM INFORMATION THEORY",
+    false
+  ],
+  "EC60100": [
+    "FUZZY SET THEORY AND APPLICATIONS",
+    false
+  ],
+  "EC60101": [
+    "SATELLITE COMMUNICATIONS SYSTEMS",
+    false
+  ],
+  "EC60103": [
+    "RADAR SIGNAL PROCESSING",
+    false
+  ],
+  "CH62046": [
+    "MANUFACTURING AND CHARACTERISATION OF POLYMER MATRIX COMPOSITES",
+    false
+  ],
+  "AG60056": [
+    "PLANNING AND DESIGN OF AQUACULTURAL FARMS",
+    false
+  ],
+  "AG60051": [
+    "OPEN CHANNEL HYDRAULICS AND COASTAL ENGG.",
+    false
+  ],
+  "ME60055": [
+    "QUALITY CONTROL AND RELIABILITY",
+    false
+  ],
+  "ME60057": [
+    "AUTOMOTIVE ENGINEERING",
+    false
+  ],
+  "CY61001": [
+    "ADVANCED POLYMER CHEMISTRY",
+    false
+  ],
+  "CH30014": [
+    "CHEMICAL PROCESS TECHNOLOGY",
+    false
+  ],
+  "IM61023": [
+    "RECOMMENDER SYSTEM IN E-BUSINESS",
+    false
+  ],
+  "IM61020": [
+    "SAFETY ANALYTICS",
+    false
+  ],
+  "IM61026": [
+    "FACILITY LAYOUT AND DESIGN",
+    false
+  ],
+  "CH30012": [
+    "TRANSPORT PHENOMENA",
+    false
+  ],
+  "BM61002": [
+    "CORPORATE FINANCE",
+    false
+  ],
+  "WM61002": [
+    "RIVER BASIN PLANNING AND MANAGEMENT",
+    false
+  ],
+  "NA31001": [
+    "ELEMENTS OF OCEAN ENGINEERING",
+    false
+  ],
+  "MA51121": [
+    "GRAPH THEORY AND ALGORITHMS",
+    false
+  ],
+  "MA51122": [
+    "NON LINEAR PROGRAMMING",
+    false
+  ],
+  "AG40037": [
+    "HYDROLOGIC SYSTEMS AND SIMULATION",
+    false
+  ],
+  "AG40035": [
+    "CROP GENOMICS AND BIOTECHNOLOGY",
+    false
+  ],
+  "AG40033": [
+    "PRODUCTION AND PROCESS TECHNOLOGY OF INDUSTRIAL CROPS",
+    false
+  ],
+  "AG40030": [
+    "WATER CONSERVATION AND RECYCLING",
+    false
+  ],
+  "AG40031": [
+    "ADVANCES IN TRACTOR HYDRAULICS AND TRANSMISSION SYSTEM",
+    false
+  ],
+  "AR22008": [
+    "ERGONOMICS AND PRODUCT DESIGN",
+    false
+  ],
+  "AR22004": [
+    "WATER SUPPLY AND SANITATION",
+    false
+  ],
+  "AR22005": [
+    "HISTORY OF ARCHITECTURE-I",
+    false
+  ],
+  "AR22006": [
+    "HISTORY OF ARCHITECTURE-II",
+    false
+  ],
+  "AR22007": [
+    "ENVIRONMENTAL STUDIES",
+    false
+  ],
+  "AR22001": [
+    "ADVANCED BUILDING MATERIALS AND COMPOSITES",
+    false
+  ],
+  "AR22003": [
+    "CLIMATOLOGY AND SOLAR ARCHITECTURE",
+    false
+  ],
+  "CE31302": [
+    "ENVIRONMENTAL ENGINEERING",
+    false
+  ],
+  "CE31306": [
+    "ENVIRONMENTAL IMPACT ASSESSMENT AND AUDITING",
+    false
+  ],
+  "AE21008": [
+    "INTRODUCTION TO FLIGHT VEHICLE CONTROLS",
+    false
+  ],
+  "AE21004": [
+    "INTRODUCTION TO AEROSPACE STRUCTURES",
+    false
+  ],
+  "AE21001": [
+    "INTRODUCTION TO AERODYNAMICS",
+    false
+  ],
+  "AE21002": [
+    "LOW SPEED AERODYNAMICS",
+    false
+  ],
+  "AE21003": [
+    "DYNAMICS FOR AEROSPACE ENGINEERS",
+    false
+  ],
+  "CH40001": [
+    "BIOCHEMICAL ENGINEERING",
+    false
+  ],
+  "NA40001": [
+    "FREE SURFACE HYDRODYNAMICS",
+    false
+  ],
+  "MA61047": [
+    "NONLINEAR FUNCTIONAL ANALYSIS",
+    false
+  ],
+  "NA40005": [
+    "INLAND WATER TRANSPORTATION",
+    false
+  ],
+  "CE41026": [
+    "DISASTER RESISTANT DESIGN OF STRUCTURES",
+    false
+  ],
+  "NA60002": [
+    "DESIGN AND CONSTRUCTION OF OCEAN STRUCTURES",
+    false
+  ],
+  "NA60007": [
+    "COMPOSITES FOR MARINE STRUCTURES",
+    false
+  ],
+  "NA60008": [
+    "STABILITY OF MARINE STRUCTURES",
+    false
+  ],
+  "NA60009": [
+    "SUBMARINE AND SUBMERSIBLES",
+    false
+  ],
+  "MA30110": [
+    "ADVANCED NUMERICAL TECHNIQUES",
+    false
+  ],
+  "MT41112": [
+    "SURFACE ENGINEERING",
+    false
+  ],
+  "MT41110": [
+    "DESIGN AND SELECTION OF MATERIALS",
+    false
+  ],
+  "CE41023": [
+    "ENVIRONMENTAL CHEMISTRY",
+    false
+  ],
+  "CY41009": [
+    "INTRODUCTION TO QUANTUM CHEMISTRY AND SPECTROSCOPY",
+    false
+  ],
+  "CY41005": [
+    "INORGANIC CHEMISTRY: PRINCIPLE,STRUCTURE AND REACTIVITY",
+    false
+  ],
+  "CY41007": [
+    "GROUP THEORY FOR CHEMISTS",
+    false
+  ],
+  "BT61030": [
+    "PROTEIN ENGINEERING",
+    false
+  ],
+  "MT41023": [
+    "COMPOSITE MATERIALS",
+    false
+  ],
+  "MT41022": [
+    "ADVANCED PHASE TRANSFORMATIONS",
+    false
+  ],
+  "MT41020": [
+    "NANO-STRUCTURED MATERIALS",
+    false
+  ],
+  "MT41027": [
+    "DESIGN AND SELECTION OF MATERIALS",
+    false
+  ],
+  "MT41025": [
+    "NON DESTRUCTIVE TESTING",
+    false
+  ],
+  "MT41024": [
+    "MECHANICAL BEHAVIOUR OF CERAMICS, INTERMETALLICS AND COMPOSITES",
+    false
+  ],
+  "ME61005": [
+    "RHEOLOGY",
+    false
+  ],
+  "HS38002": [
+    "SEMINAR",
+    false
+  ],
+  "EE60050": [
+    "ADAPTIVE AND LEARNING CONTROL",
+    false
+  ],
+  "EE60052": [
+    "ADVANCED ESTIMATION THEORY",
+    false
+  ],
+  "EE60053": [
+    "HIGH VOLTAGE AND INSULATION ENGINEERING",
+    false
+  ],
+  "EE60054": [
+    "DISCRETE-EVENT SYSTEMS",
+    false
+  ],
+  "MI40039": [
+    "ELEMENTS OF PETROLEUM ENGINEERING",
+    false
+  ],
+  "EE60058": [
+    "OPTO-ELECTRONICS BASED INSTRUMENTATION",
+    false
+  ],
+  "EE60059": [
+    "PROCESS MONITORING AND FAULT DIAGNOSIS",
+    false
+  ],
+  "MI40036": [
+    "ADVANCED QUANTITATIVE DECISION MAKING",
+    false
+  ],
+  "CY61020": [
+    "RECENT ADVANCES IN ANALYTICAL CHEMISTRY",
+    false
+  ],
+  "CY61022": [
+    "SYNTHESIS AND PROCESSING OF CERAMICS",
+    false
+  ],
+  "AR58102": [
+    "SEMINAR",
+    false
+  ],
+  "MT31015": [
+    "PRINCIPLES OF EXTRACTIVE METALLURGY",
+    false
+  ],
+  "CY50109": [
+    "CHEMISTRY AND BIOLOGY OF CARBOHYDRATES",
+    false
+  ],
+  "CY50108": [
+    "MEDICINAL INORGANIC CHEMISTRY",
+    false
+  ],
+  "MT31011": [
+    "GENETIC ALOGRITHMS IN ENGG., PROCESS MODELING",
+    false
+  ],
+  "MT31012": [
+    "MATERIAL CHARACTERIZATION",
+    false
+  ],
+  "CY50103": [
+    "POLYMER CHEMISTRY",
+    false
+  ],
+  "CS63061": [
+    "TELEMEDICINE",
+    false
+  ],
+  "CY50101": [
+    "ELECTROCHEMISTRY",
+    false
+  ],
+  "CY50107": [
+    "REAGENTS IN CHEMICAL ANALYSIS",
+    false
+  ],
+  "CY50106": [
+    "ELECTROCHEMICAL METHODS OF ANALYSIS",
+    false
+  ],
+  "CY50105": [
+    "CHEMISTRY IN NON-AQUEOUS SOLVENTS",
+    false
+  ],
+  "CY50104": [
+    "MOLECULAR PHOTOCHEMISTRY",
+    false
+  ],
+  "BM60053": [
+    "RISK MANAGEMENT",
+    false
+  ],
+  "PH20007": [
+    "CLASSICAL MECHANICS-I",
+    false
+  ],
+  "PH20003": [
+    "PHYSICS-II",
+    false
+  ],
+  "AG60071": [
+    "POST HARVEST ENGINEERING OPERATIONS",
+    false
+  ],
+  "AG60129": [
+    "GRAIN STORAGE PRINCIPLES AND STRUCTURES",
+    false
+  ],
+  "AG60126": [
+    "PLANT UTILITIES AND SANITATION",
+    false
+  ],
+  "AG60127": [
+    "FOOD QUALITY AND SAFETY STANDARDS",
+    false
+  ],
+  "AG60124": [
+    "FOOD HANDLING AND PACKAGING",
+    false
+  ],
+  "AG60122": [
+    "ADVANCED DAIRY TECHNOLOGY",
+    false
+  ],
+  "AG60123": [
+    "COOLING TECHNOLOGY IN FOOD PROCESSING AND PRESERVATION",
+    false
+  ],
+  "ME40003": [
+    "QUALITY ASSURANCE AND RELIABILITY",
+    false
+  ],
+  "EC60132": [
+    "SECURE COMMUNICATIONS",
+    false
+  ],
+  "EC60134": [
+    "TELEMATICS AND INFORMATICS",
+    false
+  ],
+  "EC60136": [
+    "SELECTED TOPICS IN TSE",
+    false
+  ],
+  "ME60061": [
+    "AUTOMATIC CONTROL",
+    false
+  ],
+  "CH71002": [
+    "COMPUTATIONAL MODELING OF MULTIPHASE REACTIVE FLOWS",
+    false
+  ],
+  "AG60023": [
+    "DAIRY AND FOOD PROCESSING OPERATIONS- I",
+    false
+  ],
+  "AG60022": [
+    "DAIRY AND FOOD PRODUCTS TECHNOLOGY",
+    false
+  ],
+  "MI51015": [
+    "RECLAMATION AND REHABILITATION",
+    false
+  ],
+  "AG60024": [
+    "DAIRY AND FOOD PROCESSING OPERATIONS-II",
+    false
+  ],
+  "EC60296": [
+    "MIXED SIGNAL AND RF DESIGN",
+    false
+  ],
+  "EC60007": [
+    "COMPUTATIONAL NEUROSCIENCE",
+    false
+  ],
+  "IM60023": [
+    "STATISTICAL PROCESS CONTROL",
+    false
+  ],
+  "EC60003": [
+    "SYSTEMS BIOLOGY: MODELING AND CONTROL",
+    false
+  ],
+  "IM31008": [
+    "LOGISTICS AND SUPPLY CHAIN MANAGEMENT",
+    false
+  ],
+  "ET60001": [
+    "DIGITAL IMAGE PROCESSING AND APPLICATION",
+    false
+  ],
+  "MA10001": [
+    "MATHEMATICS-I",
+    false
+  ],
+  "MA10002": [
+    "MATHEMATICS-II",
+    false
+  ],
+  "MA51117": [
+    "TIME SERIES AND FORECASTING METHODS",
+    false
+  ],
+  "MA51116": [
+    "DECESION SUPPORT SYSTEMS",
+    false
+  ],
+  "MA51110": [
+    "DIFFERENTIAL AND RIEMANNIAN GEOMETRY",
+    false
+  ],
+  "MA51112": [
+    "DISCRETE DYNAMICAL SYSTEMS",
+    false
+  ],
+  "MA51118": [
+    "FINANCIAL MATHEMATICS",
+    false
+  ],
+  "HS60021": [
+    "ORGANIZATIONAL BEHAVIOUR",
+    false
+  ],
+  "PH58038": [
+    "NON-LINEAR OPTICS",
+    false
+  ],
+  "CE31202": [
+    "ADVANCED STRUCTURAL ANALYSIS",
+    false
+  ],
+  "ME60114": [
+    "SURFACE ENGINEERED MATERIALS TECHNOLOGY",
+    false
+  ],
+  "CE31206": [
+    "KNOWLEDGE BASED EXPERT SYSTEMS IN STRUCTURAL ENGG.",
+    false
+  ],
+  "ME39602": [
+    "MACHINE DESIGN PRACTICE",
+    false
+  ],
+  "NA60038": [
+    "OFFSHORE TECHNOLOGY",
+    false
+  ],
+  "NA60034": [
+    "SAFETY AND MARITIME REGULATIONS",
+    false
+  ],
+  "NA60036": [
+    "POWERING OF OCEAN VEHICLES - II",
+    false
+  ],
+  "NA60033": [
+    "POWERING OF OCEAN VEHICLES",
+    false
+  ],
+  "NA60032": [
+    "ADVANCED SHIP DESIGN",
+    false
+  ],
+  "CY20106": [
+    "INORGANIC CHEMISTRY II",
+    false
+  ],
+  "CY20101": [
+    "PHYSICAL CHEMISTRY I",
+    false
+  ],
+  "CE31111": [
+    "DESIGN OF HYDRAULIC STRUCTURES",
+    false
+  ],
+  "CY20102": [
+    "PHYSICAL CHEMISTRY II",
+    false
+  ],
+  "CY20103": [
+    "ORGANIC CHEMISTRY I",
+    false
+  ],
+  "IM21008": [
+    "WORK SYSTEM DESIGN",
+    false
+  ],
+  "IM21006": [
+    "OPERATIONS RESEARCH-II",
+    false
+  ],
+  "IM21001": [
+    "ENGINEERING ECONOMY, COSTING AND ACCOUNTING",
+    false
+  ],
+  "IM21002": [
+    "PRODUCTION DESIGN AND PROCESS PLANNING",
+    false
+  ],
+  "IM21003": [
+    "OPERATIONS RESEARCH-I",
+    false
+  ],
+  "MT41038": [
+    "ADVANCED FERROUS MATERIALS",
+    false
+  ],
+  "MT41039": [
+    "COMPUTATIONAL TRANSPORT PHENOMENA",
+    false
+  ],
+  "MT41031": [
+    "EXTRACTIVE METALLURGY OF NON-FERROUS METALS",
+    false
+  ],
+  "MT41033": [
+    "MINERAL AND PARTICLE TECHNOLOGY",
+    false
+  ],
+  "MT41034": [
+    "METALLURGICAL FAILURE ANALYSIS",
+    false
+  ],
+  "MT41035": [
+    "DESIGN OF METALLURGICAL PROCESSES",
+    false
+  ],
+  "MT41036": [
+    "STOCHASTIC MODELLING OF MATERIALS",
+    false
+  ],
+  "MT41037": [
+    "POWDER METALLURGY",
+    false
+  ],
+  "PH60113": [
+    "MAGNETISM AND SUPERCONDUCTIVITY",
+    false
+  ],
+  "CH62052": [
+    "INSTABILITY AND PATTERNING IN THIN POLYMER FILM",
+    false
+  ],
+  "CH62050": [
+    "HAZARDOUS WASTE TREATMENT AND MANAGEMENT",
+    false
+  ],
+  "CY61019": [
+    "SPECIAL TOPICS IN MAIN GROUP CHEMISTRY",
+    false
+  ],
+  "MI40001": [
+    "ENVIRONMENTAL ENGINEERING",
+    false
+  ],
+  "CY61010": [
+    "CHEMICAL BONDING AND REACTIVITY",
+    false
+  ],
+  "CE41003": [
+    "STRUCTURAL DYNAMICS AND EARTHQUAKE ENGG.",
+    false
+  ],
+  "EE60061": [
+    "BIOMEDICAL INSTRUMENTATION",
+    false
+  ],
+  "MI40004": [
+    "MINE SAFETY AND LEGISLATION",
+    false
+  ],
+  "EE60062": [
+    "DIGITAL IMAGE PROCESSING",
+    false
+  ],
+  "GG21103": [
+    "PALEONTOLOGY",
+    false
+  ],
+  "MT31007": [
+    "CREEP, FATIGUE AND FRACTURE",
+    false
+  ],
+  "CE60061": [
+    "AIRPORT PLANNING AND DESIGN",
+    false
+  ],
+  "CY50110": [
+    "TECHNIQUES FOR ORGANIC SYNTHESIS",
+    false
+  ],
+  "CY50111": [
+    "HETEROCYCLES IN MEDICINES",
+    false
+  ],
+  "CY50112": [
+    "ENZYMES IN ORGANIC SYNTHESIS",
+    false
+  ],
+  "MT31009": [
+    "MECHANICAL WORKING OF MATERIALS",
+    false
+  ],
+  "EX30004": [
+    "GEOPHYSICAL FIELD THEORY",
+    false
+  ],
+  "MA60049": [
+    "COMPUTATIONAL STATISTICS",
+    false
+  ],
+  "EX30008": [
+    "GEOPHYSICAL SIGNAL PROCESSING",
+    false
+  ],
+  "ES60004": [
+    "ENERGY MATERIALS",
+    false
+  ],
+  "ES60002": [
+    "WASTE TO WEALTH: MICROBIAL INTERVENTION",
+    false
+  ],
+  "MT60149": [
+    "SURFACES AND INTERFACES",
+    false
+  ],
+  "MT60148": [
+    "MAGNETISM AND MAGNETIC MATERIALS",
+    false
+  ],
+  "EV20001": [
+    "ENVIRONMENTAL SCIENCE",
+    false
+  ],
+  "GG50023": [
+    "MODELING AND SIMULATION OF GEOLOGICAL PROCESSES",
+    false
+  ],
+  "EC60126": [
+    "ADVANCES IN DIGITAL SATELLITE COMMUNICATIONS",
+    false
+  ],
+  "AG60151": [
+    "CLIMATE CHANGE AND WATER RESOURCES",
+    false
+  ],
+  "EC60128": [
+    "LINEAR ALGEBRA AND ERROR CONTROL TECHNIQUES",
+    false
+  ],
+  "AG60154": [
+    "NON-POINT SOURCE POLLUTION AND MANAGEMENT",
+    false
+  ],
+  "EE60082": [
+    "ELECTRIC VEHICLES",
+    false
+  ],
+  "ME60073": [
+    "COMPUTATIONAL METHODS IN THERMAL ENGINEERING",
+    false
+  ],
+  "ME60071": [
+    "FATIGUE, CREEP AND FRACTURE",
+    false
+  ],
+  "TE60114": [
+    "BROADBAND ACCESS NETWORKS",
+    false
+  ],
+  "ME60077": [
+    "FINITE ELEMENT METHODS IN ENGINEERING",
+    false
+  ],
+  "ME60075": [
+    "MACHINERY FAULT DIAGNOSTICS AND SIGNAL PROCESSING",
+    false
+  ],
+  "EC60301": [
+    "ADVANCED ELECTROMAGNETIC ENGINEERING",
+    false
+  ],
+  "AG60031": [
+    "PLANT METABOLITES AND SEPARATION TECHNOLOGY",
+    false
+  ],
+  "AG60032": [
+    "CROP BREEDING AND BIOTECHNOLOGICAL APPLICATION",
+    false
+  ],
+  "EC60012": [
+    "ADVANCED OPERATING SYSTEM DESIGN",
+    true
+  ],
+  "EC60013": [
+    "ADVANCED COMPUTER SYSTEM ARCHITECTURE",
+    false
+  ],
+  "EE40002": [
+    "ELECTRIC DRIVES",
+    false
+  ],
+  "MF40604": [
+    "LASER APPLICATIONS IN MANUFACTURING",
+    false
+  ],
+  "MF40603": [
+    "COMPUTER INTEGRATED MANUFACTURING",
+    false
+  ],
+  "MA51108": [
+    "ADVANCED COMPLEX ANALYSIS",
+    false
+  ],
+  "MA51109": [
+    "COMPUTATIONAL STATISTICS",
+    false
+  ],
+  "AR21002": [
+    "BEHAVIOURAL STUDIES IN ARCHITECTURE",
+    false
+  ],
+  "ME10001": [
+    "MECHANICS",
+    false
+  ],
+  "MA52001": [
+    "MULTIVARIATE ANALYSIS",
+    false
+  ],
+  "ME61003": [
+    "ADVANCED FLUID MECHANICS",
+    false
+  ],
+  "AR60003": [
+    "TRANSPORTATION PLANNING AND TRAFFIC ENGINEERING",
+    false
+  ],
+  "CH60026": [
+    "FUNDAMENTALS OF PARTICLE TECHNOLOGY",
+    false
+  ],
+  "CE31216": [
+    "CONSTRUCTION PLANNING AND MANAGEMENT",
+    false
+  ],
+  "CE31214": [
+    "CONSTRUCTION AND BUILDING MATERIALS",
+    false
+  ],
+  "CE31210": [
+    "THEORY OF ELASTICITY AND PLASTICITY",
+    false
+  ],
+  "CE31218": [
+    "BIO-MECHANICS",
+    false
+  ],
+  "EP60029": [
+    "SMALL BUSINESS DEVELOPMENT",
+    false
+  ],
+  "NA60022": [
+    "OCEAN CIRCULATION AND WAVE MODELLING",
+    false
+  ],
+  "AG61693": [
+    "WATER QUALITY MANAGEMENT PRACTICE",
+    false
+  ],
+  "NA60021": [
+    "PHYSICAL AND DYNAMICAL OCEANOGRAPHY",
+    false
+  ],
+  "MT20006": [
+    "MATERIALS PROCESSING",
+    false
+  ],
+  "CE31102": [
+    "WATER POWER ENGINEERING",
+    false
+  ],
+  "CE31106": [
+    "ENVIROMMENTAL STATISTICS AND EXPERIMENTAL DESIGN",
+    false
+  ],
+  "CE31104": [
+    "STATISTICAL METHODS IN HYDROLOGY",
+    false
+  ],
+  "CE31109": [
+    "WATER RESOURCES SYSTEMS",
+    false
+  ],
+  "GG28002": [
+    "FIELD WORK (3 WEEKS)",
+    false
+  ],
+  "MT41009": [
+    "COMPUTER APPLICATIONS IN METALLURGICAL PROCESSES",
+    false
+  ],
+  "CY61006": [
+    "APPLICATIONS OF FLUORESCENCE SPECTROSCOPY IN CHEMISTRY AND BIOLOGY",
+    false
+  ],
+  "CH62045": [
+    "CHEMICAL ENGINEERING PRINCIPLES IN POLYMER PROCESSING",
+    false
+  ],
+  "CY61004": [
+    "ADVANCED CHEMICAL DYNAMICS",
+    false
+  ],
+  "CH62047": [
+    "CFD APPLICATIONS IN CHEMICAL PROCESSING",
+    false
+  ],
+  "CH62041": [
+    "POLYMER ENGINEERING",
+    false
+  ],
+  "CH62043": [
+    "ENERY CONSERVATION IN PROCESS INDUSTRIES",
+    false
+  ],
+  "CH62048": [
+    "STORAGE AND HANDLING OF MATERIALS",
+    false
+  ],
+  "EC21006": [
+    "ELECTROMAGNETIC ENGINEERING",
+    false
+  ],
+  "EC21004": [
+    "SIGNALS AND SYSTEMS",
+    false
+  ],
+  "EC21005": [
+    "NETWORK THEORY",
+    false
+  ],
+  "EC21008": [
+    "ANALOG ELECTRONIC CIRCUITS",
+    false
+  ],
+  "MI50009": [
+    "OIL AND GAS WELL TESTING AND ENHANCED OIL RECOVERY",
+    false
+  ],
+  "EC60201": [
+    "SEMICONDUCTOR DEVICE MODELING",
+    false
+  ],
+  "MI50003": [
+    "RESCUE AND DISASTER MANAGEMENT",
+    false
+  ],
+  "MI50004": [
+    "SAFETY LEGISLATION AND ENVIRONMENTAL LAW",
+    false
+  ],
+  "MA61053": [
+    "NUMERICAL OPTIMIZATION",
+    false
+  ],
+  "MA61051": [
+    "MODERN THEORY OF PARTIAL DIFFERENTIAL EQUATION",
+    false
+  ],
+  "CE60130": [
+    "RIVER ENGINEERING",
+    false
+  ],
+  "MA60055": [
+    "COMPUTATIONAL FLUID DYNAMICS",
+    false
+  ],
+  "BM60072": [
+    "MERGER AND ACQUISITION",
+    false
+  ],
+  "GG41011": [
+    "GEOPHYSICAL PROSPECTING",
+    false
+  ],
+  "MA60053": [
+    "COMPUTATIONAL LINEAR ALGEBRA",
+    false
+  ],
+  "CH62039": [
+    "MICROSCALE ENERGY TRANSPORT",
+    false
+  ],
+  "CH62038": [
+    "HAZARD ANALYSIS AND RISK MANAGEMENT IN CHEMICAL INDUSTRY",
+    false
+  ],
+  "MI62004": [
+    "COMPUTATIONAL GEOMECHANICS",
+    false
+  ],
+  "PH21001": [
+    "ELECTRODYNAMICS-I",
+    false
+  ],
+  "MI62001": [
+    "BULK MATERIALS HANDLING",
+    false
+  ],
+  "CE60137": [
+    "APPLIED SOIL MECHANICS",
+    false
+  ],
+  "PH21004": [
+    "THERMAL PHYSICS",
+    false
+  ],
+  "MI62002": [
+    "NUMERICAL METHODS FOR SUBSURFACE ENVIRONMENT",
+    false
+  ],
+  "CE20101": [
+    "INTRODUCTION TO CIVIL ENGG. AND MATERIALS",
+    false
+  ],
+  "CE20103": [
+    "TRANSPORTATION ENGG.",
+    false
+  ],
+  "CE20105": [
+    "SURVEYING",
+    false
+  ],
+  "MT60150": [
+    "TEXTURE IN MATERIALS ENGINEERING",
+    false
+  ],
+  "MT31017": [
+    "PHASE TRANSFORMATION AND HEAT TREATMENT OF MATERIALS",
+    false
+  ],
+  "AE51005": [
+    "UNSTEADY AERODYNAMICS",
+    false
+  ],
+  "MT61151": [
+    "DISLOCATION THEORY",
+    false
+  ],
+  "MT61152": [
+    "IMPERFECTIONS IN SOLIDS",
+    false
+  ],
+  "AG60148": [
+    "INSTRUMENTATION AND CONTROL IN FOOD INDUSTRIES",
+    false
+  ],
+  "PH60112": [
+    "FERROELECTRICS AND DIELECTRICS",
+    false
+  ],
+  "PH60111": [
+    "CRYSTALLOGRAPHIC COMPUTATION AND STRUCTURE ANALYSIS",
+    false
+  ],
+  "PH60110": [
+    "LIQUID CRYSTAL AND DEVICES",
+    false
+  ],
+  "PH60117": [
+    "ACCELERATOR BASED PHYSICS OF SOLIDS",
+    false
+  ],
+  "PH60116": [
+    "SPINTRONICS AND MAGNETOELECTRONIC MATERIALS AND DEVICES",
+    false
+  ],
+  "PH60115": [
+    "SOLID STATE IONICS",
+    false
+  ],
+  "PH60114": [
+    "STRING THEORY",
+    false
+  ],
+  "AG60140": [
+    "CROP PROCESS EQUIPMENT DESIGN",
+    false
+  ],
+  "EE60096": [
+    "HIGH VOLTAGE DIRECT CURRENT TRANSMISSION (HVDC) AND FLEXIBLE ALTERNATING CURRENT TRANSMISSION SYSTEMS (FACTS)",
+    false
+  ],
+  "EE60092": [
+    "DIGITAL IMAGE PROCESSING",
+    false
+  ],
+  "CY50102": [
+    "PHYSICAL CHEMISTRY OF SURFACES",
+    false
+  ],
+  "MI60043": [
+    "ROCK CUTTING AND ROCK FRAGMENTATION",
+    false
+  ],
+  "EE60098": [
+    "PROGRAMMABLE AND EMBEDDED SYSTEM",
+    false
+  ],
+  "ME60088": [
+    "COMPRESSIBLE FLOW",
+    false
+  ],
+  "ME60085": [
+    "REFRIGERATION SYSTEMS",
+    false
+  ],
+  "ME60084": [
+    "HYDEL POWER AND WIND ENERGY",
+    false
+  ],
+  "ME60081": [
+    "THERMODYNAMIC OPTIMIZATION, ENERGY AUDIT AND ECONO",
+    false
+  ],
+  "AE49003": [
+    "AIRCRAFT DESIGN AND OPTIMISATION",
+    false
+  ],
+  "NA40020": [
+    "COMPUTATIONAL MARINE HYDRODYNAMICS",
+    false
+  ],
+  "AG60004": [
+    "TRACTOR SYSTEMS DESIGN II",
+    false
+  ],
+  "ME22002": [
+    "THERMODYNAMICS",
+    false
+  ],
+  "AG60001": [
+    "TRACTOR SYSTEMS DESIGN I",
+    false
+  ],
+  "AG60003": [
+    "FARM MACHINERY DESIGN AND TESTING",
+    false
+  ],
+  "AG60002": [
+    "ALTERNATIVE ENERGY SOURCES",
+    false
+  ],
+  "HS40091": [
+    "DERIVATIVES",
+    false
+  ],
+  "NA40026": [
+    "HEAT ENGINES",
+    false
+  ],
+  "EE40018": [
+    "SUPERCONDUCTIVITY AND ITS APPL.TO EE",
+    false
+  ],
+  "EC60204": [
+    "DIGITAL VLSI CIRCUITS",
+    false
+  ],
+  "EC60203": [
+    "ANALOG VLSI CIRCUITS",
+    false
+  ],
+  "EC60202": [
+    "VLSI CAD",
+    false
+  ],
+  "EE41013": [
+    "DIGITAL SIGNAL PROCESSING",
+    false
+  ],
+  "EE40013": [
+    "DIGITAL SIGNAL PROCESSING",
+    false
+  ],
+  "EE40010": [
+    "ADVANCED POWER SYSTEM",
+    false
+  ],
+  "ET60021": [
+    "INTELLIGENT GAME DESIGN",
+    false
+  ],
+  "MF30602": [
+    "ROBOTS AND COMPUTER CONTROLLED MACHINES",
+    false
+  ],
+  "MF30604": [
+    "NON-TRADITIONAL MANUFACTURING PROCESSES",
+    false
+  ],
+  "MA51002": [
+    "MEASURE THEORY AND INTEGRATION",
+    false
+  ],
+  "GG20107": [
+    "STRUCTURAL GEOLOGY",
+    false
+  ],
+  "HS41002": [
+    "ECONOMETRIC ANALYSIS I",
+    false
+  ],
+  "GG58006": [
+    "FIELD WORK (6 WEEKS)",
+    false
+  ],
+  "CS31702": [
+    "COMPUTER ARCHITECTURE AND OPERATING SYSTEM",
+    false
+  ],
+  "CS40018": [
+    "MODELING AND SIMULATION",
+    false
+  ],
+  "CS40019": [
+    "IMAGE PROCESSING",
+    false
+  ],
+  "IE31001": [
+    "INSTRUMENTATION DEVICES",
+    false
+  ],
+  "MT41013": [
+    "CORROSION AND ENVIRONMENTAL DEGRADATION OF MATERIALS",
+    false
+  ],
+  "MT41011": [
+    "PHYSICS OF MATERIALS",
+    false
+  ],
+  "MT41016": [
+    "SEMICONDUCTING AND MAGNETIC MATERIALS",
+    false
+  ],
+  "MT41018": [
+    "CERAMIC MATERIALS",
+    false
+  ],
+  "MT41019": [
+    "CASTING AND SOLIDIFICATION",
+    false
+  ],
+  "CY71006": [
+    "SINGLE CRYSTAL X-RAY STRUCTURE ANALYSIS",
+    false
+  ],
+  "CE41621": [
+    "PRESTRESSED CONCRETE",
+    false
+  ],
+  "CE41623": [
+    "STRUCTURAL OPTIMISATION",
+    false
+  ],
+  "CE41625": [
+    "TRAFFIC ENGINEERING",
+    false
+  ],
+  "CS60009": [
+    "SMARTPHONE COMPUTING AND APPLICATION",
+    false
+  ],
+  "CE41627": [
+    "ADVANCED STRUCTURAL ANALYSIS",
+    false
+  ],
+  "CE41628": [
+    "INFRASTRUCTURAL CIVIL ENGINEERING",
+    false
+  ],
+  "CS60006": [
+    "COMPUTATIONAL PHYLOGENETICS AND MOLECULAR EVOLUTION",
+    false
+  ],
+  "CS60005": [
+    "FOUNDATIONS OF COMPUTING SCIENCE",
+    false
+  ],
+  "CS60004": [
+    "HARDWARE SECURITY",
+    false
+  ],
+  "CS60003": [
+    "HIGH PERFORMANCE IN COMPUTER ARCHITECTURE",
+    false
+  ],
+  "CS60002": [
+    "DISTRIBUTED SYSTEMS",
+    false
+  ],
+  "AR48018": [
+    "SITE SUPERVISION",
+    false
+  ],
+  "MI45012": [
+    "RESOURCE EVALUATION AND GEOSTATISTICS",
+    false
+  ],
+  "AR48012": [
+    "CRITICAL APPRAISAL",
+    false
+  ],
+  "AR48016": [
+    "FIELD OBSERVATION",
+    false
+  ],
+  "AR48014": [
+    "DOCUMENTATION OF INNOVATIVE DETAILS",
+    false
+  ],
+  "EC61032": [
+    "VISION AND VISUALIZATION",
+    false
+  ],
+  "CE31003": [
+    "SOIL MECHANICS",
+    false
+  ],
+  "CE31002": [
+    "FOUNDATION ENGINEERING",
+    false
+  ],
+  "CE31001": [
+    "DESIGN OF RC STRUCTURE",
+    false
+  ],
+  "CE31005": [
+    "WATER AND W.W. ENGINEERING",
+    false
+  ],
+  "CE31004": [
+    "DESIGN OF STEEL STRUCTURES",
+    false
+  ],
+  "CS43008": [
+    "MICROPROCESSORS AND MICROCONTROLLERS",
+    false
+  ],
+  "NA21101": [
+    "HYDROSTATICS AND STABILITY",
+    false
+  ],
+  "CS43002": [
+    "DATABASE MANAGEMENT SYSTEMS",
+    false
+  ],
+  "CS43004": [
+    "COMPUTER GRAPHICS",
+    false
+  ],
+  "CE60043": [
+    "ADVANCED STRUCTURAL ANALYSIS",
+    false
+  ],
+  "CE60046": [
+    "SOIL EXPLORATION",
+    false
+  ],
+  "CE60048": [
+    "ANALYSIS OF FOUNDATION",
+    false
+  ],
+  "MA61044": [
+    "LIE GROUPS AND LIE ALGEBRAS",
+    false
+  ],
+  "CH62018": [
+    "COMBUSTION ENGINEERING",
+    false
+  ],
+  "MA60061": [
+    "STATISTICAL TECHNIQUE AND COMPUTER PROGRAMMING",
+    false
+  ],
+  "GG41001": [
+    "GEOCHEMISTRY",
+    false
+  ],
+  "MA60065": [
+    "DECISION THEORY",
+    false
+  ],
+  "MA61049": [
+    "APPROXIMATION THEORY",
+    false
+  ],
+  "GG41005": [
+    "ORE GEOLOGY",
+    false
+  ],
+  "EC21107": [
+    "SEMICONDUCTOR DEVICES",
+    false
+  ],
+  "AE40033": [
+    "FINITE ELEMENT METHOD",
+    false
+  ],
+  "EC21103": [
+    "INTRODUCTION TO ELECTRONICS",
+    false
+  ],
+  "EC21101": [
+    "BASIC ELECTRONICS",
+    true
+  ],
+  "GG31009": [
+    "METAMORPHIC PETROLOGY",
+    false
+  ],
+  "GG31005": [
+    "MINERAL RESOURCES",
+    false
+  ],
+  "GG31004": [
+    "SEDIMENTOLOGY",
+    false
+  ],
+  "GG31007": [
+    "ENGINEERING GEOLOGY",
+    false
+  ],
+  "GG31006": [
+    "IGNEOUS PETROLOGY",
+    true
+  ],
+  "MT61146": [
+    "ADVANCED ELECTRON MICROSCOPY AND ANALYSIS",
+    false
+  ],
+  "MT61147": [
+    "COMPUTATIONAL FLIUD FLOW, HEAT AND MASS TRANSFER IN METALLURGICAL PROCESSES",
+    false
+  ],
+  "MT61144": [
+    "ADVANCED MECHANICAL WORKING OF MATERIALS",
+    false
+  ],
+  "CH62010": [
+    "PETROCHEMICAL TECHNOLOGY",
+    false
+  ],
+  "MT61143": [
+    "PROCESSING BY POWDER METALLURGY TECHNIQUES",
+    false
+  ],
+  "MT61140": [
+    "ENERGETICS IN METALLURGICAL INDUSTRIES",
+    false
+  ],
+  "MT61141": [
+    "SOLIDIFICATION PROCESSING",
+    false
+  ],
+  "CY61050": [
+    "METAL COMPLEXES IN CATALYSIS AND MATERIAL SCIENCE",
+    false
+  ],
+  "AG60170": [
+    "MODELLING AND SIMULATION FOR AGRICULTURAL WATER MANAGEMENT",
+    false
+  ],
+  "PH60101": [
+    "LATTICE DEFECTS",
+    false
+  ],
+  "PH60102": [
+    "PHYSICS OF SURFACES AND INTERFACES",
+    false
+  ],
+  "PH60103": [
+    "QUANTUM MANY BODY THEORY",
+    false
+  ],
+  "PH60104": [
+    "A VIEW OF CONDENSED MATTER PHYSICS - MODERN CONCEPTS",
+    false
+  ],
+  "PH60105": [
+    "SEMICONDUCTOR PHYSICS",
+    false
+  ],
+  "PH60106": [
+    "SEMICONDUCTOR DEVICE TECHNOLOGY",
+    false
+  ],
+  "PH60107": [
+    "NANOSTRUCTURE AND QUANTUM DEVICES",
+    false
+  ],
+  "PH60108": [
+    "MESOSCOPIC PHYSICS",
+    false
+  ],
+  "PH60109": [
+    "CRYSTAL PHYSICS",
+    false
+  ],
+  "PH41012": [
+    "COMPUTATIONAL METHODS",
+    false
+  ],
+  "PH41010": [
+    "QUANTUM MECHANICS-II",
+    false
+  ],
+  "PH41017": [
+    "CONDENSED MATTER PHYSICS-II",
+    false
+  ],
+  "PH41016": [
+    "NUCLEAR AND PARTICLE PHYSICS -I",
+    false
+  ],
+  "CE20006": [
+    "WATER RESOURCES ENGG.",
+    false
+  ],
+  "PH41019": [
+    "NUCLEAR AND PARTICLE PHYSICS -II",
+    false
+  ],
+  "ME60098": [
+    "GAS TURBINES AND JET PROPULSION",
+    false
+  ],
+  "ME60096": [
+    "AIR CONDITIONING AND VENTILATION",
+    false
+  ],
+  "HS50026": [
+    "BEHAVIOURAL FINANCE",
+    false
+  ],
+  "BT40009": [
+    "BIOPROCESS TECHNOLOGY",
+    false
+  ],
+  "PH60039": [
+    "BIOPHYSICS",
+    false
+  ],
+  "EE41001": [
+    "INDUSTRIAL INSTRUMENTATION",
+    false
+  ],
+  "CE41013": [
+    "ENGINEERING OF RIVERS",
+    false
+  ],
+  "AG60302": [
+    "ADVANCED THERMAL OPERATIONS IN FOOD PROCESSING",
+    false
+  ],
+  "AG60301": [
+    "ADVANCED MECHANICAL OPERATIONS IN FOOD PROCESSING",
+    false
+  ],
+  "MI20101": [
+    "DEVELOPMENT OF MINERAL DEPOSITS",
+    false
+  ],
+  "CE60160": [
+    "HIGH RISE STRUCTURES",
+    false
+  ],
+  "AR51013": [
+    "ENERGY AND ENVIRONMENTAL SYSTEMS FOR GREEN BUILDINGS",
+    false
+  ],
+  "MA40001": [
+    "FUNCTIONAL ANALYSIS",
+    false
+  ],
+  "MA40003": [
+    "SYSTEMS PROGRAMMING",
+    false
+  ],
+  "MA40002": [
+    "INTEGRAL EQUATIONS AND VARIATIONAL METHODS",
+    true
+  ],
+  "MA40004": [
+    "FILE ORGANISATION AND DATA BASE SYSTEMS",
+    true
+  ],
+  "MA40009": [
+    "NUMBER THEORY",
+    false
+  ],
+  "MA51014": [
+    "TOPOLOGY",
+    false
+  ],
+  "MI31008": [
+    "SURFACE MINING",
+    false
+  ],
+  "MI31001": [
+    "UNDERGROUND COAL MINING",
+    false
+  ],
+  "MI31003": [
+    "UNDERGROUND METAL MINING",
+    false
+  ],
+  "MI31002": [
+    "MINE HAZARDS AND RESCUE",
+    false
+  ],
+  "MI31005": [
+    "VENTILATION AND CLIMATE CONTROL",
+    false
+  ],
+  "MI31004": [
+    "ECONOMICS OF MINING ENTERPRISES",
+    false
+  ],
+  "MI31007": [
+    "QUANTITATIVE DECISION MAKING",
+    false
+  ],
+  "AE60040": [
+    "EXPERIMENTAL STRESS ANALYSIS",
+    false
+  ],
+  "CH20001": [
+    "FLUID MECHANICS",
+    false
+  ],
+  "GG20003": [
+    "PALEONTOLOGY AND STRATIGRAPHY",
+    false
+  ],
+  "GG20002": [
+    "THERMODYNAMICS OF GEOL. SYSTEMS",
+    false
+  ],
+  "GG20005": [
+    "INTRODUCTION TO EARTH SCIENCE",
+    false
+  ],
+  "GG20004": [
+    "PETROLOGY",
+    false
+  ],
+  "IM31012": [
+    "OPTIMISATION AND HEURISTIC METHODS",
+    false
+  ],
+  "CS60019": [
+    "PERFORMANCE MODELING OF COMPUTER NETWORKS",
+    false
+  ],
+  "CE41617": [
+    "SMART STRUCTURES",
+    false
+  ],
+  "CS60017": [
+    "SOCIAL COMPUTING",
+    false
+  ],
+  "CS60011": [
+    "LOGICS FOR COMPUTER SCIENCE",
+    false
+  ],
+  "AE40025": [
+    "ATMOSPHERIC BOUNDARY LAYERS",
+    false
+  ],
+  "MS31007": [
+    "MATERIAL SCIENCE",
+    false
+  ],
+  "MI45008": [
+    "SAFETY ENGINEERING",
+    false
+  ],
+  "NA21004": [
+    "SHIP STRENGTH",
+    false
+  ],
+  "NA21003": [
+    "MARINE CONSTRUCTION AND WELDING",
+    false
+  ],
+  "NA21001": [
+    "MARINE HYDRODYNAMICS",
+    false
+  ],
+  "AE40028": [
+    "ROCKET PROPULSION",
+    false
+  ],
+  "HS50010": [
+    "INPUT-OUTPUT ECONOMICS",
+    false
+  ],
+  "HS50011": [
+    "BANKING THEORY AND PRACTICE",
+    false
+  ],
+  "HS50012": [
+    "ENERGY ECONOMICS",
+    false
+  ],
+  "HS50014": [
+    "AUCTIONS AND NEGOTIATIONS",
+    false
+  ],
+  "HS50015": [
+    "ECONOMICS OF INFORMATION",
+    false
+  ],
+  "HS50016": [
+    "FINANCIAL MODELLING",
+    false
+  ],
+  "HS50017": [
+    "EQUITY RESEARCH",
+    true
+  ],
+  "HS50018": [
+    "FIXED INCOME SECURITIES",
+    false
+  ],
+  "HS50019": [
+    "ECONOMIC MODELLING",
+    false
+  ],
+  "CH31009": [
+    "REACTION ENGINEERING",
+    false
+  ],
+  "CH31007": [
+    "MECHANICAL OPERATIONS",
+    false
+  ],
+  "CH31001": [
+    "MASS TRANSFER I",
+    false
+  ],
+  "MA60077": [
+    "COMPUTER PROGRAMMING",
+    false
+  ],
+  "BM60016": [
+    "ENTERPRISE RESOURCE PLANNING",
+    false
+  ],
+  "BM60018": [
+    "SUPPLY CHAIN MANAGEMENT",
+    false
+  ],
+  "IE30006": [
+    "DATA COMMUNICATION",
+    false
+  ],
+  "IE30004": [
+    "DATA COMMUNICATION NETWORKS",
+    false
+  ],
+  "IE30002": [
+    "INSTRUMENTATION DEVICES-II",
+    false
+  ],
+  "MT61132": [
+    "HIGH TEMPERATURE CORROSION",
+    false
+  ],
+  "MT61130": [
+    "HEAT TREATMENT TECHNOLOGY",
+    false
+  ],
+  "MT61136": [
+    "ADVANCED MATERIALS AND PROCESSES",
+    false
+  ],
+  "MT61138": [
+    "ADVANCES IRON AND STEEL MAKING",
+    false
+  ],
+  "BT31011": [
+    "ENVIRONMENTAL BIOTECHNOLOGY",
+    false
+  ],
+  "AG60166": [
+    "OFF-ROAD VEHICLE ENGINEERING",
+    false
+  ],
+  "AG60164": [
+    "FOOD PROCESS MODELLING",
+    false
+  ],
+  "AG60168": [
+    "PROCESSING OF HORTICULTURAL AND PLANTATION CROPS",
+    false
+  ],
+  "EE31002": [
+    "POWER SYSTEMS",
+    false
+  ],
+  "EE31009": [
+    "CONTROL SYSTEM ENGINEERING",
+    false
+  ],
+  "ME60403": [
+    "VIBRATION ANALYSIS",
+    false
+  ],
+  "ME60407": [
+    "FINITE ELEMENT METHODS IN ENGINEERING",
+    false
+  ],
+  "ME60404": [
+    "LUBRICATION AND ROTOR DYNAMICS",
+    false
+  ],
+  "PH41008": [
+    "MATHEMATICAL METHODS -II",
+    false
+  ],
+  "PH41009": [
+    "ORDER AND CHAOS",
+    false
+  ],
+  "ME60409": [
+    "FLUID DRIVES AND CONTROL",
+    false
+  ],
+  "ME60408": [
+    "MECHANICS OF COMPOSITES",
+    false
+  ],
+  "ME60228": [
+    "HEAT EXCHANGER DESIGN",
+    false
+  ],
+  "AG60096": [
+    "FOOD PLANT AND EQUIPMENT DESIGN",
+    false
+  ],
+  "ME60224": [
+    "CLEAN ROOM TECHNOLOGY\/INDOOR ENVIRONMENT",
+    false
+  ],
+  "EE49001": [
+    "CONTROL AND ELECTRONIC SYSTEM DESIGN",
+    false
+  ],
+  "EE49004": [
+    "POWER APPARATUS AND SYSTEM DESIGN",
+    false
+  ],
+  "MA71003": [
+    "GALOIS THEORY",
+    false
+  ],
+  "MA71002": [
+    "COMMUTATIVE ALGEBRA",
+    false
+  ],
+  "MI30013": [
+    "MINING MACHINERY",
+    false
+  ],
+  "ME60137": [
+    "MANUFACTURING RESOURCES PLANNING",
+    false
+  ],
+  "ME60136": [
+    "TWO PHASE FLOW",
+    false
+  ],
+  "ME60135": [
+    "MICRO ELECTRO MECHANICAL SYSTEMS (MEMS)",
+    false
+  ],
+  "ME60134": [
+    "NUMERICAL MODELLING OF MANUFACTURING PROCESSES",
+    false
+  ],
+  "ME60133": [
+    "RAPID PROTOTYPING",
+    false
+  ],
+  "ME60131": [
+    "FINITE AND BOUNDARY ELEMENT METHODS IN MANUFACTURING",
+    false
+  ],
+  "ME60130": [
+    "MANUFACTURING INFORMATION SYSTEMS",
+    false
+  ],
+  "ME60138": [
+    "CFD IN MANUFACTURING PROCESSES",
+    false
+  ],
+  "EX41001": [
+    "ELECTRICAL METHODS OF PROSPECTING",
+    false
+  ],
+  "EX41003": [
+    "SEISMIC METHODS OF PROSPECTING",
+    false
+  ],
+  "EX41002": [
+    "ELECTROMAGNETIC METHODS OF PROSPECTING",
+    false
+  ],
+  "EX41004": [
+    "NUCLEAR GEOPHYSICS",
+    false
+  ],
+  "MT61128": [
+    "PHASE TRANSFORMATIONS AND PHASE EQUILIBRIA",
+    false
+  ],
+  "PH60311": [
+    "GAMMA-RAY SPECTROSCOPY AND NUCLEAR STRUCTURE",
+    false
+  ],
+  "PH60310": [
+    "INTRODUCTION TO ASTRONOMY AND ASTROPHYSICS",
+    false
+  ],
+  "MT61129": [
+    "DIFFUSION IN METALLURGICAL PROCESSES",
+    false
+  ],
+  "AR51006": [
+    "FACILITY PLANNING AND SPECIALISED BUILDING DESIGN",
+    false
+  ],
+  "AR51004": [
+    "DISASTER RESISTANT BUILDING AND MANAGEMENT",
+    false
+  ],
+  "AR51005": [
+    "ADVANCED THEORY OF ARCH. AND RESEARCH METHODOLOGY",
+    false
+  ],
+  "AR51002": [
+    "APPROPRIATE BUILDING TECHNOLOGIES",
+    false
+  ],
+  "CY61042": [
+    "COLLOIDS AND DRUG DELIVERY",
+    false
+  ],
+  "AR51009": [
+    "TRADITIONAL ARCHITECTURE",
+    false
+  ],
+  "CY20105": [
+    "INORGANIC CHEMISTRY I",
+    false
+  ],
+  "MA40014": [
+    "OPTIMIZATION TECHNIQUES",
+    false
+  ],
+  "AG60203": [
+    "GEO-INFORMATICS FOR LAND AND WATER RESOURCES",
+    false
+  ],
+  "MA40013": [
+    "NON LINEAR PROGRAMMING",
+    false
+  ],
+  "AG60201": [
+    "SURFACE WATER HYDROLOGY",
+    false
+  ],
+  "MA40011": [
+    "FLUID MECHANICS",
+    false
+  ],
+  "CE58004": [
+    "SEMINAR",
+    false
+  ],
+  "CE58003": [
+    "SEMINAR",
+    false
+  ],
+  "HS40007": [
+    "ECONOMETRIC ANALYSIS-II",
+    false
+  ],
+  "GG52022": [
+    "GROUNDWATER GEOLOGY",
+    false
+  ],
+  "HS13001": [
+    "ENGLISH FOR COMMUNICATION",
+    false
+  ],
+  "MI60046": [
+    "QUALITY ASSURANCE",
+    false
+  ],
+  "MI60044": [
+    "GEOSPATIAL IMAGING AND GEOINFORMATICS",
+    false
+  ],
+  "AR52003": [
+    "PRINCIPLES OF TOWN PLANNING AND URBAN DESIGN",
+    false
+  ],
+  "AR52002": [
+    "PROFESSIONAL PRACTICE AND BUILDING BYELAWS",
+    false
+  ],
+  "MI60041": [
+    "RISK AND RELIABILITY ENGINEERING",
+    false
+  ],
+  "CY61044": [
+    "MOLECULAR SPECTROSCOPY AND MOLECULAR STRUCTURE",
+    false
+  ],
+  "ME60413": [
+    "CONTINUUM MECHANICS",
+    false
+  ],
+  "CE41603": [
+    "HAZARDOUS WASTE MANAGEMENT",
+    false
+  ],
+  "CE41601": [
+    "SOLID WASTE MANAGEMENT",
+    false
+  ],
+  "CS60026": [
+    "PARALLEL AND DISTRIBUTED ALGORITHMS",
+    false
+  ],
+  "AE40034": [
+    "ADVANCED COMPUTATIONAL FLUID DYNAMICS",
+    false
+  ],
+  "AE40035": [
+    "AIR TRANSPORT MANAGEMENT",
+    false
+  ],
+  "AE40036": [
+    "NON LINEAR VIBRATION IN AEROSPACE STRUCTURES",
+    false
+  ],
+  "AE40037": [
+    "PHYSICS OF FLUID FLOW EXPERIMENTS",
+    false
+  ],
+  "AE40030": [
+    "ADVANCED GAS TURBINE THEORY",
+    false
+  ],
+  "CE39006": [
+    "STRUCTURAL DETAILING",
+    false
+  ],
+  "CE39004": [
+    "DESIGN SESSIONAL",
+    false
+  ],
+  "MI40044": [
+    "ENGINEERING STATISTICS",
+    false
+  ],
+  "CE39008": [
+    "CIVIL ENGG. DRAWING AND EST.",
+    false
+  ],
+  "AE40038": [
+    "NONLINEAR FINITE ELEMENT METHOD",
+    false
+  ],
+  "CH62016": [
+    "CHEMICAL REACTOR ANALYSIS",
+    false
+  ],
+  "CH62015": [
+    "ADVANCED THERMODYNAMICS",
+    false
+  ],
+  "MI40042": [
+    "TUNNELING AND UNDERGROUND SPACE TECHNOLOGY",
+    false
+  ],
+  "HS50025": [
+    "INTERNATIONAL FINANCE",
+    false
+  ],
+  "HS50024": [
+    "ECONOMICS OF CLIMATE CHANGE",
+    false
+  ],
+  "MT32008": [
+    "IRON MAKING AND STEELMAKING",
+    false
+  ],
+  "HS50021": [
+    "APPLIED ECONOMETRICS",
+    false
+  ],
+  "HS50020": [
+    "ECONOMICS OF INSURANCE",
+    false
+  ],
+  "HS50023": [
+    "ECONOMICS OF CPR MANAGEMENT",
+    false
+  ],
+  "HS50022": [
+    "ENVIRONMENTAL ACCOUNTING",
+    false
+  ],
+  "MM61509": [
+    "MEMS AND BIOSENSORS",
+    false
+  ],
+  "ME40506": [
+    "ENGINEERING METROLOGY",
+    false
+  ],
+  "MM61502": [
+    "BIOMEDICAL INSTRUMENTATION",
+    false
+  ],
+  "CE60028": [
+    "INDUSTRIAL WATER POLLUTION CONTROL",
+    false
+  ],
+  "CE60023": [
+    "WASTEWATER MANAGEMENT",
+    false
+  ],
+  "CE60022": [
+    "AIR QUALITY MANAGEMENT",
+    false
+  ],
+  "CE60021": [
+    "WATER SUPPLY SYSTEMS",
+    false
+  ],
+  "CH39022": [
+    "PROCESS EQUIPMENT DESIGN-II",
+    false
+  ],
+  "CH39023": [
+    "PROCESS EQUIPMENT DESIGN-I",
+    false
+  ],
+  "GG30002": [
+    "STRATIGRAPHY",
+    false
+  ],
+  "CE60119": [
+    "ROCK MECHANICS AND TUNNELLING",
+    false
+  ],
+  "CE60118": [
+    "ENVIRONMENTAL STATISTICS AND EXPERIMENTAL DESIGN",
+    false
+  ],
+  "CE60117": [
+    "THEORETICAL GEOMECHANICS",
+    false
+  ],
+  "CE60115": [
+    "GEOMETRIC DESIGN OF TRANSPORTATION FACILITIES",
+    false
+  ],
+  "CE60114": [
+    "STRUCTURAL HEALTH MONITORING AND CONTROL",
+    false
+  ],
+  "CE60113": [
+    "GEOHYDRAULICS",
+    false
+  ],
+  "CE60112": [
+    "RISK AND RELIABILITY ANALYSIS OF CIVIL INFRASTRUCTURE SYSTEMS",
+    false
+  ],
+  "CE60111": [
+    "VISCOUS FLUID FLOW",
+    false
+  ],
+  "MT61123": [
+    "DIFFRACTION TECHNIQUES IN MATERIALS ENGINEERING",
+    false
+  ],
+  "MT61124": [
+    "MODELLING AND SIMULATION IN METALLURGICAL PROCESSE",
+    false
+  ],
+  "ME60309": [
+    "MATHEMATICAL METHODS IN THERMAL ENGINEERING",
+    false
+  ],
+  "MT61126": [
+    "FRACTURE MECHANICS AND ANALYSIS OF ENGINEERING FAILURES",
+    false
+  ],
+  "ME60304": [
+    "PRODUCT DEVELOPMENT AND CIM",
+    false
+  ],
+  "ME60305": [
+    "CAD FOR MANUFACTURING",
+    false
+  ],
+  "ME60306": [
+    "PRECISION AND MICRO MANUFACTURING",
+    false
+  ],
+  "CS60008": [
+    "INTERNET ARCHITECTURE AND PROTOCOLS",
+    false
+  ],
+  "ME60300": [
+    "INTRODUCTION TO HUMAN BODY MECHANICS",
+    false
+  ],
+  "ME60302": [
+    "LASER PROCESSING OF MATERIALS",
+    false
+  ],
+  "CE41629": [
+    "THEORY OF ELASTICITY AND PLASTICITY",
+    false
+  ],
+  "MS41004": [
+    "POLYMER TECHNOLOGY",
+    false
+  ],
+  "BT61027": [
+    "BIOSEPARATION",
+    false
+  ],
+  "MS41006": [
+    "BIOMATERIALS",
+    false
+  ],
+  "EE31011": [
+    "POWER ELECTRONICS",
+    false
+  ],
+  "HS30088": [
+    "SERVICE SECTOR ECONOMICS",
+    false
+  ],
+  "HS30085": [
+    "INDIAN ECONOMY",
+    false
+  ],
+  "HS30084": [
+    "ECONOMIC PSYCHOLOGY",
+    false
+  ],
+  "HS30087": [
+    "ECONOMICS OF GROWTH",
+    false
+  ],
+  "HS30086": [
+    "ECONOMICS OF INFORMAL SECTOR",
+    false
+  ],
+  "PH31007": [
+    "CLASSICAL MECHANICS-II",
+    false
+  ],
+  "ME60412": [
+    "TRIBOLOGY",
+    false
+  ],
+  "AE51008": [
+    "ADVANCED PROPULSION SYSTEM",
+    false
+  ],
+  "PH31003": [
+    "ELECTRODYNAMICS-II",
+    false
+  ],
+  "ME60416": [
+    "MECHANISMS AND ROBOT KINEMATICS",
+    false
+  ],
+  "ME60417": [
+    "VIBRATION CONTROL AND ISOLATION",
+    false
+  ],
+  "AE51003": [
+    "APPLIED ELASTICITY AND PLASTICITY",
+    false
+  ],
+  "ME60419": [
+    "MODELING AND SIMULATION OF DYNAMIC SYSTEMS",
+    false
+  ],
+  "ME40502": [
+    "EXPERIMENTAL STRESS ANALYSIS",
+    false
+  ],
+  "AE51007": [
+    "COMBUSTION PROCESSES IN JET ENGINES",
+    true
+  ],
+  "PH31009": [
+    "ELECTRONICS FOR PHYSICISTS",
+    false
+  ],
+  "AE51004": [
+    "AIRCRAFT FUEL SYSTEM",
+    false
+  ],
+  "ME60230": [
+    "SOLAR ENERGY TECHNOLOGY",
+    false
+  ],
+  "ME60232": [
+    "THEORY OF COMBUSTION AND EMISSIONS",
+    false
+  ],
+  "ME60234": [
+    "ENERGY CONSERVATION AND WASTE HEAT RECOVERY",
+    false
+  ],
+  "ME60236": [
+    "TURBULENT FLOWS",
+    false
+  ],
+  "EX38002": [
+    "FIELD WORK",
+    false
+  ],
+  "EC60501": [
+    "DIGITAL IMAGE PROCESSING",
+    false
+  ],
+  "EC60502": [
+    "PATTERN RECOGNITION AND IMAGE UNDERSTANDING",
+    false
+  ],
+  "EC60503": [
+    "EMBEDDED SYSTEMS DESIGN",
+    false
+  ],
+  "EC60504": [
+    "COMPUTER COMMUNICATION AND NETWORKING",
+    false
+  ],
+  "IM60049": [
+    "TECHNOLOGY FORECASTING AND ASSESSMENT",
+    false
+  ],
+  "IM60047": [
+    "STRATEGIC MANAGEMENT",
+    false
+  ],
+  "IM60045": [
+    "ENGINEERING SYSTEMS SAFETY DESIGN AND CONTROL",
+    false
+  ],
+  "IM60043": [
+    "FINANCIAL MANAGEMENT AND ACCOUNTING",
+    false
+  ],
+  "IM60042": [
+    "SOFTWARE ENGINEERING AND MANAGEMENT",
+    false
+  ],
+  "IM60041": [
+    "TECHNOLOGY MANAGEMENT",
+    false
+  ],
+  "ME60125": [
+    "THERMAL SYSTEMS DESIGN",
+    false
+  ],
+  "CY31007": [
+    "INORGANIC CHEMISTRY III",
+    false
+  ],
+  "CY31003": [
+    "ORGANIC CHEMISTRY III",
+    false
+  ],
+  "HS50001": [
+    "ADVANCED ECONOMIC THEORY",
+    false
+  ],
+  "PH60302": [
+    "NEUTRINO PHYSICS",
+    false
+  ],
+  "PH60303": [
+    "INTRODUCTION TO QUANTUM FIELD THEORY I",
+    false
+  ],
+  "PH60301": [
+    "NUCLEAR MANY BODY PHYSICS",
+    false
+  ],
+  "PH60306": [
+    "NUCLEAR TECHNIQUES FOR MATERIAL STUDIES",
+    false
+  ],
+  "PH60307": [
+    "PHYSICAL COSMOLOGY",
+    false
+  ],
+  "PH60304": [
+    "INTRODUCTION TO QUANTUM FIELD THEORY II",
+    false
+  ],
+  "PH60305": [
+    "PRINCIPLES OF RADIATION DETECTION AND MEASUREMENTS",
+    false
+  ],
+  "PH60308": [
+    "GENERAL THEORY OF RELATIVITY",
+    false
+  ],
+  "PH60309": [
+    "ADVANCED TOPICS IN FIELD THEORY AND GRAVITATION",
+    false
+  ],
+  "IE40005": [
+    "ADVANCED SENSING TECHNIQUES",
+    false
+  ],
+  "AG31003": [
+    "LAND AND WATER RESOURCES ENGINEERING",
+    false
+  ],
+  "AG31002": [
+    "TRACTOR AND POWER SYSTEMS",
+    false
+  ],
+  "AG31001": [
+    "AGRICULTURAL MACHINERY",
+    false
+  ],
+  "AG31007": [
+    "THEORY AND DESIGN OF MACHINE ELEMENTS",
+    false
+  ],
+  "AG31006": [
+    "FOOD SCIENCE AND TECHNOLOGY",
+    false
+  ],
+  "AG31005": [
+    "PRINCIPLES OF FOOD ENGINEERING",
+    false
+  ],
+  "AG31004": [
+    "IRRIGATION AND DRAINAGE ENGINEERING",
+    false
+  ],
+  "AG31008": [
+    "POST HARVEST ENGINEERING",
+    false
+  ],
+  "MF41601": [
+    "SOFT COMPUTING",
+    false
+  ],
+  "CE60146": [
+    "ENVIRONMENTAL SANITATION",
+    false
+  ],
+  "HS51001": [
+    "FIXED INCOME SECURITIES AND INTEREST RATE DERIVATIVES",
+    false
+  ],
+  "HS51002": [
+    "FINANCIAL ECONOMETRICS",
+    false
+  ],
+  "EX50017": [
+    "GEOPHYSICAL INVERSE THEORY",
+    false
+  ],
+  "PH60402": [
+    "BIOPHYSICS",
+    false
+  ],
+  "ME31007": [
+    "CASTING, FORMING AND WELDING",
+    false
+  ],
+  "CH31011": [
+    "INSTRUMENTATION AND PROCESS CONTROL",
+    false
+  ],
+  "CH31010": [
+    "MASS TRANSFER II",
+    false
+  ],
+  "MI60056": [
+    "RESEVOIR ENGINEERING FUNDAMENTALS",
+    false
+  ],
+  "AR52010": [
+    "ARCHITECTURAL CONSERVATION",
+    false
+  ],
+  "AR52012": [
+    "BUILDING AUTOMATION AND MANAGEMENT SYSTEMS",
+    false
+  ],
+  "AR40023": [
+    "BUILDING ACOUSTICS",
+    false
+  ],
+  "MI60058": [
+    "FIRE SAFETY ENGINEERING",
+    false
+  ],
+  "MA20106": [
+    "PROBABILITY AND STOCHASTIC PROCESSES",
+    true
+  ],
+  "MA20107": [
+    "MATRIX ALGEBRA",
+    false
+  ],
+  "MA20104": [
+    "PROBABILITY AND STATISTICS",
+    false
+  ],
+  "MA20105": [
+    "LINEAR ALGEBRA",
+    false
+  ],
+  "MA20102": [
+    "NUMERICAL SOLUTION OF ORDINARY AND PDE",
+    false
+  ],
+  "MA20103": [
+    "PARTIAL DIFFERENTIAL EQUATIONS",
+    false
+  ],
+  "MA20101": [
+    "TRANSFORM CALCULUS",
+    false
+  ],
+  "GG38002": [
+    "FIELD WORK (3 WEEKS)",
+    false
+  ],
+  "CS60036": [
+    "INTELLIGENT SYSTEMS",
+    false
+  ],
+  "CS60035": [
+    "SELECTED TOPIC IN ALGORITHMS",
+    false
+  ],
+  "CS60032": [
+    "DATABASE ENGINEERING",
+    false
+  ],
+  "CS60030": [
+    "FORMAL SYSTEMS",
+    false
+  ],
+  "ME41001": [
+    "APPLIED THERMO-FLUIDS I",
+    true
+  ],
+  "ME41005": [
+    "COMPUTER INTEGRATED DESIGN AND MANUFACTURING",
+    false
+  ],
+  "AR23205": [
+    "PHOTOGRAPHY, ART AND ADVANCED VISUAL COMMUNICATION",
+    false
+  ],
+  "AR23204": [
+    "BUILDING CONSTRUCTION II",
+    false
+  ],
+  "AR23206": [
+    "COMPUTER AIDED DESIGN AND SIMULATION",
+    false
+  ],
+  "AR23201": [
+    "ARCHITECTURAL DESIGN I AND FIELD STUDY",
+    false
+  ],
+  "AR23203": [
+    "BUILDING CONSTRUCTION - I",
+    false
+  ],
+  "AR23202": [
+    "ARCHITECTURAL DESIGN II AND FIELD STUDY",
+    false
+  ],
+  "CE60135": [
+    "SOLID WASTE MANAGEMENT",
+    false
+  ],
+  "CH62008": [
+    "NOVEL SEPARATION PROCESSES",
+    false
+  ],
+  "CH62009": [
+    "PETROLEUM REFINERY ENGINEERING",
+    false
+  ],
+  "CY61048": [
+    "CHEMISTRY OF NUCLEOSIDES AND NUCLEOTIDES",
+    false
+  ],
+  "AE40005": [
+    "SPACE DYNAMICS",
+    false
+  ],
+  "AE40004": [
+    "ADVANCED STRUCTURAL DYNAMICS",
+    false
+  ],
+  "CE41019": [
+    "ROAD SAFETY AND MANAGEMENT",
+    false
+  ],
+  "AE40006": [
+    "COMPOSITE STRUCTURES",
+    false
+  ],
+  "CE41017": [
+    "WATERSHED MANAGEMENT",
+    false
+  ],
+  "CH62001": [
+    "OPTIMIZATION TECHNIQUES IN PROCESS DESIGN",
+    false
+  ],
+  "CE41015": [
+    "TRANSIENTS IN PIPES AND OPEN CHANNELS",
+    false
+  ],
+  "CH62003": [
+    "PROCESS MODELLING AND SIMULATION",
+    false
+  ],
+  "CY61046": [
+    "PHYSICAL METHODS IN INORGANIC CHEMISTRY",
+    false
+  ],
+  "CE41011": [
+    "FLOWS IN BOUNDARY LAYER",
+    false
+  ],
+  "CH62007": [
+    "INDUSTRIAL POLLUTION CONTROL",
+    false
+  ],
+  "ME20001": [
+    "DYNAMICS",
+    false
+  ],
+  "HS50030": [
+    "GENERAL EQUILIBRIUM AND WELFARE ECONOMICS",
+    false
+  ],
+  "HS50034": [
+    "ENVIRONMENTAL POLICY",
+    false
+  ],
+  "EX20001": [
+    "PHYSICS OF SOLID EARTH",
+    false
+  ],
+  "MM61511": [
+    "BIOSTAISTICS",
+    false
+  ],
+  "IT60121": [
+    "MATHEMATICAL FOUNDATIONS FOR SIGNAL AND IMAGE PROCESSING",
+    false
+  ],
+  "AG20101": [
+    "CROP PRODUCTION TECHNOLOGY",
+    false
+  ],
+  "AG20103": [
+    "SOIL TECHNOLOGY",
+    false
+  ],
+  "BT51032": [
+    "NANO BIOTECHNOLOGY",
+    false
+  ],
+  "MA60017": [
+    "STATISTICAL METHODS",
+    false
+  ],
+  "CE60035": [
+    "MECHANICS OF SOILS",
+    false
+  ],
+  "CE60037": [
+    "STRENGTH AND DEFORMATION CHARACTERISTICS OF SOILS",
+    false
+  ],
+  "MA61019": [
+    "OPTIMIZATION TECHNIQUES",
+    false
+  ],
+  "CE60136": [
+    "HIGHWAY CONSTRUCTION PRACTICE",
+    false
+  ],
+  "MA61010": [
+    "COMPUTER NETWORKS",
+    false
+  ],
+  "CS31005": [
+    "ALGORITHMS -II",
+    false
+  ],
+  "CS31007": [
+    "COMPUTER ORGANIZATION AND ARCHITECTURE",
+    false
+  ],
+  "CS31006": [
+    "COMPUTER NETWORKS",
+    false
+  ],
+  "CS31003": [
+    "COMPILERS",
+    false
+  ],
+  "CE60105": [
+    "FRACTURE MECHANICS",
+    false
+  ],
+  "CE60107": [
+    "COMPOSITE STRUCTURES",
+    false
+  ],
+  "CE60101": [
+    "DESIGN OF PRESTRESSED CONCRETE STRUCTURES",
+    false
+  ],
+  "CE60103": [
+    "MONTE CARLO SIMULATIONS IN ENGINEERING",
+    false
+  ],
+  "AE31103": [
+    "HIGH SPEED AERODYNAMICS",
+    false
+  ],
+  "AG60180": [
+    "INSTRUMENTATION AND CONTROL IN AGRICULTURAL AND FOOD ENGINEERING",
+    false
+  ],
+  "MA41031": [
+    "STOCHASTIC PROCESSES IN FINANCE",
+    false
+  ],
+  "HS30099": [
+    "RESOURCE ECONOMICS AND SUSTAINABILITY",
+    false
+  ],
+  "HS30092": [
+    "DEMOGRAPHY",
+    false
+  ],
+  "HS30090": [
+    "AGRICULTURAL ECONOMICS",
+    false
+  ],
+  "HS30096": [
+    "MARKET MICRO STRUCTURE",
+    false
+  ],
+  "HS30097": [
+    "FINANCIAL INSTITUTIONS AND MARKETS",
+    false
+  ],
+  "HS30094": [
+    "ECONOMICS OF RURAL DEVELOPMENT",
+    false
+  ],
+  "GG41007": [
+    "ADVANCED STRUCTURAL GEOLOGY",
+    false
+  ],
+  "AE51018": [
+    "INDUSTRIAL AERODYNAMICS",
+    false
+  ],
+  "AE51019": [
+    "SMART STRUCTURES",
+    false
+  ],
+  "MA31005": [
+    "REAL ANALYSIS",
+    false
+  ],
+  "PH31011": [
+    "QUANTUM MECHANICS I",
+    false
+  ],
+  "MA31007": [
+    "MATHEMATICAL METHODS",
+    false
+  ],
+  "PH31013": [
+    "MATHEMATICAL METHODS I",
+    false
+  ],
+  "MA31009": [
+    "COMPUTER ORGANISATION AND ARCHITECTURE",
+    false
+  ],
+  "ME60424": [
+    "NON-LINEAR VIBRATIONS",
+    false
+  ],
+  "AE51012": [
+    "PLATES AND SHELLS",
+    false
+  ],
+  "ME60426": [
+    "MECHATRONICS",
+    false
+  ],
+  "AE51014": [
+    "VIBRATION INSTRUMENTATION AND CONTROL",
+    false
+  ],
+  "AE51016": [
+    "FRACTURE MECHANICS",
+    false
+  ],
+  "ME60422": [
+    "ACOUSTICS AND NOISE CONTROL",
+    false
+  ],
+  "ME60206": [
+    "ADVANCED ENGINEERING THERMODYNAMICS",
+    false
+  ],
+  "HS30079": [
+    "PUBLIC FINANCE AND POLICY",
+    false
+  ],
+  "CR60013": [
+    "VACUUM TECHNIQUES",
+    false
+  ],
+  "ME40406": [
+    "TURBO-MACHINERY",
+    false
+  ],
+  "EX28002": [
+    "FIELD WORK",
+    false
+  ],
+  "IM31014": [
+    "DESIGN FOR ASSEMBLY AND AUTOMATION",
+    false
+  ],
+  "IM60059": [
+    "FINANCIAL ENGINEERING",
+    false
+  ],
+  "IM60054": [
+    "E-BUSINESS",
+    false
+  ],
+  "IM60055": [
+    "APPLIED MULTIVARIATE STATISTICAL MODELING - I",
+    false
+  ],
+  "IM60056": [
+    "APPLIED MULTIVARIATE STATISTICAL MODELING - II",
+    false
+  ],
+  "IM60057": [
+    "TOTAL QUALITY MANAGEMENT",
+    false
+  ],
+  "IM60050": [
+    "APPLIED MULTIVARIATE MODELLING IN ENGG. AND BUSINESS",
+    false
+  ],
+  "IM60052": [
+    "LOGISTICS AND SUPPLY CHAIN MANAGEMENT",
+    false
+  ],
+  "PH60204": [
+    "PHYSICS AND TECHNOLOGY OF LASERS",
+    false
+  ],
+  "ME60111": [
+    "INTERNAL COMBUSTION ENGINE",
+    false
+  ],
+  "ME60110": [
+    "MECHANICAL DRIVES",
+    false
+  ],
+  "ME60113": [
+    "STEAM ENGINEERING",
+    false
+  ],
+  "EE60012": [
+    "OPTIMAL CONTROL",
+    false
+  ],
+  "ME60118": [
+    "COMPUTER GRAPHICS AND VISUALIZATION",
+    false
+  ],
+  "EE60013": [
+    "ESTIMATION OF SIGNALS AND SYSTEMS",
+    false
+  ],
+  "CY31010": [
+    "STRATEGIES AND METHODS IN ORGANIC SYNTHESIS",
+    false
+  ],
+  "EC60402": [
+    "INTEGRATED OPTICS",
+    false
+  ],
+  "BM49002": [
+    "FINANCIAL ANALYTICS",
+    false
+  ],
+  "EP60010": [
+    "FINANCING NEW VENTURE",
+    true
+  ],
+  "MF41612": [
+    "QUANTITY PRODUCTION METHODS",
+    false
+  ],
+  "MF41610": [
+    "NON-DESTRUCTIVE EVALUATION AND IMAGING",
+    false
+  ],
+  "MI21007": [
+    "ELEMENTS OF ROCK MECHANICS",
+    false
+  ],
+  "MI21002": [
+    "MINE SURVEYING",
+    false
+  ],
+  "MF41608": [
+    "WELDING TECHNOLOGY",
+    false
+  ],
+  "RT30019": [
+    "SCI AND TECH. RUBBER AND RUBBER LIKE MATERIALS",
+    false
+  ],
+  "CS40023": [
+    "ADVANCED COMPUTER ARCHITECTURE",
+    false
+  ],
+  "CS40021": [
+    "APPLIED GRAPH THEORY",
+    false
+  ],
+  "MT61145": [
+    "ADVANCED MECHANICAL BEHAVIOUR OF MATERIALS",
+    false
+  ],
+  "CS40027": [
+    "ARTIFICIAL INTELLIGENCE",
+    false
+  ],
+  "CS40026": [
+    "COMPUTATIONAL GEOMETRY",
+    false
+  ],
+  "CS40025": [
+    "VLSI SYSTEM DESIGN",
+    false
+  ],
+  "CS40024": [
+    "INTERNET TECHNOLOGY",
+    false
+  ],
+  "MF41606": [
+    "TECHNOLOGY OF SURFACE COATING",
+    false
+  ],
+  "IE40014": [
+    "OPTO-ELECTRONICS",
+    false
+  ],
+  "IE40015": [
+    "BIOMEDICAL INSTRUMENTATION",
+    false
+  ],
+  "IE40012": [
+    "ANALYTICAL INSTRUMENTATION",
+    false
+  ],
+  "IE40011": [
+    "INTELLIGENT CONTROL",
+    false
+  ],
+  "ME31013": [
+    "MECHANICS OF SOLIDS",
+    false
+  ],
+  "MA41105": [
+    "INFORMATION AND CODING THEORY",
+    false
+  ],
+  "CS60042": [
+    "ADVANCES IN COMPILER CONSTRUCTION",
+    false
+  ],
+  "CS60047": [
+    "ADVANCED GRAPH THEORY",
+    false
+  ],
+  "CS60046": [
+    "REAL TIME SYSTEMS",
+    false
+  ],
+  "CS60045": [
+    "ARTIFICIAL INTELLIGENCE",
+    false
+  ],
+  "EX31006": [
+    "GRAVITY AND MAGNETIC METHODS OF PROSPECTING",
+    false
+  ],
+  "MA41101": [
+    "THEORY OF COMPILER DESIGN",
+    false
+  ],
+  "ME29701": [
+    "WORKSHOP PROCESS-II",
+    false
+  ],
+  "AE40018": [
+    "INTRODUCTION TO TURBULENCE",
+    false
+  ],
+  "AE40019": [
+    "AUTOMATIC CONTROL OF AIRCRAFT",
+    false
+  ],
+  "AE40017": [
+    "STABILITY OF FLOWS",
+    false
+  ],
+  "AE40015": [
+    "ADVANCED FLIGHT MECHANICS",
+    false
+  ],
+  "AE40010": [
+    "INTRODUCTION TO AVIONICS",
+    false
+  ],
+  "AE40011": [
+    "ADVANCED AEROSPACE STRUCTURES",
+    false
+  ],
+  "BT41022": [
+    "NEUROPHYSIOLOGY",
+    true
+  ],
+  "GG21105": [
+    "MINERALOGY",
+    false
+  ],
+  "GG21109": [
+    "ENGINEERING AND ECONOMIC GEOLOGY",
+    false
+  ],
+  "BM60022": [
+    "INTERNATIONAL ECONOMICS",
+    false
+  ],
+  "BM60023": [
+    "FINANCIAL INSTITUTIONS AND MARKETS",
+    false
+  ],
+  "MA60021": [
+    "FUZZY SETS AND APPLICATIONS",
+    false
+  ],
+  "EC31006": [
+    "MICROCONTROLLER AND EMBEDDED SYSTEMS",
+    false
+  ],
+  "MA61008": [
+    "ARTIFICIAL INTELLIGENCE",
+    false
+  ],
+  "MA61009": [
+    "COMPUTER GRAPHICS",
+    false
+  ],
+  "EX51003": [
+    "REMOTE SENSING",
+    false
+  ],
+  "MA61004": [
+    "SOFTWARE ENGINEERING",
+    false
+  ],
+  "MA61006": [
+    "PATTERN RECOGNITION AND SCENE ANALYSIS",
+    false
+  ],
+  "MA61007": [
+    "DATA WAREHOUSING AND DATA MINING",
+    false
+  ],
+  "CE60139": [
+    "SHELL STRUCTURES",
+    false
+  ],
+  "CE60138": [
+    "MASS TRANSPORTATION SYSTEMS",
+    false
+  ],
+  "CH62033": [
+    "GREEN TECHNOLOGY",
+    false
+  ],
+  "CE60131": [
+    "ENVIRONMENTAL CHEMISTRY AND MICROBIOLOGY",
+    false
+  ],
+  "ME41616": [
+    "MICRO-SCALE FLUID FLOW AND HEAT TRANSFER",
+    false
+  ],
+  "CE60133": [
+    "ENVIRONMENTAL LAWS, REGULATION AND POLICY",
+    false
+  ],
+  "CE60132": [
+    "PAVEMENT EVALUATION, REHABILITATION AND MAINTENANCE",
+    false
+  ],
+  "ME41613": [
+    "DESIGN OPTIMISATION",
+    false
+  ],
+  "CE60134": [
+    "ANALYSIS AND EVALUATION OF TRANSPORTATION SYSTEMS",
+    false
+  ],
+  "ME41611": [
+    "MECHANICAL HANDLING SYSTEMS AND EQUIPMENTS",
+    false
+  ],
+  "ME41610": [
+    "AUTOMOBILE ENGINEERING",
+    false
+  ],
+  "BM60112": [
+    "CORPORATE FINANCE AND FINANCIAL ACCOUNTING",
+    false
+  ],
+  "CH62035": [
+    "TRANSPORT PROCESSES IN PHYSIOLOGICAL SYSTEMS",
+    false
+  ],
+  "MM60015": [
+    "MOLECULAR BASIS OF DISEASE",
+    false
+  ],
+  "PH41014": [
+    "CONDENSED MATTER PHYSICS-I",
+    false
+  ],
+  "MM60012": [
+    "SIMULATION OF BIOMEDICAL SYSTEMS",
+    false
+  ],
+  "MA41024": [
+    "INFORMATION AND CODING THEORY",
+    false
+  ],
+  "CE13001": [
+    "ENGINEERING DRAWING AND COMPUTER GRAPHICS",
+    false
+  ],
+  "AE51026": [
+    "HYPERSONIC AERODYNAMICS",
+    true
+  ],
+  "AE51021": [
+    "NEURO-FUZZY CONTROL",
+    false
+  ],
+  "AE51020": [
+    "WIND TUNNEL DESIGN AND TESTING",
+    false
+  ],
+  "CE60005": [
+    "APPLIED HYDROLOGY",
+    false
+  ],
+  "EC60295": [
+    "MEMS AND APPLICATIONS",
+    false
+  ],
+  "CE60006": [
+    "HYDRAULICS OF SEDIMENT TRANSPORT",
+    false
+  ],
+  "CE60001": [
+    "FREE SURFACE FLOW",
+    false
+  ],
+  "CE60002": [
+    "ADVANCED COMPUTATIONAL HYDRAULICS",
+    false
+  ],
+  "ME60432": [
+    "MICRO MECHANICS AND NANOMECHANICS",
+    false
+  ],
+  "ME60430": [
+    "MECHANICS OF HUMAN BODY",
+    false
+  ],
+  "ME60434": [
+    "FRACTURE MECHANICS",
+    false
+  ],
+  "MA31011": [
+    "OBJECT ORIENTED SYSTEMS DESIGN",
+    false
+  ],
+  "ME60211": [
+    "ENERGY PLANNING AND MANAGEMENT",
+    false
+  ],
+  "ME60216": [
+    "STATISTICAL AND IRREVERISIBLE THERMODYNAMICS",
+    false
+  ],
+  "ME60214": [
+    "ENERGY CONSERVATION AND WASTE HEAT RECOVERY",
+    false
+  ],
+  "ME60215": [
+    "THEORY OF ABRASIVE MACHINING",
+    false
+  ],
+  "AE31001": [
+    "THERMODYNAMICS AND AEROSPACE PROP.SYSTEM",
+    false
+  ],
+  "AE31002": [
+    "AEROSPACE STRUCTURAL DYNAMICS",
+    false
+  ],
+  "AE31004": [
+    "AIRCRAFT STABILITY AND CONTROL",
+    false
+  ],
+  "AE31007": [
+    "MECHANICS OF FLIGHT",
+    false
+  ],
+  "AE31006": [
+    "COMPUTER APPLICATION IN AERO. ENGINEERING",
+    false
+  ],
+  "AE31009": [
+    "AEROSPACE STRUCTURAL ANALYSIS",
+    false
+  ],
+  "AE31008": [
+    "THEORY OF JET PROPULSION",
+    false
+  ],
+  "ME60323": [
+    "LASER ENGINEERING",
+    false
+  ],
+  "IM60061": [
+    "APPLIED MULTIVARIATE STATISTICAL MODELING - I",
+    false
+  ],
+  "IM60063": [
+    "ENTERPRISE RESOURCE PLANNING",
+    false
+  ],
+  "IM60062": [
+    "SIX SIGMA FUNDAMENTALS AND APPLICATIONS",
+    false
+  ],
+  "IM60064": [
+    "NEGOTIATION ANALYSIS",
+    false
+  ],
+  "IM60066": [
+    "MANAGEMENT INFORMATION SYSTEM",
+    false
+  ],
+  "ME60106": [
+    "MANUFACTURE OF PLASTIC PRODUCTS",
+    false
+  ],
+  "ME60105": [
+    "ATMOSPHERIC FLOW",
+    false
+  ],
+  "ME60102": [
+    "FLUID DRIVES AND CONTROL",
+    false
+  ],
+  "ME60103": [
+    "MACHINERY FAULT DIAGNOSTICS AND SIGNAL PROCESSING",
+    false
+  ],
+  "ME60101": [
+    "NON-CONVENTIONAL SOURCES OF ENERGY",
+    false
+  ],
+  "MT60134": [
+    "BIOMATERIALS",
+    false
+  ],
+  "EP60008": [
+    "ECONOMICS OF ENTREPRENEURSHIP",
+    true
+  ],
+  "EP60004": [
+    "MANUFACTURING MANAGEMENT",
+    false
+  ],
+  "EP60005": [
+    "FINANCIAL AND LEGAL ASPECTS OF BUSINESS",
+    false
+  ],
+  "EP60006": [
+    "MANAGEMENT OF GROWTH VENTURES",
+    false
+  ],
+  "EP60007": [
+    "TECHNO-ENTREPRENEURIAL LEADERSHIP",
+    false
+  ],
+  "EP60002": [
+    "MARKETING AND MARKET RESEARCH",
+    false
+  ],
+  "PH11001": [
+    "PHYSICS",
+    false
+  ],
+  "IP60034": [
+    "PETROLEUM AND OCEAN LAW",
+    false
+  ],
+  "AG31028": [
+    "CONTAMINANT HYDROLOGY",
+    false
+  ],
+  "AG31024": [
+    "ELECTRONIC APPLICATION IN AGRICULTURE",
+    false
+  ],
+  "AG31026": [
+    "ORGANIC FOOD CHAIN MANAGEMENT",
+    false
+  ],
+  "AG31022": [
+    "PRECISION AGRICULTURE",
+    false
+  ],
+  "AG41004": [
+    "MANUFACTURE AND TESTING OF AGRICULTURAL MACHINERY",
+    false
+  ],
+  "CS40030": [
+    "MULTIMEDIA APPLICATIONS",
+    false
+  ],
+  "CS40032": [
+    "PRINCIPLES OF PROGRAMMING LANGUAGES",
+    false
+  ],
+  "AE60002": [
+    "PRINCIPLES OF SATELLITE AND INERTIAL NAVIGATION SYSTEMS",
+    false
+  ],
+  "MA21007": [
+    "DESIGN AND ANALYSIS OF ALGORITHMS",
+    false
+  ],
+  "ME21010": [
+    "GEOMETRIC MODELLING FOR DESIGN AND MANUFACTURE",
+    false
+  ],
+  "ME30005": [
+    "HEAT TRANSFER",
+    false
+  ],
+  "TE61004": [
+    "TELECOMMUNICATIONS NETWORK PLANNING AND MANAGEMENT",
+    false
+  ],
+  "TE61001": [
+    "TELECOMMUNICATION NETWORKS AND OPTIMIZATIONS",
+    false
+  ],
+  "TE61003": [
+    "COMMUNICATIONS SIGNAL PROCESSING AND ALGORITHMS",
+    false
+  ],
+  "TE61002": [
+    "MIMO COMMUNICATIONS",
+    false
+  ],
+  "EE60066": [
+    "INDUSTRIAL APPLICATIONS OF HV ENGG.,",
+    false
+  ],
+  "AR43201": [
+    "ARCHITECTURAL DESIGN - V AND FIELD STUDY",
+    false
+  ],
+  "EE30024": [
+    "ILLUMINATION AND ELECTRICAL SERVICES",
+    false
+  ],
+  "CS60050": [
+    "MACHINE LEARNING",
+    false
+  ],
+  "CS60052": [
+    "ADVANCED DIGITAL IMAGE PROCESSING AND COMPUTER VISION",
+    false
+  ],
+  "CS60054": [
+    "LOW POWER CIRCUITS AND SYSTEMS",
+    false
+  ],
+  "CS60056": [
+    "INFORMATION TECHNOLOGY IN MEDICINE",
+    false
+  ],
+  "CS60057": [
+    "SPEECH AND NATURAL LANG. PROCESSING",
+    false
+  ],
+  "CS60058": [
+    "FAULT TOLERANT SYSTEMS",
+    false
+  ],
+  "CS60059": [
+    "OBJECT ORIENTED SYSTEMS",
+    false
+  ],
+  "CE29002": [
+    "SURVEYING PEACTICE",
+    false
+  ],
+  "MF30003": [
+    "ROBOTS AND COMPUTER CONTROLLED MACHINES",
+    false
+  ],
+  "MI67103": [
+    "SURFACE MINE DESIGN",
+    false
+  ],
+  "MS60030": [
+    "SOLAR ENERGY MATERIALS",
+    false
+  ],
+  "MS60032": [
+    "OPTOELECTRONIC MATERIALS AND DEVICES",
+    false
+  ],
+  "MS60034": [
+    "SEMICONDUCTOR SURFACES AND INTERFACES",
+    false
+  ],
+  "MA20012": [
+    "REAL ANALYSIS",
+    false
+  ],
+  "MA20013": [
+    "DISCRETE MATHEMATICS",
+    true
+  ],
+  "BT41014": [
+    "METABOLIC ENGINEERING",
+    false
+  ],
+  "BT41016": [
+    "FOOD BIOTECHNOLOGY",
+    false
+  ],
+  "BT41011": [
+    "TRANSPORT PHENOMENA IN BIOPROCESS",
+    false
+  ],
+  "BT41013": [
+    "BIOREACTOR ANALYSIS AND DESIGN",
+    false
+  ],
+  "BT41012": [
+    "DOWNSTREAM PROCESSING",
+    false
+  ],
+  "IT60103": [
+    "COMMUNICATION SYSTEMS AND NETWORKING",
+    false
+  ],
+  "IT60102": [
+    "INTERNET AND WEB-BASED TECHNOLOGIES",
+    false
+  ],
+  "IT60108": [
+    "SOFT COMPUTING APPLICATIONS",
+    false
+  ],
+  "MA60038": [
+    "ARTIFICIAL INTELLIGENCE",
+    false
+  ],
+  "MA60039": [
+    "SYMBOLIC COMPUTATION",
+    false
+  ],
+  "MA61032": [
+    "THEORY OF OPERATORS",
+    false
+  ],
+  "EE60102": [
+    "STATISTICAL SIGNAL PROCESSING",
+    false
+  ],
+  "EE60100": [
+    "MIXED SIGNAL CIRCUITS AND SYSTEMS ON CHIP",
+    false
+  ],
+  "EE60101": [
+    "ADVANCED SENSING TECHNIQUES",
+    false
+  ],
+  "CE60126": [
+    "INTEGRATED WATERSHED MANAGEMENT",
+    false
+  ],
+  "CE60127": [
+    "STRUCTURAL OPTIMISATION",
+    false
+  ],
+  "CE60124": [
+    "TURBULENT FLUID FLOW",
+    false
+  ],
+  "CE60125": [
+    "NUMERICAL METHODS IN STRUCTURAL ENGINEERING",
+    false
+  ],
+  "CE60122": [
+    "FLUID-STRUCTURE INTERACTION",
+    false
+  ],
+  "CE60123": [
+    "GROUND IMPROVEMENT",
+    false
+  ],
+  "CE60128": [
+    "HYDROPOWER ENGINEERING",
+    false
+  ],
+  "CE60129": [
+    "ENVIRONMENTAL HYDRAULICS",
+    false
+  ],
+  "CH62022": [
+    "REACTOR STABILITY AND CONTROL",
+    false
+  ],
+  "CH62023": [
+    "RESERVOIR ENGINEERING",
+    false
+  ],
+  "CH62020": [
+    "MINERAL BENEFICIATION",
+    false
+  ],
+  "CH62021": [
+    "MULTIPHASE FLOW",
+    false
+  ],
+  "CH62026": [
+    "FLUIDIZATION ENGINEERING",
+    false
+  ],
+  "CH62024": [
+    "COMPUTER PROCESS CONTROL",
+    false
+  ],
+  "ME41605": [
+    "SIMULATION OF MECHANICAL SYSTEMS",
+    false
+  ],
+  "ME41606": [
+    "FINITE ELEMENT METHODS IN ENGINEERING",
+    false
+  ],
+  "ME41601": [
+    "COMPUTER GRAPHICS AND SOLIDS MODELLING",
+    false
+  ],
+  "ME41603": [
+    "VIBRATION AND NOISE CONTROL",
+    false
+  ]
+}
