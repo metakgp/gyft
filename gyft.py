@@ -128,9 +128,10 @@ for day in timetable_dict.keys():
         if (not flattened_time == subject_timings[timetable_dict[day][time][0]][0]):
             del (timetable_dict[day][time])
         else:
-            print (timetable_dict[day][time], "\n","\n", subject_timings[timetable_dict[day][time][0]][1])
             timetable_dict[day][time][2] = subject_timings[timetable_dict[day][time][0]][1]
 
 
 with open('data.txt', 'w') as outfile:
     json.dump(timetable_dict, outfile, indent = 4, ensure_ascii=False)
+
+print ("Timetable saved to data.txt")
