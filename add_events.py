@@ -1,4 +1,4 @@
-
+## Adds your timetable from `data.txt` to Google Calendar.
 from __future__ import print_function
 import httplib2
 import os
@@ -76,13 +76,19 @@ def main():
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
+    # Get your timetable
     with open('data.txt') as data_file:    
         data = json.load(data_file)
+    # Get subjects code and their respective name
     with open('subjects.json') as data_file:    
         subjects = json.load(data_file)
     for day in data:
         startDate = next_weekday(now, days[day])
         for time in data[day]:
+            # parsing time from time_table dict
+            # currently we only parse the starting time
+            # the end time might be having error of 5 minutes
+            # ex. : A class ending at 17:55 might be shown ending at 18:00
             startHour = ""
             startMinute = ""
             startMeridiem = ""
@@ -105,10 +111,11 @@ def main():
             if (startHour != "12"):
                 replaceHour += int(startHour)
             event = {}
+            # Currently there are no labs in `subjects.json`
             if (data[day][time][0] in subjects.keys()):
                 event['summary'] = "Class of " + subjects[data[day][time][0]][0].title()
             else:
-                event['summary'] = "Class/Lab of " + data[day][time][0]
+                event['summary'] = "Lab of " + data[day][time][0]
             event['location'] = data[day][time][1]
             event['start'] = {}
             start_time = startDate.replace(hour = replaceHour, minute = int(startMinute))

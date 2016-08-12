@@ -1,10 +1,9 @@
 import requests
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-
 from bs4 import BeautifulSoup as bs
-import sys
 import re
+import json
 
 #### Parsing from commmand line
 import argparse
@@ -54,6 +53,7 @@ timetable_details = {
     'menu_id': '40',
 }
 
+# This is just a hack to get cookies. TODO: do the standard thing here
 abc = s.post('https://erp.iitkgp.ernet.in/Acad/student/view_stud_time_table.jsp', headers=headers, data=timetable_details)
 cookie_val = None
 for a in s.cookies:
@@ -99,7 +99,6 @@ for i in range(1, len(rows)):
             timetable_dict[days[i]][times[time]] = list((tds[a].find('b').text[:7],tds[a].find('b').text[7:], int(tds[a]._attr_value_as_string('colspan'))))
         time = time + int(tds[a]._attr_value_as_string('colspan'))
 
-import json
 
 def merge_slots(in_dict):
     for a in in_dict:
