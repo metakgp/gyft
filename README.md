@@ -5,6 +5,7 @@ Get Your Freaking Timetable
 ## About
 
 Gets your timetable from ERP and adds it to your **Google Calendar**.
+![instructions](https://cloud.githubusercontent.com/assets/9252491/17613570/7af6ae98-607c-11e6-8597-e720c3475c24.gif)
 
 ## How to use and flow of the program
 
