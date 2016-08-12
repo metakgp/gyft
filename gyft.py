@@ -96,9 +96,42 @@ for i in range(1, len(rows)):
     for a in range(1, len(tds)):
         txt = tds[a].find('b').text.strip()
         if (len(txt) >= 7):
-            timetable_dict[days[i]][times[time]] = (tds[a].find('b').text[:7],tds[a].find('b').text[7:], int(tds[a]._attr_value_as_string('colspan')))
+            timetable_dict[days[i]][times[time]] = list((tds[a].find('b').text[:7],tds[a].find('b').text[7:], int(tds[a]._attr_value_as_string('colspan'))))
         time = time + int(tds[a]._attr_value_as_string('colspan'))
 
 import json
+
+def merge_slots(in_dict):
+    for a in in_dict:
+        in_dict[a] = sorted(in_dict[a])
+        for i in range(len(in_dict[a]) - 1, 0, -1):
+            if (in_dict[a][i][0] == in_dict[a][i-1][0] + in_dict[a][i-1][1]):
+                in_dict[a][i-1][1] = in_dict[a][i][1] + in_dict[a][i-1][1]
+                in_dict[a].remove(in_dict[a][i])
+        in_dict[a] = in_dict[a][0]
+    return (in_dict)
+
+
+for day in timetable_dict.keys():
+    subject_timings = {}
+    for time in timetable_dict[day]:
+        flattened_time = int(time[:time.find(':')])
+        if (flattened_time < 6):
+            flattened_time += 12
+        if (not timetable_dict[day][time][0] in subject_timings.keys()):
+            subject_timings[timetable_dict[day][time][0]] = []
+        subject_timings[timetable_dict[day][time][0]].append([flattened_time, timetable_dict[day][time][2]])
+    subject_timings = merge_slots(subject_timings)
+    for time in list(timetable_dict[day].keys()):
+        flattened_time = int(time[:time.find(':')])
+        if (flattened_time < 6):
+            flattened_time += 12
+        if (not flattened_time == subject_timings[timetable_dict[day][time][0]][0]):
+            del (timetable_dict[day][time])
+        else:
+            print (timetable_dict[day][time], "\n","\n", subject_timings[timetable_dict[day][time][0]][1])
+            timetable_dict[day][time][2] = subject_timings[timetable_dict[day][time][0]][1]
+
+
 with open('data.txt', 'w') as outfile:
     json.dump(timetable_dict, outfile, indent = 4, ensure_ascii=False)
