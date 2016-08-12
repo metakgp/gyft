@@ -2,4 +2,32 @@
 
 Get Your Freaking Timetable
 
-*Pre-Beta stage*
+## About
+
+Gets your timetable from ERP and adds it to your **Google Calendar**.
+
+## How to use and flow of the program
+
+- To get your timetable from ERP:
+```
+  python gyft.py -user <USERNAME> -pwd <PASSWORD>
+```
+  Answer your security question when prompted.
+<br>
+  Your timetable will be saved in `data.txt`.
+  <br>
+  Get your `client_secret.json` and save it to the current directory by following the Step 1 from [here](https://developers.google.com/google-apps/calendar/quickstart/python#step_1_turn_on_the_api_name).
+
+- To add events to your calendar (Needs internet connection):
+```
+  python add_events.py
+```
+
+- To delete all the recurring events (It deletes all the events having summary: `Class Of *`):
+```
+  python del_events.py
+```
+
+## License
+
+GPLv3.
