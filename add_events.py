@@ -113,7 +113,7 @@ def main():
             event = {}
             # Currently there are no labs in `subjects.json`
             if (data[day][time][0] in subjects.keys()):
-                event['summary'] = "Class of " + subjects[data[day][time][0]][0].title()
+                event['summary'] = "Class of " + subjects[data[day][time][0]].title()
             else:
                 event['summary'] = "Lab of " + data[day][time][0]
             event['location'] = data[day][time][1]
