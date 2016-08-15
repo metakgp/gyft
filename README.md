@@ -11,11 +11,11 @@ Gets your timetable from ERP and adds it to your **Google Calendar**.
 
 - To get your timetable from ERP:
 ```
-  python gyft.py -user <USERNAME> -pwd <PASSWORD>
+  python gyft.py -user <ROLL_NUMBER>
 ```
-  Answer your security question when prompted.
+  Answer your password & security question when prompted.
 <br>
-  Your timetable will be saved in `data.txt`.
+  Your timetable will be saved in `data.txt`. Make any changes required appropriately in `data.txt`
   <br>
   Get your `client_secret.json` and save it to the current directory by following the Step 1 from [here](https://developers.google.com/google-apps/calendar/quickstart/python#step_1_turn_on_the_api_name).
 
