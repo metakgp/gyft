@@ -4,12 +4,13 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 from bs4 import BeautifulSoup as bs
 import re
 import json
+import getpass
 
 #### Parsing from commmand line
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-user', type = str, help = "Username")
-parser.add_argument('-pwd', type = str, help = "Password")
+erp_password = getpass.getpass("Enter your ERP password: ")
 args = parser.parse_args()
 #### Parsing ends
 
@@ -32,10 +33,10 @@ r = s.post(ERP_SECRET_QUESTION_URL, data={'user_id': args.user},
            headers = headers)
 secret_question = r.text
 print (secret_question)
-secret_answer = input("What is the answer?\n")
+secret_answer = getpass.getpass("Enter the answer to the security question: ")
 login_details = {
     'user_id': args.user,
-    'password': args.pwd,
+    'password': erp_password,
     'answer': secret_answer,
     'sessionToken': sessionToken,
     'requestedUrl': 'https://erp.iitkgp.ernet.in/IIT_ERP3',
