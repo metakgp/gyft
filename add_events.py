@@ -112,7 +112,8 @@ def main():
                 replaceHour += int(startHour)
             event = {}
             # Currently there are no labs in `subjects.json`
-            if (data[day][time][0] in subjects.keys()):
+            # if (data[day][time][0] in subjects.keys()):
+            if (data[day][time][2] < 3 :
                 event['summary'] = "Class of " + subjects[data[day][time][0]].title()
             else:
                 event['summary'] = "Lab of " + data[day][time][0]
