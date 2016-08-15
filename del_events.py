@@ -61,7 +61,7 @@ def main():
     if not events:
         print('No upcoming events found.')
     for event in events:
-        if ("Class of " in event["summary"] or "Lab of " in event["summary"]):
+        if ("Class/Lab of " in event["summary"]):
             service.events().delete(calendarId='primary', eventId=event["id"]).execute()
             print ("Deleted: ", event["summary"], event["start"])
     print ("Deletion done!")
