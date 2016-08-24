@@ -10,8 +10,9 @@ import getpass
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-user', type = str, help = "Username")
-erp_password = getpass.getpass("Enter your ERP password: ")
 args = parser.parse_args()
+erp_password = getpass.getpass("Enter your ERP password: ")
+
 #### Parsing ends
 
 ERP_HOMEPAGE_URL = 'https://erp.iitkgp.ernet.in/IIT_ERP3/'
