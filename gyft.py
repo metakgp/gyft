@@ -9,7 +9,7 @@ import getpass
 #### Parsing from commmand line
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('-user', type = str, help = "Username")
+parser.add_argument("-u", "--user", help="ERP Username/Login ID")
 args = parser.parse_args()
 erp_password = getpass.getpass("Enter your ERP password: ")
 
