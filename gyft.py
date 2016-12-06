@@ -135,4 +135,4 @@ for day in timetable_dict.keys():
 with open('data.txt', 'w') as outfile:
     json.dump(timetable_dict, outfile, indent = 4, ensure_ascii=False)
 
-print ("Timetable saved to data.txt")
+print ("\n\nTimetable saved to data.txt file. Be sure to edit this file to have desired names of subjects rather than subject codes.\n")
