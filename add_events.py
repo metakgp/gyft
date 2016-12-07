@@ -112,10 +112,11 @@ def main():
                 replaceHour += int(startHour)
             event = {}
             # Currently there are no labs in `subjects.json`
+            # if (data[day][time][0] in subjects.keys()):
             if (data[day][time][0] in subjects.keys()):
-                event['summary'] = "Class of " + subjects[data[day][time][0]].title()
-            else:
-                event['summary'] = "Lab of " + data[day][time][0]
+                event['summary'] = subjects[data[day][time][0]].title()
+            else: 
+                event['summary'] = data[day][time][0]                       
             event['location'] = data[day][time][1]
             event['start'] = {}
             start_time = startDate.replace(hour = replaceHour, minute = int(startMinute))
