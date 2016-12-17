@@ -11,7 +11,7 @@ Gets your timetable from ERP and adds it to your **Google Calendar**.
 
 - To get your timetable from ERP:
 ```
-  python gyft.py -user <ROLL_NUMBER>
+  python gyft.py --user <ROLL_NUMBER>   (or)    python gyft.py -u <ROLL_NUMBER>
 ```
   Answer your password & security question when prompted.
 <br>
