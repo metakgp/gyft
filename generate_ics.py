@@ -38,8 +38,15 @@ def get_stamp(argument, date):
 
     hours_24_format = int(argument[0])
 
-    if argument[2] == 'P':
+    # Note:
+    # 12 PM is 1200 HRS
+    # 12 AM is 0000 HRS
+
+    if argument[2] == 'P' and hours_24_format != 12:
         hours_24_format = (hours_24_format + 12) % 24 
+
+    if argument[2] == 'A' and hours_24_format == 12:
+        hours_24_format = 0
 
     return build_event.generateIndiaTime(date.year,
             date.month,
