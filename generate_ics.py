@@ -90,9 +90,18 @@ def main():
             # TODO: Add labs to `subjects.json`
             subject_code = data[day][time][0]
             summary = subject_code
-            description = ''
+            description = subject_code
             if (data[day][time][0] in subjects.keys()):
                 summary = subjects[data[day][time][0]].title()
+            else:
+                print('ERROR: Our subjects database does not have %s in it.' %
+                        subject_code);
+                summary = input('INPUT: Please input the name of the course %s: ' %
+                        subject_code)
+
+                subjects[subject_code] = summary
+
+                summary = summary.title()
 
             # Find location of this class
             location = data[day][time][1]
