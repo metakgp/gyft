@@ -83,6 +83,9 @@ def main():
 
             lectureBeginsStamp = get_stamp(parse_results[:3], startDate)
             lectureEndsStamp = get_stamp(parse_results[3:], startDate)
+
+            lectureEndsStamp = lectureEndsStamp + \
+                    datetime.timedelta(hours=data[day][time][2]-1)
             
             # Find the name of this class
             # Use subject name if available, else ask the user for the subject
