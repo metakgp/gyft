@@ -7,6 +7,8 @@ Get Your Freaking Timetable
 Gets your timetable from ERP and adds it to your **Google Calendar** or gives
 you an **ICS file** which you can add in any common calendar application.
 
+**Note:** Please use this utility with `python3`.
+
 ![instructions](https://cloud.githubusercontent.com/assets/9252491/17613570/7af6ae98-607c-11e6-8597-e720c3475c24.gif)
 
 ## How to use the program?
