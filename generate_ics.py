@@ -10,12 +10,20 @@ from icalendar import Calendar, Event
 
 import build_event
 
+import argparse
+import getpass
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-i", "--input", help="ERP Username/Login ID")
+parser.add_argument("-o", "--output", help="ERP Username/Login ID")
+args = parser.parse_args()
+
 DEBUG = False
 GENERATE_ICS = True
 TIMETABLE_DICT_RE ='([0-9]{1,2}):([0-9]{1,2}):([AP])M-([0-9]{1,2}):([0-9]{1,2}):([AP])M'
 timetable_dict_parser = re.compile(TIMETABLE_DICT_RE)
 
-OUTPUT_FILENAME = "timetable.ics"
+OUTPUT_FILENAME = args.output
 
 UNTIL = build_event.generateIndiaTime(2017, 11, 30, 23, 59)
 
@@ -43,7 +51,7 @@ def get_stamp(argument, date):
     # 12 AM is 0000 HRS
 
     if argument[2] == 'P' and hours_24_format != 12:
-        hours_24_format = (hours_24_format + 12) % 24 
+        hours_24_format = (hours_24_format + 12) % 24
 
     if argument[2] == 'A' and hours_24_format == 12:
         hours_24_format = 0
@@ -73,10 +81,10 @@ def main():
     now = datetime.datetime.now()
 
     # Get your timetable
-    with open('data.txt') as data_file:    
+    with open(args.input) as data_file:
         data = json.load(data_file)
     # Get subjects code and their respective name
-    with open('subjects.json') as data_file:    
+    with open('subjects.json') as data_file:
         subjects = json.load(data_file)
     for day in data:
         startDate = next_weekday(now, days[day])
@@ -93,7 +101,7 @@ def main():
 
             lectureEndsStamp = lectureEndsStamp + \
                     datetime.timedelta(hours=data[day][time][2]-1)
-            
+
             # Find the name of this class
             # Use subject name if available, else ask the user for the subject
             # name and use that
