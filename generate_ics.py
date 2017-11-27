@@ -14,8 +14,8 @@ import argparse
 import getpass
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-i", "--input", help="ERP Username/Login ID")
-parser.add_argument("-o", "--output", help="ERP Username/Login ID")
+parser.add_argument("-i", "--input")
+parser.add_argument("-o", "--output")
 args = parser.parse_args()
 
 DEBUG = False
