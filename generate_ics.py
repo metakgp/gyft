@@ -81,9 +81,13 @@ def main():
     now = datetime.datetime.now()
 
     # Get your timetable
-    if args.input is None and not os.path.exists("data.txt"):
-        print("No file data file found in current directory.\nEnter the path of data file as input or run gyft.py");
-        os._exit(1)
+    if not os.path.exists("data.txt"):
+        if args.input is None:
+            print("No file data file found in current directory.\nEnter the path of data file as input or run gyft.py");
+            os._exit(1)
+        elif not os.path.exists(args.input):
+            print("The mentioned input file doesn't exist.")
+            os._exit(1)
     with open("data.txt" if args.input is None else args.input) as data_file:
         data = json.load(data_file)
     # Get subjects code and their respective name
