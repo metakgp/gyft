@@ -25,7 +25,7 @@ timetable_dict_parser = re.compile(TIMETABLE_DICT_RE)
 
 INPUT_FILENAME = args.input if args.input else "data.txt"
 if not os.path.exists(INPUT_FILENAME):
-    print "Input file %s does not exist." % (INPUT_FILENAME)
+    print ("Input file",INPUT_FILENAME,"does not exist.")
     os._exit(1)
 
 OUTPUT_FILENAME = "timetable.ics" if args.output is None else args.output
