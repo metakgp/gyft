@@ -23,6 +23,17 @@ GENERATE_ICS = True
 TIMETABLE_DICT_RE ='([0-9]{1,2}):([0-9]{1,2}):([AP])M-([0-9]{1,2}):([0-9]{1,2}):([AP])M'
 timetable_dict_parser = re.compile(TIMETABLE_DICT_RE)
 
+if not os.path.exists("data.txt"):
+    if args.input is None:
+        print("No file data file found in current directory.\nEnter the path of data file as input or run gyft.py");
+        os._exit(1)
+    elif not os.path.exists(args.input):
+        print("The mentioned input file doesn't exist.")
+        os._exit(1)
+    else:
+        INPUT_FILENAME = args.input
+else: INPUT_FILENAME = "data.txt"
+
 OUTPUT_FILENAME = "timetable.ics" if args.output is None else args.output
 
 UNTIL = build_event.generateIndiaTime(2017, 11, 30, 23, 59)
@@ -81,14 +92,7 @@ def main():
     now = datetime.datetime.now()
 
     # Get your timetable
-    if not os.path.exists("data.txt"):
-        if args.input is None:
-            print("No file data file found in current directory.\nEnter the path of data file as input or run gyft.py");
-            os._exit(1)
-        elif not os.path.exists(args.input):
-            print("The mentioned input file doesn't exist.")
-            os._exit(1)
-    with open("data.txt" if args.input is None else args.input) as data_file:
+    with open(INPUT_FILENAME) as data_file:
         data = json.load(data_file)
     # Get subjects code and their respective name
     with open('subjects.json') as data_file:
