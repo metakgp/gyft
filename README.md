@@ -16,7 +16,7 @@ you an **ICS file** which you can add in any common calendar application.
 - **Step 1:** Get your timetable from ERP:
 
   ```sh
-  $ python gyft.py --user <ROLL_NUMBER>
+  $ python3 gyft.py --user <ROLL_NUMBER>
   ```
 
   Enter your password & security answer when prompted.
@@ -54,7 +54,12 @@ you an **ICS file** which you can add in any common calendar application.
     - **Step (i):** Run the command:
 
         ```sh
-        $ python generate_ics.py
+        $ python3 generate_ics.py
+        ```
+
+        ```sh
+        # you can provide input and output file path to this python script
+        $ python3 generate_ics.py --input d.txt --output t.ics
         ```
 
     - **Step (ii):** Open your calendar application and import this ICS file
