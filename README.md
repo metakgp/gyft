@@ -15,7 +15,20 @@ you an **ICS file** which you can add in any common calendar application.
 
 - **Step 1:** Get your timetable from ERP:
 
+### Web Application
+
+  Go to the [GYFT WebApp](https://gyftkgp.herokuapp.com/)
+
+  Enter your roll number and get the security question.
+
+  Once the security question is fetched, enter your credentials and save the ICS file.
+
+  Move to step 2(b)(ii).
+
+### Locally
+
   ```sh
+
   $ python3 gyft.py --user <ROLL_NUMBER>
   ```
 
@@ -64,6 +77,8 @@ you an **ICS file** which you can add in any common calendar application.
 
     - **Step (ii):** Open your calendar application and import this ICS file
         into it.
+
+        For google calendar, follow the instructions given [here](https://support.google.com/calendar/answer/37118?hl=en).
 
 ## License
 
