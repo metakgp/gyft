@@ -15,26 +15,26 @@ you an **ICS file** which you can add in any common calendar application.
 
 - **Step 1:** Get your timetable from ERP:
 
-### Web Application
-
-  Go to the [GYFT WebApp](https://gyftkgp.herokuapp.com/)
-
-  Enter your roll number and get the security question.
-
-  Once the security question is fetched, enter your credentials and save the ICS file.
-
-  Move to step 2(b)(ii).
-
-### Locally
+  **Run the Gyft script locally (using Python)**
+  
+  Clone this repository and run the following command:
 
   ```sh
-
   $ python3 gyft.py --user <ROLL_NUMBER>
   ```
 
-  Enter your password & security answer when prompted.
+  Enter your password and security answer when prompted.
 
-  Your timetable will be saved in `data.txt`. Make any changes required appropriately in `data.txt`.
+  Your timetable will be saved in `data.txt`. Make any changes required in `data.txt`. Then, proceed to Step 2.
+  
+  **Use the web application on any browser**
+
+  - Go to the [GYFT WebApp](https://gyftkgp.herokuapp.com/).
+  - Enter your roll number and get the security question.
+  - Once the security question is fetched, enter your credentials and save the ICS file.
+  - Move to step 2(b)(ii).
+  
+  Source at [nishnik/gyft-serve](https://github.com/nishnik/gyft-serve).
 
 - **Step 2:** Decide whether you want to add the events to Google Calendar or
     generate an ICS file from the data.
