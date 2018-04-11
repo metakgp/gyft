@@ -74,7 +74,6 @@ times = []
 
 
 # Delete the rows that doesn't have tableheader, basically without a weekday
-# this is done because the erp does shit see issues and solution
 del_rows = []
 for i in range(1, len(rows)):
     HeaderRows = rows[i].findAll("td", {"class": "tableheader"})
@@ -82,7 +81,7 @@ for i in range(1, len(rows)):
     if len(HeaderRows) is 0:
         del_rows.append(i)
 
-for index_del in del_rows:
+for index_del in sorted(del_rows, reverse=True):
     del rows[index_del]
 
 
