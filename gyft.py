@@ -15,9 +15,9 @@ erp_password = getpass.getpass("Enter your ERP password: ")
 
 #### Parsing ends
 
-ERP_HOMEPAGE_URL = 'https://erp.iitkgp.ernet.in/IIT_ERP3/'
-ERP_LOGIN_URL = 'https://erp.iitkgp.ernet.in/SSOAdministration/auth.htm'
-ERP_SECRET_QUESTION_URL = 'https://erp.iitkgp.ernet.in/SSOAdministration/getSecurityQues.htm'
+ERP_HOMEPAGE_URL = 'https://erp.iitkgp.ac.in/IIT_ERP3/'
+ERP_LOGIN_URL = 'https://erp.iitkgp.ac.in/SSOAdministration/auth.htm'
+ERP_SECRET_QUESTION_URL = 'https://erp.iitkgp.ac.in/SSOAdministration/getSecurityQues.htm'
 
 
 
@@ -40,14 +40,14 @@ login_details = {
     'password': erp_password,
     'answer': secret_answer,
     'sessionToken': sessionToken,
-    'requestedUrl': 'https://erp.iitkgp.ernet.in/IIT_ERP3',
+    'requestedUrl': 'https://erp.iitkgp.ac.in/IIT_ERP3',
 }
 r = s.post(ERP_LOGIN_URL, data=login_details,
            headers = headers)
 ssoToken = re.search(r'\?ssoToken=(.+)$',
                      r.history[1].headers['Location']).group(1)
 
-ERP_TIMETABLE_URL = "https://erp.iitkgp.ernet.in/Acad/student/view_stud_time_table.jsp"
+ERP_TIMETABLE_URL = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
 
 timetable_details = {
     'ssoToken': ssoToken,
@@ -56,7 +56,7 @@ timetable_details = {
 }
 
 # This is just a hack to get cookies. TODO: do the standard thing here
-abc = s.post('https://erp.iitkgp.ernet.in/Acad/student/view_stud_time_table.jsp', headers=headers, data=timetable_details)
+abc = s.post('https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp', headers=headers, data=timetable_details)
 cookie_val = None
 for a in s.cookies:
     if (a.path == "/Acad/"):
@@ -65,7 +65,7 @@ for a in s.cookies:
 cookie = {
     'JSESSIONID': cookie_val,
 }
-r = s.post('https://erp.iitkgp.ernet.in/Acad/student/view_stud_time_table.jsp',cookies = cookie, headers=headers, data=timetable_details)
+r = s.post('https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp',cookies = cookie, headers=headers, data=timetable_details)
 
 soup = bs(r.text, 'html.parser')
 rows_head = soup.findAll('table')[2]
