@@ -12,6 +12,7 @@ import dates
 WORKING_DAYS = dates.get_dates()
 
 import build_event
+from update_subjects_json  import update_sub_list
 
 import argparse
 import getpass
@@ -126,6 +127,7 @@ def main():
                         subject_code)
 
                 subjects[subject_code] = str(summary)
+                update_sub_list(subject_code, summary)
 
                 summary = summary.title()
 
