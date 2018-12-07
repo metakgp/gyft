@@ -83,3 +83,7 @@ you an **ICS file** which you can add in any common calendar application.
 ## License
 
 GPLv3.
+
+## Contributing
+
+Please read CONTRIBUTING.md guide to know more.
