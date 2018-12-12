@@ -7,6 +7,7 @@ from apiclient import discovery
 import oauth2client
 from oauth2client import client
 from oauth2client import tools
+from oauth2client import file
 import json
 import datetime
 
@@ -44,7 +45,7 @@ def get_credentials():
     credential_path = os.path.join(credential_dir,
                                    'calendar-python-quickstart.json')
 
-    store = oauth2client.file.Storage(credential_path)
+    store = file.Storage(credential_path)
     credentials = store.get()
     if not credentials or credentials.invalid:
         flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
