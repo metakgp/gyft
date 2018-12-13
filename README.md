@@ -46,7 +46,7 @@ you an **ICS file** which you can add in any common calendar application.
 
 - **Step 2(a):** If you decide on adding your events to your Google Calendar:
 
-    - **Step (i):** Get your `client_secret.json` and save it to the current directory by
+    - **Step (i):** Get your `credentials.json` and save it as `client_secret.json` to the current directory by
                     following the Step 1 from
                     [here](https://developers.google.com/google-apps/calendar/quickstart/python#step_1_turn_on_the_api_name).
 
