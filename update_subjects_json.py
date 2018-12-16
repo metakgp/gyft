@@ -20,6 +20,6 @@ def update_sub_list(sub_code, sub_name):
     subjects[sub_code] = str(sub_name)
 
     with open(SUB_JSON_FILE, "w") as data_file:
-        json.dump(subjects, data_file)
+        json.dump(subjects, data_file, indent=4, sort_keys=True)
 
 
