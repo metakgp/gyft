@@ -80,6 +80,16 @@ you an **ICS file** which you can add in any common calendar application.
 
         For google calendar, follow the instructions given [here](https://support.google.com/calendar/answer/37118?hl=en).
 
+## Development Notes
+
+If you manually edit the `subjects.json` file, re-indent and pretty print the
+file using this command: (you will need
+[jq](https://stedolan.github.io/jq/download/))
+
+```sh
+jq -S --indent 4 . subjects.json
+```
+
 ## License
 
 GPLv3.
