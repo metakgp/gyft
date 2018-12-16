@@ -5,6 +5,12 @@ import os
 import json
 import datetime
 import sys
+
+# this script works only with Python 3
+if sys.version_info[0] != 3:
+    print ("This script works only with Python 3")
+    sys.exit(1)
+
 import re
 from icalendar import Calendar, Event
 
@@ -12,6 +18,7 @@ import dates
 WORKING_DAYS = dates.get_dates()
 
 import build_event
+from update_subjects_json  import update_sub_list
 
 import argparse
 import getpass
@@ -94,6 +101,8 @@ def main():
     # Get subjects code and their respective name
     with open('subjects.json') as data_file:
         subjects = json.load(data_file)
+
+    found_missing_sub = False
     for day in data:
         startDates = [next_weekday(x[0], days[day]) for x in WORKING_DAYS]
 
@@ -126,8 +135,11 @@ def main():
                         subject_code)
 
                 subjects[subject_code] = str(summary)
+                update_sub_list(subject_code, summary)
 
                 summary = summary.title()
+                found_missing_sub = True
+
 
             # Find location of this class
             location = data[day][time][1]
@@ -147,6 +159,9 @@ def main():
 
             if (DEBUG):
                 print (event)
+
+    if found_missing_sub:
+        print('Subject list has been updated. Please commit, push and raise a pull request at github.com/metakgp/gyft.')
 
     with open(OUTPUT_FILENAME, 'wb') as f:
         f.write(cal.to_ical())
