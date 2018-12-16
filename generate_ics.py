@@ -5,6 +5,12 @@ import os
 import json
 import datetime
 import sys
+
+# this script works only with Python 3
+if sys.version_info[0] != 3:
+    print ("This script works only with Python 3")
+    sys.exit(1)
+
 import re
 from icalendar import Calendar, Event
 
