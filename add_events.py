@@ -83,6 +83,9 @@ def main():
     # Get subjects code and their respective name
     with open('subjects.json') as data_file:    
         subjects = json.load(data_file)
+    # Get latlong of classrooms
+    with open('latlong.json') as data_file:    
+        latlong = json.load(data_file)    
     for day in data:
         startDate = next_weekday(now, days[day])
         for time in data[day]:
@@ -117,8 +120,11 @@ def main():
             if (data[day][time][0] in subjects.keys()):
                 event['summary'] = subjects[data[day][time][0]].title()
             else: 
-                event['summary'] = data[day][time][0]                       
-            event['location'] = data[day][time][1]
+                event['summary'] = data[day][time][0]
+            if (data[day][time][1] in latlong.keys()):
+            	event['location'] = latlong[data[day][time][1]].title()
+            else:                  
+            	event['location'] = data[day][time][1]
             event['start'] = {}
             start_time = startDate.replace(hour = replaceHour, minute = int(startMinute))
             event['start']['dateTime'] = start_time.__str__().replace(" ", "T")
@@ -133,6 +139,7 @@ def main():
                 break
         if (DEBUG):
             break
+    print ("\n\nEvents added to calendar\n")
 
 if __name__ == '__main__':
     main()
