@@ -84,7 +84,7 @@ def main():
     with open('subjects.json') as data_file:    
         subjects = json.load(data_file)
     # Get latlong of classrooms
-    with open('latlong.json') as data_file:    
+    with open('full_location.json') as data_file:    
         latlong = json.load(data_file)    
     for day in data:
         startDate = next_weekday(now, days[day])
