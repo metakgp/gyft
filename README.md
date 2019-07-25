@@ -11,6 +11,15 @@ you an **ICS file** which you can add in any common calendar application.
 
 ![instructions](https://cloud.githubusercontent.com/assets/9252491/17613570/7af6ae98-607c-11e6-8597-e720c3475c24.gif)
 
+## Updates To Be Made Each Sem
+
+The following procedure is to be followed each new semester by the maintainer for updating GYFT to work properly.
+
+- Download the academic calendar for the particular year.
+- New semester dates need to be updated in dates.py
+- The format for the date-time is `(YYYY, MM, DD, HH, MM)`.
+- Raise a pull request once the dates are updated.
+
 ## How to use the program?
 
 - **Step 1:** Get your timetable from ERP:
