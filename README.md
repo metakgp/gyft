@@ -27,6 +27,9 @@ The following procedure is to be followed each new semester by the maintainer fo
   **Run the Gyft script locally (using Python)**
   
   Clone this repository and run the following command:
+   ```sh
+  $ pip install -r requirements.txt
+  ```
 
   ```sh
   $ python3 gyft.py --user <ROLL_NUMBER>
