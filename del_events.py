@@ -1,5 +1,5 @@
-## To delete events from Google Calendar
-## Delets events having summary `Class of*`
+# To delete events from Google Calendar
+# Delets events having summary `Class of*`
 from __future__ import print_function
 import httplib2
 import os
@@ -20,6 +20,7 @@ except ImportError:
 SCOPES = 'https://www.googleapis.com/auth/calendar'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'gyft'
+
 
 def get_credentials():
     """Gets valid user credentials from storage.
@@ -44,28 +45,31 @@ def get_credentials():
         flow.user_agent = APPLICATION_NAME
         if flags:
             credentials = tools.run_flow(flow, store, flags)
-        else: # Needed only for compatibility with Python 2.6
+        else:  # Needed only for compatibility with Python 2.6
             credentials = tools.run(flow, store)
         print('Storing credentials to ' + credential_path)
     return credentials
+
 
 def main():
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
-    now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
+    now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
     print('Getting the events')
     eventsResult = service.events().list(
         calendarId='primary', timeMin=now, singleEvents=True,
-        orderBy='startTime', timeMax = "2016-11-20T22:32:00.285773Z").execute()
+        orderBy='startTime', timeMax="2016-11-20T22:32:00.285773Z").execute()
     events = eventsResult.get('items', [])
     if not events:
         print('No upcoming events found.')
     for event in events:
-        if ("Class of " in event["summary"] or "Lab of " in event["summary"]):
-            service.events().delete(calendarId='primary', eventId=event["id"]).execute()
-            print ("Deleted: ", event["summary"], event["start"])
-    print ("Deletion done!")
+        if "summary" in event and ("Class of " in event["summary"] or "Lab of " in event["summary"]):
+            service.events().delete(calendarId='primary',
+                                    eventId=event["id"]).execute()
+            print("Deleted: ", event["summary"], event["start"])
+    print("Deletion done!")
+
 
 if __name__ == '__main__':
     main()
