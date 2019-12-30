@@ -6,13 +6,13 @@ import pytz
 import sys
 
 # SEM_BEGIN=datetime.datetime.now(pytz.timezone('Asia/Kolkata'))
-SEM_BEGIN = build_event.generateIndiaTime(2019, 7, 15, 0, 0)
+SEM_BEGIN = build_event.generateIndiaTime(2020, 1, 2, 0, 0)
 
-MID_TERM_BEGIN = build_event.generateIndiaTime(2019, 9, 16, 0, 0)
+MID_TERM_BEGIN = build_event.generateIndiaTime(2020, 2, 17, 0, 0)
 
-MID_TERM_END = build_event.generateIndiaTime(2019, 9, 24, 23, 59)
+MID_TERM_END = build_event.generateIndiaTime(2020, 2, 25, 23, 59)
 
-END_TERM_BEGIN = build_event.generateIndiaTime(2019, 11, 18, 0, 0)
+END_TERM_BEGIN = build_event.generateIndiaTime(2020, 4, 20, 0, 0)
 
 ## Sanity check
 
