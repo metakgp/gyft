@@ -2,6 +2,8 @@
 
 Get Your Freaking Timetable
 
+NOTE: All updates to this repo should reflect, with appropriate refactorisation, in [gyft-serve](https://github.com/metakgp/gyft-serve/)
+
 ## About
 
 Gets your timetable from ERP and adds it to your **Google Calendar** or gives
