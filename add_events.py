@@ -123,7 +123,7 @@ def main():
             if (data[day][time][0] in subjects.keys()):
                 event['summary'] = subjects[data[day][time][0]].title()
             else: 
-                event['summary'] =  data[day][time][0]
+                event['summary'] = data[day][time][0]
             if (data[day][time][1] in latlong.keys()):
             	event['location'] = latlong[data[day][time][1]].title()
             else:                  

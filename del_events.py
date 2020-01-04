@@ -4,7 +4,7 @@ from __future__ import print_function
 import httplib2
 import os
 
-from dates import END_TERM_BEGIN, MID_TERM_BEGIN, SEM_BEGIN
+from dates import END_TERM_BEGIN, MID_TERM_BEGIN, SEM_BEGIN, GYFT_RECUR_STRS
 
 from apiclient import discovery
 import oauth2client
@@ -67,10 +67,7 @@ def main():
         print('No upcoming events found.')
     for event in events:
         # print(event.get('recurrence'))
-        if 'recurrence' in event and event['recurrence'] in [['RRULE:FREQ=WEEKLY;UNTIL={}'.format(END_TERM_BEGIN.strftime('%Y%m%dT000000Z'))],
-                                                            ['RRULE:FREQ=WEEKLY;UNTIL={}'.format(MID_TERM_BEGIN.strftime('%Y%m%dT000000Z'))],
-                                                            ['RRULE:FREQ=WEEKLY;UNTIL={}'.format(END_TERM_BEGIN.strftime('%Y%m%dT070000Z'))],
-                                                            ['RRULE:FREQ=WEEKLY;UNTIL={}'.format(MID_TERM_BEGIN.strftime('%Y%m%dT080000Z'))]]:
+        if event.get('recurrence', 'NoRecur') in GYFT_RECUR_STRS:
             service.events().delete(calendarId='primary',
                                     eventId=event["id"]).execute()
             print("Deleted: ", event["summary"], event["start"])
