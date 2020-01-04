@@ -35,7 +35,7 @@ sessionToken = soup.find_all(id='sessionToken')[0].attrs['value']
 r = s.post(ERP_SECRET_QUESTION_URL, data={'user_id': args.user},
            headers = headers)
 secret_question = r.text
-print (secret_question)
+print ("Your secret question: " + secret_question)
 secret_answer = getpass.getpass("Enter the answer to the security question: ")
 login_details = {
     'user_id': args.user,
@@ -46,8 +46,11 @@ login_details = {
 }
 r = s.post(ERP_LOGIN_URL, data=login_details,
            headers = headers)
-ssoToken = re.search(r'\?ssoToken=(.+)$',
+try:
+    ssoToken = re.search(r'\?ssoToken=(.+)$',
                      r.history[1].headers['Location']).group(1)
+except IndexError:
+    print("Error: Please make sure the entered credentials are correct!")
 
 ERP_TIMETABLE_URL = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
 
