@@ -65,7 +65,7 @@ The following procedure is to be followed each new semester by the maintainer fo
         $ python add_events.py
         ```
 
-    - **MISC:** To delete all the recurring events (It deletes all the events having summary: `Class Of *`):
+    - **MISC:** To delete all the recurring events added by the CLI or GYFT Web Application (uses property of recurrence to identify events to delete):
 
         ```sh
         $ python del_events.py
