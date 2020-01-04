@@ -4,3 +4,4 @@ client_secret.json
 data.txt
 *.ics
 .idea/
+.vscode

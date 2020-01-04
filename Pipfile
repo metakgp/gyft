@@ -12,6 +12,7 @@ google-api-python-client = "==1.5.1"
 "beautifulsoup4" = "==4.5.1"
 "urllib3" = "==1.24.2"
 icalendar = "==3.10"
+oauth2client = "==2.2.0"
 
 [requires]
 python_version = "3.6"
