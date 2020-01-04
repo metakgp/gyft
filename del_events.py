@@ -4,6 +4,8 @@ from __future__ import print_function
 import httplib2
 import os
 
+from dates import END_TERM_BEGIN, MID_TERM_BEGIN, SEM_BEGIN
+
 from apiclient import discovery
 import oauth2client
 from oauth2client import client
@@ -58,13 +60,17 @@ def main():
     now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
     print('Getting the events')
     eventsResult = service.events().list(
-        calendarId='primary', timeMin=now, singleEvents=True,
-        orderBy='startTime', timeMax="2016-11-20T22:32:00.285773Z").execute()
+        calendarId='primary', timeMin=SEM_BEGIN.strftime('%Y-%m-%dT%H:%M:%S.%fZ'), singleEvents=False, timeMax=END_TERM_BEGIN.strftime('%Y-%m-%dT%H:%M:%S.%fZ'), maxResults=2500).execute()
     events = eventsResult.get('items', [])
+    # print(events)
     if not events:
         print('No upcoming events found.')
     for event in events:
-        if "summary" in event and ("Class of " in event["summary"] or "Lab of " in event["summary"]):
+        # print(event.get('recurrence'))
+        if 'recurrence' in event and event['recurrence'] in [['RRULE:FREQ=WEEKLY;UNTIL={}'.format(END_TERM_BEGIN.strftime('%Y%m%dT000000Z'))],
+                                                            ['RRULE:FREQ=WEEKLY;UNTIL={}'.format(MID_TERM_BEGIN.strftime('%Y%m%dT000000Z'))],
+                                                            ['RRULE:FREQ=WEEKLY;UNTIL={}'.format(END_TERM_BEGIN.strftime('%Y%m%dT070000Z'))],
+                                                            ['RRULE:FREQ=WEEKLY;UNTIL={}'.format(MID_TERM_BEGIN.strftime('%Y%m%dT080000Z'))]]:
             service.events().delete(calendarId='primary',
                                     eventId=event["id"]).execute()
             print("Deleted: ", event["summary"], event["start"])
