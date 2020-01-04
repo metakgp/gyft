@@ -89,6 +89,7 @@ def main():
     with open('full_location.json') as data_file:    
         latlong = json.load(data_file)    
     for day in data:
+        print("Adding events for " + day)
         startDate = next_weekday(now, days[day])
         for time in data[day]:
             # parsing time from time_table dict
@@ -122,7 +123,7 @@ def main():
             if (data[day][time][0] in subjects.keys()):
                 event['summary'] = subjects[data[day][time][0]].title()
             else: 
-                event['summary'] = data[day][time][0]
+                event['summary'] =  data[day][time][0]
             if (data[day][time][1] in latlong.keys()):
             	event['location'] = latlong[data[day][time][1]].title()
             else:                  
@@ -136,6 +137,7 @@ def main():
             event['end']['timeZone'] = "Asia/Kolkata"
             event['recurrence'] = ['RRULE:FREQ=WEEKLY;UNTIL={}'.format(END_TERM_BEGIN.strftime('%Y%m%dT000000Z'))]
             recurring_event = service.events().insert(calendarId='primary', body=event).execute()
+            print("Added " + event['summary'])
             if (DEBUG):
                 print (event)
                 break
