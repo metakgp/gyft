@@ -3,6 +3,8 @@ from __future__ import print_function
 import httplib2
 import os
 
+from dates import END_TERM_BEGIN
+
 from apiclient import discovery
 import oauth2client
 from oauth2client import client
@@ -132,7 +134,7 @@ def main():
             event['end'] = {}
             event['end']['dateTime'] = (start_time + datetime.timedelta(hours = int(data[day][time][2]))).__str__().replace(" ", "T")
             event['end']['timeZone'] = "Asia/Kolkata"
-            event['recurrence'] = ['RRULE:FREQ=WEEKLY;UNTIL=20170419T000000Z']
+            event['recurrence'] = ['RRULE:FREQ=WEEKLY;UNTIL={}'.format(END_TERM_BEGIN.strftime('%Y%m%dT000000Z'))]
             recurring_event = service.events().insert(calendarId='primary', body=event).execute()
             if (DEBUG):
                 print (event)
