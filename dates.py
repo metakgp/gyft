@@ -7,7 +7,7 @@ import sys
 
 # SEM_BEGIN=datetime.datetime.now(pytz.timezone('Asia/Kolkata'))
 SEM_BEGIN = build_event.generateIndiaTime(2020, 9, 1, 0, 0)
-MID_TERM_BEGIN = build_event.generateIndiaTime(2020, 9, 19, 0, 0)
+MID_TERM_BEGIN = build_event.generateIndiaTime(2020, 10, 23, 0, 0)
 MID_TERM_END = build_event.generateIndiaTime(2020, 9, 20, 23, 59)
 END_TERM_BEGIN = build_event.generateIndiaTime(2020, 11, 29, 0, 0)
 
