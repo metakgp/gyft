@@ -9,7 +9,7 @@ import sys
 SEM_BEGIN = build_event.generateIndiaTime(2020, 9, 1, 0, 0)
 MID_TERM_BEGIN = build_event.generateIndiaTime(2020, 10, 23, 0, 0)
 MID_TERM_END = build_event.generateIndiaTime(2020, 10, 27, 23, 59)
-END_TERM_BEGIN = build_event.generateIndiaTime(2020, 11, 29, 0, 0)
+END_TERM_BEGIN = build_event.generateIndiaTime(2020, 11, 26, 0, 0)
 
 # Recurrence strings from above dates
 GYFT_RECUR_STRS = [['RRULE:FREQ=WEEKLY;UNTIL={}'.format(END_TERM_BEGIN.strftime('%Y%m%dT000000Z'))],
