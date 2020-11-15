@@ -2,7 +2,7 @@
 
 We are grateful that you considered contributing to GYFT. Please follow the below guidelines for contribution.
 
-Follow the golder rule:
+Follow the golden rule:
 
 > Code, Document, Raise Issues and Review like you have to explain everything to a new developer without saying a word.
 
