@@ -11,6 +11,10 @@ MID_TERM_BEGIN = build_event.generateIndiaTime(2023, 2, 15, 0, 0)
 MID_TERM_END = build_event.generateIndiaTime(2023, 2, 24, 23, 59)
 END_TERM_BEGIN = build_event.generateIndiaTime(2023, 4, 18, 0, 0)
 
+# Adjusting dates for WORKDAYS
+MID_TERM_BEGIN = MID_TERM_BEGIN.replace(day=MID_TERM_BEGIN.day - 1)
+MID_TERM_END = MID_TERM_END.replace(day=MID_TERM_END.day + 1)
+
 # Recurrence strings from above dates
 GYFT_RECUR_STRS = [
     ["RRULE:FREQ=WEEKLY;UNTIL={}".format(END_TERM_BEGIN.strftime("%Y%m%dT000000Z"))],
