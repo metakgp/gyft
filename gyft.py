@@ -118,8 +118,9 @@ for i in range(1, len(rows)):
             continue
         txt = tds[a].find('b').text.strip()
         if (len(txt) >= 7):
-            timetable_dict[days[i]][times[time]] = list((tds[a].find('b').text[:7],tds[a].find('b').text[7:], int(tds[a]._attr_value_as_string('colspan'))))
-        time = time + int(tds[a]._attr_value_as_string('colspan'))
+            timetable_dict[days[i]][times[time]] = list((tds[a].find('b').text[:7],tds[a].find('b').text[7:], int(tds[a]['colspan'])))
+        # time = time + int(tds[a]._attr_value_as_string('colspan'))
+        time = time + int(tds[a]['colspan'])
 
 
 def merge_slots(in_dict):
