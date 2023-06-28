@@ -9,10 +9,6 @@ NOTE: All updates to this repo should reflect, with appropriate refactorisation,
 Gets your timetable from ERP and adds it to your **Google Calendar** or gives
 you an **ICS file** which you can add in any common calendar application.
 
-**Note:** Please use this utility with python **version 3.6**.
-
-Check your python version using the command `py --version`
-
 ![instructions](https://cloud.githubusercontent.com/assets/9252491/17613570/7af6ae98-607c-11e6-8597-e720c3475c24.gif)
 
 ## Updates To Be Made Each Sem
@@ -69,13 +65,13 @@ The following procedure is to be followed each new semester by the maintainer fo
     - **Step (ii):** Now, run:
 
         ```sh
-        $ python add_events.py
+        $ python3 add_events.py
         ```
 
     - **MISC:** To delete all the recurring events added by the CLI or GYFT Web Application (uses property of recurrence to identify events to delete):
 
         ```sh
-        $ python del_events.py
+        $ python3 del_events.py
         ```
 
 - **Step 2(b):** If you decide on generating an ICS file:
