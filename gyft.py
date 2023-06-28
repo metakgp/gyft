@@ -83,7 +83,7 @@ del_rows = []
 for i in range(1, len(rows)):
     HeaderRows = rows[i].findAll("td", {"class": "tableheader"})
     # print(HeaderRows)
-    if len(HeaderRows) is 0:
+    if len(HeaderRows) == 0:
         del_rows.append(i)
 
 for index_del in sorted(del_rows, reverse=True):
