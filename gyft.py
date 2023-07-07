@@ -20,6 +20,7 @@ erp_password = getpass.getpass("Enter your ERP password: ")
 ERP_HOMEPAGE_URL = 'https://erp.iitkgp.ac.in/IIT_ERP3/'
 ERP_LOGIN_URL = 'https://erp.iitkgp.ac.in/SSOAdministration/auth.htm'
 ERP_SECRET_QUESTION_URL = 'https://erp.iitkgp.ac.in/SSOAdministration/getSecurityQues.htm'
+ERP_OTP_URL = 'https://erp.iitkgp.ac.in/SSOAdministration/getEmilOTP.htm' # blame ERP for the typo
 
 
 
@@ -37,10 +38,13 @@ r = s.post(ERP_SECRET_QUESTION_URL, data={'user_id': args.user},
 secret_question = r.text
 print ("Your secret question: " + secret_question)
 secret_answer = getpass.getpass("Enter the answer to the security question: ")
+r = s.post(ERP_OTP_URL, data={'typeee': 'SI', 'loginid': args.user},headers = headers) #because 'type' was too mainstream for ERP
+otp = getpass.getpass("Enter the OTP sent to your registered email address: ")
 login_details = {
     'user_id': args.user,
     'password': erp_password,
     'answer': secret_answer,
+    'email_otp': otp,
     'sessionToken': sessionToken,
     'requestedUrl': 'https://erp.iitkgp.ac.in/IIT_ERP3',
 }
