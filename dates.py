@@ -6,10 +6,10 @@ import pytz
 import sys
 
 # SEM_BEGIN=datetime.datetime.now(pytz.timezone('Asia/Kolkata'))
-SEM_BEGIN = build_event.generateIndiaTime(2023, 1, 3, 0, 0)
-MID_TERM_BEGIN = build_event.generateIndiaTime(2023, 2, 15, 0, 0)
-MID_TERM_END = build_event.generateIndiaTime(2023, 2, 24, 23, 59)
-END_TERM_BEGIN = build_event.generateIndiaTime(2023, 4, 18, 0, 0)
+SEM_BEGIN = build_event.generateIndiaTime(2023, 8, 1, 0, 0)
+MID_TERM_BEGIN = build_event.generateIndiaTime(2023, 9, 18, 0, 0)
+MID_TERM_END = build_event.generateIndiaTime(2023, 9, 26, 23, 59)
+END_TERM_BEGIN = build_event.generateIndiaTime(2023, 11, 16, 0, 0)
 
 # Adjusting dates for WORKDAYS
 MID_TERM_BEGIN = MID_TERM_BEGIN.replace(day=MID_TERM_BEGIN.day - 1)
