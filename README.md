@@ -32,7 +32,7 @@ The following procedure is to be followed each new semester by the maintainer fo
   ```
 
   ```sh
-  $ python3 gyft.py --user <ROLL_NUMBER>
+  $ python3 gyft.py
   ```
 
   Enter your password and security answer when prompted.
