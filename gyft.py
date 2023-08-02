@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup as bs
 import re
 import json
 import getpass
+import iitkgp_erp_login.erp as erp
 
 #### Parsing from commmand line
 import argparse
@@ -13,7 +14,6 @@ parser.add_argument("-u", "--user", help="ERP Username/Login ID")
 args = parser.parse_args()
 if args.user is None:
 	args.user = input("Enter you Roll Number: ")
-erp_password = getpass.getpass("Enter your ERP password: ")
 
 #### Parsing ends
 
@@ -30,31 +30,8 @@ headers = {
 }
 
 s = requests.Session()
-r = s.get(ERP_HOMEPAGE_URL)
-soup = bs(r.text, 'html.parser')
-sessionToken = soup.find_all(id='sessionToken')[0].attrs['value']
-r = s.post(ERP_SECRET_QUESTION_URL, data={'user_id': args.user},
-           headers = headers)
-secret_question = r.text
-print ("Your secret question: " + secret_question)
-secret_answer = getpass.getpass("Enter the answer to the security question: ")
-r = s.post(ERP_OTP_URL, data={'typeee': 'SI', 'loginid': args.user},headers = headers) #because 'type' was too mainstream for ERP
-otp = getpass.getpass("Enter the OTP sent to your registered email address: ")
-login_details = {
-    'user_id': args.user,
-    'password': erp_password,
-    'answer': secret_answer,
-    'email_otp': otp,
-    'sessionToken': sessionToken,
-    'requestedUrl': 'https://erp.iitkgp.ac.in/IIT_ERP3',
-}
-r = s.post(ERP_LOGIN_URL, data=login_details,
-           headers = headers)
-try:
-    ssoToken = re.search(r'\?ssoToken=(.+)$',
-                     r.history[1].headers['Location']).group(1)
-except IndexError:
-    print("Error: Please make sure the entered credentials are correct!")
+
+_, ssoToken = erp.login(headers, s)
 
 ERP_TIMETABLE_URL = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
 
