@@ -7,16 +7,6 @@ import json
 import getpass
 import iitkgp_erp_login.erp as erp
 
-#### Parsing from commmand line
-import argparse
-parser = argparse.ArgumentParser()
-parser.add_argument("-u", "--user", help="ERP Username/Login ID")
-args = parser.parse_args()
-if args.user is None:
-	args.user = input("Enter you Roll Number: ")
-
-#### Parsing ends
-
 ERP_HOMEPAGE_URL = 'https://erp.iitkgp.ac.in/IIT_ERP3/'
 ERP_LOGIN_URL = 'https://erp.iitkgp.ac.in/SSOAdministration/auth.htm'
 ERP_SECRET_QUESTION_URL = 'https://erp.iitkgp.ac.in/SSOAdministration/getSecurityQues.htm'
