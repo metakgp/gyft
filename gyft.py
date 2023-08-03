@@ -7,10 +7,6 @@ import json
 import getpass
 import iitkgp_erp_login.erp as erp
 
-ERP_HOMEPAGE_URL = 'https://erp.iitkgp.ac.in/IIT_ERP3/'
-ERP_LOGIN_URL = 'https://erp.iitkgp.ac.in/SSOAdministration/auth.htm'
-ERP_SECRET_QUESTION_URL = 'https://erp.iitkgp.ac.in/SSOAdministration/getSecurityQues.htm'
-ERP_OTP_URL = 'https://erp.iitkgp.ac.in/SSOAdministration/getEmilOTP.htm' # blame ERP for the typo
 
 
 
