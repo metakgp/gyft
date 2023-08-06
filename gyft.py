@@ -5,21 +5,8 @@ from bs4 import BeautifulSoup as bs
 import re
 import json
 import getpass
+import iitkgp_erp_login.erp as erp
 
-#### Parsing from commmand line
-import argparse
-parser = argparse.ArgumentParser()
-parser.add_argument("-u", "--user", help="ERP Username/Login ID")
-args = parser.parse_args()
-if args.user is None:
-	args.user = input("Enter you Roll Number: ")
-erp_password = getpass.getpass("Enter your ERP password: ")
-
-#### Parsing ends
-
-ERP_HOMEPAGE_URL = 'https://erp.iitkgp.ac.in/IIT_ERP3/'
-ERP_LOGIN_URL = 'https://erp.iitkgp.ac.in/SSOAdministration/auth.htm'
-ERP_SECRET_QUESTION_URL = 'https://erp.iitkgp.ac.in/SSOAdministration/getSecurityQues.htm'
 
 
 
@@ -29,28 +16,8 @@ headers = {
 }
 
 s = requests.Session()
-r = s.get(ERP_HOMEPAGE_URL)
-soup = bs(r.text, 'html.parser')
-sessionToken = soup.find_all(id='sessionToken')[0].attrs['value']
-r = s.post(ERP_SECRET_QUESTION_URL, data={'user_id': args.user},
-           headers = headers)
-secret_question = r.text
-print ("Your secret question: " + secret_question)
-secret_answer = getpass.getpass("Enter the answer to the security question: ")
-login_details = {
-    'user_id': args.user,
-    'password': erp_password,
-    'answer': secret_answer,
-    'sessionToken': sessionToken,
-    'requestedUrl': 'https://erp.iitkgp.ac.in/IIT_ERP3',
-}
-r = s.post(ERP_LOGIN_URL, data=login_details,
-           headers = headers)
-try:
-    ssoToken = re.search(r'\?ssoToken=(.+)$',
-                     r.history[1].headers['Location']).group(1)
-except IndexError:
-    print("Error: Please make sure the entered credentials are correct!")
+
+_, ssoToken = erp.login(headers, s)
 
 ERP_TIMETABLE_URL = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
 
@@ -83,7 +50,7 @@ del_rows = []
 for i in range(1, len(rows)):
     HeaderRows = rows[i].findAll("td", {"class": "tableheader"})
     # print(HeaderRows)
-    if len(HeaderRows) is 0:
+    if len(HeaderRows) == 0:
         del_rows.append(i)
 
 for index_del in sorted(del_rows, reverse=True):
@@ -118,8 +85,8 @@ for i in range(1, len(rows)):
             continue
         txt = tds[a].find('b').text.strip()
         if (len(txt) >= 7):
-            timetable_dict[days[i]][times[time]] = list((tds[a].find('b').text[:7],tds[a].find('b').text[7:], int(tds[a]._attr_value_as_string('colspan'))))
-        time = time + int(tds[a]._attr_value_as_string('colspan'))
+            timetable_dict[days[i]][times[time]] = list((tds[a].find('b').text[:7],tds[a].find('b').text[7:], int(tds[a]['colspan'])))
+        time = time + int(tds[a]['colspan'])
 
 
 def merge_slots(in_dict):
