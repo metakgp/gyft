@@ -12,7 +12,6 @@ from oauth2client import tools
 from oauth2client import file
 import json
 import datetime
-
 DEBUG = False
 
 try:
@@ -86,9 +85,6 @@ def main():
     # Get your timetable
     with open("data.txt") as data_file:
         data = json.load(data_file)
-    # Get subjects code and their respective name
-    with open("subjects.json") as data_file:
-        subjects = json.load(data_file)
     # Get latlong of classrooms
     with open("full_location.json") as data_file:
         latlong = json.load(data_file)
@@ -124,8 +120,8 @@ def main():
             event = {}
             # Currently there are no labs in `subjects.json`
             # if (data[day][time][0] in subjects.keys()):
-            if data[day][time][0] in subjects.keys():
-                event["summary"] = subjects[data[day][time][0]].title()
+            if data[day][time][3] is not None:
+                event["summary"] = data[day][time][3].title()
             else:
                 event["summary"] = data[day][time][0]
             if data[day][time][1] in latlong.keys():
