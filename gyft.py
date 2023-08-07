@@ -15,7 +15,7 @@ headers = {
 
 s = requests.Session()
 
-_, ssoToken = erp.login(headers, s, SESSION_STORAGE_FILE=".session")
+_, ssoToken = erp.login(headers, s)
 
 ERP_TIMETABLE_URL = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
 COURSES_URL = "https://erp.iitkgp.ac.in/Acad/timetable_track.jsp?action=second&dept={}"

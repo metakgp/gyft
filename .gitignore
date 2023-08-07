@@ -1,5 +1,4 @@
 client_secret.json
-.session
 *.pyc
 *~
 data.txt
