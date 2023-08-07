@@ -27,6 +27,7 @@ import getpass
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--input")
 parser.add_argument("-o", "--output")
+parser.add_argument("--session", default="2023-2024")
 args = parser.parse_args()
 
 DEBUG = False
@@ -105,9 +106,6 @@ def main():
     # Get your timetable
     with open(INPUT_FILENAME) as data_file:
         data = json.load(data_file)
-    # Get subjects code and their respective name
-    with open("subjects.json") as data_file:
-        subjects = json.load(data_file)
 
     found_missing_sub = False
     for day in data:
@@ -128,14 +126,15 @@ def main():
             durationInHours = data[day][time][2]
 
             # Find the name of this course
-            # Use subject name if available, else ask the user for the subject
-            # name and use that
-            # TODO: Add labs to `subjects.json`
+            # Use subject name if available, else ask the user for the subject name and use that
             subject_code = data[day][time][0]
+            dept = subject_code[:2]
             summary = subject_code
             description = subject_code
-            if subject_code in subjects.keys():
-                summary = subjects[subject_code].title()
+
+            # check if subject name is there in data.txt
+            if data[day][time][3] is not None:
+                summary = data[day][time][3].title()
             else:
                 print(
                     "ERROR: Our subjects database does not have %s in it."
@@ -144,12 +143,7 @@ def main():
                 summary = input(
                     "INPUT: Please input the name of the course %s: " % subject_code
                 )
-
-                subjects[subject_code] = str(summary)
-                update_sub_list(subject_code, summary)
-
                 summary = summary.title()
-                found_missing_sub = True
 
             # Find location of this class
             location = data[day][time][1]
@@ -173,10 +167,6 @@ def main():
             if DEBUG:
                 print(event)
 
-    if found_missing_sub:
-        print(
-            "Subject list has been updated. Please commit, push and raise a pull request at github.com/metakgp/gyft."
-        )
 
     with open(OUTPUT_FILENAME, "wb") as f:
         f.write(cal.to_ical())
