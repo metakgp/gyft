@@ -26,7 +26,6 @@ import getpass
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--input")
 parser.add_argument("-o", "--output")
-parser.add_argument("--session", default="2023-2024")
 args = parser.parse_args()
 
 DEBUG = False
