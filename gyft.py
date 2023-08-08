@@ -4,7 +4,7 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 from bs4 import BeautifulSoup as bs
 import json
 import iitkgp_erp_login.erp as erp
-
+import logging
 
 
 
@@ -130,24 +130,25 @@ for day in timetable_dict.keys():
         if course_code not in courses[course_dept].keys():
             courses[course_dept][course_code] = ''
 
-    # scraping course names deptwise
-    for dept in courses.keys():
-        DEPT_URL = COURSES_URL.format(dept)
-        r = s.get(DEPT_URL, headers=headers)
-        soup = bs(r.text, 'html.parser')
-        parentTable = soup.find('table', {'id': 'disptab'})
+# scraping course names deptwise
+for dept in courses.keys():
+    DEPT_URL = COURSES_URL.format(dept)
+    r = s.get(DEPT_URL, headers=headers)
+    soup = bs(r.text, 'html.parser')
+    parentTable = soup.find('table', {'id': 'disptab'})
 
-        rows = parentTable.find_all('tr')
+    rows = parentTable.find_all('tr')
 
-        for row in rows[1:]:
-            if 'bgcolor' in row.attrs:
-                continue 
-            cells = row.find_all('td')  
-            course_code = cells[0].text.strip()
-            course_name = cells[1].text.strip()
+    for row in rows[1:]:
+        if 'bgcolor' in row.attrs:
+            continue 
+        cells = row.find_all('td')  
+        course_code = cells[0].text.strip()
+        course_name = cells[1].text.strip()
 
-            if course_code in courses[dept]:
-                courses[dept][course_code] = course_name
+        if course_code in courses[dept]:
+            courses[dept][course_code] = course_name
+            logging.info("{} - {}".format(course_code, course_name))
 
 
 # add course code to dict
