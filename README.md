@@ -94,7 +94,7 @@ The following procedure is to be followed each new semester by the maintainer fo
 
 
 ## Development Notes 
-- This project uses the [iitkgp-erp-login](https://github.com/proffapt/iitkgp-erp-login-pypi/) package for ERP login
+This project utilizes the [iitkgp-erp-login](https://github.com/proffapt/iitkgp-erp-login-pypi/) package to handle ERP login functionality.
 
 ## License
 
