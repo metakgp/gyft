@@ -16,6 +16,8 @@ headers = {
 s = requests.Session()
 
 _, ssoToken = erp.login(headers, s)
+print()
+
 
 ERP_TIMETABLE_URL = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
 COURSES_URL = "https://erp.iitkgp.ac.in/Acad/timetable_track.jsp?action=second&dept={}"
@@ -148,7 +150,7 @@ for dept in courses.keys():
 
         if course_code in courses[dept]:
             courses[dept][course_code] = course_name
-            logging.info("{} - {}".format(course_code, course_name))
+            logging.info(" {} - {}".format(course_code, course_name))
 
 
 # add course code to dict
@@ -162,4 +164,4 @@ for day in timetable_dict.keys():
 with open('data.txt', 'w') as outfile:
     json.dump(timetable_dict, outfile, indent = 4, ensure_ascii=False)
 
-print ("\n\nTimetable saved to data.txt file. Be sure to edit this file to have desired names of subjects rather than subject codes.\n")
+print ("\nTimetable saved to data.txt file. Be sure to edit this file to have desired names of subjects rather than subject codes.\n")
