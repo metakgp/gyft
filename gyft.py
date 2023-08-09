@@ -126,7 +126,7 @@ for day in timetable_dict.keys():
     for time in timetable_dict[day]:
         timetable_dict[day][time].append(" ")
         course_code = timetable_dict[day][time][0]
-        course_dept = course_code[:2] if course_code[:2] != 'EP' else 'RJ' # special case -> EP courses are under RJ department, not EP department
+        course_dept = course_code[:2] 
         if course_dept not in courses.keys():
             courses[course_dept] = {}
         if course_code not in courses[course_dept].keys():
@@ -135,7 +135,10 @@ for day in timetable_dict.keys():
 # scraping course names deptwise
 for dept in courses.keys():
     try: 
-        DEPT_URL = COURSES_URL.format(dept)
+        if dept == 'EP': # special case -> EP courses are under RJ department, not EP department
+            DEPT_URL = COURSES_URL.format('RJ')
+        else:
+            DEPT_URL = COURSES_URL.format(dept)
         r = s.get(DEPT_URL, headers=headers)
         soup = bs(r.text, 'html.parser')
         parentTable = soup.find('table', {'id': 'disptab'})
@@ -155,8 +158,9 @@ for dept in courses.keys():
                 logging.info(" {} - {}".format(course_code, course_name))
     except Exception as e:
         print()
-        logging.error(" Error while scraping course names for department {}".format(dept))
+        logging.error(" Error while scraping course names for course letter code {}".format(dept))
         logging.error(e)
+        logging.error(" If you know the department code corresponding to the above code, please add it in the code after line 139, and submit a PR.")
         logging.error(" You can manually add the course names while executing generate_ics.py")
         print()
 
@@ -165,7 +169,7 @@ for dept in courses.keys():
 for day in timetable_dict.keys():
     for time in timetable_dict[day]:
         course_code = timetable_dict[day][time][0]
-        course_dept = course_code[:2] if course_code[:2] != 'EP' else 'RJ'
+        course_dept = course_code[:2]
         timetable_dict[day][time][3] = courses[course_dept][course_code]
 
 
