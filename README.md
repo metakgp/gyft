@@ -46,7 +46,7 @@ The following procedure is to be followed each new semester by the maintainer fo
   - Once the security question is fetched, enter your credentials and save the ICS file.
   - Move to step 2(b)(ii).
   
-  Source at [nishnik/gyft-serve](https://github.com/nishnik/gyft-serve).
+  Source at [metakgp/gyft-serve](https://github.com/metakgp/gyft-serve).
 
 - **Step 2:** Decide whether you want to add the events to Google Calendar or
     generate an ICS file from the data.
@@ -92,15 +92,9 @@ The following procedure is to be followed each new semester by the maintainer fo
 
         For google calendar, follow the instructions given [here](https://support.google.com/calendar/answer/37118?hl=en).
 
-## Development Notes
 
-If you manually edit the `subjects.json` file, re-indent and pretty print the
-file using this command: (you will need
-[jq](https://stedolan.github.io/jq/download/))
-
-```sh
-jq -S --indent 4 . subjects.json
-```
+## Development Notes 
+This project utilizes the [iitkgp-erp-login](https://github.com/proffapt/iitkgp-erp-login-pypi/) package to handle ERP login functionality.
 
 ## License
 
