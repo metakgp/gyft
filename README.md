@@ -46,7 +46,7 @@ The following procedure is to be followed each new semester by the maintainer fo
   - Once the security question is fetched, enter your credentials and save the ICS file.
   - Move to step 2(b)(ii).
   
-  Source at [nishnik/gyft-serve](https://github.com/nishnik/gyft-serve).
+  Source at [metakgp/gyft-serve](https://github.com/metakgp/gyft-serve).
 
 - **Step 2:** Decide whether you want to add the events to Google Calendar or
     generate an ICS file from the data.
