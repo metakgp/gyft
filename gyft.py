@@ -154,9 +154,11 @@ for dept in courses.keys():
                 courses[dept][course_code] = course_name
                 logging.info(" {} - {}".format(course_code, course_name))
     except Exception as e:
-        logging.error("Error while scraping course names for department {}".format(dept))
+        print()
+        logging.error(" Error while scraping course names for department {}".format(dept))
         logging.error(e)
-        logging.error("You can manually add the course names while executing generate_ics.py")
+        logging.error(" You can manually add the course names while executing generate_ics.py")
+        print()
 
 
 # add course code to dict
@@ -170,4 +172,4 @@ for day in timetable_dict.keys():
 with open('data.txt', 'w') as outfile:
     json.dump(timetable_dict, outfile, indent = 4, ensure_ascii=False)
 
-print ("\nTimetable saved to data.txt file. Be sure to edit this file to have desired names of subjects rather than subject codes.\n")
+print ("\nTimetable saved to data.txt file. You can generate the ICS file now by running generate_ics.py.\n")
