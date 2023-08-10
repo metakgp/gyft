@@ -6,7 +6,8 @@ import json
 import iitkgp_erp_login.erp as erp
 import logging
 
-
+with open('dept_codes.json') as f:
+    dept_codes = json.load(f)
 
 headers = {
     'timeout': '20',
@@ -135,10 +136,8 @@ for day in timetable_dict.keys():
 # scraping course names deptwise
 for dept in courses.keys():
     try: 
-        if dept == 'EP': # special case -> EP courses are under RJ department, not EP department
-            DEPT_URL = COURSES_URL.format('RJ')
-        else:
-            DEPT_URL = COURSES_URL.format(dept)
+        # find dept code from dept_codes
+        DEPT_URL = COURSES_URL.format(dept_codes[dept])
         r = s.get(DEPT_URL, headers=headers)
         soup = bs(r.text, 'html.parser')
         parentTable = soup.find('table', {'id': 'disptab'})
@@ -160,7 +159,6 @@ for dept in courses.keys():
         print()
         logging.error(" Error while scraping course names for course letter code {}".format(dept))
         logging.error(e)
-        logging.error(" If you know the department code corresponding to the above code, please add it in the code after line 139, and submit a PR.")
         logging.error(" You can manually add the course names while executing generate_ics.py")
         print()
 
