@@ -6,6 +6,8 @@ import json
 import iitkgp_erp_login.erp as erp
 import logging
 
+updated_codes = False
+
 with open('dept_codes.json') as f:
     dept_codes = json.load(f)
 
@@ -28,6 +30,27 @@ timetable_details = {
     'module_id': '16',
     'menu_id': '40',
 }
+
+def scrape_courses(courses, dept):
+    # find dept code from dept_codes
+    DEPT_URL = COURSES_URL.format(dept)
+    r = s.get(DEPT_URL, headers=headers)
+    soup = bs(r.text, 'html.parser')
+    parentTable = soup.find('table', {'id': 'disptab'})
+
+    rows = parentTable.find_all('tr')
+
+    for row in rows[1:]:
+        if 'bgcolor' in row.attrs:
+            continue 
+        cells = row.find_all('td')  
+        course_code = cells[0].text.strip()
+        course_name = cells[1].text.strip()
+
+        if course_code in courses[dept]:
+            courses[dept][course_code] = course_name
+            logging.info(" {} - {}".format(course_code, course_name))
+
 
 # This is just a hack to get cookies. TODO: do the standard thing here
 abc = s.post(ERP_TIMETABLE_URL, headers=headers, data=timetable_details)
@@ -128,50 +151,44 @@ for day in timetable_dict.keys():
         timetable_dict[day][time].append(" ")
         course_code = timetable_dict[day][time][0]
         course_dept = course_code[:2] 
-        if course_dept not in courses.keys():
-            courses[course_dept] = {}
-        if course_code not in courses[course_dept].keys():
-            courses[course_dept][course_code] = ''
+        try:
+            dept_code = dept_codes[course_dept]
+        except:
+            dept_code = input("Enter the 2 letter dept code for {}: ".format(course_dept))
+            print()
+            dept_codes[course_dept] = dept_code
+            updated_codes = True
+
+        if dept_code not in courses.keys():
+            courses[dept_code] = {}
+        if course_code not in courses[dept_code].keys():
+            courses[dept_code][course_code] = ''
+
 
 # scraping course names deptwise
 for dept in courses.keys():
     try: 
-        # find dept code from dept_codes
-        DEPT_URL = COURSES_URL.format(dept_codes[dept])
-        r = s.get(DEPT_URL, headers=headers)
-        soup = bs(r.text, 'html.parser')
-        parentTable = soup.find('table', {'id': 'disptab'})
-
-        rows = parentTable.find_all('tr')
-
-        for row in rows[1:]:
-            if 'bgcolor' in row.attrs:
-                continue 
-            cells = row.find_all('td')  
-            course_code = cells[0].text.strip()
-            course_name = cells[1].text.strip()
-
-
-            if course_code in courses[dept]:
-                courses[dept][course_code] = course_name
-                logging.info(" {} - {}".format(course_code, course_name))
-    except Exception as e:
+        scrape_courses(courses,dept)
+    except:
         print()
         logging.error(" Error while scraping course names for course letter code {}".format(dept))
-        logging.error(e)
-        logging.error(" You can manually add the course names while executing generate_ics.py")
+        logging.info(" You can manually add the course names while executing generate_ics.py")
         print()
-
 
 # add course code to dict
 for day in timetable_dict.keys():
     for time in timetable_dict[day]:
         course_code = timetable_dict[day][time][0]
-        course_dept = course_code[:2]
-        timetable_dict[day][time][3] = courses[course_dept][course_code]
+        dept_code = dept_codes[course_code[:2]]
+        timetable_dict[day][time][3] = courses[dept_code][course_code]
 
 
 with open('data.txt', 'w') as outfile:
     json.dump(timetable_dict, outfile, indent = 4, ensure_ascii=False)
+
+if updated_codes:
+    with open('dept_codes.json', 'w') as outfile:
+        json.dump(dept_codes, outfile, indent = 4, ensure_ascii=False)
+    print("\nThe dept_codes.json file has been updated with the new dept codes. Please send a PR to the repo with the updated file.")
 
 print ("\nTimetable saved to data.txt file. You can generate the ICS file now by running generate_ics.py.\n")
