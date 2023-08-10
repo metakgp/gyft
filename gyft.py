@@ -189,6 +189,6 @@ with open('data.txt', 'w') as outfile:
 if updated_codes:
     with open('dept_codes.json', 'w') as outfile:
         json.dump(dept_codes, outfile, indent = 4, ensure_ascii=False)
-    print("\nThe dept_codes.json file has been updated with the new dept codes. Please send a PR to the repo with the updated file.")
+    print("\nThe dept_codes.json file has been updated. Please send a PR to the repository for the same.")
 
 print ("\nTimetable saved to data.txt file. You can generate the ICS file now by running generate_ics.py.\n")
