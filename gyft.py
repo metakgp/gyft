@@ -4,25 +4,7 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 from bs4 import BeautifulSoup as bs
 import json
 import iitkgp_erp_login.erp as erp
-import logging
-import argparse
 from dates import SEM_BEGIN
-
-parser = argparse.ArgumentParser(description='Generate ICS file for IIT KGP timetable.')
-parser.add_argument('--user', help='Roll number')
-
-args = parser.parse_args()
-
-if args.user is None:
-    args.user = input("Enter your roll number: ")
-
-if SEM_BEGIN.month > 6:
-    # autumn semester
-    SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(args.user[:2]))*2 + 1
-else:
-    # spring semester
-    SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(args.user[:2])) + 2
-
 
 headers = {
     'timeout': '20',
@@ -33,6 +15,13 @@ s = requests.Session()
 
 _, ssoToken = erp.login(headers, s)
 print()
+
+if SEM_BEGIN.month > 6:
+    # autumn semester
+    SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(erp.ROLL_NUMBER[:2]))*2 + 1
+else:
+    # spring semester
+    SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(erp.ROLL_NUMBER[:2])) + 2
 
 
 ERP_TIMETABLE_URL = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
@@ -47,7 +36,7 @@ timetable_details = {
 coursepage_details = {
     "ssoToken": ssoToken,
     "semno": SEM_NO,
-    "rollno": args.user,
+    "rollno": erp.ROLL_NUMBER,
     "order": "asc"
 }
 
