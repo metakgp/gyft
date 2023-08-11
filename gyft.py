@@ -4,9 +4,7 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 from bs4 import BeautifulSoup as bs
 import json
 import iitkgp_erp_login.erp as erp
-import logging
-
-
+from dates import SEM_BEGIN
 
 headers = {
     'timeout': '20',
@@ -18,14 +16,28 @@ s = requests.Session()
 _, ssoToken = erp.login(headers, s)
 print()
 
+if SEM_BEGIN.month > 6:
+    # autumn semester
+    SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(erp.ROLL_NUMBER[:2]))*2 + 1
+else:
+    # spring semester
+    SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(erp.ROLL_NUMBER[:2])) + 2
+
 
 ERP_TIMETABLE_URL = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
-COURSES_URL = "https://erp.iitkgp.ac.in/Acad/timetable_track.jsp?action=second&dept={}"
+COURSES_URL = "https://erp.iitkgp.ac.in/Academic/student_performance_details_ug.htm"
 
 timetable_details = {
     'ssoToken': ssoToken,
     'module_id': '16',
     'menu_id': '40',
+}
+
+coursepage_details = {
+    "ssoToken": ssoToken,
+    "semno": SEM_NO,
+    "rollno": erp.ROLL_NUMBER,
+    "order": "asc"
 }
 
 # This is just a hack to get cookies. TODO: do the standard thing here
@@ -50,7 +62,6 @@ times = []
 del_rows = []
 for i in range(1, len(rows)):
     HeaderRows = rows[i].findAll("td", {"class": "tableheader"})
-    # print(HeaderRows)
     if len(HeaderRows) == 0:
         del_rows.append(i)
 
@@ -120,48 +131,18 @@ for day in timetable_dict.keys():
         else:
             timetable_dict[day][time][2] = subject_timings[timetable_dict[day][time][0]][1]
 
-courses = {}
-# grouping courses by dept
-for day in timetable_dict.keys():
-    for time in timetable_dict[day]:
-        timetable_dict[day][time].append(" ")
-        course_code = timetable_dict[day][time][0]
-        course_dept = course_code[:2]
-        if course_dept not in courses.keys():
-            courses[course_dept] = {}
-        if course_code not in courses[course_dept].keys():
-            courses[course_dept][course_code] = ''
-
-# scraping course names deptwise
-for dept in courses.keys():
-    DEPT_URL = COURSES_URL.format(dept)
-    r = s.get(DEPT_URL, headers=headers)
-    soup = bs(r.text, 'html.parser')
-    parentTable = soup.find('table', {'id': 'disptab'})
-
-    rows = parentTable.find_all('tr')
-
-    for row in rows[1:]:
-        if 'bgcolor' in row.attrs:
-            continue 
-        cells = row.find_all('td')  
-        course_code = cells[0].text.strip()
-        course_name = cells[1].text.strip()
-
-        if course_code in courses[dept]:
-            courses[dept][course_code] = course_name
-            logging.info(" {} - {}".format(course_code, course_name))
+r = s.post(COURSES_URL, headers=headers, data=coursepage_details)
+sub_dict = {item["subno"]: item["subname"] for item in r.json()}
+sub_dict = {k: v.replace("&amp;", "&") for k, v in sub_dict.items()} # replacing &amp; with &
 
 
-# add course code to dict
+# add course name to dict
 for day in timetable_dict.keys():
     for time in timetable_dict[day]:
         course_code = timetable_dict[day][time][0]
-        course_dept = course_code[:2]
-        timetable_dict[day][time][3] = courses[course_dept][course_code]
-
+        timetable_dict[day][time].append(sub_dict[course_code])
 
 with open('data.txt', 'w') as outfile:
     json.dump(timetable_dict, outfile, indent = 4, ensure_ascii=False)
 
-print ("\nTimetable saved to data.txt file. Be sure to edit this file to have desired names of subjects rather than subject codes.\n")
+print ("\nTimetable saved to data.txt file. You can generate the ICS file now by running generate_ics.py.\n")

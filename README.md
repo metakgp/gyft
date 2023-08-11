@@ -32,7 +32,7 @@ The following procedure is to be followed each new semester by the maintainer fo
   ```
 
   ```sh
-  $ python3 gyft.py
+  $ python3 gyft.py 
   ```
 
   Enter your password and security answer when prompted.
@@ -41,7 +41,7 @@ The following procedure is to be followed each new semester by the maintainer fo
   
   **Use the web application on any browser**
 
-  - Go to the [GYFT WebApp](https://gyftkgp.herokuapp.com/).
+  - Go to the [GYFT WebApp](https://gyft.metakgp.org/).
   - Enter your roll number and get the security question.
   - Once the security question is fetched, enter your credentials and save the ICS file.
   - Move to step 2(b)(ii).
