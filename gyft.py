@@ -6,17 +6,23 @@ import json
 import iitkgp_erp_login.erp as erp
 import logging
 import argparse
+from dates import SEM_BEGIN
 
 parser = argparse.ArgumentParser(description='Generate ICS file for IIT KGP timetable.')
 parser.add_argument('--user', help='Roll number')
-parser.add_argument('--sem', help='Current Semester Number')
 
 args = parser.parse_args()
 
 if args.user is None:
     args.user = input("Enter your roll number: ")
-if args.sem is None:
-    args.sem = input("Enter your current semester number: ")
+
+if SEM_BEGIN.month > 6:
+    # autumn semester
+    SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(args.user[:2]))*2 + 1
+else:
+    # spring semester
+    SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(args.user[:2])) + 2
+
 
 headers = {
     'timeout': '20',
@@ -40,7 +46,7 @@ timetable_details = {
 
 coursepage_details = {
     "ssoToken": ssoToken,
-    "semno": args.sem,
+    "semno": SEM_NO,
     "rollno": args.user,
     "order": "asc"
 }
