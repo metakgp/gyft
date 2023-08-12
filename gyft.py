@@ -195,7 +195,8 @@ def main():
             "What would you like to do now?\n \
             1. Add timetable directly to Google Calendar (requires client_secret.json)\n \
             2. Generate an ICS file\n \
-            3. Exit\n "))
+            3. Exit\n \
+            Enter your choice: "))
 
         if choice == 1:
             create_calendar()
