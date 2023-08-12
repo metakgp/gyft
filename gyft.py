@@ -188,7 +188,7 @@ def main():
             with open(INPUT_FILENAME, 'w') as outfile:
                 json.dump(timetable_dict, outfile, indent = 4, ensure_ascii=False)
             
-            print(f"\nTimetable saved to {INPUT_FILENAME} file.")
+            print(f"Timetable saved to {INPUT_FILENAME} file.\n")
 
 
         print("What would you like to do now?")
