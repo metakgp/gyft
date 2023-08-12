@@ -8,6 +8,7 @@ import iitkgp_erp_login.erp as erp
 import argparse
 from dates import SEM_BEGIN
 from generate_ics import generate_ICS
+from add_events import create_calendar
 
 headers = {
     'timeout': '20',
@@ -178,13 +179,18 @@ def main():
         print(f"\nTimetable saved to {INPUT_FILENAME} file.")
 
 
-    gen = input("Would you like to generate an ics file? (y/n): ")
-    print()
-    if gen.lower() == 'n':
-        gen_ics = False
+    choice = int(input(
+        "What would you like to do now?\n \
+        1. Add timetable directly to Google Calendar (requires client_secret.json)\n \
+        2. Generate an ICS file\n \
+        3. Exit\n "))
 
-    if gen_ics:
+    if choice == 1:
+        create_calendar()
+    elif choice == 2:
         generate_ICS(INPUT_FILENAME, OUTPUT_FILENAME)
+    else:
+        exit()
         
 
 if __name__ == "__main__":
