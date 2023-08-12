@@ -22,76 +22,44 @@ The following procedure is to be followed each new semester by the maintainer fo
 
 ## How to use the program?
 
-- **Step 1:** Get your timetable from ERP:
+- Clone this repository 
+- Install the dependencies by running:
+    ```sh
+    pip install -r requirements.txt
+    ```
+- Run the gyft script:
+    ```sh
+    python3 gyft.py
+    ```
+  - Optional flags: 
+    - `--input` or `i`: Input file (`.txt`) containing the timetable data/to which timetable data will be saved. **Default:** `data.txt` 
+    - `--output` or `o`: Output file (`.ics`) to which the ICS file will be written. **Default:** `timetable.ics`
+    - `--del-events`: To delete events automatically added by the script before adding new events (explained later) **Default:** `False`
 
-  **Run the Gyft script locally (using Python)**
+- Enter your roll number, password, security answer and OTP (if required) when prompted
+
+- Your timetable will be saved in the file specified by the `--input` flag (**default:** `data.txt`)
+- Now you can choose between 2 options, which will be prompted to you:
+- #### Add to Google Calendar:
+	- For this, you have to get your `credentials.json` and save it as `client_secret.json` to the current directory by following the Step 1 from [here](https://developers.google.com/google-apps/calendar/quickstart/python#step_1_turn_on_the_api_name)
+	- Also note that adding to Google Calendar requires an Internet connection
   
-  Clone this repository and run the following command:
-   ```sh
-  $ pip install -r requirements.txt
-  ```
-
-  ```sh
-  $ python3 gyft.py 
-  ```
-
-  Enter your password and security answer when prompted.
-
-  Your timetable will be saved in `data.txt`. Make any changes required in `data.txt`. Then, proceed to Step 2.
+- #### Generate ICS file:
+  - This will generate an ICS file which you can import into any calendar application.
+  - For importing to Google Calendar, follow the instructions given [here](https://support.google.com/calendar/answer/37118?hl=en).
   
-  **Use the web application on any browser**
 
-  - Go to the [GYFT WebApp](https://gyft.metakgp.org/).
-  - Enter your roll number and get the security question.
-  - Once the security question is fetched, enter your credentials and save the ICS file.
-  - Move to step 2(b)(ii).
-  
-  Source at [metakgp/gyft-serve](https://github.com/metakgp/gyft-serve).
+> **Note** 
+> - You can also use the web application to get your ICS file
+> - Go to the [GYFT WebApp](https://gyft.metakgp.org/)
+> - Enter your roll number and get the security question
+> - Once the security question is fetched, enter your credentials and save the ICS file
+> - Source at [metakgp/gyft-serve](https://github.com/metakgp/gyft-serve)
 
-- **Step 2:** Decide whether you want to add the events to Google Calendar or
-    generate an ICS file from the data.
-
-    Adding to Google Calendar requires an Internet connection
-
-    ICS files are compatible with almost all Calendar applications (including
-    the iOS calendar application, Sunrise etc)
-
-- **Step 2(a):** If you decide on adding your events to your Google Calendar:
-
-    - **Step (i):** Get your `credentials.json` and save it as `client_secret.json` to the current directory by
-                    following the Step 1 from
-                    [here](https://developers.google.com/google-apps/calendar/quickstart/python#step_1_turn_on_the_api_name).
-
-    - **Step (ii):** Now, run:
-
-        ```sh
-        $ python3 add_events.py
-        ```
-
-    - **MISC:** To delete all the recurring events added by the CLI or GYFT Web Application (uses property of recurrence to identify events to delete):
-
-        ```sh
-        $ python3 del_events.py
-        ```
-
-- **Step 2(b):** If you decide on generating an ICS file:
-
-    - **Step (i):** Run the command:
-
-        ```sh
-        $ python3 generate_ics.py
-        ```
-
-        ```sh
-        # you can provide input and output file path to this python script
-        $ python3 generate_ics.py --input d.txt --output t.ics
-        ```
-
-    - **Step (ii):** Open your calendar application and import this ICS file
-        into it.
-
-        For google calendar, follow the instructions given [here](https://support.google.com/calendar/answer/37118?hl=en).
-
+- **MISC:** To delete all the recurring events added by the CLI or GYFT Web Application (uses property of recurrence to identify events to delete), you can run `gyft.py` with the `--del-events` flag:
+	```sh
+	python3 gyft.py --del-events
+	```
 
 ## Development Notes 
 This project utilizes the [iitkgp-erp-login](https://github.com/proffapt/iitkgp-erp-login-pypi/) package to handle ERP login functionality.
