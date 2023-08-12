@@ -136,7 +136,7 @@ def main():
     args = parse_args()
 
     INPUT_FILENAME = args.input if args.input else "data.txt"
-    OUTPUT_FILENAME = "timetable.ics" if args.output is None else args.output
+    OUTPUT_FILENAME = args.output if args.output else "timetable.ics"
 
     # check if data.txt exists
     if osp.exists(INPUT_FILENAME):
