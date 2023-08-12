@@ -191,17 +191,16 @@ def main():
             print(f"\nTimetable saved to {INPUT_FILENAME} file.")
 
 
-        choice = int(input(
-            "What would you like to do now?\n \
-            1. Add timetable directly to Google Calendar (requires client_secret.json)\n \
-            2. Generate an ICS file\n \
-            3. Exit\n \
-            Enter your choice: "))
+        print("What would you like to do now?")
+        print("1. Add timetable directly to Google Calendar (requires client_secret.json)")
+        print("2. Generate an ICS file")
+        print("3. Exit")
+        choice = int(input("Enter your choice: "))
 
         if choice == 1:
             create_calendar()
         elif choice == 2:
-            generate_ICS(INPUT_FILENAME, OUTPUT_FILENAME)
+            generate_ICS(INPUT_FILENAME, OUTPUT_FILENAME) 
         else:
             exit()
         
