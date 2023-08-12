@@ -136,4 +136,4 @@ def generate_ICS(input_filename, output_filename):
 
     with open(output_filename, "wb") as f:
         f.write(cal.to_ical())
-        print("INFO: Your timetable has been written to %s" % output_filename)
+        print("\nYour timetable has been written to %s" % output_filename)
