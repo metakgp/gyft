@@ -13,12 +13,6 @@ from oauth2client import tools
 from oauth2client import file
 import datetime
 
-try:
-    import argparse
-    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
-except ImportError:
-    flags = None
-
 SCOPES = 'https://www.googleapis.com/auth/calendar'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'gyft'
@@ -53,7 +47,7 @@ def get_credentials():
     return credentials
 
 
-def main():
+def delete_calendar():
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
@@ -72,7 +66,3 @@ def main():
                                     eventId=event["id"]).execute()
             print("Deleted: ", event["summary"], event["start"])
     print("Deletion done!")
-
-
-if __name__ == '__main__':
-    main()

@@ -14,13 +14,6 @@ import json
 import datetime
 DEBUG = False
 
-try:
-    import argparse
-
-    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
-except ImportError:
-    flags = None
-
 SCOPES = "https://www.googleapis.com/auth/calendar"
 CLIENT_SECRET_FILE = "client_secret.json"
 APPLICATION_NAME = "gyft"
@@ -72,7 +65,7 @@ days["Saturday"] = 5
 ###
 
 
-def main():
+def create_calendar():
     """Shows basic usage of the Google Calendar API.
 
     Creates a Google Calendar API service object and outputs a list of the next
@@ -154,7 +147,3 @@ def main():
         if DEBUG:
             break
     print("\n\nEvents added to calendar\n")
-
-
-if __name__ == "__main__":
-    main()
