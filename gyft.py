@@ -36,8 +36,8 @@ def parse_args():
                         help="Input file containing timetable in .txt format")
     parser.add_argument("-o", "--output",
                         help="Output file containing timetable in .ics format")
-    parser.add_argument("-d", "--del_events", action="store_true", 
-                        help="Delete all events from the calendar before adding new events")
+    parser.add_argument("-d", "--del-events", action="store_true", 
+                        help="Automatically delete events added by the script before adding new events")
     args = parser.parse_args()
     return args
 
