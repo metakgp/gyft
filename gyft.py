@@ -9,6 +9,7 @@ import argparse
 from dates import SEM_BEGIN
 from generate_ics import generate_ICS
 from add_events import create_calendar
+from del_events import delete_calendar
 
 headers = {
     'timeout': '20',
@@ -31,8 +32,12 @@ days[6] = "Saturday"
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--input")
-    parser.add_argument("-o", "--output")
+    parser.add_argument("-i", "--input", 
+                        help="Input file containing timetable in .txt format")
+    parser.add_argument("-o", "--output",
+                        help="Output file containing timetable in .ics format")
+    parser.add_argument("-d", "--del_events", action="store_true", 
+                        help="Delete all events from the calendar before adding new events")
     args = parser.parse_args()
     return args
 
@@ -132,65 +137,72 @@ def scrape_timetable(s, timetable_details, coursepage_details):
 
 def main():
     overwrite = True
-    gen_ics = True
+    generate = True
 
     args = parse_args()
 
-    INPUT_FILENAME = args.input if args.input else "data.txt"
-    OUTPUT_FILENAME = args.output if args.output else "timetable.ics"
+    if args.del_events:
+        delete_calendar()
+        gen = input("\nWould you like to generate a new timetable? (y/n): ")
+        if gen.lower() == 'n':
+            generate = False
+    
+    if generate:
+        INPUT_FILENAME = args.input if args.input else "data.txt"
+        OUTPUT_FILENAME = args.output if args.output else "timetable.ics"
 
-    # check if data.txt exists
-    if osp.exists(INPUT_FILENAME):
-        ow = input(f"Timetable file {INPUT_FILENAME} exists. Do you want to overwrite it? (y/n): ")
-        print()
-        if ow.lower() == 'n':
-            overwrite = False
+        # check if data.txt exists
+        if osp.exists(INPUT_FILENAME):
+            ow = input(f"Timetable file {INPUT_FILENAME} exists. Do you want to overwrite it? (y/n): ")
+            print()
+            if ow.lower() == 'n':
+                overwrite = False
 
-    if overwrite:
-        s = requests.Session()
-        _, ssoToken = erp.login(headers, s)
-        print()
+        if overwrite:
+            s = requests.Session()
+            _, ssoToken = erp.login(headers, s)
+            print()
 
-        if SEM_BEGIN.month > 6:
-            # autumn semester
-            SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(erp.ROLL_NUMBER[:2]))*2 + 1
+            if SEM_BEGIN.month > 6:
+                # autumn semester
+                SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(erp.ROLL_NUMBER[:2]))*2 + 1
+            else:
+                # spring semester
+                SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(erp.ROLL_NUMBER[:2])) + 2
+
+            timetable_details = {
+                "ssoToken": ssoToken,
+                "module_id": '16',
+                "menu_id": '40',
+            }
+
+            coursepage_details = {
+                "ssoToken": ssoToken,
+                "semno": SEM_NO,
+                "rollno": erp.ROLL_NUMBER,
+                "order": "asc"
+            }
+
+            timetable_dict = scrape_timetable(s, timetable_details, coursepage_details)
+
+            with open(INPUT_FILENAME, 'w') as outfile:
+                json.dump(timetable_dict, outfile, indent = 4, ensure_ascii=False)
+            
+            print(f"\nTimetable saved to {INPUT_FILENAME} file.")
+
+
+        choice = int(input(
+            "What would you like to do now?\n \
+            1. Add timetable directly to Google Calendar (requires client_secret.json)\n \
+            2. Generate an ICS file\n \
+            3. Exit\n "))
+
+        if choice == 1:
+            create_calendar()
+        elif choice == 2:
+            generate_ICS(INPUT_FILENAME, OUTPUT_FILENAME)
         else:
-            # spring semester
-            SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(erp.ROLL_NUMBER[:2])) + 2
-
-        timetable_details = {
-            "ssoToken": ssoToken,
-            "module_id": '16',
-            "menu_id": '40',
-        }
-
-        coursepage_details = {
-            "ssoToken": ssoToken,
-            "semno": SEM_NO,
-            "rollno": erp.ROLL_NUMBER,
-            "order": "asc"
-        }
-
-        timetable_dict = scrape_timetable(s, timetable_details, coursepage_details)
-
-        with open(INPUT_FILENAME, 'w') as outfile:
-            json.dump(timetable_dict, outfile, indent = 4, ensure_ascii=False)
-        
-        print(f"\nTimetable saved to {INPUT_FILENAME} file.")
-
-
-    choice = int(input(
-        "What would you like to do now?\n \
-        1. Add timetable directly to Google Calendar (requires client_secret.json)\n \
-        2. Generate an ICS file\n \
-        3. Exit\n "))
-
-    if choice == 1:
-        create_calendar()
-    elif choice == 2:
-        generate_ICS(INPUT_FILENAME, OUTPUT_FILENAME)
-    else:
-        exit()
+            exit()
         
 
 if __name__ == "__main__":
