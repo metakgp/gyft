@@ -58,11 +58,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <!-- UPDATE -->
-<div align="center">
+<!-- <div align="center">
   <a href="https://github.com/proffapt/PROJECT_NAME">
     <img width="80%" alt="image" src="https://user-images.githubusercontent.com/86282911/206632547-a3b34b47-e7ae-4186-a1e6-ecda7ddb38e6.png">
   </a>
-</div>
+</div> -->
 
 _Gets your timetable from ERP and adds it to your Google Calendar or gives you an ICS file which you can add in any common calendar application._
 
@@ -93,7 +93,7 @@ To set up a local instance of the application, follow the steps below.
 <!-- UPDATE -->
 The following dependencies are required to be installed for the project to function properly:
 * Python 3
-* IIT-KGP Student ERP Account
+* IIT-KGP Student [ERP](https://erp.iitkgp.ac.in) Account
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -157,6 +157,15 @@ This project utilizes the [iitkgp-erp-login](https://github.com/proffapt/iitkgp-
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://github.com/metakgp/gyft/blob/master/CONTRIBUTING.md) guide to know more.
+
+### Updates To Be Made Each Sem
+The following procedure is to be followed each new semester by the maintainer for updating GYFT to work properly.
+
+- Download the academic calendar for the particular year.
+- New semester dates need to be updated in dates.py
+- The format for the date-time is `(YYYY, MM, DD, HH, MM)`.
+- Raise a pull request once the dates are updated.
+
 
 <!-- CONTACT -->
 <!-- ## Contact -->
