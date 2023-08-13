@@ -49,8 +49,8 @@
 - [Usage](#usage)
 - [Development Notes](#development-notes)
 <!-- - [Contact](#contact) -->
-- [Acknowledgements](#acknowledgments)
-- [Additional documentation](#additional-documentation)
+<!-- - [Acknowledgements](#acknowledgments) -->
+<!-- - [Additional documentation](#additional-documentation) -->
 
 </details>
 
@@ -184,13 +184,13 @@ Please read [CONTRIBUTING.md](https://github.com/metakgp/gyft/blob/master/CONTRI
 
 
 <!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+<!-- ## Acknowledgments
 
 * [Choose an Open Source License](https://choosealicense.com)
 * [Img Shields](https://shields.io)
 <!-- UPDATE -->
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+<!-- 
+<p align="right">(<a href="#top">back to top</a>)</p> --> -->
 
 <!-- ## Additional documentation
 
