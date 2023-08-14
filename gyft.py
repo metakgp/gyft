@@ -129,9 +129,9 @@ def scrape_timetable(s, timetable_details, coursepage_details):
     # add course name to dict
     for day in timetable_dict.keys():
         for time in timetable_dict[day]:
+            if timetable_dict[day][time][0] == "CS10001":
+                timetable_dict[day][time][0] = "CS10003"
             course_code = timetable_dict[day][time][0]
-            if course_code=="CS10001":
-                course_code = "CS10003"
             timetable_dict[day][time].append(sub_dict[course_code])
     
     return timetable_dict
