@@ -14,7 +14,7 @@ The following procedure is to be followed each new semester by the maintainer fo
 - The format for the date-time is `(YYYY, MM, DD, HH, MM)`.
 - Raise a pull request once the dates are updated.
 
-## Getting Started
+## How to use the program?
 
 1. Clone this repository 
 2. Install the dependencies by running:
