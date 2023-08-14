@@ -60,3 +60,7 @@ This project utilizes the [iitkgp-erp-login](https://github.com/proffapt/iitkgp-
 ## Contributing
 
 Please read CONTRIBUTING.md guide to know more.
+
+## Maintainer(s)
+
+- [Aswhin Prasanth](https://github.com/ashwinpra)
