@@ -83,10 +83,6 @@ def scrape_timetable(s, timetable_details, coursepage_details):
     for index_del in sorted(del_rows, reverse=True):
         del rows[index_del]
 
-    # Replacing "CS10001" to "CS10003"
-    for x in range(0, len(rows)):
-        rows[x] = bs(str(rows[x]).replace("CS10001", "CS10003"), features="lxml")
-
     ##### For timings
     for a in rows[0].findAll('td'):
         if ('AM' in a.text or 'PM' in a.text):
@@ -134,6 +130,8 @@ def scrape_timetable(s, timetable_details, coursepage_details):
     for day in timetable_dict.keys():
         for time in timetable_dict[day]:
             course_code = timetable_dict[day][time][0]
+            if course_code=="CS10001":
+                course_code = "CS10003"
             timetable_dict[day][time].append(sub_dict[course_code])
     
     return timetable_dict
