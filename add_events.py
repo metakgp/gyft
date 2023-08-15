@@ -26,7 +26,7 @@ def next_weekday(d, weekday):
     return d + datetime.timedelta(days_ahead)
 
 
-def get_credentials():
+def get_credentials(flags):
     """Gets valid user credentials from storage.
 
     If nothing has been stored, or if the stored credentials are invalid,
@@ -65,14 +65,14 @@ days["Saturday"] = 5
 ###
 
 
-def create_calendar():
+def create_calendar(flags):
     """Shows basic usage of the Google Calendar API.
 
     Creates a Google Calendar API service object and outputs a list of the next
     10 events on the user's calendar.
     """
     now = datetime.datetime.now()
-    credentials = get_credentials()
+    credentials = get_credentials(flags)
     http = credentials.authorize(httplib2.Http())
     service = discovery.build("calendar", "v3", http=http)
     # Get your timetable

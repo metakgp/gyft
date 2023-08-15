@@ -18,7 +18,7 @@ CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'gyft'
 
 
-def get_credentials():
+def get_credentials(flags):
     """Gets valid user credentials from storage.
 
     If nothing has been stored, or if the stored credentials are invalid,
@@ -47,8 +47,8 @@ def get_credentials():
     return credentials
 
 
-def delete_calendar():
-    credentials = get_credentials()
+def delete_calendar(flags):
+    credentials = get_credentials(flags)
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
     now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time

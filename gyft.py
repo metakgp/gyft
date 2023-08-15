@@ -38,6 +38,17 @@ def parse_args():
                         help="Output file containing timetable in .ics format")
     parser.add_argument("-d", "--del-events", action="store_true", 
                         help="Delete events automatically added by the script before adding new events")
+    parser.add_argument('--auth-host-name', default='localhost',
+                        help="Host name to use when running a local web server to handle redirects during OAuth "
+                             "authorization.")
+    parser.add_argument('--auth-host-port', default=[8080, 8090], type=int, nargs='*',
+                        help="Port to use when running a local web server to handle redirects during OAuth "
+                             "authorization. Repeat this option to specify a list of values.")
+    parser.add_argument('--noauth-local-webserver', action='store_true', default=False,
+                        help="Run a local web server to handle redirects during OAuth authorization.")
+    parser.add_argument('--logging-level', default='ERROR',
+                        choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'],
+                        help='Set the logging level of detail for the Oauth2 client.')
     args = parser.parse_args()
     return args
 
@@ -143,7 +154,7 @@ def main():
     args = parse_args()
 
     if args.del_events:
-        delete_calendar()
+        delete_calendar(flags=args)
         gen = input("\nWould you like to generate a new timetable? (y/n): ")
         if gen.lower() == 'n':
             generate = False
@@ -199,7 +210,7 @@ def main():
         choice = int(input("Enter your choice: "))
 
         if choice == 1:
-            create_calendar()
+            create_calendar(flags=args)
         elif choice == 2:
             generate_ICS(INPUT_FILENAME, OUTPUT_FILENAME) 
         else:
