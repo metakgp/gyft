@@ -63,4 +63,4 @@ Please read CONTRIBUTING.md guide to know more.
 
 ## Maintainer(s)
 
-- [Aswhin Prasanth](https://github.com/ashwinpra)
+- [Ashwin Prasanth](https://github.com/ashwinpra)
