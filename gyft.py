@@ -149,15 +149,7 @@ def main():
             generate = False
     
     if generate:
-        INPUT_FILENAME = args.input if args.input else "data.txt"
         OUTPUT_FILENAME = args.output if args.output else "timetable.ics"
-
-        # check if data.txt exists
-        if osp.exists(INPUT_FILENAME):
-            ow = input(f"Timetable file {INPUT_FILENAME} exists. Do you want to overwrite it? (y/n): ")
-            print()
-            if ow.lower() == 'n':
-                overwrite = False
 
         if overwrite:
             s = requests.Session()
@@ -185,11 +177,8 @@ def main():
             }
 
             timetable_dict = scrape_timetable(s, timetable_details, coursepage_details)
-
-            with open(INPUT_FILENAME, 'w') as outfile:
-                json.dump(timetable_dict, outfile, indent = 4, ensure_ascii=False)
             
-            print(f"Timetable saved to {INPUT_FILENAME} file.\n")
+            print(f"Timetable fetched.\n")
 
 
         print("What would you like to do now?")
@@ -199,9 +188,9 @@ def main():
         choice = int(input("Enter your choice: "))
 
         if choice == 1:
-            create_calendar()
+            create_calendar(timetable_dict)
         elif choice == 2:
-            generate_ICS(INPUT_FILENAME, OUTPUT_FILENAME) 
+            generate_ICS(timetable_dict, OUTPUT_FILENAME) 
         else:
             exit()
         
