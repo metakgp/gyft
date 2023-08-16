@@ -137,7 +137,6 @@ def scrape_timetable(s, timetable_details, coursepage_details):
     return timetable_dict
 
 def main():
-    overwrite = True
     generate = True
 
     args = parse_args()
@@ -151,34 +150,33 @@ def main():
     if generate:
         OUTPUT_FILENAME = args.output if args.output else "timetable.ics"
 
-        if overwrite:
-            s = requests.Session()
-            _, ssoToken = erp.login(headers, s)
-            print()
+        s = requests.Session()
+        _, ssoToken = erp.login(headers, s)
+        print()
 
-            if SEM_BEGIN.month > 6:
-                # autumn semester
-                SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(erp.ROLL_NUMBER[:2]))*2 + 1
-            else:
-                # spring semester
-                SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(erp.ROLL_NUMBER[:2])) + 2
+        if SEM_BEGIN.month > 6:
+            # autumn semester
+            SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(erp.ROLL_NUMBER[:2]))*2 + 1
+        else:
+            # spring semester
+            SEM_NO = (int(SEM_BEGIN.strftime("%y"))-int(erp.ROLL_NUMBER[:2])) + 2
 
-            timetable_details = {
-                "ssoToken": ssoToken,
-                "module_id": '16',
-                "menu_id": '40',
-            }
+        timetable_details = {
+            "ssoToken": ssoToken,
+            "module_id": '16',
+            "menu_id": '40',
+        }
 
-            coursepage_details = {
-                "ssoToken": ssoToken,
-                "semno": SEM_NO,
-                "rollno": erp.ROLL_NUMBER,
-                "order": "asc"
-            }
+        coursepage_details = {
+            "ssoToken": ssoToken,
+            "semno": SEM_NO,
+            "rollno": erp.ROLL_NUMBER,
+            "order": "asc"
+        }
 
-            timetable_dict = scrape_timetable(s, timetable_details, coursepage_details)
-            
-            print(f"Timetable fetched.\n")
+        timetable_dict = scrape_timetable(s, timetable_details, coursepage_details)
+        
+        print(f"Timetable fetched.\n")
 
 
         print("What would you like to do now?")
