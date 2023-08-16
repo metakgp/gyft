@@ -26,7 +26,7 @@ def next_weekday(d, weekday):
     return d + datetime.timedelta(days_ahead)
 
 
-def get_credentials(flags):
+def get_credentials():
     """Gets valid user credentials from storage.
 
     If nothing has been stored, or if the stored credentials are invalid,
@@ -46,10 +46,7 @@ def get_credentials(flags):
     if not credentials or credentials.invalid:
         flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
         flow.user_agent = APPLICATION_NAME
-        if flags:
-            credentials = tools.run_flow(flow, store, flags)
-        else:  # Needed only for compatibility with Python 2.6
-            credentials = tools.run(flow, store)
+        credentials = tools.run_flow(flow, store)
         print("Storing credentials to " + credential_path)
     return credentials
 
@@ -65,7 +62,7 @@ days["Saturday"] = 5
 ###
 
 
-def create_calendar(flags):
+def create_calendar():
     """Shows basic usage of the Google Calendar API.
 
     Creates a Google Calendar API service object and outputs a list of the next
