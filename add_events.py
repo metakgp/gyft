@@ -74,9 +74,9 @@ def create_calendar(timetable):
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build("calendar", "v3", http=http)
-    # Get latlong of classrooms
+    # Get full locations of classrooms
     with open("full_location.json") as data_file:
-        latlong = json.load(data_file)
+        full_locations = json.load(data_file)
     for day in timetable:
         print("Adding events for " + day)
         startDate = next_weekday(now, days[day])
@@ -107,14 +107,13 @@ def create_calendar(timetable):
             if startHour != "12":
                 replaceHour += int(startHour)
             event = {}
-            # Currently there are no labs in `subjects.json`
-            # if (timetable[day][time][0] in subjects.keys()):
+
             if timetable[day][time][3] is not None:
                 event["summary"] = timetable[day][time][3].title()
             else:
                 event["summary"] = timetable[day][time][0]
-            if timetable[day][time][1] in latlong.keys():
-                event["location"] = latlong[timetable[day][time][1]].title()
+            if timetable[day][time][1] in full_locations.keys():
+                event["location"] = full_locations[timetable[day][time][1]].title()
             else:
                 event["location"] = timetable[day][time][1]
             event["start"] = {}
