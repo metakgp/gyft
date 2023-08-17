@@ -1,4 +1,3 @@
-## Adds your timetable from `data.txt` to Google Calendar.
 from __future__ import print_function
 import httplib2
 import os
@@ -65,7 +64,7 @@ days["Saturday"] = 5
 ###
 
 
-def create_calendar():
+def create_calendar(timetable):
     """Shows basic usage of the Google Calendar API.
 
     Creates a Google Calendar API service object and outputs a list of the next
@@ -75,16 +74,13 @@ def create_calendar():
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build("calendar", "v3", http=http)
-    # Get your timetable
-    with open("data.txt") as data_file:
-        data = json.load(data_file)
-    # Get latlong of classrooms
+    # Get full locations of classrooms
     with open("full_location.json") as data_file:
-        latlong = json.load(data_file)
-    for day in data:
+        full_locations = json.load(data_file)
+    for day in timetable:
         print("Adding events for " + day)
         startDate = next_weekday(now, days[day])
-        for time in data[day]:
+        for time in timetable[day]:
             # parsing time from time_table dict
             # currently we only parse the starting time
             # the end time might be having error of 5 minutes
@@ -111,23 +107,22 @@ def create_calendar():
             if startHour != "12":
                 replaceHour += int(startHour)
             event = {}
-            # Currently there are no labs in `subjects.json`
-            # if (data[day][time][0] in subjects.keys()):
-            if data[day][time][3] is not None:
-                event["summary"] = data[day][time][3].title()
+
+            if timetable[day][time][3] is not None:
+                event["summary"] = timetable[day][time][3].title()
             else:
-                event["summary"] = data[day][time][0]
-            if data[day][time][1] in latlong.keys():
-                event["location"] = latlong[data[day][time][1]].title()
+                event["summary"] = timetable[day][time][0]
+            if timetable[day][time][1] in full_locations.keys():
+                event["location"] = full_locations[timetable[day][time][1]].title()
             else:
-                event["location"] = data[day][time][1]
+                event["location"] = timetable[day][time][1]
             event["start"] = {}
             start_time = startDate.replace(hour=replaceHour, minute=int(startMinute))
             event["start"]["dateTime"] = start_time.__str__().replace(" ", "T")
             event["start"]["timeZone"] = "Asia/Kolkata"
             event["end"] = {}
             event["end"]["dateTime"] = (
-                (start_time + datetime.timedelta(hours=int(data[day][time][2])))
+                (start_time + datetime.timedelta(hours=int(timetable[day][time][2])))
                 .__str__()
                 .replace(" ", "T")
             )
