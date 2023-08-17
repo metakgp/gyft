@@ -1,4 +1,3 @@
-## Adds your timetable from `data.txt` to Google Calendar.
 from __future__ import print_function
 import os
 import json
@@ -71,7 +70,7 @@ def generate_ICS(timetable, output_filename):
     cal.add("version", "1.0")
     # Get your timetable
     with open("full_location.json") as data_file:
-        latlong = json.load(data_file)
+        full_locations = json.load(data_file)
     found_missing_sub = False
     for day in timetable:
         startDates = [next_weekday(x[0], days[day]) for x in WORKING_DAYS]
@@ -97,7 +96,7 @@ def generate_ICS(timetable, output_filename):
             summary = subject_code
             description = subject_code
 
-            # check if subject name is there in data.txt
+            # check if subject name is there in timetable
             if timetable[day][time][3] is not None:
                 summary = timetable[day][time][3].title()
             else:
