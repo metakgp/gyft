@@ -56,6 +56,10 @@ def get_stamp(argument, date):
     )
 
 def generate_ICS(timetable, output_filename):
+    """
+    Creates an ICS file `timetable.ics` with the timetable data present inside the parameter timetable.
+    """
+
     TIMETABLE_DICT_RE = (
     "([0-9]{1,2}):([0-9]{1,2}):([AP])M-([0-9]{1,2}):([0-9]{1,2}):([AP])M"
     )
