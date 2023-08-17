@@ -57,7 +57,7 @@ def get_stamp(argument, date):
 
 def generate_ICS(timetable, output_filename):
     """
-    Creates an ICS file `timetable.ics` with the timetable data present inside the parameter timetable.
+    Creates an ICS file `timetable.ics` with the timetable data present inside the 'timetable' parameter.
     """
 
     TIMETABLE_DICT_RE = (
