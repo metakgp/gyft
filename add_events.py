@@ -68,7 +68,7 @@ def create_calendar(timetable):
     10 events on the user's calendar.
     """
     now = datetime.datetime.now()
-    credentials = get_credentials(flags)
+    credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build("calendar", "v3", http=http)
     # Get full locations of classrooms
