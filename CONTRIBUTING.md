@@ -37,4 +37,4 @@ It is highly recommended to follow the below guidelines while writing commits an
 
 ## Communication
 
-Please join the [gitter channel](https://gitter.im/gyft_/Lobby) for communication regarding the project. No personal communication will be entertained :)
+Please join the [MetaKGP Slack channel](https://bit.ly/metakgp-slack) for communication regarding the project. No personal communication will be entertained :)
