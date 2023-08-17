@@ -26,13 +26,11 @@ The following procedure is to be followed each new semester by the maintainer fo
     python3 gyft.py
     ```
     - Optional flags: 
-    	- `--input` or `i`: Input file (`.txt`) containing the timetable data/to which timetable data will be saved. **Default:** `data.txt` 
     	- `--output` or `o`: Output file (`.ics`) to which the ICS file will be written. **Default:** `timetable.ics`
     	- `--del-events`: To delete events automatically added by the script before adding new events (explained later) **Default:** `False`
 
 4. Enter your roll number, password, security answer and OTP (if required) when prompted
-5. Your timetable will be saved in the file specified by the `--input` flag (**default:** `data.txt`)
-6. Now you can choose between 2 options, which will be prompted to you:
+5. Now you can choose between 2 options, which will be prompted to you:
    - #### Add to Google Calendar:
      - For this, you have to get your `credentials.json` and save it as `client_secret.json` to the current directory by following the Step 1 from [here](https://developers.google.com/google-apps/calendar/quickstart/python#step_1_turn_on_the_api_name)
      - Also note that adding to Google Calendar requires an Internet connection
