@@ -109,7 +109,12 @@ def create_calendar(timetable):
                 event["summary"] = timetable[day][time][3].title()
             else:
                 event["summary"] = timetable[day][time][0]
-            if timetable[day][time][1] in full_locations.keys():
+            # If the event is in Nalanda, get the exact location of the classroom building/area
+            if (("NR" in timetable[day][time][1] or "NC" in timetable[day][time][1]) and
+                    f'{timetable[day][time][1][:2]}{timetable[day][time][1][3]}' in full_locations.keys()):
+                event["location"] = full_locations[f'{timetable[day][time][1][:2]}{timetable[day][time][1][3]}']
+                event["summary"] = event["summary"] + f', {timetable[day][time][1]}'
+            elif timetable[day][time][1] in full_locations.keys():
                 event["location"] = full_locations[timetable[day][time][1]].title()
             else:
                 event["location"] = timetable[day][time][1]
