@@ -72,7 +72,7 @@ The following prerequisites are required to be installed for the project to func
 _Now that the environment has been set up and configured to properly compile and run the project, the next step is to install and configure the project locally on your system._
 1. Clone the repository
    ```sh
-   git clone https://github.com/metakgp/gyft
+   git clone --depth 1 https://github.com/metakgp/gyft
    ```
 2. Change current directory to the project directory
    ```sh
