@@ -124,13 +124,13 @@ _Now that the environment has been set up and configured to properly compile and
 <!-- USAGE EXAMPLES -->
 ## Usage
 - To delete all the recurring events added by the CLI or GYFT Web Application (uses property of recurrence to identify events to delete), you can run `gyft.py` with the `--del-events` flag:
-```sh
-python3 gyft.py --del-events
-```
+  ```sh
+  python3 gyft.py --del-events
+  ```
 - To specifiy the output file (`.ics`) to which the ICS file will be written, use the `--output` flag.
-```sh
-python3 gyft.py --output
-```
+  ```sh
+  python3 gyft.py --output
+  ```
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
