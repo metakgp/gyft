@@ -9,7 +9,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![Wiki][wiki-shield]][wiki-url]
 
 </div>
 
@@ -17,11 +17,11 @@
 <br />
 <!-- UPDATE -->
 <div align="center">
-  <a href="https://github.com/metakgp/gyft">
+  <!-- <a href="https://github.com/metakgp/gyft">
     <img width="140" alt="image" src="https://user-images.githubusercontent.com/86282911/206632284-cb260f57-c612-4ab5-b92b-2172c341ab23.png">
-  </a>
+  </a> -->
 
-  <h3 align="center">GYFT</h3>
+  <h1 align="center">GYFT</h1>
 
   <p align="center">
   <!-- UPDATE -->
@@ -42,7 +42,6 @@
 <summary>Table of Contents</summary>
 
 - [About The Project](#about-the-project)
-  - [Supports](#supports)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -66,23 +65,9 @@
   </a>
 </div> -->
 
-_Gets your timetable from ERP and adds it to your Google Calendar or gives you an ICS file which you can add in any common calendar application._
+Gets your timetable from ERP and adds it to your Google Calendar or gives you an ICS file which you can add in any common calendar application.
 
 > **Note** All updates to this repo should reflect, with appropriate refactorisation, in [gyft-serve](https://github.com/metakgp/gyft-serve/)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<div id="supports"></div>
-
-### Supports:
-1. Shells
-    * `bash`
-    * `fish`
-    * `zsh`
-2. OS(s)
-    * `MacOS`[`BSD` based]
-    * any `*nix`[`GNU+Linux` and `Unix`]
-    * `Windows`
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -124,8 +109,7 @@ _Now that the environment has been set up and configured to properly compile and
     	- `--del-events`: To delete events automatically added by the script before adding new events (explained later) **Default:** `False` 
 
 4. Enter your roll number, password, security answer and OTP (if required) when prompted
-5. Your timetable will be saved in the file specified by the `--input` flag (**default:** `data.txt`)
-6. Now you can choose between 2 options, which will be prompted to you:
+5. Now you can choose between 2 options, which will be prompted to you:
    - #### Add to Google Calendar:
      - For this, you have to get your `credentials.json` and save it as `client_secret.json` to the current directory by following the Step 1 from [here](https://developers.google.com/google-apps/calendar/quickstart/python#step_1_turn_on_the_api_name)
      - Also note that adding to Google Calendar requires an Internet connection
@@ -134,17 +118,20 @@ _Now that the environment has been set up and configured to properly compile and
      - This will generate an ICS file which you can import into any calendar application.
      - For importing to Google Calendar, follow the instructions given [here](https://support.google.com/calendar/answer/37118?hl=en).
 
-<!-- <p align="right">(<a href="#top">back to top</a>)</p> -->
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- USAGE EXAMPLES -->
-<!-- ## Usage -->
-<!-- UPDATE -->
-<!-- <div align="center">
-  <a href="https://github.com/proffapt/PROJECT_NAME">
-    <img width="80%" alt="image" src="https://user-images.githubusercontent.com/86282911/206632640-40dc440e-5ef3-4893-be48-618f2bd85f37.png">
-  </a>
-</div> -->
+## Usage
+- To delete all the recurring events added by the CLI or GYFT Web Application (uses property of recurrence to identify events to delete), you can run `gyft.py` with the `--del-events` flag:
+```sh
+python3 gyft.py --del-events
+```
+- To specifiy the output file (`.ics`) to which the ICS file will be written, use the `--output` flag.
+```sh
+python3 gyft.py --output
+```
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -168,61 +155,18 @@ Please read [CONTRIBUTING.md](https://github.com/metakgp/gyft/blob/master/CONTRI
 ## Maintainer(s)
 
 - [Ashwin Prasanth](https://github.com/ashwinpra)
-<!-- CONTACT -->
-<!-- ## Contact -->
-
-<!-- <p> -->
-<!-- 📫 Arpit Bhardwaj ( aka proffapt ) - -->
-<!-- <a href="https://twitter.com/proffapt">
-  <img align="center" alt="proffapt's Twitter " width="22px" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/twitter.svg" />
-</a>
-<a href="https://t.me/proffapt">
-  <img align="center" alt="proffapt's Telegram" width="22px" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/telegram.svg" />
-</a>
-<a href="https://www.linkedin.com/in/proffapt/">
-  <img align="center" alt="proffapt's LinkedIn" width="22px" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/linkedin.svg" />
-</a>
-<a href="mailto:proffapt@pm.me">
-  <img align="center" alt="proffapt's mail" width="22px" src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/mail.svg" />
-</a>
-<a href="https://cybernity.group">
-  <img align="center" alt="proffapt's forum for cybernity" width="22px" src="https://cybernity.group/uploads/default/original/1X/a8338f86bbbedd39701c85d5f32cf3d817c04c27.png" />
-</a>
-</p>
-
-<p align="right">(<a href="#top">back to top</a>)</p> -->
-
-
-<!-- ACKNOWLEDGMENTS -->
-<!-- ## Acknowledgments
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [Img Shields](https://shields.io)
-<!-- UPDATE -->
-<!-- 
-<p align="right">(<a href="#top">back to top</a>)</p> -->
-
-<!-- ## Additional documentation
-
-  - [Changelogs](/.github/CHANGELOG.md)
-  - [License](/LICENSE.txt)
-  - [Security Policy](/.github/SECURITY.md)
-  - [Code of Conduct](/.github/CODE_OF_CONDUCT.md)
-  - [Contribution Guidelines](/.github/CONTRIBUTING.md)
-
-<p align="right">(<a href="#top">back to top</a>)</p> -->
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/metakgp/gyft.svg?style=flat
+[contributors-shield]: https://img.shields.io/github/contributors/metakgp/gyft.svg?style=for-the-badge
 [contributors-url]: https://github.com/metakgp/gyft/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/metakgp/gyft.svg?style=flat
+[forks-shield]: https://img.shields.io/github/forks/metakgp/gyft.svg?style=for-the-badge
 [forks-url]: https://github.com/metakgp/gyft/network/members
-[stars-shield]: https://img.shields.io/github/stars/metakgp/gyft.svg?style=flat
+[stars-shield]: https://img.shields.io/github/stars/metakgp/gyft.svg?style=for-the-badge
 [stars-url]: https://github.com/metakgp/gyft/stargazers
-[issues-shield]: https://img.shields.io/github/issues/metakgp/gyft.svg?style=flat
+[issues-shield]: https://img.shields.io/github/issues/metakgp/gyft.svg?style=for-the-badge
 [issues-url]: https://github.com/metakgp/gyft/issues
-[license-shield]: https://img.shields.io/github/license/metakgp/gyft.svg?style=flat
+[license-shield]: https://img.shields.io/github/license/metakgp/gyft.svg?style=for-the-badge
 [license-url]: https://github.com/metakgp/gyft/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/proffapt
+[wiki-shield]: https://custom-icon-badges.demolab.com/badge/metakgp_wiki-grey?logo=metakgp_logo&logoColor=white&style=for-the-badge
+[wiki-url]: https://wiki.metakgp.org
