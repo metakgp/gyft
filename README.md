@@ -1,7 +1,5 @@
 <div id="top"></div>
 
-<!-- PROJECT SHIELDS -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links-->
 <div align="center">
 
 [![Contributors][contributors-shield]][contributors-url]
@@ -15,7 +13,6 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<!-- UPDATE -->
 <div align="center">
   <!-- <a href="https://github.com/metakgp/gyft">
     <img width="140" alt="image" src="https://user-images.githubusercontent.com/86282911/206632284-cb260f57-c612-4ab5-b92b-2172c341ab23.png">
@@ -24,11 +21,7 @@
   <h1 align="center">GYFT</h1>
 
   <p align="center">
-  <!-- UPDATE -->
     <i>Get Your Freaking Timetable</i>
-    <!-- <br /> -->
-    <!-- <a href="https://github.com/proffapt/PROJECT_NAME"><strong>Explore the docs »</strong></a> -->
-    <!-- <br /> -->
     <br />
     <a href="https://github.com/metakgp/gyft/issues">Report Bug</a>
     ·
@@ -49,21 +42,12 @@
 - [Development Notes](#development-notes)
 - [Contributing](#contributing)
 - [Maintainer(s)](#maintainers)
-<!-- - [Contact](#contact) -->
-<!-- - [Acknowledgements](#acknowledgments) -->
-<!-- - [Additional documentation](#additional-documentation) -->
 
 </details>
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-<!-- UPDATE -->
-<!-- <div align="center">
-  <a href="https://github.com/proffapt/PROJECT_NAME">
-    <img width="80%" alt="image" src="https://user-images.githubusercontent.com/86282911/206632547-a3b34b47-e7ae-4186-a1e6-ecda7ddb38e6.png">
-  </a>
-</div> -->
 
 Gets your timetable from ERP and adds it to your Google Calendar or gives you an ICS file which you can add in any common calendar application.
 
@@ -77,7 +61,6 @@ Gets your timetable from ERP and adds it to your Google Calendar or gives you an
 To set up a local instance of the application, follow the steps below.
 
 ### Prerequisites
-<!-- UPDATE -->
 The following prerequisites are required to be installed for the project to function properly:
 * Python 3
 * IIT-KGP Student [ERP](https://erp.iitkgp.ac.in) Account
@@ -87,7 +70,6 @@ The following prerequisites are required to be installed for the project to func
 ### Installation
 
 _Now that the environment has been set up and configured to properly compile and run the project, the next step is to install and configure the project locally on your system._
-<!-- UPDATE -->
 1. Clone the repository
    ```sh
    git clone https://github.com/metakgp/gyft
@@ -129,7 +111,7 @@ _Now that the environment has been set up and configured to properly compile and
   ```
 - To specifiy the output file (`.ics`) to which the ICS file will be written, use the `--output` flag.
   ```sh
-  python3 gyft.py --output
+  python3 gyft.py --output autumn_2023.ics
   ```
 
 
