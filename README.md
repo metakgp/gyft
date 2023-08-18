@@ -48,6 +48,8 @@
   - [Installation](#installation)
 - [Usage](#usage)
 - [Development Notes](#development-notes)
+- [Contributing](#contributing)
+- [Maintainer(s)](#maintainers)
 <!-- - [Contact](#contact) -->
 <!-- - [Acknowledgements](#acknowledgments) -->
 <!-- - [Additional documentation](#additional-documentation) -->
@@ -198,7 +200,7 @@ Please read [CONTRIBUTING.md](https://github.com/metakgp/gyft/blob/master/CONTRI
 * [Img Shields](https://shields.io)
 <!-- UPDATE -->
 <!-- 
-<p align="right">(<a href="#top">back to top</a>)</p> --> -->
+<p align="right">(<a href="#top">back to top</a>)</p> -->
 
 <!-- ## Additional documentation
 
