@@ -82,16 +82,19 @@ _Now that the environment has been set up and configured to properly compile and
    ```sh
    pip install requirements.txt
    ```
-4. Run the script
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+1. Run the script
    ```sh
    python3 gyft.py
    ```
-    - Optional flags: 
-    	- `--output` or `o`: Output file (`.ics`) to which the ICS file will be written. **Default:** `timetable.ics`
-    	- `--del-events`: To delete events automatically added by the script before adding new events (explained later) **Default:** `False` 
-
-4. Enter your roll number, password, security answer and OTP (if required) when prompted
-5. Now you can choose between 2 options, which will be prompted to you:
+2. Enter your roll number, password, security answer and OTP (if required) when prompted
+3. Now you can choose between 2 options, which will be prompted to you:
    - #### Add to Google Calendar:
      - For this, you have to get your `credentials.json` and save it as `client_secret.json` to the current directory by following the Step 1 from [here](https://developers.google.com/google-apps/calendar/quickstart/python#step_1_turn_on_the_api_name)
      - Also note that adding to Google Calendar requires an Internet connection
@@ -100,20 +103,17 @@ _Now that the environment has been set up and configured to properly compile and
      - This will generate an ICS file which you can import into any calendar application.
      - For importing to Google Calendar, follow the instructions given [here](https://support.google.com/calendar/answer/37118?hl=en).
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<br />
 
-
-<!-- USAGE EXAMPLES -->
-## Usage
-- To delete all the recurring events added by the CLI or GYFT Web Application (uses property of recurrence to identify events to delete), you can run `gyft.py` with the `--del-events` flag:
-  ```sh
-  python3 gyft.py --del-events
-  ```
-- To specifiy the output file (`.ics`) to which the ICS file will be written, use the `--output` flag.
-  ```sh
-  python3 gyft.py --output autumn_2023.ics
-  ```
-
+- Optional flags: 
+  - To delete all the recurring events added by the CLI or GYFT Web Application (uses property of recurrence to identify events to delete), you can run `gyft.py` with the `--del-events` flag:
+    ```sh
+    python3 gyft.py --del-events
+    ```
+  - To specifiy the output file (`.ics`) to which the ICS file will be written, use the `--output` flag.
+    ```sh
+    python3 gyft.py --output autumn_2023.ics
+    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
