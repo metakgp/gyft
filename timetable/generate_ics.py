@@ -10,17 +10,7 @@ import build_event
 WORKING_DAYS = dates.get_dates()
 DEBUG = False
 
-# days to number
-days = {}
-days["Monday"] = 0
-days["Tuesday"] = 1
-days["Wednesday"] = 2
-days["Thursday"] = 3
-days["Friday"] = 4
-days["Saturday"] = 5
-
-
-###
+days = {"Monday": 0, "Tuesday": 1, "Wednesday": 2, "Thursday": 3, "Friday": 4, "Saturday": 5}
 
 
 def next_weekday(d, weekday):
@@ -60,8 +50,7 @@ def get_stamp(argument, date):
 
 def generate_ICS(timetable, output_filename):
     """
-    Creates an ICS file `timetable.ics` with the timetable data present inside the
-    input file `data.txt`
+    Creates an ICS file `timetable.ics` with the timetable data present inside the 'timetable' parameter.
     """
 
     TIMETABLE_DICT_RE = (

@@ -59,15 +59,14 @@ def get_credentials():
 days = {"Monday": 0, "Tuesday": 1, "Wednesday": 2, "Thursday": 3, "Friday": 4, "Saturday": 5}
 
 
-def create_calendar(timetable, credentials=None):
+def create_calendar(timetable):
     """Shows basic usage of the Google Calendar API.
 
     Creates a Google Calendar API service object and outputs a list of the next
     10 events on the user's calendar.
     """
     now = datetime.datetime.now()
-    if not credentials:
-        credentials = get_credentials()
+    credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build("calendar", "v3", http=http)
     # Get full locations of classrooms
@@ -75,15 +74,15 @@ def create_calendar(timetable, credentials=None):
         full_locations = json.load(data_file)
     for day in timetable:
         print("Adding events for " + day)
-        start_date = next_weekday(now, days[day])
+        startDate = next_weekday(now, days[day])
         for time in timetable[day]:
             # parsing time from time_table dict
             # currently we only parse the starting time
             # the end time might be having error of 5 minutes
             # ex. : A class ending at 17:55 might be shown ending at 18:00
-            start_hour = ""
-            start_minute = ""
-            start_meridiem = ""
+            startHour = ""
+            startMinute = ""
+            startMeridiem = ""
             counter = 0
             for i in range(len(time)):
                 if time[i] == ":":
@@ -92,16 +91,16 @@ def create_calendar(timetable, credentials=None):
                 if time[i] == "-":
                     break
                 if counter == 0:
-                    start_hour += time[i]
+                    startHour += time[i]
                 elif counter == 1:
-                    start_minute += time[i]
+                    startMinute += time[i]
                 else:
-                    start_meridiem += time[i]
-            replace_hour = 0
-            if start_meridiem == "PM":
-                replace_hour += 12
-            if start_hour != "12":
-                replace_hour += int(start_hour)
+                    startMeridiem += time[i]
+            replaceHour = 0
+            if startMeridiem == "PM":
+                replaceHour += 12
+            if startHour != "12":
+                replaceHour += int(startHour)
             event = {}
 
             if timetable[day][time][3] is not None:
@@ -113,7 +112,7 @@ def create_calendar(timetable, credentials=None):
             else:
                 event["location"] = timetable[day][time][1]
             event["start"] = {}
-            start_time = start_date.replace(hour=replace_hour, minute=int(start_minute))
+            start_time = startDate.replace(hour=replaceHour, minute=int(startMinute))
             event["start"]["dateTime"] = start_time.__str__().replace(" ", "T")
             event["start"]["timeZone"] = "Asia/Kolkata"
             event["end"] = {}
@@ -142,17 +141,16 @@ def create_calendar(timetable, credentials=None):
 
 # To delete events from Google Calendar
 # Deletes events having summary `Class of*`
-def delete_calendar(credentials=None):
-    if not credentials:
-        credentials = get_credentials()
+def delete_calendar():
+    credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
     now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
     print('Getting the events')
-    events_result = service.events().list(
+    eventsResult = service.events().list(
         calendarId='primary', timeMin=SEM_BEGIN.strftime('%Y-%m-%dT%H:%M:%S.%fZ'), singleEvents=False,
         timeMax=END_TERM_BEGIN.strftime('%Y-%m-%dT%H:%M:%S.%fZ'), maxResults=2500).execute()
-    events = events_result.get('items', [])
+    events = eventsResult.get('items', [])
     # print(events)
     if not events:
         print('No upcoming events found.')

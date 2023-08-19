@@ -77,10 +77,10 @@ class ERPSession:
     def get_coursepage_details(self):
         if SEM_BEGIN.month > 6:
             # autumn semester
-            sem_number = (int(SEM_BEGIN.strftime("%y"))-int(self.roll_number[:2]))*2 + 1
+            sem_number = (int(SEM_BEGIN.strftime("%y")) - int(self.roll_number[:2])) * 2 + 1
         else:
             # spring semester
-            sem_number = (int(SEM_BEGIN.strftime("%y"))-int(self.roll_number[:2])) + 2
+            sem_number = (int(SEM_BEGIN.strftime("%y")) - int(self.roll_number[:2])) + 2
 
         return {
             "ssoToken": self.sso_token,
@@ -88,6 +88,7 @@ class ERPSession:
             "rollno": self.roll_number,
             "order": "asc"
         }
+
 
 if __name__ == "__main__":
     ERPSession.login()

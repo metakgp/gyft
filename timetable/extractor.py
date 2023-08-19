@@ -1,5 +1,6 @@
-from utils import ERPSession
 from bs4 import BeautifulSoup as bs
+
+from utils import ERPSession
 
 # For Days
 days = {1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday"}
