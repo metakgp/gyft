@@ -25,6 +25,7 @@ def next_weekday(d, weekday):
         days_ahead += 7
     return d + datetime.timedelta(days_ahead)
 
+
 def create_google_calendar_event(summary: str, location: str, start: str):
     pass
 
