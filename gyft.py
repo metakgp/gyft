@@ -32,8 +32,6 @@ days[6] = "Saturday"
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--input", 
-                        help="Input file containing timetable in .txt format")
     parser.add_argument("-o", "--output",
                         help="Output file containing timetable in .ics format")
     parser.add_argument("-d", "--del-events", action="store_true", 
