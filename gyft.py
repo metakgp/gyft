@@ -54,15 +54,7 @@ def get_cookies(s, timetable_details):
     }
     return cookie
 
-def merge_slots(in_dict):
-    for a in in_dict:
-        in_dict[a] = sorted(in_dict[a])
-        for i in range(len(in_dict[a]) - 1, 0, -1):
-            if (in_dict[a][i][0] == in_dict[a][i-1][0] + in_dict[a][i-1][1]):
-                in_dict[a][i-1][1] = in_dict[a][i][1] + in_dict[a][i-1][1]
-                in_dict[a].remove(in_dict[a][i])
-        in_dict[a] = in_dict[a][0]
-    return (in_dict)
+
 
 def scrape_timetable(s, timetable_details, coursepage_details):
     cookie = get_cookies(s, timetable_details)
@@ -152,7 +144,6 @@ def main():
 
         s = requests.Session()
         _, ssoToken = erp.login(headers, s)
-        print()
 
         if SEM_BEGIN.month > 6:
             # autumn semester
