@@ -1,7 +1,7 @@
 import requests
 from requests import Session
-from dataclasses import dataclass, field
-from requests import Response, post
+from dataclasses import dataclass
+from requests import Response
 import iitkgp_erp_login.erp as erp
 from types import MappingProxyType
 from utils.dates import *
@@ -24,6 +24,9 @@ class ERPSession:
 
     @classmethod
     def login(cls):
+        r"""
+        Logs into ERP using `iitkgp_erp_login` and returns an ERPSession object
+        """
         erp_session = cls(session=requests.Session())
         erp_session.session_token, erp_session.sso_token = erp.login(erp_session.headers, erp_session.session)
         erp_session.roll_number = erp.ROLL_NUMBER
@@ -31,6 +34,9 @@ class ERPSession:
         return erp_session
 
     def check_login(self):
+        r"""
+        Checks if proper tokens and cookies exist
+        """
         return self.sso_token and self.cookie and self.session
 
     def post(self, url: str, data=None, json=None, cookies=None) -> Response:
@@ -48,7 +54,10 @@ class ERPSession:
             cookies = self.cookie
         return self.session.post(url=url, data=data, json=json, headers=self.headers, cookies=cookies)
 
-    def refresh_cookies(self) -> dict:
+    def refresh_cookies(self) -> dict[str, str]:
+        r"""
+            Refreshes cookies and returns them for further use
+        """
         # This is just a hack to get cookies. TODO: do the standard thing here
         timetable_details = {
             "ssoToken": self.sso_token,
@@ -74,7 +83,7 @@ class ERPSession:
             "menu_id": '40',
         }
 
-    def get_coursepage_details(self):
+    def get_course_page_details(self):
         if SEM_BEGIN.month > 6:
             # autumn semester
             sem_number = (int(SEM_BEGIN.strftime("%y")) - int(self.roll_number[:2])) * 2 + 1
@@ -89,8 +98,11 @@ class ERPSession:
             "order": "asc"
         }
 
-    def get_course_names(self):
-        r = self.post(self.COURSES_URL, data=self.get_coursepage_details())
+    def get_course_names(self) -> dict[str, str]:
+        r"""
+            Returns a mapping of course codes to course names
+        """
+        r = self.post(self.COURSES_URL, data=self.get_course_page_details())
         sub_dict = {item["subno"]: item["subname"] for item in r.json()}
         return {k: v.replace("&amp;", "&") for k, v in sub_dict.items()}
 

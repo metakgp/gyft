@@ -57,7 +57,17 @@ def next_weekday(current_day, weekday):
     return current_day + datetime.timedelta(days_ahead)
 
 
-def get_rfc_time(time: int, day: str):
+def get_rfc_time(time: int, day: str, minute: int = 0, second: int = 0) -> str:
+    r"""
+    Returns RFC3339 formatted time string
+    Args:
+        time: hour in 24-hour format
+        minute:
+        second:
+        day: A day string from the set {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
+
+    Returns: str
+    """
     now = datetime.datetime.now()
     date = next_weekday(now, day)
-    return date.replace(hour=time, minute=0, second=0).__str__().replace(" ", "T")
+    return date.replace(hour=time, minute=minute, second=second).__str__().replace(" ", "T")

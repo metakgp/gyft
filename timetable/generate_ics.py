@@ -7,6 +7,7 @@ from utils import dates, build_event_duration, generate_india_time, next_weekday
 
 WORKING_DAYS = dates.get_dates()
 
+
 def generate_ics(courses: list[Course], output_filename):
     """
     Creates an ICS file `timetable.ics` with the timetable data present inside the 'timetable' parameter.
@@ -20,18 +21,17 @@ def generate_ics(courses: list[Course], output_filename):
             generate_india_time(start.year, start.month, start.day,
                                 course.start_time, 0) for start in start_dates
         ]
-
-        for lectureBegin, [_, periodEnd] in zip(
+        for lecture_begin, [_, period_end] in zip(
                 lecture_begins_stamps, WORKING_DAYS
         ):
             event = build_event_duration(
                 course.title,
                 course.code,
-                lectureBegin,
-                course.end_time - course.start_time,
+                lecture_begin,
+                course.get_duration(),
                 course.get_location(),
                 "weekly",
-                periodEnd,
+                period_end,
             )
             cal.add_component(event)
 

@@ -43,11 +43,16 @@ def get_credentials():
     return credentials
 
 
-def create_calendar(courses: list[Course]):
+def create_calendar(courses: list[Course]) -> None:
+    r"""
+    Adds courses to Google Calendar
+    Args:
+        courses: list of Course objects
+    """
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build("calendar", "v3", http=http)
-    batch = service.new_batch_http_request()
+    batch = service.new_batch_http_request()  # To add events in a batch
     for course in courses:
         event = {
             "summary": course.title,
@@ -66,22 +71,26 @@ def create_calendar(courses: list[Course]):
     print("\nAll events added successfully!\n")
 
 
-# To delete events from Google Calendar
-# Deletes events having summary `Class of*`
 def delete_calendar():
+    r"""
+    Deletes all events in the calendar that recur according to schedule
+    """
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
+    batch = service.new_batch_http_request()  # To add events in a batch
     print('Getting the events')
     events_result = service.events().list(
         calendarId='primary', timeMin=SEM_BEGIN.strftime('%Y-%m-%dT%H:%M:%S.%fZ'), singleEvents=False,
         timeMax=END_TERM_BEGIN.strftime('%Y-%m-%dT%H:%M:%S.%fZ'), maxResults=2500).execute()
     events = events_result.get('items', [])
-    if not events:
+    if not events or len(events) == 0:
         print('No upcoming events found.')
+        return
     for event in events:
         if event.get('recurrence', 'NoRecur') in GYFT_RECUR_STRS:
-            service.events().delete(calendarId='primary',
-                                    eventId=event["id"]).execute()
+            batch.add(service.events().delete(calendarId='primary',
+                                    eventId=event["id"]))
             print("Deleted: ", event["summary"], event["start"])
+    batch.execute()
     print("Deletion done!")

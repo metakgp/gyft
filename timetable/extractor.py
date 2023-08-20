@@ -1,7 +1,8 @@
 import json
 from dataclasses import dataclass
-import datetime
 from bs4 import BeautifulSoup
+from bs4.element import Tag, NavigableString, PageElement
+
 
 with open("full_location.json") as data_file:
     full_locations = json.load(data_file)
@@ -16,7 +17,8 @@ class Course:
     location: str
     end_time: int | None = None
 
-    def get_location(self):
+    def get_location(self) -> str:
+        # TODO: more logic to specify other locations if possible
         if ('NC' in self.location or 'NR' in self.location) and (
                 self.location[:2] + self.location[3]) in full_locations.keys():
             return full_locations[self.location[:2] + self.location[3]]
@@ -24,7 +26,7 @@ class Course:
             return full_locations[self.location]
         return self.location
 
-    def get_duration(self):
+    def get_duration(self) -> int:
         return self.end_time - self.start_time
 
     @property
@@ -34,7 +36,7 @@ class Course:
         return self.name.title()
 
 
-def build_courses(html, course_names: dict) -> list[Course]:
+def build_courses(html: str, course_names: dict) -> list[Course]:
     r"""
     Build a list of Course objects from the html timetable
     Args:
@@ -50,23 +52,24 @@ def build_courses(html, course_names: dict) -> list[Course]:
     soup = BeautifulSoup(html, 'html.parser')
     table = soup.find('table', {'border': '1', 'cellpadding': '0', 'cellspacing': '0'})
 
-    def create_timings_dict(table) -> list:
-        r"""# Creates a list of timings in 24 hours format - [8, .., 12, 14, .., 17]"""
-        headings = table.find_all('td', {'class': 'tableheader',
-                                         'style': 'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right'
-                                                  ':7px',
-                                         'nowrap': ''})
-        timings = [int(time.get_text().split(':')[0]) + 12 if int(time.get_text().split(':')[0]) < 6 else int(
+    def create_timings(_table: Tag | NavigableString) -> list[int]:
+        r"""# Creates a list of timings in 24 hours format - [8, ..., 12, 14, ..., 17]"""
+        headings = _table.find_all('td', {'class': 'tableheader',
+                                          'style': 'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right'
+                                                   ':7px',
+                                          'nowrap': ''})
+        return [int(time.get_text().split(':')[0]) + 12 if int(time.get_text().split(':')[0]) < 6 else int(
             time.get_text().split(':')[0]) for time in headings if time.get_text() != 'Day Name']
-        return timings
 
-    timings = create_timings_dict(table)
+    timings = create_timings(table)
     rows = table.find_all('tr')
     for row in rows:
-        day_cell = row.find('td', {'valign': 'top'})
+        day_cell: PageElement = row.find('td', {'valign': 'top'})
         if not day_cell:
             continue
-        day = days[day_cell.get_text()]
+        day = days[day_cell.get_text()] if day_cell.get_text() in days.keys() else day_cell.get_text()
+
+        # Merge timeslots occurring adjacent to each other and initialize course objects
         prev: Course | None = None
         for index, cell in enumerate(cell for cell in row.find_all('td') if cell.attrs.get('valign') != 'top'):
             if cell.get_text() == ' ':

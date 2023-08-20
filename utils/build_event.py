@@ -3,8 +3,22 @@ import pytz
 from datetime import datetime, timedelta
 
 
-def build_event_duration(summary, description, start, duration, location,
-                         freq_of_recurrence, until):
+def build_event_duration(summary: str, description: str, start: datetime, duration: int, location: str,
+                         freq_of_recurrence: str, until: datetime):
+    r"""
+    Return an event that can be added to a calendar
+    Args:
+        summary: title/summary of the event
+        description: description of the event
+        start: datetime.datetime object of the event start time
+        duration: duration in hours
+        location: location of the event
+        freq_of_recurrence: daily, weekly, monthly
+        until: datetime.datetime object of when recurrence ends
+
+    Returns:
+
+    """
     '''
     Return an event that can be added to a calendar
 
