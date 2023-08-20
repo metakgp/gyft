@@ -89,6 +89,11 @@ class ERPSession:
             "order": "asc"
         }
 
+    def get_course_names(self):
+        r = self.post(self.COURSES_URL, data=self.get_coursepage_details())
+        sub_dict = {item["subno"]: item["subname"] for item in r.json()}
+        return {k: v.replace("&amp;", "&") for k, v in sub_dict.items()}
+
 
 if __name__ == "__main__":
     ERPSession.login()
