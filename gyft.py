@@ -1,5 +1,5 @@
 import argparse
-from timetable import scrape_timetable, delete_calendar, create_calendar, generate_ICS
+from timetable import delete_calendar, create_calendar, build_courses, generate_ics
 from utils import ERPSession
 
 
@@ -22,7 +22,10 @@ def main():
 
     output_filename = args.output if args.output else "timetable.ics"
     erp_session = ERPSession.login()
-    timetable_dict = scrape_timetable(erp_session)
+    timetable_page = erp_session.post(erp_session.ERP_TIMETABLE_URL, cookies=True,
+                                      data=erp_session.get_timetable_details())
+    course_names = erp_session.get_course_names()
+    courses = build_courses(timetable_page.text, course_names)
 
     print(f"Timetable fetched.\n")
 
@@ -33,9 +36,9 @@ def main():
     choice = int(input("Enter your choice: "))
 
     if choice == 1:
-        create_calendar(timetable_dict)
+        create_calendar(courses)
     elif choice == 2:
-        generate_ICS(timetable_dict, output_filename)
+        generate_ics(courses, output_filename)
     else:
         exit()
 
