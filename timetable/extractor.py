@@ -74,7 +74,7 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
         for index, cell in enumerate(cell for cell in row.find_all('td') if cell.attrs.get('valign') != 'top'):
             if cell.get_text() == ' ':
                 if prev:
-                    prev.end_time = timings[index]
+                    prev.end_time = timings[index-1]+1
                     courses.append(prev)
                 prev = None
             elif prev:
