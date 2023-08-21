@@ -44,11 +44,11 @@ Returns a list of lists denoting the time periods of working days
 """
 
 
-def get_dates():
+def get_dates() -> list[list[datetime.datetime]]:
     return [[SEM_BEGIN, MID_TERM_BEGIN], [MID_TERM_END, END_TERM_BEGIN]]
 
 
-def next_weekday(current_day, weekday):
+def next_weekday(current_day: datetime.datetime, weekday: str) -> datetime.datetime:
     days = {"Monday": 0, "Tuesday": 1, "Wednesday": 2, "Thursday": 3, "Friday": 4, "Saturday": 5}
     weekday = days[weekday]
     days_ahead = weekday - current_day.weekday()

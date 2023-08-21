@@ -4,7 +4,7 @@ import os
 
 import httplib2
 from apiclient import discovery
-from oauth2client import client
+from oauth2client import client, file, tools
 from oauth2client import file
 from oauth2client import tools
 
@@ -18,7 +18,7 @@ CLIENT_SECRET_FILE = "client_secret.json"
 APPLICATION_NAME = "gyft"
 
 
-def get_credentials():
+def get_credentials() -> client.Credentials:
     """Gets valid user credentials from storage.
 
     If nothing has been stored, or if the stored credentials are invalid,
@@ -34,11 +34,11 @@ def get_credentials():
     credential_path = os.path.join(credential_dir, "calendar-python-quickstart.json")
 
     store = file.Storage(credential_path)
-    credentials = store.get()
-    if not credentials or credentials.invalid:
-        flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
+    credentials: client.Credentials = store.get()
+    if not credentials:
+        flow: client.Flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
         flow.user_agent = APPLICATION_NAME
-        credentials = tools.run_flow(flow, store)
+        credentials: client.Credentials = tools.run_flow(flow, store)
         print("Storing credentials to " + credential_path)
     return credentials
 
@@ -90,7 +90,7 @@ def delete_calendar():
     for event in events:
         if event.get('recurrence', 'NoRecur') in GYFT_RECUR_STRS:
             batch.add(service.events().delete(calendarId='primary',
-                                    eventId=event["id"]))
+                                              eventId=event["id"]))
             print("Deleted: ", event["summary"], event["start"])
     batch.execute()
     print("Deletion done!")

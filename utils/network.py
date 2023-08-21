@@ -23,7 +23,7 @@ class ERPSession:
     COURSES_URL: str = "https://erp.iitkgp.ac.in/Academic/student_performance_details_ug.htm"
 
     @classmethod
-    def login(cls):
+    def login(cls) -> ERPSession:
         r"""
         Logs into ERP using `iitkgp_erp_login` and returns an ERPSession object
         """
@@ -33,11 +33,11 @@ class ERPSession:
         erp_session.refresh_cookies()
         return erp_session
 
-    def check_login(self):
+    def check_login(self) -> bool:
         r"""
         Checks if proper tokens and cookies exist
         """
-        return self.sso_token and self.cookie and self.session
+        return self.sso_token != None and self.cookie != None and self.session != None
 
     def post(self, url: str, data=None, json=None, cookies=None) -> Response:
         """
@@ -76,14 +76,14 @@ class ERPSession:
         self.cookie = cookie
         return cookie
 
-    def get_timetable_details(self):
+    def get_timetable_details(self) -> dict[str, str]:
         return {
             "ssoToken": self.sso_token,
             "module_id": '16',
             "menu_id": '40',
         }
 
-    def get_course_page_details(self):
+    def get_course_page_details(self) -> dict[str, str]:
         if SEM_BEGIN.month > 6:
             # autumn semester
             sem_number = (int(SEM_BEGIN.strftime("%y")) - int(self.roll_number[:2])) * 2 + 1

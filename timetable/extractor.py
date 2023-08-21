@@ -3,7 +3,6 @@ from dataclasses import dataclass
 from bs4 import BeautifulSoup
 from bs4.element import Tag, NavigableString, PageElement
 
-
 with open("full_location.json") as data_file:
     full_locations = json.load(data_file)
 
@@ -26,14 +25,14 @@ class Course:
             return full_locations[self.location]
         return self.location
 
-    def get_duration(self) -> int:
-        return self.end_time - self.start_time
-
     @property
-    def title(self):
+    def title(self) -> str:
         if 'NC' in self.location or 'NR' in self.location:
             return f"[{self.location}] {self.name.title()}"
         return self.name.title()
+
+    def get_duration(self) -> int:
+        return self.end_time - self.start_time
 
 
 def build_courses(html: str, course_names: dict) -> list[Course]:
@@ -74,7 +73,7 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
         for index, cell in enumerate(cell for cell in row.find_all('td') if cell.attrs.get('valign') != 'top'):
             if cell.get_text() == ' ':
                 if prev:
-                    prev.end_time = timings[index-1]+1
+                    prev.end_time = timings[index - 1] + 1
                     courses.append(prev)
                 prev = None
             elif prev:

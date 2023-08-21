@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 
 def build_event_duration(summary: str, description: str, start: datetime, duration: int, location: str,
-                         freq_of_recurrence: str, until: datetime):
+                         freq_of_recurrence: str, until: datetime) -> Event:
     r"""
     Return an event that can be added to a calendar
     Args:
@@ -19,18 +19,6 @@ def build_event_duration(summary: str, description: str, start: datetime, durati
     Returns:
 
     """
-    '''
-    Return an event that can be added to a calendar
-
-    summary: summary of the event
-    description: description of the event
-    location: self explanatory
-    start, end, stamp: These are datetime.datetime objects
-    freq_of_recurrence: frequency of recurrence, string which can take the
-    values daily, weekly, monthly, etc.
-    until: A datetime.datetime object which signifies when the recurrence will
-    end
-    '''
 
     event = Event()
     event.add('summary', summary)
@@ -44,6 +32,6 @@ def build_event_duration(summary: str, description: str, start: datetime, durati
     return event
 
 
-def generate_india_time(year, month, date, hour, minutes):
+def generate_india_time(year: int, month: int, date: int, hour: int, minutes: int):
     return datetime(year, month, date, hour, minutes, tzinfo=pytz.timezone('Asia/Kolkata'))
 
