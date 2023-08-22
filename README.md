@@ -40,6 +40,7 @@
   - [Installation](#installation)
 - [Usage](#usage)
 - [Development Notes](#development-notes)
+  - [Updates To Be Made Each Sem](#updates-to-be-made-each-sem)
 - [Contributing](#contributing)
 - [Maintainer(s)](#maintainers)
 
@@ -80,7 +81,7 @@ _Now that the environment has been set up and configured to properly compile and
    ```
 3. Install the dependencies
    ```sh
-   pip install requirements.txt
+   pip install -r requirements.txt
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
