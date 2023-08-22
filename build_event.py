@@ -1,4 +1,4 @@
-from icalendar import Calendar, Event
+from icalendar import Calendar, Event, Alarm
 import pytz
 from datetime import datetime, timedelta
 
@@ -26,6 +26,17 @@ def build_event_duration(summary, description, start, duration, location,
     event.add('dtstamp', datetime.now())
     event.add('location', location)
     event.add('rrule', { 'FREQ': freq_of_recurrence, 'UNTIL': until})
+    for i in range(3):
+        alarm = Alarm()
+        alarm.add("ACTION", "DISPLAY")
+        if i == 0:
+            alarm.add("TRIGGER", "-P0DT3H0M0S", encode=0)
+        elif i == 1:
+            alarm.add("TRIGGER", "-P0DT1H0M0S", encode=0)
+        elif i == 2:
+            alarm.add("TRIGGER", "-P0DT0H20M0S", encode=0)
+        alarm.add("DESCRIPTION", "Your Class Reminder")
+        event.add_component(alarm)
 
     return event
 
