@@ -80,7 +80,7 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
                 if cell.get_text()[:7] == prev.code:
                     continue
                 else:
-                    prev.end_time = timings[index]
+                    prev.end_time = timings[index - 1] + 1
                     courses.append(prev)
                     prev = Course(code=cell.get_text()[:7], name=course_names[cell.get_text()[:7]], day=day,
                                   start_time=timings[index],
