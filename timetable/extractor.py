@@ -14,6 +14,7 @@ class Course:
     day: str
     start_time: int
     location: str
+    duration: int
     end_time: int | None = None
 
     def get_location(self) -> str:
@@ -32,7 +33,7 @@ class Course:
         return self.name.title()
 
     def get_duration(self) -> int:
-        return self.end_time - self.start_time
+        return self.duration
 
 
 def build_courses(html: str, course_names: dict) -> list[Course]:
@@ -73,20 +74,20 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
         for index, cell in enumerate(cell for cell in row.find_all('td') if cell.attrs.get('valign') != 'top'):
             if cell.get_text() == ' ':
                 if prev:
-                    prev.end_time = timings[index - 1] + 1
+                    prev.end_time = timings[index - 1] + prev.duration
                     courses.append(prev)
                 prev = None
             elif prev:
                 if cell.get_text()[:7] == prev.code:
                     continue
                 else:
-                    prev.end_time = timings[index - 1] + 1
+                    prev.end_time = timings[index - 1] + prev.duration
                     courses.append(prev)
                     prev = Course(code=cell.get_text()[:7], name=course_names[cell.get_text()[:7]], day=day,
                                   start_time=timings[index],
-                                  location=cell.get_text()[7:])
+                                  location=cell.get_text()[7:], duration=int(cell.attrs.get('colspan')))
             else:
                 prev = Course(code=cell.get_text()[:7], name=course_names[cell.get_text()[:7]], day=day,
                               start_time=timings[index],
-                              location=cell.get_text()[7:])
+                              location=cell.get_text()[7:], duration=int(cell.attrs.get('colspan')))
     return courses
