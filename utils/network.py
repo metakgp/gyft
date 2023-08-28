@@ -1,10 +1,11 @@
 import requests
 from requests import Session
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from requests import Response
 import iitkgp_erp_login.erp as erp
 from types import MappingProxyType
 from utils.dates import *
+from typing import Dict
 
 
 @dataclass
@@ -13,7 +14,7 @@ class ERPSession:
     session_token: str = None
     sso_token: str = None
     cookie: dict = None
-    headers: dict = MappingProxyType({
+    headers: Dict[str, str] = field(default_factory=lambda: {
         'timeout': '20',
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu '
                       'Chromium/51.0.2704.79 Chrome/51.0.2704.79 Safari/537.36',
