@@ -23,7 +23,7 @@ class ERPSession:
     COURSES_URL: str = "https://erp.iitkgp.ac.in/Academic/student_performance_details_ug.htm"
 
     @classmethod
-    def login(cls) -> ERPSession:
+    def login(cls):
         r"""
         Logs into ERP using `iitkgp_erp_login` and returns an ERPSession object
         """

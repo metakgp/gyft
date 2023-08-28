@@ -35,7 +35,7 @@ def get_credentials() -> client.Credentials:
 
     store = file.Storage(credential_path)
     credentials: client.Credentials = store.get()
-    if not credentials:
+    if not credentials or credentials.invalid:
         flow: client.Flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
         flow.user_agent = APPLICATION_NAME
         credentials: client.Credentials = tools.run_flow(flow, store)
