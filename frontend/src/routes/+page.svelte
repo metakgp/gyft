@@ -1,13 +1,23 @@
-<script>
+<script lang="ts">
   import Footer from "../components/Footer.svelte";
   import Header from "../components/Header.svelte";
   import HeroImg from "$lib/assets/hero-img.png";
+  import Form from "../components/Form.svelte";
+  import type { FormData } from "$lib/_types";
+
+  let formData: FormData = {
+    rollNo: null,
+    password: null,
+    securityAnswer: null,
+    otp: null,
+  };
+
+  let securityQuestion: string | null = null;
 </script>
 
 <div id="wrapper">
   <main>
-    <Header />
-    <Footer />
+    <Form {securityQuestion} {formData} />
   </main>
   <aside>
     <img src={HeroImg} alt="." />
