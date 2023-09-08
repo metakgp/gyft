@@ -1,13 +1,17 @@
 <script>
+  import Footer from "../components/Footer.svelte";
   import Header from "../components/Header.svelte";
 </script>
 
-<div id="main">
-  <Header />
+<div id="wrapper">
+  <main>
+    <Header />
+    <Footer />
+  </main>
 </div>
 
 <style>
-  #main {
+  #wrapper {
     height: 100%;
     width: 100%;
     border-radius: 10px;
