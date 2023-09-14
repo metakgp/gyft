@@ -106,7 +106,3 @@ class ERPSession:
         r = self.post(self.COURSES_URL, data=self.get_course_page_details())
         sub_dict = {item["subno"]: item["subname"] for item in r.json()}
         return {k: v.replace("&amp;", "&") for k, v in sub_dict.items()}
-
-
-if __name__ == "__main__":
-    ERPSession.login()
