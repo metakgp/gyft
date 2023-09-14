@@ -17,7 +17,7 @@ def build_event_duration(summary: str, description: str, start: datetime, durati
         until: datetime.datetime object of when recurrence ends
 
     Returns:
-
+        icalendar.Event object
     """
 
     event = Event()
