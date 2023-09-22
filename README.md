@@ -151,5 +151,5 @@ Please read [CONTRIBUTING.md](https://github.com/metakgp/gyft/blob/master/CONTRI
 [issues-url]: https://github.com/metakgp/gyft/issues
 [license-shield]: https://img.shields.io/github/license/metakgp/gyft.svg?style=for-the-badge
 [license-url]: https://github.com/metakgp/gyft/blob/master/LICENSE.txt
-[wiki-shield]: https://custom-icon-badges.demolab.com/badge/metakgp_wiki-grey?logo=metakgp_logo&logoColor=white&style=for-the-badge
+[wiki-shield]: https://custom-icon-badges.demolab.com/badge/metakgp_wiki-grey?logo=metakgp_logo&style=for-the-badge
 [wiki-url]: https://wiki.metakgp.org
