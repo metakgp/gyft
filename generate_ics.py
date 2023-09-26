@@ -109,8 +109,12 @@ def generate_ICS(timetable, output_filename):
                 summary = summary.title()
 
             # Find location of this class
-            location = timetable[day][time][1]
 
+            if (("NR" in timetable[day][time][1] or "NC" in timetable[day][time][1]) and
+                    f'{timetable[day][time][1][:2]}{timetable[day][time][1][3]}' in full_locations.keys()):
+                location = full_locations[f'{timetable[day][time][1][:2]}{timetable[day][time][1][3]}']
+            else:
+                location = timetable[day][time][1]
             for lectureBegin, [periodBegin, periodEnd] in zip(
                 lectureBeginsStamps, WORKING_DAYS
             ):
