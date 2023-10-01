@@ -28,7 +28,7 @@ def generate_ics(courses: list[Course], output_filename):
                 course.title,
                 course.code,
                 lecture_begin,
-                course.get_duration(),
+                course.duration,
                 course.get_location(),
                 "weekly",
                 period_end,
