@@ -14,8 +14,7 @@ class Course:
     day: str
     start_time: int
     location: str
-    duration: int
-    end_time: int | None = None
+    duration: int = 0
 
     def get_location(self) -> str:
         # TODO: more logic to specify other locations if possible
@@ -32,8 +31,9 @@ class Course:
             return f"[{self.location}] {self.name.title()}"
         return self.name.title()
 
-    def get_duration(self) -> int:
-        return self.duration
+    @property
+    def end_time(self) -> int:
+        return self.duration + self.start_time
 
 
 def build_courses(html: str, course_names: dict) -> list[Course]:
@@ -71,25 +71,44 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
 
         # Merge timeslots occurring adjacent to each other and initialize course objects
         prev: Course | None = None
-        for index, cell in enumerate(cell for cell in row.find_all('td') if cell.attrs.get('valign') != 'top'):
+        course_duration: int = 0
+        cells = [cell for cell in row.find_all('td') if cell.attrs.get('valign') != 'top']
+        for index, cell in enumerate(cells):
             code = cell.get_text()[:7] if cell.get_text()[:7] != "CS10001" else "CS10003"
             location = cell.get_text()[7:]
-            if cell.get_text() == ' ':
+            cell_duration = int(cell.attrs.get('colspan'))
+
+            def append_prev():
+                prev.duration = course_duration
+                courses.append(prev)
+
+            # Empty cell means either previous class just ended or no class is scheduled
+            if cell.get_text() == ' ' or cell.get_text() == ' ':
                 if prev:
-                    prev.end_time = timings[index - 1] + prev.duration
-                    courses.append(prev)
+                    append_prev()
+                course_duration = 0
                 prev = None
-            elif prev:
-                if cell.get_text()[:7] == prev.code:
-                    continue
+                continue
+
+            # Either new class started just after previous one or previous class is continued
+            if prev:
+                # If previous class is same as current class, add the duration to the previous class
+                if code == prev.code:
+                    course_duration += cell_duration
                 else:
-                    prev.end_time = timings[index - 1] + prev.duration
-                    courses.append(prev)
+                    append_prev()
                     prev = Course(code=code, name=course_names[code], day=day,
                                   start_time=timings[index],
-                                  location=location, duration=int(cell.attrs.get('colspan')))
+                                  location=location)
+                    course_duration = cell_duration
+            # New class started after break
             else:
                 prev = Course(code=code, name=course_names[code], day=day,
                               start_time=timings[index],
-                              location=location, duration=int(cell.attrs.get('colspan')))
+                              location=location)
+                course_duration = cell_duration
+
+            # Day ended, add the last class
+            if index == len(cells) - 1:
+                append_prev()
     return courses
