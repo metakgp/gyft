@@ -38,7 +38,7 @@ class ERPSession:
         r"""
         Checks if proper tokens and cookies exist
         """
-        return self.sso_token != None and self.cookie != None and self.session != None
+        return self.sso_token is not None and self.cookie is not None and self.session is not None
 
     def post(self, url: str, data=None, json=None, cookies=None) -> Response:
         """
@@ -60,11 +60,7 @@ class ERPSession:
             Refreshes cookies and returns them for further use
         """
         # This is just a hack to get cookies. TODO: do the standard thing here
-        timetable_details = {
-            "ssoToken": self.sso_token,
-            "module_id": '16',
-            "menu_id": '40',
-        }
+        timetable_details = self.get_timetable_details()
         self.post(self.ERP_TIMETABLE_URL, data=timetable_details)
         cookie_val = None
         for a in self.session.cookies:

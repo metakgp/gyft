@@ -53,11 +53,8 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
     table = soup.find('table', {'border': '1', 'cellpadding': '0', 'cellspacing': '0'})
 
     def create_timings(_table: Tag | NavigableString) -> list[int]:
-        r"""# Creates a list of timings in 24 hours format - [8, ..., 12, 14, ..., 17]"""
-        headings = _table.find_all('td', {'class': 'tableheader',
-                                          'style': 'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right'
-                                                   ':7px',
-                                          'nowrap': ''})
+        r""" Creates a list of timings in 24 hours format - [8, ..., 12, 14, ..., 17]"""
+        headings = _table.find_all('td', {'class': 'tableheader'})
         return [int(time.get_text().split(':')[0]) + 12 if int(time.get_text().split(':')[0]) < 6 else int(
             time.get_text().split(':')[0]) for time in headings if time.get_text() != 'Day Name']
 
