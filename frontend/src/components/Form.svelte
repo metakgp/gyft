@@ -22,7 +22,6 @@
       </div>
       <button
         on:click={() => {
-          console.log(formData);
           securityQuestion = "What is your pet name";
         }}>Get Security Question</button
       >
@@ -62,7 +61,6 @@
       </div>
       <button
         on:click={() => {
-          console.log(formData);
           alert("file downloaded");
           securityQuestion = null;
           formData = {
