@@ -15,6 +15,40 @@
   let securityQuestion: string | null = null;
 </script>
 
+<svelte:head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GYFT | Metakgp</title>
+
+  <meta
+    name="description"
+    content="GYFT allows IIT Kharagpur students to download their class timetable as an ICS file that can be imported into calendar apps like Google Calendar."
+  />
+
+  <meta
+    name="keywords"
+    content="metakgp, gyft, get your freaking timetable, gyft iitkgp, gyft metakgp, IIT Kharagpur, timetable, class schedule, ics, calendar, ERP, student portal"
+  />
+
+  <meta name="author" content="Metakgp" />
+
+  <meta property="og:title" content="GYFT - Get Your Freaking Timetable" />
+  <meta
+    property="og:description"
+    content="GYFT allows IIT Kharagpur students to download their class timetable as an ICS file that can be imported into calendar apps like Google Calendar."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gyft.metakgp.org" />
+
+  <!-- Twitter -->
+  <meta name="twitter:creator" content="@metakgp" />
+  <meta name="twitter:title" content="GYFT - Get Your Freaking Timetable" />
+  <meta
+    name="twitter:description"
+    content="GYFT allows IIT Kharagpur students to download their class timetable as an ICS file that can be imported into calendar apps like Google Calendar."
+  />
+</svelte:head>
+
 <div id="wrapper">
   <main>
     <Form {securityQuestion} {formData} />
