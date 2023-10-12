@@ -125,7 +125,7 @@ This project utilizes the [iitkgp-erp-login](https://github.com/proffapt/iitkgp-
 The following procedure is to be followed each new semester by the maintainer for updating GYFT to work properly.
 
 - Download the academic calendar for the particular year.
-- New semester dates need to be updated in dates.py
+- New semester dates need to be updated in utils/dates.py
 - The format for the date-time is `(YYYY, MM, DD, HH, MM)`.
 - Raise a pull request once the dates are updated.
 
