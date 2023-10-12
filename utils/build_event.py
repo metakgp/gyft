@@ -32,6 +32,6 @@ def build_event_duration(summary: str, description: str, start: datetime, durati
     return event
 
 
+# Converts time to datetime object for India/Asia/Kolkata timezone
 def generate_india_time(year: int, month: int, date: int, hour: int, minutes: int):
     return datetime(year, month, date, hour, minutes, tzinfo=pytz.timezone('Asia/Kolkata'))
-

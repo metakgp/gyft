@@ -73,6 +73,7 @@ class ERPSession:
         self.cookie = cookie
         return cookie
 
+    # Ported code, in a function to be reused
     def get_timetable_details(self) -> dict[str, str]:
         return {
             "ssoToken": self.sso_token,

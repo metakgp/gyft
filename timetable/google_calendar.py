@@ -25,7 +25,7 @@ def get_credentials() -> client.Credentials:
     the OAuth2 flow is completed to obtain the new credentials.
 
     Returns:
-        Credentials, the obtained credential.
+        Credentials
     """
     home_dir = os.path.expanduser("~")
     credential_dir = os.path.join(home_dir, ".credentials")
@@ -35,7 +35,7 @@ def get_credentials() -> client.Credentials:
 
     store = file.Storage(credential_path)
     credentials: client.Credentials = store.get()
-    if not credentials or credentials.invalid:
+    if not credentials or credentials.invalid:  # FIXME: credentials.invalid is unresolved but works for some reason
         flow: client.Flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
         flow.user_agent = APPLICATION_NAME
         credentials: client.Credentials = tools.run_flow(flow, store)
