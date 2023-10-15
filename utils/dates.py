@@ -1,9 +1,10 @@
 from __future__ import print_function
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from bs4 import BeautifulSoup as bs
 from utils import build_event
 import sys
+from collections import defaultdict
 
 # SEM_BEGIN=datetime.datetime.now(pytz.timezone('Asia/Kolkata'))
 SEM_BEGIN = build_event.generate_india_time(2023, 7, 31, 0, 0)
@@ -39,6 +40,7 @@ def get_holidates() -> (list[datetime], list[str, datetime]):
     trs = tbody.contents
     holidays = []
     hol_dates = []
+    hdays = defaultdict(list)
     for i in range(3, len(trs) - 7, 2):
         cnt = 0
         for tr in trs[i]:
@@ -54,6 +56,10 @@ def get_holidates() -> (list[datetime], list[str, datetime]):
                 hol_date = build_event.generate_india_time(y, m, d, 0, 0)
                 holidays.append([occasion, datetime_object])
                 hol_dates.append(hol_date)
+            if cnt == 6:
+                hday = tr.string
+                if hol_date.date() >= date.today() and hol_date < END_TERM_BEGIN:
+                    hdays[hday].append(hol_date)
     ###
 
     ### appending mid/end sem in holidates list
@@ -68,7 +74,7 @@ def get_holidates() -> (list[datetime], list[str, datetime]):
         ]
     )
     hol_dates.sort()
-    return hol_dates, holidays
+    return hol_dates, holidays, hdays
 
 
 # print(*hol_dates, sep="\n")
@@ -90,7 +96,7 @@ if len(sanity_check) > 0:
     print("Note: SEM_BEGIN < MID_TERM_BEGIN < MID_TERM_END < END_TERM_BEGIN")
     sys.exit(1)
 
-hol_dates, holidays = get_holidates()
+hol_dates, holidays, hdays = get_holidates()
 
 
 def get_dates() -> list[datetime, datetime]:
@@ -149,3 +155,31 @@ def get_rfc_time(time: int, day: str, minute: int = 0, second: int = 0) -> str:
         .__str__()
         .replace(" ", "T")
     )
+
+
+### creating strings to use in EXDATE call in google calendar
+
+days_by_id = {
+    0: "Monday",
+    1: "Tuesday",
+    2: "Wednesday",
+    3: "Thursday",
+    4: "Friday",
+    5: "Saturday",
+    6: "Sunday",
+}
+
+## hdates maps all days of the week to datetime objects(each datetime obj is a holiday on the day key)
+autumn_day_count = (MID_TERM_END - MID_TERM_BEGIN).days + 1
+for single_date in (MID_TERM_BEGIN + timedelta(n) for n in range(autumn_day_count)):
+    if single_date.date() >= date.today():
+        hdays[days_by_id[single_date.weekday()]].append(single_date)
+
+autumn_day_count = (AUT_BREAK_END - AUT_BREAK_BEGIN).days + 1
+for single_date in (AUT_BREAK_BEGIN + timedelta(n) for n in range(autumn_day_count)):
+    if single_date.date() >= date.today():
+        hdays[days_by_id[single_date.weekday()]].append(single_date)
+
+for hday in hdays.keys():
+    hdays[hday].sort()
+    hdays[hday] = list(set(hdays[hday]))  ### datetime dict(list)
