@@ -22,6 +22,7 @@ class ERPSession:
     roll_number: str = None
     ERP_TIMETABLE_URL: str = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
     COURSES_URL: str = "https://erp.iitkgp.ac.in/Academic/student_performance_details_ug.htm"
+    AUTUMN_SEMESTER_START = 7
 
     @classmethod
     def login(cls):
@@ -82,7 +83,7 @@ class ERPSession:
         }
 
     def get_course_page_details(self) -> dict[str, str]:
-        if SEM_BEGIN.month > 6:
+        if SEM_BEGIN.month > AUTUMN_SEMESTER_START:
             # autumn semester
             sem_number = (int(SEM_BEGIN.strftime("%y")) - int(self.roll_number[:2])) * 2 + 1
         else:
