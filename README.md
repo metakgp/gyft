@@ -75,7 +75,7 @@ _Now that the environment has been set up and configured to properly compile and
    ```sh
    git clone --depth 1 https://github.com/metakgp/gyft
    ```
-2. Change current directory to the project directory
+2. Change the current directory to the project directory
    ```sh
    cd gyft
    ```
@@ -94,7 +94,7 @@ _Now that the environment has been set up and configured to properly compile and
    ```sh
    python3 gyft.py
    ```
-2. Enter your roll number, password, security answer and OTP (if required) when prompted
+2. Enter your roll number, password, security answer, and OTP (if required) when prompted
 3. Now you can choose between 2 options, which will be prompted to you:
    - #### Add to Google Calendar:
      - For this, you have to get your `credentials.json` and save it as `client_secret.json` to the current directory by following the Step 1 from [here](https://developers.google.com/google-apps/calendar/quickstart/python#step_1_turn_on_the_api_name)
@@ -107,11 +107,11 @@ _Now that the environment has been set up and configured to properly compile and
 <br />
 
 - Optional flags: 
-  - To delete all the recurring events added by the CLI or GYFT Web Application (uses property of recurrence to identify events to delete), you can run `gyft.py` with the `--del-events` flag:
+  - To delete all the recurring events added by the CLI or GYFT Web Application (uses a property of recurrence to identify events to delete), you can run `gyft.py` with the `--del-events` flag:
     ```sh
     python3 gyft.py --del-events
     ```
-  - To specifiy the output file (`.ics`) to which the ICS file will be written, use the `--output` flag.
+  - To specify the output file (`.ics`) to which the ICS file will be written, use the `--output` flag.
     ```sh
     python3 gyft.py --output autumn_2023.ics
     ```
