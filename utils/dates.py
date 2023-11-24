@@ -13,7 +13,6 @@ MID_TERM_END = build_event.generate_india_time(2023, 9, 26, 0, 0)
 END_TERM_BEGIN = build_event.generate_india_time(2023, 11, 16, 0, 0)
 AUT_BREAK_BEGIN = build_event.generate_india_time(2023, 10, 22, 0, 0)
 AUT_BREAK_END = build_event.generate_india_time(2023, 10, 27, 0, 0)
-AUTUMN_SEM_BOOL = True  ## mark false for spring sem
 
 
 # # Adjusting dates for WORKDAYS
@@ -178,7 +177,7 @@ for single_date in (MID_TERM_BEGIN + timedelta(n) for n in range(mid_term_count)
         hdays[days_by_id[single_date.weekday()]].append(single_date)
 
 if (
-    AUTUMN_SEM_BOOL
+    SEM_BEGIN.month > 6
 ):  ## not to be added in EXDATE strings as would not exist in the recurrence of spring sem
     autumn_day_count = (AUT_BREAK_END - AUT_BREAK_BEGIN).days + 1
     for single_date in (
