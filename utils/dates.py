@@ -6,7 +6,6 @@ from utils import build_event
 import sys
 from collections import defaultdict
 
-# SEM_BEGIN=datetime.datetime.now(pytz.timezone('Asia/Kolkata'))
 SEM_BEGIN = build_event.generate_india_time(2023, 7, 31, 0, 0)
 MID_TERM_BEGIN = build_event.generate_india_time(2023, 9, 18, 0, 0)
 MID_TERM_END = build_event.generate_india_time(2023, 9, 26, 0, 0)
@@ -15,9 +14,6 @@ AUT_BREAK_BEGIN = build_event.generate_india_time(2023, 10, 22, 0, 0)
 AUT_BREAK_END = build_event.generate_india_time(2023, 10, 27, 0, 0)
 
 
-# # Adjusting dates for WORKDAYS
-# MID_TERM_BEGIN = MID_TERM_BEGIN.replace(day=MID_TERM_BEGIN.day - 1)
-# MID_TERM_END = MID_TERM_END.replace(day=MID_TERM_END.day + 1)
 
 # Recurrence strings from above dates
 GYFT_RECUR_STRS = [
@@ -61,7 +57,7 @@ def get_holidates() -> (list[datetime], list[str, datetime]):
                 hday = tr.string
                 if hol_date.date() >= date.today() and hol_date < END_TERM_BEGIN:
                     hdays[hday].append(hol_date)
-    ###
+    
 
     ### appending mid/end sem in holidates list
     hol_dates.extend(
@@ -78,7 +74,6 @@ def get_holidates() -> (list[datetime], list[str, datetime]):
     return hol_dates, holidays, hdays
 
 
-# print(*hol_dates, sep="\n")
 
 
 # Sanity check
@@ -108,8 +103,6 @@ def get_dates() -> list[datetime, datetime]:
     for i in range(0, len(hol_dates)):
         if hol_dates[i] == MID_TERM_BEGIN:
             continue
-        # if hol_dates[i] == END_TERM_BEGIN:
-        #     break
         if hol_dates[i] >= AUT_BREAK_BEGIN and hol_dates[i] < AUT_BREAK_END:
             continue
         if hol_dates[i] >= SEM_BEGIN and hol_dates[i] < END_TERM_BEGIN:
