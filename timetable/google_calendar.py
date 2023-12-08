@@ -128,7 +128,7 @@ def create_calendar(courses: list[Course]) -> None:
                     "timeZone": "Asia/Kolkata",
                 },
             }
-            qwe = (
+            insert = (
                 service.events()
                 .insert(calendarId="primary", body=holiday_event)
                 .execute()
