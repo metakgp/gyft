@@ -30,7 +30,7 @@ def get_holidates() -> (list[datetime], list[str, datetime]):
     scrapes holiday list from IITKGP website
     returns: list of holidays as occasions and datetime objects
     """
-    url = "https://www.iitkgp.ac.in/holidays?lang=en"
+    url = "https://www.iitkgp.ac.in/holidays"
     result = requests.get(url).text
     doc = bs(result, "html.parser")
     tbody = doc.tbody
