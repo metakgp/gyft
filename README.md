@@ -128,6 +128,7 @@ The following procedure is to be followed each new semester by the maintainer fo
 - New semester dates need to be updated in utils/dates.py
 - The format for the date-time is `(YYYY, MM, DD, HH, MM)`.
 - Raise a pull request once the dates are updated.
+- Set AUTUMN_SEM_BOOL to be true according to the sem 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
