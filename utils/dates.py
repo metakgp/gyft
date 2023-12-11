@@ -6,12 +6,12 @@ from utils import build_event
 import sys
 from collections import defaultdict
 
-SEM_BEGIN = build_event.generate_india_time(2023, 7, 31, 0, 0)
-MID_TERM_BEGIN = build_event.generate_india_time(2023, 9, 18, 0, 0)
-MID_TERM_END = build_event.generate_india_time(2023, 9, 26, 0, 0)
-END_TERM_BEGIN = build_event.generate_india_time(2023, 11, 16, 0, 0)
-AUT_BREAK_BEGIN = build_event.generate_india_time(2023, 10, 22, 0, 0)
-AUT_BREAK_END = build_event.generate_india_time(2023, 10, 27, 0, 0)
+SEM_BEGIN = build_event.generate_india_time(2024, 1, 2, 0, 0)
+MID_TERM_BEGIN = build_event.generate_india_time(2024, 2, 15, 0, 0)
+MID_TERM_END = build_event.generate_india_time(2024, 2, 23, 0, 0)
+END_TERM_BEGIN = build_event.generate_india_time(2024, 4, 18, 0, 0)
+AUT_BREAK_BEGIN = build_event.generate_india_time(2024, 10, 22, 0, 0)
+AUT_BREAK_END = build_event.generate_india_time(2024, 10, 27, 0, 0)
 
 
 
