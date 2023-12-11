@@ -29,7 +29,6 @@
   </p>
 </div>
 
-
 <!-- TABLE OF CONTENTS -->
 <details>
 <summary>Table of Contents</summary>
@@ -46,8 +45,8 @@
 
 </details>
 
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 Gets your timetable from ERP and adds it to your Google Calendar or gives you an ICS file which you can add in any common calendar application.
@@ -57,20 +56,24 @@ Gets your timetable from ERP and adds it to your Google Calendar or gives you an
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 To set up a local instance of the application, follow the steps below.
 
 ### Prerequisites
+
 The following prerequisites are required to be installed for the project to function properly:
-* Python 3
-* IIT-KGP Student [ERP](https://erp.iitkgp.ac.in) Account
+
+- Python 3
+- IIT-KGP Student [ERP](https://erp.iitkgp.ac.in) Account
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Installation
 
 _Now that the environment has been set up and configured to properly compile and run the project, the next step is to install and configure the project locally on your system._
+
 1. Clone the repository
    ```sh
    git clone --depth 1 https://github.com/metakgp/gyft
@@ -86,8 +89,8 @@ _Now that the environment has been set up and configured to properly compile and
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 <!-- USAGE EXAMPLES -->
+
 ## Usage
 
 1. Run the script
@@ -96,17 +99,19 @@ _Now that the environment has been set up and configured to properly compile and
    ```
 2. Enter your roll number, password, security answer, and OTP (if required) when prompted
 3. Now you can choose between 2 options, which will be prompted to you:
+
    - #### Add to Google Calendar:
+
      - For this, you have to get your `credentials.json` and save it as `client_secret.json` to the current directory by following the Step 1 from [here](https://developers.google.com/google-apps/calendar/quickstart/python#step_1_turn_on_the_api_name)
      - Also note that adding to Google Calendar requires an Internet connection
-  
+
    - #### Generate ICS file:
      - This will generate an ICS file which you can import into any calendar application.
      - For importing to Google Calendar, follow the instructions given [here](https://support.google.com/calendar/answer/37118?hl=en).
 
 <br />
 
-- Optional flags: 
+- Optional flags:
   - To delete all the recurring events added by the CLI or GYFT Web Application (uses a property of recurrence to identify events to delete), you can run `gyft.py` with the `--del-events` flag:
     ```sh
     python3 gyft.py --del-events
@@ -118,17 +123,18 @@ _Now that the environment has been set up and configured to properly compile and
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Development Notes 
+## Development Notes
+
 This project utilizes the [iitkgp-erp-login](https://github.com/proffapt/iitkgp-erp-login-pypi/) package to handle ERP login functionality.
 
 ### Updates To Be Made Each Sem
+
 The following procedure is to be followed each new semester by the maintainer for updating GYFT to work properly.
 
 - Download the academic calendar for the particular year.
 - New semester dates need to be updated in utils/dates.py
 - The format for the date-time is `(YYYY, MM, DD, HH, MM)`.
 - Raise a pull request once the dates are updated.
-- Set AUTUMN_SEM_BOOL to be true according to the sem 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
