@@ -21,7 +21,7 @@ class ERPSession:
     })
     roll_number: str = None
     ERP_TIMETABLE_URL: str = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
-    COURSES_URL: str = "https://erp.iitkgp.ac.in/Academic/student_performance_details_ug.htm"
+    COURSES_URL: str = "https://erp.iitkgp.ac.in/Academic/student_performance_details_ug.htm?semno={}&rollno={}"
 
     @classmethod
     def login(cls):
@@ -80,18 +80,19 @@ class ERPSession:
             "module_id": '16',
             "menu_id": '40',
         }
-
-    def get_course_page_details(self) -> dict[str, str]:
+    
+    def get_sem_num(self) -> int:
         if SEM_BEGIN.month > 6:
             # autumn semester
-            sem_number = (int(SEM_BEGIN.strftime("%y")) - int(self.roll_number[:2])) * 2 + 1
+            return (int(SEM_BEGIN.strftime("%y")) - int(self.roll_number[:2])) * 2 + 1
         else:
-            # spring semester
-            sem_number = (int(SEM_BEGIN.strftime("%y")) - int(self.roll_number[:2])) + 2
+            # spring semester - sem begin year is 1 more than autumn sem
+            return (int(SEM_BEGIN.strftime("%y")) - int(self.roll_number[:2])) * 2 
 
+    def get_course_page_details(self) -> dict[str, str]:
         return {
             "ssoToken": self.sso_token,
-            "semno": sem_number,
+            "semno": self.get_sem_num(),
             "rollno": self.roll_number,
             "order": "asc"
         }
@@ -100,6 +101,6 @@ class ERPSession:
         r"""
             Returns a mapping of course codes to course names
         """
-        r = self.post(self.COURSES_URL, data=self.get_course_page_details())
+        r = self.post(self.COURSES_URL.format(self.get_sem_num(), self.roll_number), data=self.get_course_page_details())
         sub_dict = {item["subno"]: item["subname"] for item in r.json()}
         return {k: v.replace("&amp;", "&") for k, v in sub_dict.items()}

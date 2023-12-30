@@ -1,4 +1,6 @@
 client_secret.json
+*/.*session
+*/__pycache__
 *.pyc
 *~
 data.txt
