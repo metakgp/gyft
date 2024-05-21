@@ -5,4 +5,4 @@ icalendar==5.0.7
 iitkgp_erp_login
 oauth2client==4.1.3
 pytz==2023.3
-Requests==2.31.0
+Requests==2.32.0
