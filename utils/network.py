@@ -23,6 +23,12 @@ class ERPSession:
     ERP_TIMETABLE_URL: str = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
     COURSES_URL: str = "https://erp.iitkgp.ac.in/Academic/student_performance_details_ug.htm?semno={}&rollno={}"
 
+    #method to create erp session from login details, session and and ssotoken
+
+    @classmethod
+    def create_erp_session(cls, session: Session, sso_token: str, roll_number: str) -> 'ERPSession':
+        return cls(session=session, sso_token=sso_token, roll_number=roll_number)
+
     @classmethod
     def login(cls):
         r"""

@@ -51,7 +51,11 @@ def generate_ics(courses: list[Course], output_filename):
         event.add("dtstart", holiday[1])
         event.add("dtend", holiday[1] + timedelta(days=1))
         cal.add_component(event)
+    
 
-    with open(output_filename, "wb") as f:
-        f.write(cal.to_ical())
-        print("\nYour timetable has been written to %s" % output_filename)
+    if output_filename != "":
+        with open(output_filename, "wb") as f:
+            f.write(cal.to_ical())
+            print("\nYour timetable has been written to %s" % output_filename)
+    
+    return cal.to_ical().decode('utf-8')
