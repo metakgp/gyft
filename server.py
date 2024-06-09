@@ -11,6 +11,10 @@ app = Flask(__name__)
 CORS(app, support_credentials=True)
 
 
+# Start the first cleanup task
+SessionManager.cleanup_sessions()
+
+
 
 @app.route("/secret-question", methods=["POST"])
 def get_secret_question():

@@ -84,5 +84,3 @@ class SessionManager:
         Timer(300, SessionManager.cleanup_sessions).start()
 
 
-# Start the first cleanup task
-SessionManager.cleanup_sessions()
