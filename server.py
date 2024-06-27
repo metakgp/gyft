@@ -5,79 +5,158 @@ import jwt
 from flask_cors import CORS
 from datetime import datetime, timedelta
 from timetable import build_courses, generate_ics
-from session_manager import SessionManager
+# from session_manager import SessionManager
 from utils import ERPSession
+from iitkgp_erp_login import session_manager
+import logging
+
+
 
 app = Flask(__name__)
-CORS(app, support_credentials=True)
+CORS(app)
 
-# Initialize the SessionManager instance
-session_manager = SessionManager()
+jwt_secret_key = "top-secret-unhackable-key"
+headers = {
+    'timeout': '20',
+    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/51.0.2704.79 Chrome/51.0.2704.79 Safari/537.36',
+}
 
-@app.route("/create-session", methods=["POST"])
-def create_session():
-    try:
-        data = request.form
-        roll = data.get("roll")
-        if not roll:
-            return jsonify({"status": "error", "message": "Missing roll number"}), 400
-        
-        token = session_manager.create_session(roll)
-        return jsonify({"status": "success", "token": token}), 200
-    except Exception as e:
-        return jsonify({"status": "error", "message": str(e)}), 500
+session_manager = session_manager.SessionManager(
+    jwt_secret_key=jwt_secret_key, headers=headers)
+
+
+class ErpResponse:
+    def __init__(self, success: bool, message: str = None, data: dict = None, status_code: int = 200):
+        self.success = success
+        self.message = message
+        self.data = data or {}
+        self.status_code = status_code
+
+        if not success:
+            logging.error(f" {message}")
+
+    def to_dict(self):
+        response = {
+            "status": "success" if self.success else "error",
+            "message": self.message
+        }
+        if self.data:
+            response.update(self.data)
+        return response
+
+    def to_response(self):
+        return jsonify(self.to_dict()), self.status_code
+
+
+def handle_auth() -> ErpResponse:
+    if "Authorization" in request.headers:
+        header = request.headers["Authorization"].split(" ")
+        if len(header) == 2:
+            return ErpResponse(True, data={
+                "jwt": header[1]
+            }).to_response()
+        else:
+            return ErpResponse(False, "Poorly formatted authorization header. Should be of format 'Bearer <token>'", status_code=401).to_response()
+    else:
+        return ErpResponse(False, "Authentication token not provided", status_code=401).to_response()
+
 
 @app.route("/secret-question", methods=["POST"])
 def get_secret_question():
     try:
-        token = request.headers.get("Authorization")
-        if not token:
-            return jsonify({"status": "error", "message": "Missing token"}), 400
-        
-        secret_question = session_manager.get_secret_question(token)
-        return jsonify({"status": "success", "secret_question": secret_question}), 200
+        data = request.form
+        roll_number = data.get("roll_number")
+        if not roll_number:
+            return ErpResponse(False, "Roll Number not provided", status_code=400).to_response()
+
+        secret_question, jwt = session_manager.get_secret_question(
+            roll_number)
+        return ErpResponse(True, data={
+            "secret_question": secret_question,
+            "jwt": jwt
+        }).to_response()
     except Exception as e:
-        return jsonify({"status": "error", "message": str(e)}), 500
+        return ErpResponse(False, str(e), status_code=500).to_response()
+
 
 @app.route("/request-otp", methods=["POST"])
 def request_otp():
     try:
-        token = request.headers.get("Authorization")
-        passw = request.form.get("pass")
+        jwt = None
+        auth_resp, status_code = handle_auth()
+        if status_code != 200:
+            return auth_resp, status_code
+        else:
+            jwt = auth_resp.get_json().get("jwt")
+
+        password = request.form.get("password")
         secret_answer = request.form.get("secret_answer")
-        
-        if not all([token, passw, secret_answer]):
-            return jsonify({"status": "error", "message": "Missing token, password, or secret answer"}), 400
-        
-        session_manager.request_otp(token, passw, secret_answer)
-        return jsonify({"status": "success", "message": "OTP sent"}), 200
+        if not all([password, secret_answer]):
+            return ErpResponse(False, "Missing password or secret answer", status_code=400).to_response()
+
+        session_manager.request_otp(jwt, password, secret_answer)
+        return ErpResponse(True, message="OTP has been sent to your connected email accounts").to_response()
     except Exception as e:
-        return jsonify({"status": "error", "message": str(e)}), 500
+        return ErpResponse(False, str(e), status_code=500).to_response()
+
 
 @app.route("/login", methods=["POST"])
-def login_and_download_ics():
+def login():
     try:
-        token = request.headers.get("Authorization")
-        email_otp = request.form.get("email_otp")
-        
-        if not all([token, email_otp]):
-            return jsonify({"status": "error", "message": "Missing token or email OTP"}), 400
-        
-        session_manager.establish_erp_session(token, email_otp)
-        return jsonify({"status": "success"}), 200
-    except Exception as e:
-        return jsonify({"status": "error", "message": str(e)}), 500
+        jwt = None
+        auth_resp, status_code = handle_auth()
+        if status_code != 200:
+            return auth_resp, status_code
+        else:
+            jwt = auth_resp.get_json().get("jwt")
 
+        password = request.form.get("password")
+        secret_answer = request.form.get("secret_answer")
+        otp = request.form.get("otp")
+        if not all([secret_answer, password, otp]):
+            return ErpResponse(False, "Missing password, secret answer or otp", status_code=400).to_response()
+
+        session_manager.login(jwt, password, secret_answer, otp)
+        return ErpResponse(True, message="Logged in to ERP").to_response()
+    except Exception as e:
+        return ErpResponse(False, str(e), status_code=500).to_response()
+
+
+@app.route("/logout", methods=["GET"])
+def logout():
+    try:
+        jwt = None
+        auth_resp, status_code = handle_auth()
+        if status_code != 200:
+            return auth_resp, status_code
+        else:
+            jwt = auth_resp.get_json().get("jwt")
+
+        session_manager.end_session(jwt=jwt)
+
+        return ErpResponse(True, message="Logged out of ERP").to_response()
+    except Exception as e:
+        return ErpResponse(False, str(e), status_code=500).to_response()
+
+
+    
 @app.route("/download-ics", methods=["POST"])
 def download_ics():
     try:
-        token = request.headers.get("Authorization")
+        jwt = None
+        auth_resp, status_code = handle_auth()
+        if status_code != 200:
+            return auth_resp, status_code
+        else:
+            jwt = auth_resp.get_json().get("jwt")
         
-        if not token:
-            return jsonify({"status": "error", "message": "Missing token"}), 400
+        _, ssoToken = session_manager.get_erp_session(jwt=jwt)
         
-        session = session_manager.get_erp_session(token)
-        erp_session = ERPSession.create_erp_session(session.requests_session, session.sso_token, session.login_details.get("user_id"))
+        data = request.form
+        roll_number = data.get("roll_number")
+         
+        session = requests.Session()
+        erp_session = ERPSession.create_erp_session(session, ssoToken,roll_number)
         
         timetable_page = erp_session.post(erp_session.ERP_TIMETABLE_URL, cookies=True,
                                           data=erp_session.get_timetable_details())
@@ -95,7 +174,7 @@ def download_ics():
             ics_file,
             as_attachment=True,
             mimetype='text/calendar',
-            download_name=f"{token}_timetable.ics"
+            download_name=f"${roll_number}-timetable.ics"
         )
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
