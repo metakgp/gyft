@@ -6,22 +6,23 @@ from flask_cors import CORS
 from datetime import datetime, timedelta
 from timetable import build_courses, generate_ics
 # from session_manager import SessionManager
-from utils import ERPSession
-from iitkgp_erp_login import session_manager
+from utils import ERPSession, CourseWorker
+from iitkgp_erp_login import session_manager as sessionManager
 import logging
+import os
 
 
 
 app = Flask(__name__)
 CORS(app)
 
-jwt_secret_key = "top-secret-unhackable-key"
+jwt_secret_key = os.environ.get("JWT_SECRET_KEY")
 headers = {
     'timeout': '20',
     'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/51.0.2704.79 Chrome/51.0.2704.79 Safari/537.36',
 }
 
-session_manager = session_manager.SessionManager(
+session_manager = sessionManager.SessionManager(
     jwt_secret_key=jwt_secret_key, headers=headers)
 
 
@@ -150,18 +151,12 @@ def download_ics():
         else:
             jwt = auth_resp.get_json().get("jwt")
         
-        _, ssoToken = session_manager.get_erp_session(jwt=jwt)
-        
+
         data = request.form
         roll_number = data.get("roll_number")
-         
-        session = requests.Session()
-        erp_session = ERPSession.create_erp_session(session, ssoToken,roll_number)
         
-        timetable_page = erp_session.post(erp_session.ERP_TIMETABLE_URL, cookies=True,
-                                          data=erp_session.get_timetable_details())
-        course_names = erp_session.get_course_names()
-        courses = build_courses(timetable_page.text, course_names)
+        couser_worker = CourseWorker.create_worker(sessionManager= session_manager, roll_number= roll_number,jwt= jwt)
+        courses  = couser_worker.build_course()
 
         ics_content = generate_ics(courses, "")
         
