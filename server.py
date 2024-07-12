@@ -4,7 +4,6 @@ import io
 from flask_cors import CORS
 from timetable import build_courses, generate_ics
 import logging
-import os
 import iitkgp_erp_login.erp as erp
 import iitkgp_erp_login.utils as erp_utils
 from typing import Dict, List
@@ -15,6 +14,7 @@ app = Flask(__name__)
 CORS(app)
 
 headers = {
+    "timeout": "20",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 }
 
@@ -159,14 +159,22 @@ def login():
         return ErpResponse(False, str(e), status_code=500).to_response()
 
 
-@app.route("/download-ics", methods=["POST"])
+@app.route("/timetable", methods=["POST"])
 def download_ics():
     try:
         data = request.form
-        roll_number = data.get("roll_number")
-        ssoToken = request.headers["SSO-Token"]
-        if not ssoToken:
-            return ErpResponse(False, "SSO-Token header not found", status_code=400).to_response()
+        all_fields = {
+            "roll_number": data.get("roll_number"),
+            "ssoToken": request.headers["SSO-Token"],
+        }
+        missing = check_missing_fields(all_fields)
+        if len(missing) > 0:
+            return ErpResponse(
+                False, f"Missing Fields: {', '.join(missing)}", status_code=400
+            ).to_response()
+        
+        roll_number = all_fields["roll_number"]
+        ssoToken = all_fields["ssoToken"]
 
         ERP_TIMETABLE_URL = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
         COURSES_URL: str = "https://erp.iitkgp.ac.in/Academic/student_performance_details_ug.htm?semno={}&rollno={}"
