@@ -1,7 +1,15 @@
 import argparse
 from timetable import delete_calendar, create_calendar, build_courses, generate_ics
-from utils import ERPSession
+import iitkgp_erp_login.erp as erp
+import requests
+import iitkgp_erp_login.utils as erp_utils
+from utils.dates import *
 
+
+headers = {
+    "timeout": "20",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+}
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -21,10 +29,39 @@ def main():
             return
 
     output_filename = args.output if args.output else "timetable.ics"
-    erp_session = ERPSession.login()
-    timetable_page = erp_session.post(erp_session.ERP_TIMETABLE_URL, cookies=True,
-                                      data=erp_session.get_timetable_details())
-    course_names = erp_session.get_course_names()
+
+    session=requests.Session()
+    _, sso_token =erp.login(headers,session)
+    erp_utils.populate_session_with_login_tokens(session, sso_token)
+
+    ERP_TIMETABLE_URL = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
+    COURSES_URL: str = "https://erp.iitkgp.ac.in/Academic/student_performance_details_ug.htm?semno={}&rollno={}"
+    
+    roll_number = erp.ROLL_NUMBER
+
+    timetable_page = session.post(headers=headers, url=ERP_TIMETABLE_URL, data={
+        "ssoToken": sso_token,
+        "module_id": '16',
+        "menu_id": '40',
+    })
+    sem_num = 1
+    
+    if SEM_BEGIN.month > 6:
+        # autumn semester
+        sem_num = (int(SEM_BEGIN.strftime("%y")) - int(roll_number[:2])) * 2 + 1
+    else:
+        # spring semester - sem begin year is 1 more than autumn sem
+        sem_num= (int(SEM_BEGIN.strftime("%y")) - int(roll_number[:2])) * 2
+    
+    r  = session.post(headers=headers, url=COURSES_URL.format(sem_num, roll_number), data={
+        "ssoToken": sso_token,
+        "semno": sem_num,
+        "rollno":   roll_number,
+        "order": "asc"
+    })
+    sub_dict = {item["subno"]: item["subname"] for item in r.json()}
+    course_names = {k: v.replace("&amp;", "&") for k, v in sub_dict.items()}
+    
     courses = build_courses(timetable_page.text, course_names)
 
     print(f"Timetable fetched.\n")
