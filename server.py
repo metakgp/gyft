@@ -1,33 +1,34 @@
 import requests
 from flask import Flask, request, send_file, jsonify
 import io
-import jwt
 from flask_cors import CORS
-from datetime import datetime, timedelta
 from timetable import build_courses, generate_ics
-# from session_manager import SessionManager
-from utils import ERPSession, CourseWorker
-from iitkgp_erp_login import session_manager as sessionManager
 import logging
 import os
-
+import iitkgp_erp_login.erp as erp
+import iitkgp_erp_login.utils as erp_utils
+from typing import Dict, List
+from utils.dates import *
 
 
 app = Flask(__name__)
 CORS(app)
 
-jwt_secret_key = os.environ.get("JWT_SECRET_KEY")
 headers = {
-    'timeout': '20',
-    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/51.0.2704.79 Chrome/51.0.2704.79 Safari/537.36',
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 }
 
-session_manager = sessionManager.SessionManager(
-    jwt_secret_key=jwt_secret_key, headers=headers)
-
+def check_missing_fields(all_fields: Dict[str, str]) -> List[str]:
+    return [field for field, value in all_fields.items() if not value]
 
 class ErpResponse:
-    def __init__(self, success: bool, message: str = None, data: dict = None, status_code: int = 200):
+    def __init__(
+        self,
+        success: bool,
+        message: str = None,
+        data: dict = None,
+        status_code: int = 200,
+    ):
         self.success = success
         self.message = message
         self.data = data or {}
@@ -37,45 +38,47 @@ class ErpResponse:
             logging.error(f" {message}")
 
     def to_dict(self):
-        response = {
-            "status": "success" if self.success else "error",
-            "message": self.message
-        }
+        response = {"status": "success" if self.success else "error"}
+        if self.message:
+            response["message"] = self.message
         if self.data:
-            response.update(self.data)
+            response |= self.data
         return response
 
     def to_response(self):
         return jsonify(self.to_dict()), self.status_code
 
 
-def handle_auth() -> ErpResponse:
-    if "Authorization" in request.headers:
-        header = request.headers["Authorization"].split(" ")
-        if len(header) == 2:
-            return ErpResponse(True, data={
-                "jwt": header[1]
-            }).to_response()
-        else:
-            return ErpResponse(False, "Poorly formatted authorization header. Should be of format 'Bearer <token>'", status_code=401).to_response()
-    else:
-        return ErpResponse(False, "Authentication token not provided", status_code=401).to_response()
 
 
 @app.route("/secret-question", methods=["POST"])
 def get_secret_question():
     try:
         data = request.form
-        roll_number = data.get("roll_number")
-        if not roll_number:
-            return ErpResponse(False, "Roll Number not provided", status_code=400).to_response()
+        all_fields = {
+            "roll_number": data.get("roll_number"),
+        }
+        missing = check_missing_fields(all_fields)
+        if len(missing) > 0:
+            return ErpResponse(
+                False, f"Missing Fields: {', '.join(missing)}", status_code=400
+            ).to_response()
 
-        secret_question, jwt = session_manager.get_secret_question(
-            roll_number)
-        return ErpResponse(True, data={
-            "secret_question": secret_question,
-            "jwt": jwt
-        }).to_response()
+        session = requests.Session()
+        secret_question = erp.get_secret_question(
+            headers=headers,
+            session=session,
+            roll_number=all_fields["roll_number"],
+            log=True,
+        )
+        sessionToken = erp_utils.get_cookie(session, "JSESSIONID")
+
+        return ErpResponse(
+            True,
+            data={"SECRET_QUESTION": secret_question, "SESSION_TOKEN": sessionToken},
+        ).to_response()
+    except erp.ErpLoginError as e:
+        return ErpResponse(False, str(e), status_code=401).to_response()
     except Exception as e:
         return ErpResponse(False, str(e), status_code=500).to_response()
 
@@ -83,20 +86,37 @@ def get_secret_question():
 @app.route("/request-otp", methods=["POST"])
 def request_otp():
     try:
-        jwt = None
-        auth_resp, status_code = handle_auth()
-        if status_code != 200:
-            return auth_resp, status_code
-        else:
-            jwt = auth_resp.get_json().get("jwt")
+        data = request.form
+        all_fields = {
+            "roll_number": data.get("roll_number"),
+            "password": data.get("password"),
+            "secret_answer": data.get("secret_answer"),
+            "sessionToken": request.headers["Session-Token"],
+        }
+        missing = check_missing_fields(all_fields)
+        if len(missing) > 0:
+            return ErpResponse(
+                False, f"Missing Fields: {', '.join(missing)}", status_code=400
+            ).to_response()
 
-        password = request.form.get("password")
-        secret_answer = request.form.get("secret_answer")
-        if not all([password, secret_answer]):
-            return ErpResponse(False, "Missing password or secret answer", status_code=400).to_response()
+        login_details = erp.get_login_details(
+            ROLL_NUMBER=all_fields["roll_number"],
+            PASSWORD=all_fields["password"],
+            secret_answer=all_fields["secret_answer"],
+            sessionToken=all_fields["sessionToken"],
+        )
 
-        session_manager.request_otp(jwt, password, secret_answer)
-        return ErpResponse(True, message="OTP has been sent to your connected email accounts").to_response()
+        session = requests.Session()
+        erp_utils.set_cookie(session, "JSESSIONID", all_fields["sessionToken"])
+        erp.request_otp(
+            headers=headers, session=session, login_details=login_details, log=True
+        )
+
+        return ErpResponse(
+            True, message="OTP has been sent to your connected email accounts"
+        ).to_response()
+    except erp.ErpLoginError as e:
+        return ErpResponse(False, str(e), status_code=401).to_response()
     except Exception as e:
         return ErpResponse(False, str(e), status_code=500).to_response()
 
@@ -104,62 +124,89 @@ def request_otp():
 @app.route("/login", methods=["POST"])
 def login():
     try:
-        jwt = None
-        auth_resp, status_code = handle_auth()
-        if status_code != 200:
-            return auth_resp, status_code
-        else:
-            jwt = auth_resp.get_json().get("jwt")
+        data = request.form
+        all_fields = {
+            "roll_number": data.get("roll_number"),
+            "password": data.get("password"),
+            "secret_answer": data.get("secret_answer"),
+            "otp": data.get("otp"),
+            "sessionToken": request.headers["Session-Token"],
+        }
+        missing = check_missing_fields(all_fields)
+        if len(missing) > 0:
+            return ErpResponse(
+                False, f"Missing Fields: {', '.join(missing)}", status_code=400
+            ).to_response()
 
-        password = request.form.get("password")
-        secret_answer = request.form.get("secret_answer")
-        otp = request.form.get("otp")
-        if not all([secret_answer, password, otp]):
-            return ErpResponse(False, "Missing password, secret answer or otp", status_code=400).to_response()
+        login_details = erp.get_login_details(
+            ROLL_NUMBER=all_fields["roll_number"],
+            PASSWORD=all_fields["password"],
+            secret_answer=all_fields["secret_answer"],
+            sessionToken=all_fields["sessionToken"],
+        )
+        login_details["email_otp"] = all_fields["otp"]
 
-        session_manager.login(jwt, password, secret_answer, otp)
-        return ErpResponse(True, message="Logged in to ERP").to_response()
+        session = requests.Session()
+        erp_utils.set_cookie(session, "JSESSIONID", all_fields["sessionToken"])
+        ssoToken = erp.signin(
+            headers=headers, session=session, login_details=login_details, log=True
+        )
+
+        return ErpResponse(True, data={"ssoToken": ssoToken}).to_response()
+    except erp.ErpLoginError as e:
+        return ErpResponse(False, str(e), status_code=401).to_response()
     except Exception as e:
         return ErpResponse(False, str(e), status_code=500).to_response()
 
 
-@app.route("/logout", methods=["GET"])
-def logout():
-    try:
-        jwt = None
-        auth_resp, status_code = handle_auth()
-        if status_code != 200:
-            return auth_resp, status_code
-        else:
-            jwt = auth_resp.get_json().get("jwt")
-
-        session_manager.end_session(jwt=jwt)
-
-        return ErpResponse(True, message="Logged out of ERP").to_response()
-    except Exception as e:
-        return ErpResponse(False, str(e), status_code=500).to_response()
-
-
-    
 @app.route("/download-ics", methods=["POST"])
 def download_ics():
     try:
-        jwt = None
-        auth_resp, status_code = handle_auth()
-        if status_code != 200:
-            return auth_resp, status_code
-        else:
-            jwt = auth_resp.get_json().get("jwt")
-        
-
         data = request.form
         roll_number = data.get("roll_number")
-        
-        couser_worker = CourseWorker.create_worker(sessionManager= session_manager, roll_number= roll_number,jwt= jwt)
-        courses  = couser_worker.build_course()
+        ssoToken = request.headers["SSO-Token"]
+        if not ssoToken:
+            return ErpResponse(False, "SSO-Token header not found", status_code=400).to_response()
 
-        ics_content = generate_ics(courses, "")
+        ERP_TIMETABLE_URL = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
+        COURSES_URL: str = "https://erp.iitkgp.ac.in/Academic/student_performance_details_ug.htm?semno={}&rollno={}"
+
         
+        session = requests.Session()
+        erp_utils.populate_session_with_login_tokens(session, ssoToken)
+
+        timetable_page = session.post(headers=headers, url=ERP_TIMETABLE_URL, data={
+            "ssoToken": ssoToken,
+            "module_id": '16',
+            "menu_id": '40',
+        })
+
+        sem_num = 1
+        
+        if SEM_BEGIN.month > 6:
+            # autumn semester
+            sem_num = (int(SEM_BEGIN.strftime("%y")) - int(roll_number[:2])) * 2 + 1
+        else:
+            # spring semester - sem begin year is 1 more than autumn sem
+            sem_num= (int(SEM_BEGIN.strftime("%y")) - int(roll_number[:2])) * 2
+
+
+        
+        r  = session.post(headers=headers, url=COURSES_URL.format(sem_num, roll_number), data={
+            "ssoToken": ssoToken,
+            "semno": sem_num,
+            "rollno":   roll_number,
+            "order": "asc"
+        })
+
+
+
+        sub_dict = {item["subno"]: item["subname"] for item in r.json()}
+        course_names = {k: v.replace("&amp;", "&") for k, v in sub_dict.items()}
+        
+        courses = build_courses(timetable_page.text, course_names)
+        ics_content = generate_ics(courses, "")
+
         # Create an in-memory file-like object for the ics content
         ics_file = io.BytesIO()
         ics_file.write(ics_content.encode('utf-8'))
