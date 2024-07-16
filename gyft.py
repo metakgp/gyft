@@ -31,8 +31,8 @@ def main():
     output_filename = args.output if args.output else "timetable.ics"
 
     session=requests.Session()
-    _, sso_token =erp.login(headers,session)
-    erp_utils.populate_session_with_login_tokens(session, sso_token)
+    erp.login(headers,session)
+
 
     ERP_TIMETABLE_URL = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
     COURSES_URL: str = "https://erp.iitkgp.ac.in/Academic/student_performance_details_ug.htm?semno={}&rollno={}"
