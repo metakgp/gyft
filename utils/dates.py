@@ -6,6 +6,7 @@ from utils import build_event
 import sys
 from collections import defaultdict
 
+
 SEM_BEGIN = build_event.generate_india_time(2024, 7, 22, 0, 0)
 MID_TERM_BEGIN = build_event.generate_india_time(2024, 9, 17, 0, 0)
 MID_TERM_END = build_event.generate_india_time(2024, 9, 25, 0, 0)
