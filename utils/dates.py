@@ -6,12 +6,11 @@ from utils import build_event
 import sys
 from collections import defaultdict
 
-SEM_BEGIN = build_event.generate_india_time(2024, 7, 21, 0, 0)
+
+SEM_BEGIN = build_event.generate_india_time(2024, 7, 22, 0, 0)
 MID_TERM_BEGIN = build_event.generate_india_time(2024, 9, 17, 0, 0)
 MID_TERM_END = build_event.generate_india_time(2024, 9, 25, 0, 0)
-
 END_TERM_BEGIN = build_event.generate_india_time(2024, 11, 18, 0, 0)
-
 AUT_BREAK_BEGIN = build_event.generate_india_time(2024, 10, 5, 0, 0)
 AUT_BREAK_END = build_event.generate_india_time(2024, 10, 13, 0, 0)
 
@@ -59,7 +58,7 @@ def get_holidates() -> (list[datetime], list[str, datetime]):
                 hday = tr.string
                 if hol_date.date() >= date.today() and hol_date < END_TERM_BEGIN:
                     hdays[hday].append(hol_date)
-    
+
 
     ### appending mid/end sem in holidates list
     hol_dates.extend(
