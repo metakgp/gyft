@@ -1,0 +1,33 @@
+footer {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    text-align: center;
+    .metakgp {
+        font-family: $metakgp-font;
+        font-weight: 800;
+        font-size: 1.2rem;
+    }
+    a {
+        text-decoration: none;
+    }
+}
+.help {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    .help-button,
+    .logout-button {
+        margin-top: 1rem;
+        border: none;
+        width: fit-content;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        color: white !important;
+        font-weight: bold;
+        background-color: #989898;
+        box-shadow: none;
+        cursor: pointer;
+    }
+}

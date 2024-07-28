@@ -1,0 +1,63 @@
+.modal-overlay {
+  z-index: 20;
+  background-color: #0008;
+  background-color: #000a;
+  backdrop-filter: blur(4px);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 2rem;
+  @include flexbox(row, center, center, 0);
+
+  .modal-content {
+    background-color: $surface-1;
+    max-width: 30rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    position: relative;
+    z-index: 30;
+
+    h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    h4 {
+      text-align: center;
+      font-size: 1.25rem;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+    ol {
+      padding-left: 1rem;
+    }
+    li {
+      text-align: left;
+    }
+  }
+
+  .close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    box-shadow: none;
+    border-radius: 50%;
+    padding: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.75rem;
+    cursor: pointer;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
