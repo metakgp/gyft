@@ -23,7 +23,7 @@ const Footer: React.FC<props> = ({ openModal }) => {
                     Contribute to this project on{" "}
                     <strong>
                         <a
-                            href="https://github.com/metakgp/gyfe"
+                            href="https://github.com/metakgp/gyft"
                             target="_blank"
                         >
                             GitHub
