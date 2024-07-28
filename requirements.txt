@@ -8,3 +8,4 @@ pytz==2023.3
 Requests==2.31.0
 flask==3.0.3
 flask_cors==4.0.1
+gunicorn==22.0.0
