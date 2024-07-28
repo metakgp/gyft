@@ -1,0 +1,51 @@
+name: Deploy frontend to github pages
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - "frontend/**"
+            - ".github/workflows/deploy-gh-pages.yaml"
+
+jobs:
+    gh-deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22.2.0
+
+            - name: Install pnpm
+              run: |
+                  cd frontend
+                  npm install -g pnpm
+
+            - name: Cache pnpm store
+              uses: actions/cache@v3
+              with:
+                  path: ~/.pnpm-store
+                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
+
+            - name: Install dependencies
+              if: steps.pnpm-cache.outputs.cache-hit != 'true'
+              run: |
+                  cd frontend
+                  pnpm install
+
+            - name: Build the application
+              run: |
+                  cd frontend
+                  pnpm run build
+
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@v4
+              with:
+                  folder: ./frontend/dist
