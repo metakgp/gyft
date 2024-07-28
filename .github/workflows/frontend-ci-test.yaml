@@ -6,7 +6,7 @@ on:
             - opened
             - synchronize
         branches:
-            - main
+            - master
         paths:
             - "frontend/**"
             - ".github/workflows/frontend-ci-test.yaml"

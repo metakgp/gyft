@@ -3,7 +3,7 @@ name: Deploy GYFT Backend to DO
 on:
     push:
         branches:
-            - "main"
+            - "master"
         paths-ignore:
             - "**.md"
             - "LICENSE"
@@ -76,7 +76,7 @@ jobs:
                   script: |
                       cd "${PROJECT_DIR}/"
                       sudo git fetch origin
-                      sudo git reset --hard origin/main
+                      sudo git reset --hard origin/master
 
     pull:
         name: Pull Image Stage

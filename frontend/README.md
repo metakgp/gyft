@@ -24,4 +24,4 @@ Then follow the given steps to launch the frontend:
    pnpm dev
    ```
 
-This setup will launch the frontend. To start backend server also, please follow the instructions [here](https://github.com/metakgp/gyft/blob/main/README.md)
+This setup will launch the frontend. To start backend server also, please follow the instructions [here](https://github.com/metakgp/gyft/blob/master/README.md)
