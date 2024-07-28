@@ -186,8 +186,6 @@ def download_ics():
 
         courses = get_courses(session, sso_token, roll_number)
 
-        print("Timetable fetched.\n")
-
         ics_content = generate_ics(courses, "")
 
         # Create an in-memory file-like object for the ics content

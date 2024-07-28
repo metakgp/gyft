@@ -101,8 +101,6 @@ def get_courses(session: requests.Session, sso_token: str, roll_number: str):
     sub_dict = {item["subno"]: item["subname"] for item in r.json()}
     course_names = {k: v.replace("&amp;", "&") for k, v in sub_dict.items()}
 
-    print(course_names)
-
     courses = build_courses(timetable_page.text, course_names)
     return courses
 
