@@ -74,11 +74,11 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
         course_duration: int = 0
         cells = [cell for cell in row.find_all('td') if cell.attrs.get('valign') != 'top']
         for index, cell in enumerate(cells):
-            code = cell.get_text()[:7] if cell.get_text()[:7] != "CS10001" else "CS10003"
+            code = cell.get_text()[:7].strip() if cell.get_text()[:7] != "CS10001" else "CS10003"
+            if not code: continue   # continue if cell has no course in it
             # CS10003 is the actual code, but it is written as CS10001 in the timetable
             location = cell.get_text()[7:]
             cell_duration = int(cell.attrs.get('colspan'))
-
             # To reuse code, uses outer scope variables
             def append_prev():
                 prev.duration = course_duration
