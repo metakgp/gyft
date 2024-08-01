@@ -124,9 +124,9 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
                     duration=cell_duration
                 )
 
-            # Day ended, add the last class
-            if index == len(cells) - 1:
-                if prev is not None:
-                    courses.append(prev)
-                    prev = None
+        # Day ended, add the last class
+        if prev is not None:
+            courses.append(prev)
+            prev = None
+
     return courses
