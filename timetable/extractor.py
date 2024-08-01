@@ -36,6 +36,25 @@ class Course:
     def end_time(self) -> int:
         return self.duration + self.start_time
 
+def create_timings(_table: Tag | NavigableString) -> list[int]:
+    r""" Creates a list of timings in 24 hours format - [8, ..., 12, 14, ..., 17]"""
+    headings = _table.find_all(
+        'td',
+        {
+            'class': 'tableheader',
+            'style': 'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right:7px',
+            'nowrap': ''
+        }
+    )
+
+    get_hour = lambda t: int(t.get_text().split(':')[0])
+
+    return [
+        get_hour(time) + 12 if
+        get_hour(time) < 6 else
+        get_hour(time) for
+        time in headings if time.get_text() != 'Day Name'
+    ]
 
 def build_courses(html: str, course_names: dict) -> list[Course]:
     r"""
@@ -53,14 +72,6 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
     soup = BeautifulSoup(html, 'html.parser')
     table = soup.find('table', {'border': '1', 'cellpadding': '0', 'cellspacing': '0'})
 
-    def create_timings(_table: Tag | NavigableString) -> list[int]:
-        r""" Creates a list of timings in 24 hours format - [8, ..., 12, 14, ..., 17]"""
-        headings = _table.find_all('td', {'class': 'tableheader',
-                                          'style': 'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right'
-                                                   ':7px', 'nowrap': ''})
-        return [int(time.get_text().split(':')[0]) + 12 if int(time.get_text().split(':')[0]) < 6 else int(
-            time.get_text().split(':')[0]) for time in headings if time.get_text() != 'Day Name']
-
     timings = create_timings(table)
     rows = table.find_all('tr')
     for row in rows:
@@ -73,6 +84,7 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
         prev: Course | None = None
         course_duration: int = 0
         cells = [cell for cell in row.find_all('td') if cell.attrs.get('valign') != 'top']
+
         for index, cell in enumerate(cells):
             code = cell.get_text()[:7].strip() if cell.get_text()[:7] != "CS10001" else "CS10003"
             if not code: continue   # continue if cell has no course in it
