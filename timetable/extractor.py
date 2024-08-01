@@ -103,24 +103,18 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
             cell_duration = int(cell.attrs.get('colspan'))
 
             # Either new class started just after previous one or previous class is continued
-            if prev:
-                # If previous class is same as current class, add the duration to the previous class
+            if prev is not None:
                 if code == prev.code:
+                    # Previous class is same as current class, add the duration to the previous class
                     prev.duration += cell_duration
-                # The previous class is different from the current one, meaning previous class ended. Clean up, add to
-                # list and initialize a new course object for the current class
                 else:
+                    # The previous class is different from the current one, meaning previous class ended. Clean up, add to
+                    # list and initialize a new course object for the current class
                     courses.append(prev)
-                    prev = Course(
-                        code=code,
-                        name=course_names[code],
-                        day=day,
-                        start_time=timings[index],
-                        location=location,
-                        duration=cell_duration
-                    )
-            # New class started after break
-            else:
+                    prev = None
+
+            # Either new class started after break or after a different previous course
+            if prev is None:
                 prev = Course(
                     code=code,
                     name=course_names[code],
