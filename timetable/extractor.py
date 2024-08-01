@@ -7,6 +7,7 @@ from bs4.element import Tag, NavigableString, PageElement
 with open("full_location.json") as data_file:
     full_locations = json.load(data_file)
 
+DAYS_MAP = {'Mon': "Monday", 'Tue': "Tuesday", 'Wed': "Wednesday", 'Thur': "Thursday", 'Fri': "Friday", 'Sat': "Saturday"}
 
 @dataclass
 class Course:
@@ -67,8 +68,6 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
         list of Course objects
     """
     courses = []
-    days = {'Mon': "Monday", 'Tue': "Tuesday", 'Wed': "Wednesday", 'Thur': "Thursday", 'Fri': "Friday",
-            'Sat': "Saturday"}
     soup = BeautifulSoup(html, 'html.parser')
     table = soup.find('table', {'border': '1', 'cellpadding': '0', 'cellspacing': '0'})
 
@@ -78,7 +77,7 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
         day_cell: PageElement = row.find('td', {'valign': 'top'})
         if not day_cell:
             continue
-        day = days[day_cell.get_text()] if day_cell.get_text() in days.keys() else day_cell.get_text()
+        day = DAYS_MAP.get(day_cell.get_text(), day_cell.get_text())
 
         # This is the previously parsed course/time slot. Used to merge timeslots occurring adjacent to each other and initialize course objects
         prev: Course | None = None
