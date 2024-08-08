@@ -3,7 +3,6 @@ import iitkgp_erp_login.erp as erp
 import requests
 from timetable import delete_calendar, create_calendar, build_courses, generate_ics
 from utils.dates import SEM_BEGIN
-import json
 
 headers = {
     "timeout": "20",
@@ -99,9 +98,6 @@ def get_courses(session: requests.Session, sso_token: str, roll_number: str):
         },
     )
     sub_dict = {item["subno"]: item["subname"] for item in r.json()}
-    # write the sub_dict to a file
-    with open("sub_dict.json", "w") as f:
-        json.dump(sub_dict, f)
     course_names = {k: v.replace("&amp;", "&") for k, v in sub_dict.items()}
 
     courses = build_courses(timetable_page.text, course_names)
