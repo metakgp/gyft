@@ -63,56 +63,47 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
 
     timings = create_timings(table)
     rows = table.find_all('tr')
+    
     for row in rows:
         day_cell: PageElement = row.find('td', {'valign': 'top'})
         if not day_cell:
             continue
-        day = days[day_cell.get_text()] if day_cell.get_text() in days.keys() else day_cell.get_text()
-
-        # Merge timeslots occurring adjacent to each other and initialize course objects
+        day = days.get(day_cell.get_text(), day_cell.get_text())
+    
         prev: Course | None = None
         course_duration: int = 0
         cells = [cell for cell in row.find_all('td') if cell.attrs.get('valign') != 'top']
+    
+        def append_prev():
+            prev.duration = course_duration
+            courses.append(prev)
+    
         for index, cell in enumerate(cells):
-            code = cell.get_text()[:7].strip() if cell.get_text()[:7] != "CS10001" else "CS10003"
-            if not code: continue   # continue if cell has no course in it
-            # CS10003 is the actual code, but it is written as CS10001 in the timetable
-            location = cell.get_text()[7:]
-            cell_duration = int(cell.attrs.get('colspan'))
-            # To reuse code, uses outer scope variables
-            def append_prev():
-                prev.duration = course_duration
-                courses.append(prev)
-
-            # Empty cell means either previous class just ended or no class is scheduled
-            if cell.get_text() == ' ' or cell.get_text() == ' ':
+            text = cell.get_text().strip()
+            if not text or text in [' ', ' ']: # encountered empty cell: either commit the prev course or skip
                 if prev:
                     append_prev()
                 course_duration = 0
                 prev = None
                 continue
-
-            # Either new class started just after previous one or previous class is continued
-            if prev:
-                # If previous class is same as current class, add the duration to the previous class
-                if code == prev.code:
-                    course_duration += cell_duration
-                # The previous class is different from the current one, meaning previous class ended. Clean up, add to
-                # list and initialize a new course object for the current class
-                else:
-                    append_prev()
-                    prev = Course(code=code, name=course_names[code], day=day,
-                                  start_time=timings[index],
-                                  location=location)
-                    course_duration = cell_duration
-            # New class started after break
+    
+            code = text[:7] if text[:7] != "CS10001" else "CS10003" # original code is CS10003 but the timetable has CS10001
+            location = text[7:]
+            cell_duration = int(cell.attrs.get('colspan', 1))
+    
+            if prev and code == prev.code: # encounterd a continuation of the previous course
+                course_duration += cell_duration
             else:
-                prev = Course(code=code, name=course_names[code], day=day,
+                if prev: # encountered a new course, commit the previous course
+                    append_prev()
+                # reinstantiate the prev course
+                prev = Course(code=code, name=course_names.get(code, ""), day=day,
                               start_time=timings[index],
                               location=location)
                 course_duration = cell_duration
 
-            # Day ended, add the last class
-            if index == len(cells) - 1:
-                append_prev()
+        # end of the day: commit the last course
+        if prev:
+            append_prev()
+    
     return courses
