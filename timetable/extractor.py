@@ -78,14 +78,11 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
         day_cell: PageElement = row.find('td', {'valign': 'top'})
         if not day_cell:
             continue
-        day = days.get(day_cell.get_text(), day_cell.get_text())
+        # This is the previously parsed course/time slot. Used to merge timeslots occurring adjacent to each other and initialize course objects
+        day = DAYS_MAP.get(day_cell.get_text(), day_cell.get_text())
     
         prev: Course | None = None
         cells = [cell for cell in row.find_all('td') if cell.attrs.get('valign') != 'top']
-    
-        def append_prev():
-            prev.duration = course_duration
-            courses.append(prev)
     
         for index, cell in enumerate(cells):
             text = cell.get_text().strip()
@@ -101,18 +98,18 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
             cell_duration = int(cell.attrs.get('colspan', 1))
     
             if prev and code == prev.code: # encounterd a continuation of the previous course
-                course_duration += cell_duration
+                prev.duration += cell_duration
             else:
                 if prev: # encountered a new course, commit the previous course
-                    append_prev()
+                    courses.append(prev)
                 # reinstantiate the prev course
                 prev = Course(code=code, name=course_names.get(code, ""), day=day,
                               start_time=timings[index],
                               location=location)
-                course_duration = cell_duration
+                prev.duration = cell_duration
 
         # end of the day: commit the last course
         if prev:
-            append_prev()
+            courses.append(prev)
     
     return courses
