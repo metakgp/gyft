@@ -1,0 +1,14 @@
+.git/
+.github/
+.gitignore
+
+__pycache__/
+frontend/
+README.md
+*.png
+
+.session
+credentials.json
+token.json
+erpcreds.py
+erpcreds.py.template

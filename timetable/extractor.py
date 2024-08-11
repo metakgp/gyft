@@ -7,6 +7,7 @@ from bs4.element import Tag, NavigableString, PageElement
 with open("full_location.json") as data_file:
     full_locations = json.load(data_file)
 
+DAYS_MAP = {'Mon': "Monday", 'Tue': "Tuesday", 'Wed': "Wednesday", 'Thur': "Thursday", 'Fri': "Friday", 'Sat': "Saturday"}
 
 @dataclass
 class Course:
@@ -36,6 +37,25 @@ class Course:
     def end_time(self) -> int:
         return self.duration + self.start_time
 
+def create_timings(_table: Tag | NavigableString) -> list[int]:
+    r""" Creates a list of timings in 24 hours format - [8, ..., 12, 14, ..., 17]"""
+    headings = _table.find_all(
+        'td',
+        {
+            'class': 'tableheader',
+            'style': 'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right:7px',
+            'nowrap': ''
+        }
+    )
+
+    get_hour = lambda t: int(t.get_text().split(':')[0])
+
+    return [
+        get_hour(time) + 12 if
+        get_hour(time) < 6 else
+        get_hour(time) for
+        time in headings if time.get_text() != 'Day Name'
+    ]
 
 def build_courses(html: str, course_names: dict) -> list[Course]:
     r"""
@@ -48,18 +68,8 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
         list of Course objects
     """
     courses = []
-    days = {'Mon': "Monday", 'Tue': "Tuesday", 'Wed': "Wednesday", 'Thur': "Thursday", 'Fri': "Friday",
-            'Sat': "Saturday"}
     soup = BeautifulSoup(html, 'html.parser')
     table = soup.find('table', {'border': '1', 'cellpadding': '0', 'cellspacing': '0'})
-
-    def create_timings(_table: Tag | NavigableString) -> list[int]:
-        r""" Creates a list of timings in 24 hours format - [8, ..., 12, 14, ..., 17]"""
-        headings = _table.find_all('td', {'class': 'tableheader',
-                                          'style': 'padding-top:5px;padding-bottom:5px;padding-left:7px;padding-right'
-                                                   ':7px', 'nowrap': ''})
-        return [int(time.get_text().split(':')[0]) + 12 if int(time.get_text().split(':')[0]) < 6 else int(
-            time.get_text().split(':')[0]) for time in headings if time.get_text() != 'Day Name']
 
     timings = create_timings(table)
     rows = table.find_all('tr')
@@ -71,7 +81,6 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
         day = days.get(day_cell.get_text(), day_cell.get_text())
     
         prev: Course | None = None
-        course_duration: int = 0
         cells = [cell for cell in row.find_all('td') if cell.attrs.get('valign') != 'top']
     
         def append_prev():
@@ -82,9 +91,9 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
             text = cell.get_text().strip()
             if not text or text in [' ', ' ']: # encountered empty cell: either commit the prev course or skip
                 if prev:
-                    append_prev()
-                course_duration = 0
-                prev = None
+                    # Previous slot ended
+                    courses.append(prev)
+                    prev = None
                 continue
     
             code = text[:7] if text[:7] != "CS10001" else "CS10003" # original code is CS10003 but the timetable has CS10001

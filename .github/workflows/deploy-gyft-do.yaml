@@ -1,0 +1,122 @@
+name: Deploy GYFT Backend to DO
+
+on:
+    push:
+        branches:
+            - "master"
+        paths-ignore:
+            - "**.md"
+            - "LICENSE"
+            - "LICENSE.txt"
+            - "frontend/**"
+            - ".gitignore"
+            - "erpcreds.py.template"
+            - "**.png"
+
+jobs:
+    dockerhub:
+        name: Publish Docker Image(s) to Dockerhub
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Set up QEMU
+              uses: docker/setup-qemu-action@v3
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            - name: Login to Docker Hub
+              uses: docker/login-action@v3
+              with:
+                  username: ${{ secrets.DOCKERHUB_USERNAME }}
+                  password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+            - name: Cache Docker layers for GYFT API
+              uses: actions/cache@v3
+              with:
+                  path: /tmp/.buildx-cache-gyft-api
+                  key: ${{ runner.os }}-buildx-gyft-api-${{ github.sha }}
+                  restore-keys: |
+                      ${{ runner.os }}-buildx-gyft-api-
+
+            - name: Build & Push GYFT API
+              uses: docker/build-push-action@v5
+              with:
+                  context: .
+                  push: true
+                  tags: ${{ secrets.DOCKERHUB_USERNAME }}/gyft-api:latest
+                  cache-from: type=local,src=/tmp/.buildx-cache-gyft-api
+                  cache-to: type=local,dest=/tmp/.buildx-cache-gyft-api-new,mode=max
+
+            - name: Move GYFT API cache
+              run: |
+                  rm -rf /tmp/.buildx-cache-gyft-api
+                  mv /tmp/.buildx-cache-gyft-api-new /tmp/.buildx-cache-gyft-api
+
+    push:
+        name: Push Code Stage
+        needs: dockerhub
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Sync local repo with remote repo
+              uses: appleboy/ssh-action@master
+              env:
+                  PROJECT_DIR: ${{ secrets.PROJECT_DIR }}
+              with:
+                  host: ${{ secrets.SSH_HOSTNAME }}
+                  username: ${{ secrets.SSH_USERNAME }}
+                  key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  passphrase: ${{ secrets.SSH_PRIVATE_KEY_PASSPHRASE }}
+                  envs: PROJECT_DIR
+                  script_stop: true
+                  script: |
+                      cd "${PROJECT_DIR}/"
+                      sudo git fetch origin
+                      sudo git reset --hard origin/master
+
+    pull:
+        name: Pull Image Stage
+        needs: push
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Pull the latest images(s)
+              uses: appleboy/ssh-action@master
+              env:
+                  PROJECT_DIR: ${{ secrets.PROJECT_DIR }}
+              with:
+                  host: ${{ secrets.SSH_HOSTNAME }}
+                  username: ${{ secrets.SSH_USERNAME }}
+                  key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  passphrase: ${{ secrets.SSH_PRIVATE_KEY_PASSPHRASE }}
+                  envs: PROJECT_DIR
+                  script_stop: true
+                  script: |
+                      cd "${PROJECT_DIR}/"
+                      sudo docker compose pull
+
+    deploy:
+        name: Deploy Stage
+        needs: pull
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Deploy the latest build(s)
+              uses: appleboy/ssh-action@master
+              env:
+                  PROJECT_DIR: ${{ secrets.PROJECT_DIR }}
+              with:
+                  host: ${{ secrets.SSH_HOSTNAME }}
+                  username: ${{ secrets.SSH_USERNAME }}
+                  key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  passphrase: ${{ secrets.SSH_PRIVATE_KEY_PASSPHRASE }}
+                  envs: PROJECT_DIR
+                  script_stop: true
+                  script: |
+                      cd "${PROJECT_DIR}/"
+                      sudo docker compose down
+                      sudo docker compose up -d
