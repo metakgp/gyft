@@ -4,7 +4,6 @@ import requests
 from timetable import delete_calendar, create_calendar, build_courses, generate_ics
 from utils.dates import SEM_BEGIN
 
-
 headers = {
     "timeout": "20",
     "User-Agent":
