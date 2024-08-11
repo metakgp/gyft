@@ -86,7 +86,7 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
     
         for index, cell in enumerate(cells):
             text = cell.get_text().strip()
-            if not text or text in [' ', ' ']: # encountered empty cell: either commit the prev course or skip
+            if not text: # encountered empty cell: either commit the prev course or skip
                 if prev:
                     # Previous slot ended
                     courses.append(prev)
