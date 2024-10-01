@@ -63,7 +63,7 @@ def main():
 
 def get_courses(session: requests.Session, sso_token: str, roll_number: str):
 
-    erp_timetable_url = "https://erp.iitkgp.ac.in/Acad/student/view_stud_time_table.jsp"
+    erp_timetable_url = "https://erp.iitkgp.ac.in/Acad/student/student_timetable.jsp"
     courses_url: str = (
         "https://erp.iitkgp.ac.in/Academic/student_performance_details_ug.htm?semno={}&rollno={}"
     )
