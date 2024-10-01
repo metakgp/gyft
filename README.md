@@ -51,8 +51,6 @@
 
 Gets your timetable from ERP and adds it to your Google Calendar or gives you an ICS file which you can add in any common calendar application.
 
-> **Note** All updates to this repo should reflect, with appropriate refactorisation, in [gyft-serve](https://github.com/metakgp/gyft-serve/)
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
