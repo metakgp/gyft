@@ -83,19 +83,21 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
     
         prev: Course | None = None
         cells = [cell for cell in row.find_all('td') if cell.attrs.get('valign') != 'top']
-    
-        for index, cell in enumerate(cells):
+
+        index = 0
+        for cell in cells:
             text = cell.get_text().strip()
+            cell_duration = int(cell.attrs.get('colspan', 1))
             if not text: # encountered empty cell: either commit the prev course or skip
                 if prev:
                     # Previous slot ended
                     courses.append(prev)
                     prev = None
+                index += cell_duration
                 continue
     
             code = text[:7] if text[:7] != "CS10001" else "CS10003" # original code is CS10003 but the timetable has CS10001
             location = text[7:]
-            cell_duration = int(cell.attrs.get('colspan', 1))
     
             if prev and code == prev.code: # encounterd a continuation of the previous course
                 prev.duration += cell_duration
@@ -107,6 +109,8 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
                               start_time=timings[index],
                               location=location)
                 prev.duration = cell_duration
+            
+            index += cell_duration
 
         # end of the day: commit the last course
         if prev:
