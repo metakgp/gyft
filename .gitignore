@@ -9,3 +9,5 @@ data.txt
 .vscode
 venv
 .env
+
+ACADEMIC_CALENDAR_*.pdf
