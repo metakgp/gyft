@@ -120,7 +120,7 @@ def merge_json():
             merged_data.extend(data)
     
     with open('final.json',"w") as f:
-        json.dump(merged_data,f)
+        json.dump(merged_data,f,indent=4)
 
     return merged_data
 
@@ -161,7 +161,7 @@ def get_academic_calendar() -> list[DataEntry]:
     #     # main_dates.append([date['0'],datetime_object])
     #     main_dates.append(entry)
 
-    date_regex = re.compile(r'\d\d\.\d\d\.\d{4}')
+    date_regex = re.compile(r'\d{2}.\d{2}.\d{4}')
     maxLen = 1
     for date in all_dates:
         if(len(date) > 4 and date['4'] != ''):
@@ -181,5 +181,11 @@ def get_academic_calendar() -> list[DataEntry]:
                 entry.start_date = datetime.strptime(d[0],"%d.%m.%Y")
                 entry.end_date = datetime.strptime(d[1],"%d.%m.%Y")
             main_dates.append(entry)
+        annual_convocation = str(date['1']).strip().lower().split(" ")
+        ## KGP hai .. cannot trust, they can even mess up the spellings of annual convocation
+        ## this can just reduce the amount of places this will fail
+        if(len(annual_convocation) == 2 and ("annual" in annual_convocation or "convocation" in annual_convocation)):
+            break
+
     return main_dates
 
