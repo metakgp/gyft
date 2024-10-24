@@ -174,11 +174,14 @@ def create_calendar(courses: list[Course], cal_name:str) -> None:
     http = credentials.authorize(httplib2.Http())
     service = discovery.build("calendar", "v3", http=http)
     batch = service.new_batch_http_request(callback=cb_insert_event)  # To add events in a batch
-    generate_ics(courses, "temp.ics")
+    filename = "timetable.ics" if os.path.exists("timetable.ics") else "temp.ics"
+    if(filename == "timetable.ics"):
+        print("Using existing timetable.ics, press 'n' to generate and use a temporary one")
+        if(input().lower() == "n"):
+            generate_ics(courses, "temp.ics")
 
     calendar_id = get_calendarId(service,cal_name)
-    print(calendar_id)
-    events = parse_ics("temp.ics")
+    events = parse_ics(filename)
     
 
     for i, event in enumerate(events):
@@ -188,7 +191,8 @@ def create_calendar(courses: list[Course], cal_name:str) -> None:
         except Exception as e:
             print(e)
     batch.execute(http=http)
-    os.remove("temp.ics")
+    if(os.path.exists("temp.ics")):
+        os.remove("temp.ics")
 
     print("\nAll events added successfully!\n")
 
