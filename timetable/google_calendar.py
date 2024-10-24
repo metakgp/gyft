@@ -144,7 +144,6 @@ def get_credentials() -> client.Credentials:
 
 def get_calendarId(service, summary):
     page_token = None
-    print("search ", summary , " calendar")
     while True:
         calendar_list = service.calendarList().list(pageToken=page_token).execute()
         for calendar_list_entry in calendar_list['items']:
@@ -176,8 +175,8 @@ def create_calendar(courses: list[Course], cal_name:str) -> None:
     batch = service.new_batch_http_request(callback=cb_insert_event)  # To add events in a batch
     filename = "timetable.ics" if os.path.exists("timetable.ics") else "temp.ics"
     if(filename == "timetable.ics"):
-        print("Using existing timetable.ics, press 'n' to generate and use a temporary one")
-        if(input().lower() == "n"):
+        print("Using existing timetable.ics file, press 'n' to generate and use a temporary one or 'y' to continue : (Y/n)")
+        if(input().lower() == "n" and True):
             generate_ics(courses, "temp.ics")
 
     calendar_id = get_calendarId(service,cal_name)
