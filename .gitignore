@@ -13,4 +13,4 @@ venv
 ACADEMIC_CALENDAR_*.pdf
 Academic_Cal-j/**
 final.json
-
+erpcreds.py
