@@ -1,4 +1,5 @@
 from __future__ import print_function
+from datetime import datetime
 import os
 from bs4 import BeautifulSoup
 from googleapiclient.discovery import re
@@ -15,6 +16,7 @@ from utils import (
     GYFT_RECUR_STRS,
 )
 from timetable import Course
+from utils.dates import MID_TERM_END
 
 DEBUG = False
 
@@ -22,12 +24,20 @@ SCOPES = "https://www.googleapis.com/auth/calendar"
 CLIENT_SECRET_FILE = "client_secret.json"
 APPLICATION_NAME = "gyft"
 
-def parse_ics(ics):
+def is_in_correct_sem(dt: datetime) -> bool:
+    if(datetime.now().replace(tzinfo=None) <= MID_TERM_END.replace(tzinfo=None)):
+        return dt.replace(tzinfo=None) < MID_TERM_END.replace(tzinfo=None)
+    elif( datetime.now().replace(tzinfo=None) >= MID_TERM_END.replace(tzinfo=None)):
+        return dt.replace(tzinfo=None) < END_TERM_BEGIN.replace(tzinfo=None) and dt.replace(tzinfo=None) > MID_TERM_END.replace(tzinfo=None)
+    else:
+        return True
+
+def parse_ics(ics,length):
     events = []
     with open(ics, 'r') as rf:
         ical = Calendar().from_ical(rf.read())
         for i, comp in enumerate(ical.walk()):
-            if comp.name == "VEVENT":
+            if ((comp.name == "VEVENT") and ( length == "c" and is_in_correct_sem(comp.get('dtstart').dt))  ) :
                 event = {}
                 for name, prop in comp.property_items():
 
@@ -178,10 +188,15 @@ def create_calendar(courses: list[Course], cal_name:str) -> None:
         print("Using existing timetable.ics file, press 'n' to generate and use a temporary one or 'y' to continue : (Y/n)")
         if(input().lower() == "n" and True):
             generate_ics(courses, "temp.ics")
+        else:
+            print("Invalid input")
+            exit(1)
 
     calendar_id = get_calendarId(service,cal_name)
-    events = parse_ics(filename)
-    
+    length = input("Do you want Events from (C)urrent or (B)oth Semesters (C/b) _default is current_ : ") or 'c'
+    if(length.lower() == 'b'):
+        print("WARNING: Events from both semesters will be added.\n This may result in duplicate events if tool is used in both semesters")
+    events = parse_ics(filename, length.lower())
 
     for i, event in enumerate(events):
         try:
