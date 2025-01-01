@@ -7,12 +7,12 @@ import sys
 from collections import defaultdict
 
 
-SEM_BEGIN = build_event.generate_india_time(2024, 7, 22, 0, 0)
-MID_TERM_BEGIN = build_event.generate_india_time(2024, 9, 17, 0, 0)
-MID_TERM_END = build_event.generate_india_time(2024, 9, 25, 0, 0)
-END_TERM_BEGIN = build_event.generate_india_time(2024, 11, 18, 0, 0)
-AUT_BREAK_BEGIN = build_event.generate_india_time(2024, 10, 5, 0, 0)
-AUT_BREAK_END = build_event.generate_india_time(2024, 10, 13, 0, 0)
+SEM_BEGIN = build_event.generate_india_time(2025, 1, 2, 0, 0)
+MID_TERM_BEGIN = build_event.generate_india_time(2025, 2, 18, 0, 0)
+MID_TERM_END = build_event.generate_india_time(2025, 2, 26, 0, 0)
+END_TERM_BEGIN = build_event.generate_india_time(2025, 4, 21, 0, 0)
+# AUT_BREAK_BEGIN = build_event.generate_india_time(2024, 10, 5, 0, 0)
+# AUT_BREAK_END = build_event.generate_india_time(2024, 10, 13, 0, 0)
 
 
 
@@ -67,8 +67,8 @@ def get_holidates() -> (list[datetime], list[str, datetime]):
             MID_TERM_BEGIN,
             MID_TERM_END,
             END_TERM_BEGIN,
-            AUT_BREAK_BEGIN,
-            AUT_BREAK_END,
+            # AUT_BREAK_BEGIN,
+            # AUT_BREAK_END,
         ]
     )
     hol_dates.sort()
@@ -104,8 +104,8 @@ def get_dates() -> list[datetime, datetime]:
     for i in range(0, len(hol_dates)):
         if hol_dates[i] == MID_TERM_BEGIN:
             continue
-        if hol_dates[i] >= AUT_BREAK_BEGIN and hol_dates[i] < AUT_BREAK_END:
-            continue
+        # if hol_dates[i] >= AUT_BREAK_BEGIN and hol_dates[i] < AUT_BREAK_END:
+        #     continue
         if hol_dates[i] >= SEM_BEGIN and hol_dates[i] < END_TERM_BEGIN:
             intervals.append(
                 [
@@ -170,15 +170,15 @@ for single_date in (MID_TERM_BEGIN + timedelta(n) for n in range(mid_term_count)
     if single_date.date() >= date.today():
         hdays[days_by_id[single_date.weekday()]].append(single_date)
 
-if (
-    SEM_BEGIN.month > 6
-):  ## not to be added in EXDATE strings as would not exist in the recurrence of spring sem
-    autumn_day_count = (AUT_BREAK_END - AUT_BREAK_BEGIN).days + 1
-    for single_date in (
-        AUT_BREAK_BEGIN + timedelta(n) for n in range(autumn_day_count)
-    ):
-        if single_date.date() >= date.today():
-            hdays[days_by_id[single_date.weekday()]].append(single_date)
+# if (
+#     SEM_BEGIN.month > 6
+# ):  ## not to be added in EXDATE strings as would not exist in the recurrence of spring sem
+#     autumn_day_count = (AUT_BREAK_END - AUT_BREAK_BEGIN).days + 1
+#     for single_date in (
+#         AUT_BREAK_BEGIN + timedelta(n) for n in range(autumn_day_count)
+#     ):
+#         if single_date.date() >= date.today():
+#             hdays[days_by_id[single_date.weekday()]].append(single_date)
 
 for hday in hdays.keys():
     hdays[hday].sort()
