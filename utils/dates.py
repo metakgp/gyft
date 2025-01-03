@@ -7,10 +7,10 @@ import sys
 from collections import defaultdict
 
 
-SEM_BEGIN = build_event.generate_india_time(2024, 7, 22, 0, 0)
-MID_TERM_BEGIN = build_event.generate_india_time(2024, 9, 17, 0, 0)
-MID_TERM_END = build_event.generate_india_time(2024, 9, 25, 0, 0)
-END_TERM_BEGIN = build_event.generate_india_time(2024, 11, 18, 0, 0)
+SEM_BEGIN = build_event.generate_india_time(2025, 1, 2, 0, 0)
+MID_TERM_BEGIN = build_event.generate_india_time(2025, 2, 18, 0, 0)
+MID_TERM_END = build_event.generate_india_time(2025, 2, 26, 0, 0)
+END_TERM_BEGIN = build_event.generate_india_time(2025, 4, 21, 0, 0)
 AUT_BREAK_BEGIN = build_event.generate_india_time(2024, 10, 5, 0, 0)
 AUT_BREAK_END = build_event.generate_india_time(2024, 10, 13, 0, 0)
 
