@@ -3,7 +3,7 @@ from __future__ import print_function
 from icalendar import Calendar, Event
 from datetime import datetime, timedelta
 from timetable import Course
-from utils import dates, build_event_duration, generate_india_time, next_weekday
+from utils import academic_calander_handler, dates, build_event_duration, generate_india_time, next_weekday
 
 WORKING_DAYS = dates.get_dates()
 
@@ -50,6 +50,13 @@ def generate_ics(courses: list[Course], output_filename):
         event.add("summary", "INSTITUTE HOLIDAY : " + holiday[0])
         event.add("dtstart", holiday[1])
         event.add("dtend", holiday[1] + timedelta(days=1))
+        cal.add_component(event)
+
+    for entry in academic_calander_handler.get_academic_calendar():
+        event = Event()
+        event.add("summary", entry.event)
+        event.add("dtstart",entry.start_date)
+        event.add("dtend",entry.end_date)
         cal.add_component(event)
     
 
