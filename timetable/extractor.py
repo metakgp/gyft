@@ -17,6 +17,7 @@ class Course:
     start_time: int
     location: str
     duration: int = 0
+    cell_dur: int = 0
 
     def get_location(self) -> str:
         # TODO: more logic to specify other locations if possible
@@ -103,10 +104,16 @@ def build_courses(html: str, course_names: dict) -> list[Course]:
                 if prev: # encountered a new course, commit the previous course
                     courses.append(prev)
                 # reinstantiate the prev course
+
+                start_time = timings[index]
+                if(prev and prev.cell_dur>1):
+                    start_time+=prev.cell_dur-1
+
                 prev = Course(code=code, name=course_names.get(code, ""), day=day,
-                              start_time=timings[index],
+                              start_time=start_time,
                               location=location)
                 prev.duration = cell_duration
+                prev.cell_dur = cell_duration
 
         # end of the day: commit the last course
         if prev:
