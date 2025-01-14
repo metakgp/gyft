@@ -30,9 +30,10 @@ class Course:
 
     @property
     def title(self) -> str:
+        name_title = self.name.title() if self.name else self.code
         if 'NC' in self.location or 'NR' in self.location:
-            return f"[{self.location}] {self.name.title()}"
-        return self.name.title()
+            return f"[{self.location}] {name_title}"
+        return name_title
 
     @property
     def end_time(self) -> int:
@@ -49,14 +50,14 @@ def create_timings(_table: Tag | NavigableString) -> list[int]:
         }
     )
 
-    get_hour = lambda t: int(t.get_text().split(':')[0])
-
     return [
-        get_hour(time) + 12 if
-        get_hour(time) < 6 else
-        get_hour(time) for
+        get_time(time) for
         time in headings if time.get_text() != 'Day Name'
     ]
+
+def get_time(time: str) -> int:
+    get_hour = lambda t: int(t.split(':')[0])
+    return get_hour(time) + 12 if get_hour(time) < 6 else get_hour(time)
 
 def build_courses(html: str, course_names: dict) -> list[Course]:
     r"""
