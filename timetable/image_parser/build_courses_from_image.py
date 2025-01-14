@@ -1,4 +1,5 @@
 from extractor import Course, get_time, DAYS_MAP
+from utils.levenshtein_distance import get_minimum_distant_code
 
 def build_courses_from_image(data: list[list[str]]) -> list[Course]:
     courses = []
@@ -22,6 +23,7 @@ def build_courses_from_image(data: list[list[str]]) -> list[Course]:
             code = code.upper()
             if code == "CS10001":
                 code = "CS10003"
+            code = get_minimum_distant_code(code)
             location = text[len(code):].strip()
             cell_duration = 1
     
@@ -39,6 +41,7 @@ def build_courses_from_image(data: list[list[str]]) -> list[Course]:
                 prev = Course(code=code, name="", day=day,
                               start_time=start_time,
                               location=location)
+                prev.get_name()
                 prev.duration = cell_duration
                 prev.cell_dur = cell_duration
 
