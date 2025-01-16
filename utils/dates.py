@@ -11,6 +11,7 @@ SEM_BEGIN = build_event.generate_india_time(2025, 1, 2, 0, 0)
 MID_TERM_BEGIN = build_event.generate_india_time(2025, 2, 18, 0, 0)
 MID_TERM_END = build_event.generate_india_time(2025, 2, 26, 0, 0)
 END_TERM_BEGIN = build_event.generate_india_time(2025, 4, 21, 0, 0)
+SEM_END = datetime(2025, 4, 21, 0, 0)
 AUT_BREAK_BEGIN = build_event.generate_india_time(2024, 10, 5, 0, 0)
 AUT_BREAK_END = build_event.generate_india_time(2024, 10, 13, 0, 0)
 
@@ -51,9 +52,10 @@ def get_holidates() -> (list[datetime], list[str, datetime]):
                 m = (int)(datetime_str[3:5])
                 y = (int)(datetime_str[6:])
                 datetime_object = datetime.strptime(datetime_str, "%d.%m.20%y")
-                hol_date = build_event.generate_india_time(y, m, d, 0, 0)
-                holidays.append([occasion, datetime_object])
-                hol_dates.append(hol_date)
+                if datetime_object < SEM_END:
+                    hol_date = build_event.generate_india_time(y, m, d, 0, 0)
+                    holidays.append([occasion, datetime_object])
+                    hol_dates.append(hol_date)
             if cnt == 6:
                 hday = tr.string
                 if hol_date.date() >= date.today() and hol_date < END_TERM_BEGIN:
@@ -67,10 +69,17 @@ def get_holidates() -> (list[datetime], list[str, datetime]):
             MID_TERM_BEGIN,
             MID_TERM_END,
             END_TERM_BEGIN,
+        ]
+    )
+
+    if END_TERM_BEGIN.year == AUT_BREAK_BEGIN.year and END_TERM_BEGIN > AUT_BREAK_BEGIN:
+        hol_dates.extend(
+        [
             AUT_BREAK_BEGIN,
             AUT_BREAK_END,
         ]
     )
+
     hol_dates.sort()
     return hol_dates, holidays, hdays
 
