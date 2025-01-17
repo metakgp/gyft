@@ -230,8 +230,8 @@ def image_parser():
             image = image.split(",")[1]
         
         image_data = io.BytesIO(base64.b64decode(image))
-        # data = parse_table(Image.open(image_data))
-        data = [['Day Name', '8:0:AM-8:55:AM', '9:0:AM-9:55:AM', '10:0:AM-10:55:AM.', '11:0:AM-11:55:AM', '12:0:PM-12:55:PM', '2:0:PM-2:55:PM', '3:0:PM-3:55:PM', '4:0:PM-4:55:PM', '5:0:PM-5:55:PM'], ['Mon', 'cS11002\nNR422', 'cS11002\nNR422', 'EC29201\nIn the Department', 'EC29201\nIn the Department', 'EC29201\nIn the Department', '', '£C21201\nNR311', '£C21201\nNR311', ''], ['Tue', '', '', '', '', 'cS11002\nNR422', '£C21201\nNR311', '£C21201\nNR311', '', ''], ['Wed', '', '', 'cy11003\nNR111', 'cS11002\nNR422', 'MA11004\nNR111', '', '', '', ''], ['Thur', '', 'cy11003\nNR111', '', 'MA11004\nNR111', '', '', '', '', ''], ['Fri', '', 'MA11004\nNR111', 'MA11004\nNR111', 'cy11003\nNR111', 'cy11003\nNR111', 'cy19003\nIn the Department', 'cy19003\nIn the Department', 'cy19003\nIn the Department', '']]
+        data = parse_table(Image.open(image_data))
+        # data = [['Day Name', '8:0:AM-8:55:AM', '9:0:AM-9:55:AM', '10:0:AM-10:55:AM.', '11:0:AM-11:55:AM', '12:0:PM-12:55:PM', '2:0:PM-2:55:PM', '3:0:PM-3:55:PM', '4:0:PM-4:55:PM', '5:0:PM-5:55:PM'], ['Mon', 'cS11002\nNR422', 'cS11002\nNR422', 'EC29201\nIn the Department', 'EC29201\nIn the Department', 'EC29201\nIn the Department', '', '£C21201\nNR311', '£C21201\nNR311', ''], ['Tue', '', '', '', '', 'cS11002\nNR422', '£C21201\nNR311', '£C21201\nNR311', '', ''], ['Wed', '', '', 'cy11003\nNR111', 'cS11002\nNR422', 'MA11004\nNR111', '', '', '', ''], ['Thur', '', 'cy11003\nNR111', '', 'MA11004\nNR111', '', '', '', '', ''], ['Fri', '', 'MA11004\nNR111', 'MA11004\nNR111', 'cy11003\nNR111', 'cy11003\nNR111', 'cy19003\nIn the Department', 'cy19003\nIn the Department', 'cy19003\nIn the Department', '']]
 
         courses = build_courses_from_image(data)
 
