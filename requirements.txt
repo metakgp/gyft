@@ -24,7 +24,7 @@ icalendar==5.0.7
 idna==3.10
 iitkgp_erp_login==2.4.2
 itsdangerous==2.2.0
-Jinja2==3.1.4
+Jinja2==3.1.5
 MarkupSafe==3.0.1
 numpy==2.1.2
 oauth2client==4.1.3
