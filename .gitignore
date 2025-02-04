@@ -14,4 +14,9 @@ venv
 ACADEMIC_CALENDAR_*.pdf
 Academic_Cal-j/**
 final.json
+
+# auto login
 erpcreds.py
+token.json
+credentials.json
+.session
