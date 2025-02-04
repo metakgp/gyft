@@ -90,7 +90,7 @@ def upzip_and_delete_zip(zip_file_name,result_folder_name):
 def export_json():
     filename = get_latest_calendar_name()
     ## ignore the read_pdf not found warning
-    tables = camelot.read_pdf(filename,pages="all")
+    tables = camelot.read_pdf(filename,pages="all",backend="ghostscript")
 
     print("Checking for pre-existing folder")
     delete_file(JSON_FOLDER_NAME)
