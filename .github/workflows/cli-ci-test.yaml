@@ -43,7 +43,7 @@ jobs:
 
             - name: Setup env
               env:
-                ENF_FILE : ${{ secrets.ENV_FILE }}
+                ERPCREDS : ${{ secrets.ENV_FILE }}
                 TOKEN_JSON : ${{ secrets.TOKEN_JSON }}
                 CREDENTIALS_JSON : ${{ secrets.CREDENTIALS_JSON }}
               run: |
