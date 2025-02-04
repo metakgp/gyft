@@ -2,6 +2,12 @@ FROM python:3.13-slim
 
 ENV TZ="Asia/Kolkata"
 
+# Install dependencies for OpenCV (libGL, fonts, etc.)
+RUN apt-get update && apt-get install -y \
+    libgl1 \
+    libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
 COPY requirements.txt .

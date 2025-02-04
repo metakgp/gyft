@@ -3,12 +3,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-dev
-    container_name: gyft-api
+    image: metakgporg/gyft-api-dev
+    container_name: gyft-api-dev
+    ports:
+      - "8000:8000"
     networks:
-      - gyft-api-network
+      - gyft-api-dev-network
 
 networks:
-  gyft-api-network:
-    name: gyft-api
-    driver: default
-
+  gyft-api-dev-network:
+    name: gyft-api-dev
+    driver: bridge
