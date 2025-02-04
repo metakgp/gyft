@@ -1,0 +1,55 @@
+name: Integration Test for CLI workflow
+
+on:
+    pull_request:
+        types:
+            - opened
+            - synchronize
+        branches:
+            - master
+        paths-ignore:
+            - "**.md"
+            - "**.yaml"
+            - "LICENSE"
+            - "frontend/**"
+            - ".github/workflows/frontend-ci-test.yaml"
+            - ".github/workflows/deploy-gh-pages.yaml"
+            - ".github/workflows/deploy-gyft-do.yaml"
+            - "metaploy/**"
+            - ".gitignore"
+            - "app.py"
+            - "wsgi.py"
+            - ".dockerignore"
+            - "Dofkerfile"
+            - "Dofkerfile-dev"
+
+jobs:
+    cli-ci:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Set up Python 3.13
+              uses: actions/setup-python@v4
+              with:
+                python-version: '3.13'
+
+            - name: Install dependencies
+              run: |
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+
+            - name: Setup env
+              env:
+                ERPCREDS : ${{ secrets.ERPCREDS }}
+                TOKEN_JSON : ${{ secrets.TOKEN_JSON }}
+                CREDENTIALS_JSON : ${{ secrets.CREDENTIALS_JSON }}
+              run: |
+                echo "$ERPCREDS" > erpcreds.py
+                echo "$TOKEN_JSON" > token.json
+                echo "$CREDENTIALS_JSON" > credentials.json
+
+            - name: Run the project
+              run: python gyft.py  -D
