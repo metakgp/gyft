@@ -1,0 +1,14 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    container_name: gyft-api
+    networks:
+      - gyft-api-network
+
+networks:
+  gyft-api-network:
+    name: gyft-api
+    driver: default
+
