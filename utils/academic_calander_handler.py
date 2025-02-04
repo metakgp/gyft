@@ -89,8 +89,12 @@ def upzip_and_delete_zip(zip_file_name,result_folder_name):
 
 def export_json():
     filename = get_latest_calendar_name()
+    ## [NOTE]
     ## ignore the read_pdf not found warning
-    tables = camelot.read_pdf(filename,pages="all")
+    ## also the devs of camelot have mismached backend names so ghostscript points to pdfium and vice versa ... 
+    ## so basically this is using pdfium but backend name needs to be ghostscript
+    ## in future if this gets fixed this need to be changed back
+    tables = camelot.read_pdf(filename,pages="all",backend="ghostscript") 
 
     print("Checking for pre-existing folder")
     delete_file(JSON_FOLDER_NAME)
