@@ -9,8 +9,15 @@ data.txt
 .vscode
 venv
 .env
+.python-version
 
 ACADEMIC_CALENDAR_*.pdf
 Academic_Cal-j/**
 final.json
 erpcreds.py
+
+# auto login
+erpcreds.py
+token.json
+credentials.json
+.session

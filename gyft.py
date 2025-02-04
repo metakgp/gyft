@@ -6,13 +6,18 @@ from utils.dates import SEM_BEGIN
 
 headers = {
     "timeout": "20",
-    "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
 }
 
 
 def parse_args():
     parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-D",
+        "--development",
+        action="store_true",
+        help="Automate erpcreds parsing while development",
+    )
     parser.add_argument(
         "-o", "--output", help="Output file containing timetable in .ics format"
     )
@@ -43,7 +48,18 @@ def main():
     output_filename = args.output if args.output else "timetable.ics"
 
     session = requests.Session()
-    _, sso_token = erp.login(headers, session)
+    if args.development:
+        import erpcreds
+
+        _, sso_token = erp.login(
+            headers,
+            session,
+            ERPCREDS=erpcreds,
+            OTP_CHECK_INTERVAL=2,
+            LOGGING=True,
+        )
+    else:
+        _, sso_token = erp.login(headers, session)
 
     roll_number = erp.ROLL_NUMBER
 
@@ -68,11 +84,8 @@ def main():
 
 
 def get_courses(session: requests.Session, sso_token: str, roll_number: str):
-
     erp_timetable_url = "https://erp.iitkgp.ac.in/Acad/student/student_timetable.jsp"
-    courses_url: str = (
-        "https://erp.iitkgp.ac.in/Academic/student_performance_details_ug.htm?semno={}&rollno={}"
-    )
+    courses_url: str = "https://erp.iitkgp.ac.in/Academic/student_performance_details_ug.htm?semno={}&rollno={}"
 
     timetable_page = session.post(
         headers=headers,
@@ -87,8 +100,7 @@ def get_courses(session: requests.Session, sso_token: str, roll_number: str):
 
     if SEM_BEGIN.month > 6:
         # autumn semester
-        sem_num = (int(SEM_BEGIN.strftime("%y")) -
-                   int(roll_number[:2])) * 2 + 1
+        sem_num = (int(SEM_BEGIN.strftime("%y")) - int(roll_number[:2])) * 2 + 1
     else:
         # spring semester - sem begin year is 1 more than autumn sem
         sem_num = (int(SEM_BEGIN.strftime("%y")) - int(roll_number[:2])) * 2

@@ -12,3 +12,7 @@ credentials.json
 token.json
 erpcreds.py
 erpcreds.py.template
+
+api-integration-test.py
+.Dockerfile-dev
+docker-compose-dev.yaml
