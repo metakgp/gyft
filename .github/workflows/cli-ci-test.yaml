@@ -47,9 +47,9 @@ jobs:
                 TOKEN_JSON : ${{ secrets.TOKEN_JSON }}
                 CREDENTIALS_JSON : ${{ secrets.CREDENTIALS_JSON }}
               run: |
-                cat "$ERPCREDS" > erpcreds.py
-                cat "$TOKEN_JSON" > token.json
-                cat "$CREDENTIALS_JSON" > credentials.json
+                echo "$ERPCREDS" > erpcreds.py
+                echo "$TOKEN_JSON" > token.json
+                echo "$CREDENTIALS_JSON" > credentials.json
 
             - name: Run the project
               run: python gyft.py  -D
