@@ -16,7 +16,13 @@ def parse_args():
         "-D",
         "--development",
         action="store_true",
-        help="Automate erpcreds parsing while development",
+        help="Automate erpcreds parsing while development (except OTP)",
+    )
+    parser.add_argument(
+        "-O",
+        "--otp",
+        action="store_true",
+        help="Automate erpcreds parsing while development (including OTP)",
     )
     parser.add_argument(
         "-o", "--output", help="Output file containing timetable in .ics format"
@@ -44,16 +50,31 @@ def main():
     output_filename = args.output if args.output else "timetable.ics"
 
     session = requests.Session()
-    if args.development:
-        import erpcreds
 
-        _, sso_token = erp.login(
-            headers,
-            session,
-            ERPCREDS=erpcreds,
-            OTP_CHECK_INTERVAL=2,
-            LOGGING=True,
-        )
+    if args.otp and not args.development:
+        print('ERROR: -O [--otp] must be used with -D [--development]')
+        return
+
+    if args.development:
+        if args.otp:
+            import erpcreds
+
+            _, sso_token = erp.login(
+                headers,
+                session,
+                ERPCREDS=erpcreds,
+                OTP_CHECK_INTERVAL=2,
+                LOGGING=True,
+            )
+        else:
+            import erpcreds
+
+            _, sso_token = erp.login(
+                headers,
+                session,
+                ERPCREDS=erpcreds,
+                LOGGING=True,
+            )
     else:
         _, sso_token = erp.login(headers, session)
 
