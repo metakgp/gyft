@@ -253,6 +253,6 @@ def image_parser():
 
 if __name__ == "__main__":
     # Run the application on the local development server
-    app.run()
+    app.run(host="0.0.0.0", port=8000)
 
 # flask --app app.py run

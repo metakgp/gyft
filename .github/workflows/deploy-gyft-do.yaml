@@ -12,6 +12,8 @@ on:
             - ".gitignore"
             - "erpcreds.py.template"
             - "**.png"
+            - "Dockerfile-dev"
+            - "docker-compose-dev.yaml"
 
 jobs:
     dockerhub:
