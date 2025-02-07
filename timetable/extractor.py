@@ -4,8 +4,9 @@ from dataclasses import dataclass
 from bs4 import BeautifulSoup
 from bs4.element import Tag, NavigableString, PageElement
 
-from timetable.course_data import course_code_map
 from utils.levenshtein_distance import get_minimum_distant_code
+
+course_code_map = json.load('course_data.json')
 
 with open("full_location.json") as data_file:
     full_locations = json.load(data_file)
