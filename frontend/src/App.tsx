@@ -9,6 +9,7 @@ import Modal from "./components/Modal";
 
 const App: React.FC = () => {
     const [openModal, setOpenModal] = useState(false);
+    const [modalContent, setModalContent] = useState<React.ReactNode | undefined>();
     return (
         <>
             <main>
@@ -18,7 +19,7 @@ const App: React.FC = () => {
                     <div className="wrapper-item">
                         <div id="wrapped">
                             <Header />
-                            <MultiForm />
+                            <MultiForm openModal={setOpenModal} setModalContent={setModalContent} />
                         </div>
                         <Footer openModal={setOpenModal} />
                     </div>
@@ -27,7 +28,7 @@ const App: React.FC = () => {
                     </aside>
                 </div>
             </main>
-            {openModal && <Modal closeModal={setOpenModal} />}
+            {openModal && <Modal closeModal={setOpenModal} modalContent={modalContent} setModalContent={setModalContent} />}
         </>
     );
 };

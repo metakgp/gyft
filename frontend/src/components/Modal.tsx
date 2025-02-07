@@ -2,15 +2,20 @@ import React from "react";
 
 interface ModalProps {
     closeModal: React.Dispatch<React.SetStateAction<boolean>>;
+    setModalContent: React.Dispatch<React.SetStateAction<React.ReactNode | undefined>>;
+    modalContent?: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ closeModal }) => {
+const Modal: React.FC<ModalProps> = ({ closeModal, setModalContent, modalContent }) => {
     return (
         <div className="modal-overlay">
             <div className="modal-content">
                 <button
                     className="close-button"
-                    onClick={() => closeModal(false)}
+                    onClick={() => {
+                        closeModal(false);
+                        setModalContent(undefined);
+                    }}
                 >
                     <svg
                         fill="none"
@@ -27,25 +32,29 @@ const Modal: React.FC<ModalProps> = ({ closeModal }) => {
                         />
                     </svg>
                 </button>
-                <h2>GYFT - MetaKGP</h2>
-                <p>
-                    GYFT gives you an ICS file for your current semester
-                    timetable which you can add in any common calendar
-                    application. Now, you'll always know when your classes
-                    are—whether you decide to go or not!
-                </p>
-                <h4>How to get your timetable?</h4>
-                <ol>
-                    <li>Enter your roll number and password for ERP login</li>
-                    <li>Answer the security question and enter the OTP.</li>
-                    <li>
-                        Download the timetable for the current semester in .ics
-                        format.
-                    </li>
-                    <li>
-                        Import the .ics file into your favorite calendar app!
-                    </li>
-                </ol>
+                {modalContent ? modalContent : (
+                    <>
+                        <h2>GYFT - MetaKGP</h2>
+                        <p>
+                            GYFT gives you an ICS file for your current semester
+                            timetable which you can add in any common calendar
+                            application. Now, you'll always know when your classes
+                            are—whether you decide to go or not!
+                        </p>
+                        <h4>How to get your timetable?</h4>
+                        <ol>
+                            <li>Enter your roll number and password for ERP login</li>
+                            <li>Answer the security question and enter the OTP.</li>
+                            <li>
+                                Download the timetable for the current semester in .ics
+                                format.
+                            </li>
+                            <li>
+                                Import the .ics file into your favorite calendar app!
+                            </li>
+                        </ol>
+                    </>
+                )}
             </div>
         </div>
     );
