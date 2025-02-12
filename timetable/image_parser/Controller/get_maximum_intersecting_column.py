@@ -1,4 +1,4 @@
-from timetable.image_parser.Classes.rectangle import Rectangle
+from timetable.image_parser.Models.rectangle import Rectangle
 
 def get_maximum_intersecting_column(row: list[Rectangle], rect):
     max_intersect = -1

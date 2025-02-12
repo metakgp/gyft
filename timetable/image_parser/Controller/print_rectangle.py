@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-from timetable.image_parser.Classes.rectangle import Rectangle
+from timetable.image_parser.Models.rectangle import Rectangle
 
 def print_rectangles(rectangles: list[Rectangle], img):
   temp = np.zeros(img.shape, dtype=np.uint8)

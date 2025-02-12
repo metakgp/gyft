@@ -1,5 +1,5 @@
 from extractor import Course, get_time, DAYS_MAP
-from utils.levenshtein_distance import get_minimum_distant_code
+from utils.minimum_distant_code import get_minimum_distant_code
 
 def build_courses_from_image(data: list[list[str]]) -> list[Course]:
     courses = []

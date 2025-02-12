@@ -1,4 +1,6 @@
-from timetable.course_data import course_code_map
+import json
+
+course_code_map = json.load(open('timetable/course_data.json'))
 
 def levenshtein_distance(str1, str2, m, n):
   if m == 0:

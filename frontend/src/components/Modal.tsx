@@ -2,7 +2,7 @@ import React from "react";
 
 interface ModalProps {
     closeModal: React.Dispatch<React.SetStateAction<boolean>>;
-    setModalContent: React.Dispatch<React.SetStateAction<React.ReactNode | undefined>>;
+    setModalContent?: React.Dispatch<React.SetStateAction<React.ReactNode | undefined>>;
     modalContent?: React.ReactNode;
 }
 
@@ -14,7 +14,7 @@ const Modal: React.FC<ModalProps> = ({ closeModal, setModalContent, modalContent
                     className="close-button"
                     onClick={() => {
                         closeModal(false);
-                        setModalContent(undefined);
+                        if(setModalContent) setModalContent(undefined);
                     }}
                 >
                     <svg

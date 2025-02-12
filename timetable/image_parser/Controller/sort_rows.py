@@ -1,4 +1,4 @@
-from timetable.image_parser.Classes.rectangle import Rectangle
+from timetable.image_parser.Models.rectangle import Rectangle
 
 
 def sort_rows(rectangles: list[Rectangle], threshold_height: int):

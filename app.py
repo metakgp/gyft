@@ -212,20 +212,19 @@ def image_parser():
     try:
         # print("Hello", request)
         data = request.form
-
+        
         all_fields = {
             "image": data.get("image"),
         }
 
-        with open("dump.txt", "w") as f:
-            f.write(all_fields["image"])
+        
         missing = check_missing_fields(all_fields)
         if len(missing) > 0:
             return ErpResponse(
                 False, f"Missing Fields: {', '.join(missing)}", status_code=400
             ).to_response()
         image = all_fields["image"]
-
+        
         if image.startswith("data:image"):
             image = image.split(",")[1]
         

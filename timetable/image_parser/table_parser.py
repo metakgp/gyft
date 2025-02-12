@@ -5,11 +5,11 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from timetable.image_parser.Classes.line import Line
-from timetable.image_parser.Classes.rectangle import Rectangle
-from timetable.image_parser.Utils.filter_rectangles import filter_rectangles
-from timetable.image_parser.Utils.get_maximum_intersecting_column import get_maximum_intersecting_column
-from timetable.image_parser.Utils.sort_rows import sort_rows
+from timetable.image_parser.Models.line import Line
+from timetable.image_parser.Models.rectangle import Rectangle
+from timetable.image_parser.Controller.filter_rectangles import filter_rectangles
+from timetable.image_parser.Controller.get_maximum_intersecting_column import get_maximum_intersecting_column
+from timetable.image_parser.Controller.sort_rows import sort_rows
 
 
 def parse_table(image):

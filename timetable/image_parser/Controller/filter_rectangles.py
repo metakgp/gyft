@@ -1,4 +1,4 @@
-from timetable.image_parser.Classes.rectangle import Rectangle
+from timetable.image_parser.Models.rectangle import Rectangle
 
 # remove the rectangle which contains all the other rectangles
 

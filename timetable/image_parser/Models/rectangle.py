@@ -22,8 +22,9 @@ class Rectangle:
   def get_text(self, img):
     sub_img = img[self.y:self.y+self.h, self.x:self.x+self.w]
     config = """
-    --oem 3 --psm 6 -c tessedit_char_whitelist='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:- '
+    --oem 3 --psm 6 -c tessedit_char_whitelist=\\'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.#-:/ \\'
     """.strip()
+    print(config)
     return pytesseract.image_to_string(sub_img, lang='eng', config=config).strip()
 
   
