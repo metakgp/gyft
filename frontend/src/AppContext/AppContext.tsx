@@ -12,7 +12,7 @@ interface IUser {
     sessionToken: string | null;
 }
 
-interface IAuth {
+export interface IAuth {
     user: IUser;
     currentStep: number;
 }

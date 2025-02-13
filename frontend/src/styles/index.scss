@@ -105,7 +105,8 @@ aside img {
     }
 }
 .submit-button,
-.download-button {
+.download-button,
+.upload-image-button {
     border: none;
     background-color: #00ba29;
     padding: 0.5rem 1rem;
@@ -116,6 +117,24 @@ aside img {
     font-weight: bold;
     cursor: pointer;
     margin-inline: auto;
+}
+
+.submit-button {
+    margin-bottom: 20px;
+}
+
+.upload-image-button {
+    background-color: #64B5F6;
+}
+
+.drop-image {
+    background-color: #9f80ad;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 1rem;
+    border: 5px dotted #d5ace8;
 }
 
 .timetable-container {

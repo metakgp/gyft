@@ -4,7 +4,11 @@ import { toast } from "react-hot-toast";
 import { useAppContext } from "../AppContext/AppContext";
 import Spinner from "./Spinner";
 
-const Timetable: React.FC = () => {
+type props = {
+    file?: Blob;
+};
+
+const Timetable: React.FC<props> = ({ file }) => {
     const { user, logout } = useAppContext();
     const [isLoading, setLoading] = useState(false);
 
@@ -16,32 +20,39 @@ const Timetable: React.FC = () => {
         formData.append("roll_number", user.rollNo);
 
         try {
-            if (!user.ssoToken) return;
+            let blob = new Blob();
+            let filename = "";
+            if(!file) {
+                if (!user.ssoToken) return;
 
-            const res = await fetch(`${BACKEND_URL}/timetable`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                    "SSO-Token": user.ssoToken,
-                },
-                body: formData.toString(),
-            });
+                const res = await fetch(`${BACKEND_URL}/timetable`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                        "SSO-Token": user.ssoToken,
+                    },
+                    body: formData.toString(),
+                });
 
-            if (!res.ok) {
-                const resData = await res.json();
-                toast.error(resData.message);
-                if (res.status == 401)
-                    if (
-                        resData.message ==
-                        "Session isn't alive. PLease login again."
-                    )
-                        logout();
-                return;
+                if (!res.ok) {
+                    const resData = await res.json();
+                    toast.error(resData.message);
+                    if (res.status == 401)
+                        if (
+                            resData.message ==
+                            "Session isn't alive. PLease login again."
+                        )
+                            logout();
+                    return;
+                }
+
+                filename = `${user.rollNo}_timetable.ics`;
+                blob = await res.blob();
+            } else {
+                filename = "timetable.ics";
+                blob = file;
             }
 
-            let filename = `${user.rollNo}_timetable.ics`;
-
-            const blob = await res.blob();
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
@@ -59,7 +70,7 @@ const Timetable: React.FC = () => {
 
     return (
         <div className="timetable-container">
-            <h2>Login Successful!</h2>
+            <h2>{file ? "Time Table Extraction Successful!" : "Login Successful!"}</h2>
             <p>
                 Download your timetable for current
                 semester in .ics format which can be imported into other

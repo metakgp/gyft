@@ -11,6 +11,10 @@ import iitkgp_erp_login.utils as erp_utils
 from flask_cors import CORS
 from timetable import generate_ics
 from gyft import get_courses
+import base64
+from PIL import Image
+from timetable.image_parser.table_parser import parse_table
+from timetable.image_parser.build_courses_from_image import build_courses_from_image
 
 
 app = Flask(__name__)
@@ -201,6 +205,49 @@ def download_ics():
         )
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
+    
+
+@app.route("/parse_image", methods=["POST"])
+def image_parser():
+    try:
+        # print("Hello", request)
+        data = request.form
+        
+        all_fields = {
+            "image": data.get("image"),
+        }
+
+        
+        missing = check_missing_fields(all_fields)
+        if len(missing) > 0:
+            return ErpResponse(
+                False, f"Missing Fields: {', '.join(missing)}", status_code=400
+            ).to_response()
+        image = all_fields["image"]
+        
+        if image.startswith("data:image"):
+            image = image.split(",")[1]
+        
+        image_data = io.BytesIO(base64.b64decode(image))
+        data = parse_table(Image.open(image_data))
+
+        courses = build_courses_from_image(data)
+
+        ics_content = generate_ics(courses, "")
+
+        # Create an in-memory file-like object for the ics content
+        ics_file = io.BytesIO()
+        ics_file.write(ics_content.encode("utf-8"))
+        ics_file.seek(0)
+
+        return send_file(
+            ics_file,
+            as_attachment=True,
+            mimetype="text/calendar",
+            download_name="timetable.ics",
+        )
+    except Exception as e:
+        return ErpResponse(False, str(e), status_code=500).to_response()
 
 
 if __name__ == "__main__":

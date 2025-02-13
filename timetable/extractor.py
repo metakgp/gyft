@@ -4,6 +4,10 @@ from dataclasses import dataclass
 from bs4 import BeautifulSoup
 from bs4.element import Tag, NavigableString, PageElement
 
+from utils.minimum_distant_code import get_minimum_distant_code
+
+course_code_map = json.load(open('timetable/course_data.json'))
+
 with open("full_location.json") as data_file:
     full_locations = json.load(data_file)
 
@@ -30,13 +34,26 @@ class Course:
 
     @property
     def title(self) -> str:
+        name_title = self.name.title() if self.name else self.code
         if 'NC' in self.location or 'NR' in self.location:
-            return f"[{self.location}] {self.name.title()}"
-        return self.name.title()
+            return f"[{self.location}] {name_title}"
+        return name_title
+
+    def get_name(self) -> str:
+        if(self.name): return self.name
+        self.get_code()
+        self.name = course_code_map[self.code]
+        return self.name
+    
+    def get_code(self) -> str:
+        self.code = get_minimum_distant_code(self.code)
+        return self.code
 
     @property
     def end_time(self) -> int:
         return self.duration + self.start_time
+    
+
 
 def create_timings(_table: Tag | NavigableString) -> list[int]:
     r""" Creates a list of timings in 24 hours format - [8, ..., 12, 14, ..., 17]"""
@@ -49,14 +66,14 @@ def create_timings(_table: Tag | NavigableString) -> list[int]:
         }
     )
 
-    get_hour = lambda t: int(t.get_text().split(':')[0])
-
     return [
-        get_hour(time) + 12 if
-        get_hour(time) < 6 else
-        get_hour(time) for
+        get_time(time) for
         time in headings if time.get_text() != 'Day Name'
     ]
+
+def get_time(time: str) -> int:
+    get_hour = lambda t: int(t.split(':')[0])
+    return get_hour(time) + 12 if get_hour(time) < 6 else get_hour(time)
 
 def build_courses(html: str, course_names: dict) -> list[Course]:
     r"""

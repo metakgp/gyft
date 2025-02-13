@@ -6,6 +6,7 @@ import { BACKEND_URL } from "./url";
 import { toast } from "react-hot-toast";
 import Spinner from "./Spinner";
 import { useAppContext } from "../AppContext/AppContext";
+import UploadImage from "./UploadImage"
 
 interface IFormInput {
     roll_number: string;
@@ -20,7 +21,13 @@ const schema = yup.object().shape({
     password: yup.string().required("Password is required!"),
 });
 
-const RollForm: React.FC = () => {
+type props = {
+    openModal: React.Dispatch<React.SetStateAction<boolean>>;
+    setModalContent: React.Dispatch<React.SetStateAction<React.ReactNode | undefined>>;
+    setTimeTableFile: React.Dispatch<React.SetStateAction<Blob | undefined>>;
+};
+
+const RollForm: React.FC<props> = ({ openModal, setModalContent, setTimeTableFile }) => {
     const {
         register,
         handleSubmit,
@@ -115,7 +122,16 @@ const RollForm: React.FC = () => {
                 <button type="submit" className="submit-button" disabled={isSubmitting}>
                     {isSubmitting ? <Spinner /> : "Get security question"}
                 </button>
+                
             </form>
+            <div className="input-item">
+                <label>{"\nOR"}</label>
+            </div>
+            <button className="upload-image-button"
+            onClick={() => {
+                openModal(true);
+                setModalContent(<UploadImage setTimeTableFile={setTimeTableFile} setAuth={setAuth} openModal={openModal} />);
+            }}>Upload Image</button>
         </>
     );
 };
