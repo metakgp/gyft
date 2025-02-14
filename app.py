@@ -18,7 +18,7 @@ from timetable.image_parser.build_courses_from_image import build_courses_from_i
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": ["https://gyft.metakgp.org", "http://localhost:3000"]}})
 
 headers = {
     "timeout": "20",
