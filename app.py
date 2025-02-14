@@ -2,6 +2,7 @@
 This file contains the Flask application that serves as the backend for GYFT.
 """
 import io
+import sys
 import logging
 from typing import Dict, List
 import requests
@@ -17,14 +18,36 @@ from timetable.image_parser.table_parser import parse_table
 from timetable.image_parser.build_courses_from_image import build_courses_from_image
 
 
-app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["https://gyft.metakgp.org", "http://localhost:3000"]}})
-
 headers = {
     "timeout": "20",
     "User-Agent":
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
 }
+
+app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": ["https://gyft.metakgp.org", "http://localhost:3000"]}})
+
+# Configure logging
+log_handler = logging.StreamHandler(sys.stdout)
+log_handler.setLevel(logging.ERROR)
+formatter = logging.Formatter('%(asctime)s | %(levelname)s | %(message)s', datefmt='%Y-%m-%d %H:%M:%S%z')
+log_handler.setFormatter(formatter)
+app.logger.addHandler(log_handler)
+## Log propagation for duplication of logs
+app.logger.propagate = False
+
+
+@app.after_request
+def log_response(response):
+    if response.status_code != 200:
+        log_message = f"{request.remote_addr} - {request.method} {request.path} - Status: {response.status_code}"
+        try:
+            log_message += f" - {response.get_json()}"
+        except:
+            log_message += f" - {response.get_data(as_text=True)}"
+        app.logger.error(log_message)
+
+    return response
 
 
 def check_missing_fields(all_fields: Dict[str, str]) -> List[str]:
