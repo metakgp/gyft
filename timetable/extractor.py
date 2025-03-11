@@ -67,7 +67,7 @@ def create_timings(_table: Tag | NavigableString) -> list[int]:
     )
 
     return [
-        get_time(time) for
+        get_time(time.get_text()) for
         time in headings if time.get_text() != 'Day Name'
     ]
 
