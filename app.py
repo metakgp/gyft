@@ -227,7 +227,6 @@ def download_ics():
             download_name=f"${roll_number}-timetable.ics",
         )
     except Exception as e:
-        print(e)
         return jsonify({"status": "error", "message": str(e)}), 500
     
 
