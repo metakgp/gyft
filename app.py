@@ -25,7 +25,7 @@ headers = {
 }
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["https://gyft.metakgp.org", "http://localhost:3000"]}})
+CORS(app, resources={r"/*": {"origins": ["https://gyft.metakgp.org", "http://localhost:5173"]}})
 
 # Configure logging
 log_handler = logging.StreamHandler(sys.stdout)

@@ -67,13 +67,13 @@ def create_timings(_table: Tag | NavigableString) -> list[int]:
     )
 
     return [
-        get_time(time) for
+        get_time(time.get_text()) for
         time in headings if time.get_text() != 'Day Name'
     ]
 
 def get_time(time: str) -> int:
-    get_hour = lambda t: int(t.split(':')[0])
-    return get_hour(time) + 12 if get_hour(time) < 6 else get_hour(time)
+    hour = int(time.split(':')[0])
+    return hour + 12 if hour < 6 else hour
 
 def build_courses(html: str, course_names: dict) -> list[Course]:
     r"""
