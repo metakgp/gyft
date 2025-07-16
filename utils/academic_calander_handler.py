@@ -29,8 +29,8 @@ def get_latest_calendar_name():
     if(curr_month < 7):
         curr_year -= 1
     
-    year_str = str(curr_year) + '_' + str((curr_year % 100) + 1)
-    filename = 'ACADEMIC_CALENDAR_' + year_str + '.pdf'
+    year_str = str(curr_year) + '-' + str((curr_year % 100) + 1)
+    filename = 'AcademicCalendar' + year_str + '.pdf'
     return filename
 
 def is_file_present(file):
