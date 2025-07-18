@@ -16,6 +16,7 @@ const Timetable: React.FC<props> = ({ file }) => {
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
         e.preventDefault();
+        setLoading(true);
         const formData = new URLSearchParams();
         formData.append("roll_number", user.rollNo);
 
@@ -60,9 +61,12 @@ const Timetable: React.FC<props> = ({ file }) => {
             document.body.appendChild(a);
             a.click();
             a.remove();
+
+            setLoading(false);
         } catch (error) {
             toast.error(`Error fetching timetable!`);
             console.error("Error fetching timetable", error);
+            setLoading(false);
         } finally {
             setLoading(false);
         }
