@@ -51,7 +51,7 @@ const RollForm: React.FC<props> = ({ openModal, setModalContent, setTimeTableFil
             });
 
             const resData = await res.json();
-            
+
             if (!res.ok) {
                 toast.error(resData.message);
                 if (res.status == 400) {
@@ -122,12 +122,14 @@ const RollForm: React.FC<props> = ({ openModal, setModalContent, setTimeTableFil
                 <button type="submit" className="submit-button" disabled={isSubmitting}>
                     {isSubmitting ? <Spinner /> : "Get security question"}
                 </button>
-                
+
             </form>
             <div className="input-item">
                 <label>{"\nOR"}</label>
             </div>
-            <button className="upload-image-button"
+            <button
+            title="Upload a screenshot of the timetable"
+            className="upload-image-button"
             onClick={() => {
                 openModal(true);
                 setModalContent(<UploadImage setTimeTableFile={setTimeTableFile} setAuth={setAuth} openModal={openModal} />);
