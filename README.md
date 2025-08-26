@@ -146,6 +146,10 @@ Please read [CONTRIBUTING.md](https://github.com/metakgp/gyft/blob/master/CONTRI
 
 - [Devansh Gupta](https://github.com/Devansh-bit)
 
+## Past Maintainer(s)
+
+- [Ashwin Prasanth](https://github.com/ashwinpra)
+
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [contributors-shield]: https://img.shields.io/github/contributors/metakgp/gyft.svg?style=for-the-badge
