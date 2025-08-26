@@ -10,8 +10,8 @@ import json
 from dataclasses import dataclass
 import re
 
-
 JSON_FOLDER_NAME = 'Academic_Cal-j'
+
 
 @dataclass
 class DataEntry:
@@ -19,35 +19,39 @@ class DataEntry:
     end_date: datetime = datetime.today()
     event: str = ""
 
-#get the current working directory
+
+# get the current working directory
 def cwd():
     return os.getcwd()
+
 
 def get_latest_calendar_name():
     curr_year = datetime.today().year
     curr_month = datetime.today().month
 
-    if(curr_month < 7):
+    if (curr_month < 7):
         curr_year -= 1
 
     year_str = str(curr_year) + '-' + str((curr_year % 100) + 1)
     filename = 'AcademicCalendar' + year_str + '.pdf'
     return filename
 
+
 def is_file_present(file):
-    if(os.path.exists(cwd() + '/' + file) or
-       os.path.exists(cwd() + '/' + file + '/')
-       ):
+    if (os.path.exists(cwd() + '/' + file) or
+            os.path.exists(cwd() + '/' + file + '/')
+    ):
         return True
     return False
 
+
 def delete_file(file):
-    if(is_file_present(file)):
+    if (is_file_present(file)):
         try:
-            print("DELETING file ",file)
-            if(os.path.isdir(file)):
+            print("DELETING file ", file)
+            if (os.path.isdir(file)):
                 shutil.rmtree(cwd() + '/' + file)
-            elif(os.path.isfile(file)):
+            elif (os.path.isfile(file)):
                 os.remove(file)
             else:
                 raise Exception("filename not valid")
@@ -58,25 +62,26 @@ def delete_file(file):
     else:
         print(file, "File not present..")
 
-#fetch the latest academic calendar from the iitkgp website
-def get_latest_calendar():
 
+# fetch the latest academic calendar from the iitkgp website
+def get_latest_calendar():
     filename = get_latest_calendar_name()
     url = 'https://www.iitkgp.ac.in/assets/pdf/' + filename
 
     ## delete any old academic calander pdf if exists
-    if(is_file_present(filename)):
+    if (is_file_present(filename)):
         delete_file(filename)
 
-    with open(filename,"wb") as file:
+    with open(filename, "wb") as file:
         response = requests.get(url)
         file.write(response.content)
 
-    if(is_file_present(filename)):
+    if (is_file_present(filename)):
         return True
     return False
 
-def upzip_and_delete_zip(zip_file_name,result_folder_name):
+
+def upzip_and_delete_zip(zip_file_name, result_folder_name):
     with ZipFile(zip_file_name) as zip:
         try:
             zip.extractall(result_folder_name)
@@ -88,6 +93,7 @@ def upzip_and_delete_zip(zip_file_name,result_folder_name):
     delete_file(zip_file_name)
     return True
 
+
 def export_json():
     filename = get_latest_calendar_name()
     ## [NOTE]
@@ -97,27 +103,29 @@ def export_json():
     ## in future if this gets fixed this need to be changed back
 
     ## This creates temporary files using `tempfile.mkdtemp()` in /tmp and does not clean them up until the program exits.
-    tables = camelot.read_pdf(filename,pages="all",backend="ghostscript")
+    tables = camelot.read_pdf(filename, pages="all", backend="ghostscript")
 
     print("Checking for pre-existing folder")
     delete_file(JSON_FOLDER_NAME)
 
     try:
-        tables.export((JSON_FOLDER_NAME + '.json'),f='json',compress=True)
+        tables.export((JSON_FOLDER_NAME + '.json'), f='json', compress=True)
     except Exception as E:
         print(E)
         return False
 
-    upzip_and_delete_zip((JSON_FOLDER_NAME + '.zip'),JSON_FOLDER_NAME)
+    upzip_and_delete_zip((JSON_FOLDER_NAME + '.zip'), JSON_FOLDER_NAME)
     return True
+
 
 def get_json_files():
     folder_path = cwd() + '/' + JSON_FOLDER_NAME
-    if(is_file_present(JSON_FOLDER_NAME)):
-        files = glob.glob(folder_path + '/*.json',include_hidden=True)
+    if (is_file_present(JSON_FOLDER_NAME)):
+        files = glob.glob(folder_path + '/*.json', include_hidden=True)
         return files
     else:
         return []
+
 
 def merge_json():
     merged_data = []
@@ -126,10 +134,11 @@ def merge_json():
             data = json.load(f)
             merged_data.extend(data)
 
-    with open('final.json',"w") as f:
-        json.dump(merged_data,f,indent=4)
+    with open('final.json', "w") as f:
+        json.dump(merged_data, f, indent=4)
 
     return merged_data
+
 
 def clean_temp_files():
     base = tempfile.gettempdir()
@@ -145,7 +154,6 @@ def clean_temp_files():
 
 
 def get_academic_calendar() -> list[DataEntry]:
-
     get_latest_calendar()
     export_json()
 
@@ -184,27 +192,27 @@ def get_academic_calendar() -> list[DataEntry]:
     date_regex = re.compile(r'\d{2}.\d{2}.\d{4}')
     maxLen = 1
     for date in all_dates:
-        if(len(date) > 4 and date['4'] != ''):
+        if (len(date) > 4 and date['4'] != ''):
             entry = DataEntry()
-            if(len(date['1']) > 3):
-                entry.event += date['1'].replace('\n','')
-            entry.event += date['2'].replace('\n','')
+            if (len(date['1']) > 3):
+                entry.event += date['1'].replace('\n', '')
+            entry.event += date['2'].replace('\n', '')
 
-            d =date['3'].replace('\n',' ').replace('(AN)','') + date['4'].replace('\n',' ').replace('(AN)','')
+            d = date['3'].replace('\n', ' ').replace('(AN)', '') + date['4'].replace('\n', ' ').replace('(AN)', '')
             d = date_regex.findall(d)
-            if(maxLen < len(d)):
+            if (maxLen < len(d)):
                 maxLen = len(d)
-            if(len(d) == 1):
-                entry.start_date = datetime.strptime(d[0],"%d.%m.%Y")
-                entry.end_date = ( entry.start_date + timedelta(1) )
-            elif(len(d) == 2):
-                entry.start_date = datetime.strptime(d[0],"%d.%m.%Y")
-                entry.end_date = datetime.strptime(d[1],"%d.%m.%Y")
+            if (len(d) == 1):
+                entry.start_date = datetime.strptime(d[0], "%d.%m.%Y")
+                entry.end_date = (entry.start_date + timedelta(1))
+            elif (len(d) == 2):
+                entry.start_date = datetime.strptime(d[0], "%d.%m.%Y")
+                entry.end_date = datetime.strptime(d[1], "%d.%m.%Y")
             main_dates.append(entry)
         annual_convocation = str(date['1']).strip().lower().split(" ")
         ## KGP hai .. cannot trust, they can even mess up the spellings of annual convocation
         ## this can just reduce the amount of places this will fail
-        if(len(annual_convocation) == 2 and ("annual" in annual_convocation or "convocation" in annual_convocation)):
+        if (len(annual_convocation) == 2 and ("annual" in annual_convocation or "convocation" in annual_convocation)):
             break
 
     ## This has to be done to remove temporary files created by camelot. These files are not automatically
@@ -217,4 +225,3 @@ def get_academic_calendar() -> list[DataEntry]:
         print(E)
 
     return main_dates
-
