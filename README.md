@@ -144,7 +144,7 @@ Please read [CONTRIBUTING.md](https://github.com/metakgp/gyft/blob/master/CONTRI
 
 ## Maintainer(s)
 
-- [Ashwin Prasanth](https://github.com/ashwinpra)
+- [Devansh Gupta](https://github.com/Devansh-bit)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
