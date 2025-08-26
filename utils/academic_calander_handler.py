@@ -1,3 +1,4 @@
+import tempfile
 from datetime import datetime, timedelta
 import glob
 import camelot
@@ -28,7 +29,7 @@ def get_latest_calendar_name():
 
     if(curr_month < 7):
         curr_year -= 1
-    
+
     year_str = str(curr_year) + '-' + str((curr_year % 100) + 1)
     filename = 'AcademicCalendar' + year_str + '.pdf'
     return filename
@@ -59,14 +60,14 @@ def delete_file(file):
 
 #fetch the latest academic calendar from the iitkgp website
 def get_latest_calendar():
-    
+
     filename = get_latest_calendar_name()
     url = 'https://www.iitkgp.ac.in/assets/pdf/' + filename
 
     ## delete any old academic calander pdf if exists
     if(is_file_present(filename)):
         delete_file(filename)
-   
+
     with open(filename,"wb") as file:
         response = requests.get(url)
         file.write(response.content)
@@ -74,7 +75,7 @@ def get_latest_calendar():
     if(is_file_present(filename)):
         return True
     return False
-    
+
 def upzip_and_delete_zip(zip_file_name,result_folder_name):
     with ZipFile(zip_file_name) as zip:
         try:
@@ -94,7 +95,9 @@ def export_json():
     ## also the devs of camelot have mismached backend names so ghostscript points to pdfium and vice versa ... 
     ## so basically this is using pdfium but backend name needs to be ghostscript
     ## in future if this gets fixed this need to be changed back
-    tables = camelot.read_pdf(filename,pages="all",backend="ghostscript") 
+
+    ## This creates temporary files using `tempfile.mkdtemp()` in /tmp and does not clean them up until the program exits.
+    tables = camelot.read_pdf(filename,pages="all",backend="ghostscript")
 
     print("Checking for pre-existing folder")
     delete_file(JSON_FOLDER_NAME)
@@ -122,11 +125,24 @@ def merge_json():
         with open(file) as f:
             data = json.load(f)
             merged_data.extend(data)
-    
+
     with open('final.json',"w") as f:
         json.dump(merged_data,f,indent=4)
 
     return merged_data
+
+def clean_temp_files():
+    base = tempfile.gettempdir()
+    for filename in os.listdir(base):
+        if not filename.startswith('tmp') or len(filename) != 11:
+            continue
+        fullpath = os.path.join(base, filename)
+        try:
+            shutil.rmtree(fullpath)
+        except Exception as E:
+            print(E)
+            continue
+
 
 def get_academic_calendar() -> list[DataEntry]:
 
@@ -190,6 +206,15 @@ def get_academic_calendar() -> list[DataEntry]:
         ## this can just reduce the amount of places this will fail
         if(len(annual_convocation) == 2 and ("annual" in annual_convocation or "convocation" in annual_convocation)):
             break
+
+    ## This has to be done to remove temporary files created by camelot. These files are not automatically
+    ## deleted until program exits
+    ## This is not ideal, and might be dangerous (and invisible) if other programs are creating similar directories often
+    ## Nothing else can be done without modifying `camelot`.
+    try:
+        clean_temp_files()
+    except Exception as E:
+        print(E)
 
     return main_dates
 
