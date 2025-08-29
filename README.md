@@ -149,6 +149,8 @@ Please read [CONTRIBUTING.md](https://github.com/metakgp/gyft/blob/master/CONTRI
 ## Past Maintainer(s)
 
 - [Ashwin Prasanth](https://github.com/ashwinpra)
+- [Siddharth Kannan](https://github.com/icyflame)
+- [Nishant Nikhil](https://github.com/nishnik)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
