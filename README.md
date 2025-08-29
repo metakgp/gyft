@@ -144,7 +144,13 @@ Please read [CONTRIBUTING.md](https://github.com/metakgp/gyft/blob/master/CONTRI
 
 ## Maintainer(s)
 
+- [Devansh Gupta](https://github.com/Devansh-bit)
+
+## Past Maintainer(s)
+
 - [Ashwin Prasanth](https://github.com/ashwinpra)
+- [Siddharth Kannan](https://github.com/icyflame)
+- [Nishant Nikhil](https://github.com/nishnik)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
