@@ -213,7 +213,7 @@ def download_ics():
 
         courses = get_courses(session, sso_token, roll_number)
 
-        ics_content = generate_ics(courses, "")
+        ics_content = generate_ics(courses, "", is_web=True)
 
         # Create an in-memory file-like object for the ics content
         ics_file = io.BytesIO()
@@ -256,7 +256,7 @@ def image_parser():
 
         courses = build_courses_from_image(data)
 
-        ics_content = generate_ics(courses, "")
+        ics_content = generate_ics(courses, "", is_web=True)
 
         # Create an in-memory file-like object for the ics content
         ics_file = io.BytesIO()

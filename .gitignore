@@ -11,7 +11,7 @@ venv
 .env
 .python-version
 
-ACADEMIC_CALENDAR_*.pdf
+*.pdf
 Academic_Cal-j/**
 final.json
 
