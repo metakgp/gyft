@@ -8,7 +8,7 @@ from utils import academic_calander_handler, dates, build_event_duration, genera
 WORKING_DAYS = dates.get_dates()
 
 
-def generate_ics(courses: list[Course], output_filename):
+def generate_ics(courses: list[Course], output_filename, is_web=False):
     """
     Creates an ICS file `timetable.ics` with the timetable data present inside the 'timetable' parameter.
     """
@@ -52,7 +52,7 @@ def generate_ics(courses: list[Course], output_filename):
         event.add("dtend", holiday[1] + timedelta(days=1))
         cal.add_component(event)
 
-    for entry in academic_calander_handler.get_academic_calendar():
+    for entry in academic_calander_handler.get_academic_calendar(is_web):
         event = Event()
         event.add("summary", entry.event)
         event.add("dtstart",entry.start_date)

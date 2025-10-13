@@ -64,19 +64,27 @@ def delete_file(file):
 
 
 # fetch the latest academic calendar from the iitkgp website
-def get_latest_calendar():
+def get_latest_calendar(is_web=False):
     filename = get_latest_calendar_name()
     url = 'https://www.iitkgp.ac.in/assets/pdf/' + filename
 
-    ## delete any old academic calander pdf if exists
-    if (is_file_present(filename)):
+    if is_web and is_file_present(filename):
+        return True
+
+    # delete any old academic calendar pdf if exists
+    if is_file_present(filename):
         delete_file(filename)
 
-    with open(filename, "wb") as file:
-        response = requests.get(url)
-        file.write(response.content)
+    try:
+        with open(filename, "wb") as file:
+            response = requests.get(url)
+            response.raise_for_status()
+            file.write(response.content)
+    except Exception as e:
+        print(f"Error downloading calendar: {e}")
+        return False
 
-    if (is_file_present(filename)):
+    if is_file_present(filename):
         return True
     return False
 
@@ -153,8 +161,8 @@ def clean_temp_files():
             continue
 
 
-def get_academic_calendar() -> list[DataEntry]:
-    get_latest_calendar()
+def get_academic_calendar(is_web = False) -> list[DataEntry]:
+    get_latest_calendar(is_web)
     export_json()
 
     all_dates = merge_json()
