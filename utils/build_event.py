@@ -34,4 +34,10 @@ def build_event_duration(summary: str, description: str, start: datetime, durati
 
 # Converts time to datetime object for India/Asia/Kolkata timezone
 def generate_india_time(year: int, month: int, date: int, hour: int, minutes: int):
-    return datetime(year, month, date, hour, minutes, tzinfo=pytz.timezone('Asia/Kolkata'))
+    """
+    Create a timezone-aware datetime in Asia/Kolkata.
+    Note: Use tz.localize to avoid incorrect LMT offsets from assigning tzinfo directly.
+    """
+    tz = pytz.timezone('Asia/Kolkata')
+    naive = datetime(year, month, date, hour, minutes)
+    return tz.localize(naive)

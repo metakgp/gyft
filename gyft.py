@@ -77,8 +77,12 @@ def main():
             )
     else:
         _, sso_token = erp.login(headers, session)
+        # sso_token = 'xxxx' # for testing purposes
+    
+    # print(sso_token) # for testing purposes
 
     roll_number = erp.ROLL_NUMBER
+    # roll_number = 'xxxx' # for testing purposes
 
     courses = get_courses(session, sso_token, roll_number)
 
