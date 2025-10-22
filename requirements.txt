@@ -41,7 +41,7 @@ pyasn1==0.6.1
 pyasn1_modules==0.4.1
 pycparser==2.22
 pyparsing==3.2.1
-pypdf==5.2.0
+pypdf==6.1.3
 pypdfium2==4.30.1
 pytesseract
 python-dateutil==2.9.0.post0
