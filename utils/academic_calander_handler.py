@@ -1,4 +1,3 @@
-import tempfile
 from datetime import datetime, timedelta
 import glob
 import camelot
@@ -11,6 +10,7 @@ from dataclasses import dataclass
 import re
 
 JSON_FOLDER_NAME = 'Academic_Cal-j'
+CACHE_DIR = 'cache'
 
 
 @dataclass
@@ -35,6 +35,18 @@ def get_latest_calendar_name():
     year_str = str(curr_year) + '-' + str((curr_year % 100) + 1)
     filename = 'AcademicCalendar' + year_str + '.pdf'
     return filename
+
+
+def ensure_cache_dir():
+    if not os.path.isdir(CACHE_DIR):
+        os.makedirs(CACHE_DIR, exist_ok=True)
+
+
+def get_cache_path():
+    filename = get_latest_calendar_name()
+    stem = os.path.splitext(filename)[0]
+    ensure_cache_dir()
+    return os.path.join(CACHE_DIR, f"{stem}.json")
 
 
 def is_file_present(file):
@@ -77,7 +89,7 @@ def get_latest_calendar(is_web=False):
 
     try:
         with open(filename, "wb") as file:
-            response = requests.get(url)
+            response = requests.get(url, timeout=15)
             response.raise_for_status()
             file.write(response.content)
     except Exception as e:
@@ -129,7 +141,7 @@ def export_json():
 def get_json_files():
     folder_path = cwd() + '/' + JSON_FOLDER_NAME
     if (is_file_present(JSON_FOLDER_NAME)):
-        files = glob.glob(folder_path + '/*.json', include_hidden=True)
+        files = glob.glob(folder_path + '/*.json')
         return files
     else:
         return []
@@ -141,27 +153,37 @@ def merge_json():
         with open(file) as f:
             data = json.load(f)
             merged_data.extend(data)
-
-    with open('final.json', "w") as f:
-        json.dump(merged_data, f, indent=4)
-
     return merged_data
 
-
-def clean_temp_files():
-    base = tempfile.gettempdir()
-    for filename in os.listdir(base):
-        if not filename.startswith('tmp') or len(filename) != 11:
-            continue
-        fullpath = os.path.join(base, filename)
-        try:
-            shutil.rmtree(fullpath)
-        except Exception as E:
-            print(E)
-            continue
-
+def cleanup_artifacts():
+    """Remove intermediate artifacts: extracted JSON folder, zip, and PDF."""
+    try:
+        delete_file(JSON_FOLDER_NAME)
+    except Exception:
+        pass
+    try:
+        delete_file(JSON_FOLDER_NAME + '.zip')
+    except Exception:
+        pass
+    try:
+        delete_file(get_latest_calendar_name())
+    except Exception:
+        pass
 
 def get_academic_calendar(is_web = False) -> list[DataEntry]:
+    # Try cache first
+    cache_path = get_cache_path()
+    if os.path.isfile(cache_path):
+        try:
+            with open(cache_path, 'r', encoding='utf-8') as f:
+                cached = json.load(f)
+                entries = [DataEntry(start_date=datetime.fromisoformat(x['start_date']),
+                                     end_date=datetime.fromisoformat(x['end_date']),
+                                     event=x['event']) for x in cached]
+            return entries
+        except Exception:
+            pass
+
     get_latest_calendar(is_web)
     export_json()
 
@@ -223,13 +245,20 @@ def get_academic_calendar(is_web = False) -> list[DataEntry]:
         if (len(annual_convocation) == 2 and ("annual" in annual_convocation or "convocation" in annual_convocation)):
             break
 
-    ## This has to be done to remove temporary files created by camelot. These files are not automatically
-    ## deleted until program exits
-    ## This is not ideal, and might be dangerous (and invisible) if other programs are creating similar directories often
-    ## Nothing else can be done without modifying `camelot`.
+    # Cache for subsequent runs
     try:
-        clean_temp_files()
-    except Exception as E:
-        print(E)
+        ensure_cache_dir()
+        with open(cache_path, 'w', encoding='utf-8') as f:
+            json.dump([
+                {
+                    'start_date': e.start_date.isoformat(),
+                    'end_date': e.end_date.isoformat(),
+                    'event': e.event,
+                } for e in main_dates
+            ], f, indent=2)
+    except Exception:
+        pass
+    # After caching, remove intermediate artifacts
+    cleanup_artifacts()
 
     return main_dates

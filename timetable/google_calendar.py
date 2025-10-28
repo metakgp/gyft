@@ -12,10 +12,10 @@ from icalendar import Event
 from utils import (
     END_TERM_BEGIN,
     SEM_BEGIN,
-    holidays,
     dates,
     generate_india_time,
 )
+from utils.holidays_handler import get_holidays
 from utils import academic_calander_handler
 from timetable import Course
 
@@ -132,7 +132,7 @@ def create_calendar(courses: list[Course], is_web: bool = False) -> None:
     batch.execute()  ## execute batch of timetable
 
     # add holidays to calendar as all-day events (Asia/Kolkata midnight)
-    for holiday in holidays:
+    for holiday in get_holidays():
         hdt = holiday[1]
         start_str = generate_india_time(hdt.year, hdt.month, hdt.day, 0, 0).strftime("%Y-%m-%dT00:00:00")
         end_dt = generate_india_time(hdt.year, hdt.month, hdt.day, 0, 0) + timedelta(days=1)
@@ -148,6 +148,7 @@ def create_calendar(courses: list[Course], is_web: bool = False) -> None:
             },
         }
         service.events().insert(calendarId=calendar_id, body=holiday_event).execute()
+    print("Added holidays")
 
     # add academic calendar entries as all-day events
     for entry in academic_calander_handler.get_academic_calendar(is_web):
@@ -159,6 +160,7 @@ def create_calendar(courses: list[Course], is_web: bool = False) -> None:
             "end": {"dateTime": end_str, "timeZone": "Asia/Kolkata"},
         }
         service.events().insert(calendarId=calendar_id, body=event).execute()
+    print("Added academic calendar entries")
 
     print("\nAll events added successfully!\n")
 
