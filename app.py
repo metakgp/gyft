@@ -217,14 +217,17 @@ def download_ics():
 
         # Create an in-memory file-like object for the ics content
         ics_file = io.BytesIO()
-        ics_file.write(ics_content.encode("utf-8"))
+        # generate_ics returns bytes already; write directly
+        if isinstance(ics_content, str):
+            ics_content = ics_content.encode("utf-8")
+        ics_file.write(ics_content)
         ics_file.seek(0)
 
         return send_file(
             ics_file,
             as_attachment=True,
             mimetype="text/calendar",
-            download_name=f"${roll_number}-timetable.ics",
+            download_name=f"{roll_number}-timetable.ics",
         )
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
@@ -260,7 +263,9 @@ def image_parser():
 
         # Create an in-memory file-like object for the ics content
         ics_file = io.BytesIO()
-        ics_file.write(ics_content.encode("utf-8"))
+        if isinstance(ics_content, str):
+            ics_content = ics_content.encode("utf-8")
+        ics_file.write(ics_content)
         ics_file.seek(0)
 
         return send_file(
