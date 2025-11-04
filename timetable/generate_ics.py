@@ -4,6 +4,7 @@ from icalendar import Calendar, Event
 from datetime import timedelta
 from timetable import Course
 from utils import academic_calander_handler, dates, build_event_duration, generate_india_time
+from utils.holidays_handler import get_holidays
 
 
 def generate_ics(courses: list[Course], output_filename, is_web=False):
@@ -60,7 +61,7 @@ def generate_ics(courses: list[Course], output_filename, is_web=False):
         cal.add_component(event)
 
     # add holidays (as all-day events in Asia/Kolkata)
-    for holiday in dates.holidays:
+    for holiday in get_holidays():
         event = Event()
         event.add("summary", "INSTITUTE HOLIDAY : " + holiday[0])
         hdt = holiday[1]

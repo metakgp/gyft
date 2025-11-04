@@ -13,7 +13,7 @@ venv
 
 *.pdf
 Academic_Cal-j/**
-final.json
+cache/**
 
 # auto login
 erpcreds.py

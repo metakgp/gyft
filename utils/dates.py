@@ -1,9 +1,8 @@
 from __future__ import print_function
-import requests
 from datetime import datetime, timedelta, date
-from bs4 import BeautifulSoup as bs
-from utils import build_event
 import sys
+from utils import build_event
+from utils.holidays_handler import get_holidays
 
 
 SEM_BEGIN = build_event.generate_india_time(2025, 7, 16, 0, 0)
@@ -12,36 +11,6 @@ MID_TERM_END = build_event.generate_india_time(2025, 9, 26, 0, 0)
 END_TERM_BEGIN = build_event.generate_india_time(2025, 11, 17, 0, 0)
 AUT_BREAK_BEGIN = build_event.generate_india_time(2025, 9, 27, 0, 0)
 AUT_BREAK_END = build_event.generate_india_time(2025, 10, 5, 0, 0)
-
-
-### getting holidays
-def get_holidays() -> tuple[list[tuple[str, datetime]], dict[str, list[datetime]]]:
-    """
-    scrapes holiday list from IITKGP website
-    returns: list of holidays as occasions and datetime objects
-    """
-    url = "https://www.iitkgp.ac.in/holidays"
-    result = requests.get(url).text
-    doc = bs(result, "html.parser")
-    tbody = doc.tbody
-    trs = tbody.contents
-    holidays = []
-    for i in range(3, len(trs) - 7, 2):
-        cnt = 0
-        for tr in trs[i]:
-            cnt = cnt + 1
-            if cnt == 2:
-                occasion = tr.string
-            if cnt == 4:
-                datetime_str = tr.string
-                d = (int)(datetime_str[:2])
-                m = (int)(datetime_str[3:5])
-                y = (int)(datetime_str[6:])
-                hol_date = build_event.generate_india_time(y, m, d, 0, 0)
-                holidays.append([occasion, hol_date])
-
-    holidays.sort(key=lambda x: x[1])
-    return holidays
 
 
 def daterange(start_dt: datetime, end_dt: datetime):
@@ -64,6 +33,9 @@ def get_class_off_dates_in_semester() -> list[datetime]:
       - Entire autumn break range [AUT_BREAK_BEGIN, AUT_BREAK_END]
     Returns tz-aware datetimes at 00:00 Asia/Kolkata for each day off.
     """
+    # Fetch holidays
+    holidays = get_holidays()
+
     # Build from the scraped holidays and fixed ranges
     off = set()
     # Holidays that fall within the semester window (exclude artificial boundary markers)
@@ -107,8 +79,6 @@ if len(sanity_check) > 0:
     print("Check the dates you have entered")
     print("Note: SEM_BEGIN < MID_TERM_BEGIN < MID_TERM_END < END_TERM_BEGIN")
     sys.exit(1)
-
-holidays = get_holidays()
 
 def next_weekday(current_day: datetime, weekday: str) -> datetime:
     days = {

@@ -20,6 +20,6 @@ RUN chmod +x ./postinstall.sh
 
 COPY . .
 
-RUN python download-calendar.py
+# RUN python download-calendar.py
 
 CMD [ "./postinstall.sh", "gunicorn", "--bind", "0.0.0.0:8000", "wsgi:app" ]
