@@ -34,7 +34,7 @@ openpyxl==3.1.5
 packaging==24.2
 pandas==2.2.3
 pdfminer.six==20240706
-pillow==11.1.0
+pillow==12.1.1
 proto-plus==1.26.0
 protobuf==5.29.3
 pyasn1==0.6.1
